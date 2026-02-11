@@ -15,16 +15,10 @@ Basu, S., Fernald, J.~G., and Kimball, M.~S. (2006).
 \newblock {Are technology improvements contractionary?}
 \newblock {\em American Economic Review}, 96(5):1418--1448.
 
-\bibitem[Blundell et~al., 2008]{Blundell2008}
+\bibitem[Blundell et~al., 2008]{blundell2008}
 Blundell, R., Pistaferri, L., and Preston, I. (2008).
 \newblock {Consumption Inequality and Partial Insurance}.
 \newblock {\em The American Economic Review}, 98(5):1887--1921.
-
-\bibitem[Boppart et~al., 2018]{Boppart2018}
-Boppart, T., Krusell, P., and Mitman, K. (2018).
-\newblock {Exploiting MIT shocks in heterogeneous-agent economies: the impulse
-  response as a numerical derivative}.
-\newblock {\em Journal of Economic Dynamics and Control}, 89:68--92.
 
 \bibitem[Burdett and Mortensen, 1998]{Burdett1998}
 Burdett, K. and Mortensen, D.~T. (1998).
@@ -57,12 +51,6 @@ Cochrane, J.~H. (2011).
 \newblock {Determinacy and identification with taylor rules}.
 \newblock {\em Journal of Political Economy}, 119(3):565--615.
 
-\bibitem[D{\'{a}}vila et~al., 2012]{Davila2012}
-D{\'{a}}vila, J., Hong, J.~H., Krusell, P., and Rios-Rull, J.-V. (2012).
-\newblock {Constrained Efficiency in the Neoclassical Growth Model With
-  Uninsurable Idiosyncratic Shocks}.
-\newblock {\em Econometrica}, 80(6):2431--2467.
-
 \bibitem[Deaton et~al., 1991]{Deaton1991}
 Deaton, A.~S., Deaton, and Angus (1991).
 \newblock {Saving and Liquidity Constraints}.
@@ -72,11 +60,6 @@ Deaton, A.~S., Deaton, and Angus (1991).
 Elsby, M. W.~L., Hobijn, B., and Şahin, A. (2013).
 \newblock {Unemployment Dynamics in the OECD}.
 \newblock {\em Review of Economics and Statistics}, 95(2):530--548.
-
-\bibitem[Gal{\'{i}}, 2015]{Gali2015}
-Gal{\'{i}}, J. (2015).
-\newblock {\em {Monetary policy, inflation, and the business cycle: an
-  introduction to the new Keynesian framework and its applications}}.
 
 \bibitem[Gourinchas and Parker, 2002]{Gourinchas2002}
 Gourinchas, P.-O. and Parker, J.~A. (2002).
@@ -104,12 +87,6 @@ Hagedorn, M. and Manovskii, I. (2008).
 \newblock {The Cyclical Behavior of Equilibrium Unemployment and Vacancies
   Revisited}.
 \newblock {\em American Economic Review}, 98(4):1692--1706.
-
-\bibitem[Hall, 2005]{Hall2005}
-Hall, R.~E. (2005).
-\newblock {Employment Fluctuations with Equilibrium Wage Stickiness}.
-\newblock {\em The American Economic Review Social Science Premium Collection},
-  95(1):50--65.
 
 \bibitem[Hansen, 1985]{Hansen1985}
 Hansen, G.~D. (1985).
@@ -161,11 +138,6 @@ King, R.~G. and Rebelo, S.~T. (1999).
 \newblock In {\em Handbook of Macroeconomics}, volume~1, pages 927--1007.
   Elsevier.
 
-\bibitem[Krueger, 2016]{Krueger2016c}
-Krueger, D. (2016).
-\newblock {\em {An Introduction to Macroeconomics with Household
-  Heterogeneity}}.
-
 \bibitem[Kuhn et~al., 2020]{Kuhn2020}
 Kuhn, M., Schularick, M., and Steins, U. (2020).
 \newblock {Income and Wealth Inequality in America, 1949-2016}.
@@ -175,11 +147,6 @@ Kuhn, M., Schularick, M., and Steins, U. (2020).
 Kydland, F.~E. and Prescott, E.~C. (1982).
 \newblock {Time to Build and Aggregate Fluctuations}.
 \newblock {\em Econometrica}, 50(6):1345.
-
-\bibitem[Postel-Vinay and Robin, 2002]{Postel-Vinay2002}
-Postel-Vinay, F. and Robin, J.-M. (2002).
-\newblock {Equilibrium Wage Dispersion with Worker and Employer Heterogeneity}.
-\newblock {\em Econometrica}, 70(6):2295--2350.
 
 \bibitem[Ramey, 2016]{Ramey2016}
 Ramey, V.~A. (2016).
@@ -202,12 +169,6 @@ Rogerson, R. and Shimer, R. (2011).
 Rogerson, R., Shimer, R., and Wright, R. (2005).
 \newblock {Search-Theoretic Models of the Labor Market: A Survey}.
 \newblock {\em Journal of Economic Literature}, 43(4):959--988.
-
-\bibitem[Rotemberg and Woodford, 1997]{Rotemberg1997}
-Rotemberg, J.~J. and Woodford, M. (1997).
-\newblock {An Optimization-Based Econometric Framework for the Evaluation of
-  Monetary Policy}.
-\newblock {\em NBER Macroeconomics Annual}, 12:284--346.
 
 \bibitem[Shimer, 2005]{Shimer2005}
 Shimer, R. (2005).
