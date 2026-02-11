@@ -1,0 +1,1378 @@
+\documentclass[9pt]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+
+\title[Job ladders and Wage Dispersion]{Macroeconomics II, Lecture VIII:\\
+	 Burdett-Mortensen}
+\author{Erik {\"O}berg}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Introduction}
+
+
+
+\begin{frame}{Recap}
+
+\bit
+	\setlength\itemsep{2em}
+	
+	\item Search models offers a theory of unemployment and wage dispersion
+	
+	\item Today we will dig deeper into understanding wage dispersion
+
+	\item The McCall model: search frictions + offer distribution $\Rightarrow$ reservation wage strategy
+
+	\item Generates a theory of residual wage dispersion that makes sense
+
+	
+	\item But, the model had no chance in coming close to empirical measures of wage dispersion
+	
+	\item And, how is an exogenous wage dispersion consistent with firm wage posting in the first place (Rothschild critique/Diamond paradox)?
+\eit
+
+\end{frame}
+
+\begin{frame}{Today}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Today, we will introduce a class of models that speaks to both these problems
+\bit
+	\item In contrast to McCall, we will explicitly model firm behavior and study \emph{equilibrium} wage formation
+\eit
+
+\item Core idea: {\bc job ladders}
+
+\item Employed workers can search while on the job and, as a consequence, they will sequentially move from worse to better jobs
+
+\item Realistic feature of most labor markets
+
+\item Generates more residual wage dispserion beacuse ex-ante identical workers are different not only because initial offers are different, but also because some have climbed further up the job-ladder than others
+
+\item Solves the Diamond paradox, as firms face a trade-off when posting wages
+\bit
+	\item Higher wage attracts more workers
+	\item Higher wage reduces per-worker profit
+\eit
+
+\item But first: something more on the nature of wage dispersion in the data
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Agenda}
+
+\ben
+\setlength\itemsep{2em}
+
+\item The Abowd-Kramarz-Margolis regression
+
+\item The Burdett-Mortensen model
+\bit
+	\item Setup
+	\item Solution
+	\item Predictions
+\eit
+
+\item Discussion and extensions
+
+\een
+
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\huge The AKM regression \normalfont
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{The AKM regression}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Remember Mincer regression
+\begin{eqnarray}
+\log y_{it} = \mu_y + \beta \mathbf{X}_{it} + \epsilon_{it} \nonumber
+\end{eqnarray}
+where, typically, $R^2<0.3$
+
+\item Abowd-Kramarz-Margolis (Ecmtra 1999) were first to use (French) matched employer-employee data to estimtate
+\begin{eqnarray}
+\log y_{it} = \mu_y + \beta \mathbf{X}_{it} + \theta_i + \Psi_{j(i,t)} +  \epsilon_{it} \nonumber
+\end{eqnarray}
+for individual $i$ working for firm $j(i,t)$ at time t
+
+\item Reduced-form empirical framwork for studying labor market sorting and inequality
+\bit
+ 	\item Card-Heining-Kline (QJE 2013); Bloom-Guvenen-Price-Song-von Wachter (QJE 2019); Fredrikson-Hensvik-Skans (AER 2018); Eliason-Hensvik-Kramarz-Skans (JE 2023);
+\eit
+
+\item $\theta_i$ is identified from variation in worker earnings within firms; $\Psi_{J(i,t)}$ is identified from variation in worker earnings when switching jobs
+
+\item AKM find:
+\bit
+	\item No fixed effects: $R^2 \approx 0.3$
+	\item Firm fixed effects only: $R^2 \approx 0.55$
+	\item Person fixed effects only: $R^2 \approx 0.75$
+	\item Both fixed effects: $R^2 \approx 0.85$
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{The AKM regression}
+
+\bit
+\setlength\itemsep{2em}
+
+\item How to interpret these findings?
+
+\item Considerable variation is due to firm and individual fixed effects
+\bit
+	\setlength\itemsep{0.5em}
+	
+	\item Some workers are persistently paid better across all their jobs compared to other, otherwise similar, workers
+	
+	\item Some firms are persistently paying more to all their employees although they are similar to employees at other firms
+
+	\item Does this mean that unobserved heterogeneity, as opposed to frictions, explain most of residual wage dispersion?
+\eit
+%\item Individual fixed effects more important than firm fixed effects
+%\bit
+%	\item Is there more unobserved heterogeneity among workers than among firms?
+%\eit
+
+\item Theory will guide our interpretation...
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge The Burdett-Mortensen (IER, 1998) model\normalfont
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Overview}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Continuous time; infinite horizon
+
+\item Measure $1$ of ex-ante identical firms, measure $1$ of ex-ante identical households
+
+\item One-to-many matching: each firm can employ many workers
+\bit
+	\item Each match produces $y$ output flow
+\eit
+
+\item Separation rate $\sigma$, discount rate $r$, unemployment utility $b$
+
+\item Firm decide on which wage $w$ to post, producing offer distribution $F(w)$
+%\bit
+%	\item \emph{Wage posting} as opposed to \emph{wage bargaining}
+%\eit 
+
+\item Unemployed workers search for jobs at rate $\lambda_u$, drawing opportunities from offer distribution $F(w)$
+
+\item Employed workers search for jobs at rate $\lambda_e$, drawing opportunities from the same offer distribution $F(w)$
+
+\item Problem of a worker is to accept or reject offer
+
+\item We focus on steady state
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Worker value functions}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Unemployed:
+\begin{eqnarray}
+rU  &=&  b + \lambda_u  \int_{\mathds{W}} \max\{W(w)-U, 0\} dF(w) \nonumber
+\end{eqnarray}
+
+\item Employed:
+\begin{eqnarray}
+rW(w)  &=&  w + \lambda_e  \int_{\mathds{W}} \max\{W(w')-W(w), 0\} dF(w') + \sigma(U-W(w)) \nonumber
+\end{eqnarray}
+
+\item What are the optimal acceptance strategies?
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Worker strategies}
+
+\bit
+\setlength\itemsep{2em}
+
+\item For employed, optimal acceptance rule is to accept all wages $w' \geq w$:
+\begin{eqnarray}
+rW(w)  &=&  w + \lambda_e  \int_{w' \geq w} (W(w') - W(w)) dF(w') + \sigma(U-W(w)) \nonumber
+\end{eqnarray}
+
+\item $W(w)$ is increasing in $w$ (see below) $\Rightarrow$ optimal acceptance rule of unemployed is a reservation wage $w_R$ (as in McCall):
+\begin{eqnarray}
+rU  &=&  b + \lambda_u  \int_{w\geq w_R} (W(w)-U) dF(w) \nonumber
+\end{eqnarray}
+
+\item Characterizing worker behaviour boils down to finding $w_R$, given $F, b, \lambda_e, \lambda_u, \sigma$. 
+
+\item In doing so, we assume that $F$ has bounded support - we will later prove that this follows from firm optimization.
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Finding the reservation wage I}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Reservation wage satisfies
+\begin{eqnarray}
+W(w_R) = U \nonumber
+\end{eqnarray}
+
+\item From employed worker's value function equation:
+\begin{eqnarray}
+rW(w_{R})  &=&  w_R + \lambda_e  \int_{w'\geq w_R} \left(W(w')-W(w_R)\right) dF(w') + \sigma(U-W(w_R)) \nonumber \\
+&=&  w_R + \lambda_e  \int_{w'\geq w_R} \left(W(w')-W(w_R)\right) dF(w')\nonumber
+\end{eqnarray}
+
+\item Using $rW(w_R) = rU$ and the unemployed worker's value function equation:
+\begin{eqnarray}
+&& w_R + \lambda_e  \int_{w \geq w_R} (W(w) - U) dF(w) = b + \lambda_u  \int_{w \geq w_R} (W(w)-U) dF(w)   \nonumber \\
+\lb{reservation_wage}
+\Leftrightarrow && w_R-b = (\lambda_u-\lambda_e) \int_{w \geq w_R} (W(w)-U) dF(w) \nonumber  
+\end{eqnarray}
+
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Finding the reservation wage II}
+
+\bit
+\setlength\itemsep{2em}
+
+\item We have found our {\bc reservation wage equation}:
+\begin{eqnarray}
+\lb{bm_reservation_wage}
+w_R-b = (\lambda_u-\lambda_e) \int_{w \geq w_R} (W(w)-U) dF(w)
+\end{eqnarray}
+
+\item Interpretation
+\bit
+\setlength\itemsep{0.5em}
+
+\item $\lambda_u>\lambda_e \Rightarrow w_R>b$: workers find better opportunties while unemployed $\Rightarrow$ unemployed workers demand compensation for giving up the option value of searching
+
+\item $\lambda_u<\lambda_e \Rightarrow w_R<b$: workers find better opportunties while employed $\Rightarrow$ unemployed workers accept a wage lower than $b$ in anticipation than they will get better offers faster as employed
+\eit
+%
+%\item Still contains an endogenous function $W(w)$
+
+\item To solve for $w_R$, we need to evaluate $\int_{w \geq w_R} (W(w)-U) dF(w)$. Two steps
+\ben
+\setlength\itemsep{0.5em}
+	\item Compute $W'(w)$
+	
+	\item Use intergration by parts
+\een
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Finding the reservation wage III, computing $W'(w)$}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Rewrite employer value:
+\begin{eqnarray}
+(r+\sigma)W(w)  &=&  w + \lambda_e  \int_{w' \geq w} (W(w') - W(w)) dF(w') + \sigma U \nonumber
+\end{eqnarray}
+
+\item Apply Leibniz's rule (using bounded support):
+\begin{eqnarray}
+(r+\sigma)W'(w) &=& 1 + \lambda_e(W(w_{max}) - W(w)) \frac{\partial F(w_{max})}{\partial w}  \nonumber \\
+&& - \lambda_e(W(w) - W(w)) \frac{\partial F(w)}{\partial w} + \lambda_e  \int_{w' \geq w} - W'(w) dF(w') \nonumber \\
+&=& 1 -\lambda_e W'(w) \int_{w' \geq w} dF(w') \nonumber \\
+&=& 1 -\lambda_e W'(w) (1-F(w)) \nonumber
+\end{eqnarray}
+
+\item Hence,
+\begin{eqnarray}
+\lb{e_derivative}
+W'(w) &=& \frac{1}{r+\sigma + \lambda_e(1-F(w))}
+\end{eqnarray}
+
+\item Btw, we have now also shown that $W(w)$ is increasing in $w$ 
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Finding the reservation wage IV, integration by parts}
+
+
+\footnotesize
+\begin{eqnarray}
+\int_{w \geq w_R} (W(w)-U) dF(w)   &=& (W(w)-U) F(w)|_{w_R}^{w_{max}} - \int_{w \geq w_R} F(w) d(W(w)-U) \nonumber \\
+\text{(use differentiability)} &=& (W(w)-U) F(w)|_{w_R}^{w_{max}} - \int_{w \geq w_R} F(w) W'(w)dw    \nonumber \\ 
+\text{(add/subtract)} &=& (W(w)-U) F(w)|_{w_R}^{w_{max}}- \int_{w \geq w_R} F(w) W'(w)dw    \nonumber \\ 
+&& + (W(w)-U) |_{w_R}^{w_{max}} - (W(w)-U) |_{w_R}^{w_{max}}\nonumber \\
+\text{(use $W(w_R) = U$, $F(w_R)=0$, $F(w_{max})=1$)} &=&  - \int_{w \geq w_R} F(w) W'(w)dw + (W(w)-W(w_R)) |_{w_R}^{w_{max}} \nonumber \\
+\text{(evaluate second term)} &=&  - \int_{w \geq w_R} F(w) W'(w)dw + \int_{w \geq w_R} W'(w)dw \nonumber \\
+\lb{integration}
+\text{(rearrange)} &=& \int_{w \geq w_R} (1-F(w)) W'(w)dw 
+\end{eqnarray}
+\normalsize
+
+\end{frame}
+
+
+\begin{frame}{Finding the reservation wage V}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Plug \eqref{e_derivative} and \eqref{integration} into reservation wage equation \eqref{bm_reservation_wage}:
+\begin{eqnarray}
+w_R-b &=& (\lambda_u-\lambda_e) \int_{w \geq w_R} (W(w)-U) dF(w) \nonumber \\ 
+ &=& (\lambda_u-\lambda_e)  \int_{w \geq w_R} (1-F(w)) W'(w)dw  \nonumber \\ 
+\lb{reservation_wage_final}
+ &=& (\lambda_u-\lambda_e) \int_{w \geq w_R}\frac{1-F(w)}{r+\sigma + \lambda_e(1-F(w))} dw 
+\end{eqnarray}
+
+\item LHS increasing
+
+\item Integrand is positive: RHS decreasing
+
+\item $\Rightarrow$ \eqref{reservation_wage_final} implicitly determines $w_R$ given $F(w)$
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Worker distribution I}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item We have now characterized worker behaviour, taking offer distribution $F(w)$ as given 
+
+\item Before going to firm problem (this is where $F(w)$ comes from), we will derive the worker distribution $G(w)$, taking $F(w)$ as given 
+
+\item Unemployment law of motion;
+\begin{eqnarray}
+\dot u = \sigma (1-u(t)) - \lambda_u (1-F(w_R)) u(t) \nonumber
+\end{eqnarray}
+
+\item Steady state
+\begin{eqnarray}
+u &=& \frac{\sigma }{\sigma + \lambda_u (1-F(w_R))} \nonumber \\
+\label{u_ss}
+&=& \frac{1}{1+ k_u (1-F(w_R))}
+\end{eqnarray}
+where $k_u = \frac{\lambda_u}{\sigma}$
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Worker distribution II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item $G(w) =$ the share of workers with wage $\leq w$
+
+\item $G(w) (1-u(t)) =$ the \emph{mass} of workers with wage $\leq w$
+
+\item Law of motion for $G(w, t) (1-u(t))$: 
+\begin{eqnarray}
+\frac{d}{dt}G(w, t) (1-u(t)) &=& \lambda_u \max \left\{F(w)-F(w_R),0\right\}u(t) \nonumber \\
+&& - \sigma G(w,t)(1-u(t)) \nonumber \\
+&& - \lambda_e(1-F(w))G(w,t)(1-u(t)) \nonumber
+\end{eqnarray}
+
+\bit
+	\item inflow: unemployed households that find job wage in interval $[w_R, w]$ 
+	\item outflow 1: employed households with wage $\leq w$ that separate at rate $\sigma$
+	\item outflow 2: employed households with wage $\leq w$ that find job with wage $>w$
+\eit
+
+\item Using steady state condition $\frac{d}{dt}G(w, t) (1-u(t)) = 0$ and Eq. \eqref{u_ss}, we solve for $G(w)$:
+\begin{eqnarray}
+\lb{worker_distribution}
+G(w) = \left\{ \begin{array}{cc}
+0 & \text{if } w < w_R \\
+\frac{\left[F(w)-F(w_R)\right]/(1-F(w_R))}{1+k_e(1-F(w))} & \text{if } w \geq w_R
+\end{array} \right. 
+\end{eqnarray}
+where $k_e = \frac{\lambda_e}{\sigma}$
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Illustration of worker distribution in steady state}
+
+\begin{center}
+	\includegraphics[width=\textwidth]{code/bm_density.pdf}
+\end{center}
+
+\bit
+	\item Example: assume offer distribution $F(w)$ is normal, compute $w_R$ from \eqref{reservation_wage_final}, then $G(w)$ from \eqref{worker_distribution}
+	\item Why is pdf $g(w)$ ``to the right of'' pdf $f(w)$?
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firm size distribution I}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Given $G$ and $F$, we can also characterize firm size distribution
+
+\item Limit argument: determine who many firms offer jobs and how many workers have jobs on interval $[w-\epsilon,w]$ and let $\epsilon \rightarrow 0$
+
+\item Workers on interval $[w-\epsilon,w]$: $\left[G(w)-G(w-\epsilon)\right]\times (1-u)$
+
+\item Firms on inteval $[w-\epsilon,w]$: $\left[F(w)-F(w-\epsilon)\right] \times 1$
+
+\item Average number of workers per firm on interval $[w-\epsilon,w]$:
+\begin{eqnarray}
+\frac{G(w)-G(w-\epsilon)}{F(w)-F(w-\epsilon)}(1-u) \nonumber
+\end{eqnarray}
+
+\item Average firm size at point $w$:
+\begin{eqnarray}
+\lb{firm_size_dist}
+I(w) = \lim\limits_{\epsilon \rightarrow 0}\frac{G(w)-G(w-\epsilon)}{F(w)-F(w-\epsilon)}(1-u)
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Firm size distribution II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Given our solution of $u$ and $G$, we can solve for $I$ 
+
+\item We have not assumed that $F$ is continuous:
+\bit
+	\item We don't know if $\lim\limits_{\epsilon \rightarrow 0}F(w-\epsilon) = \lim\limits_{\epsilon \rightarrow 0}F(w+\epsilon)$, i.e., we don't know if $F$ has mass points
+\eit
+
+\item Denote $F(w^{-}) = \lim\limits_{\epsilon \rightarrow 0}F(w-\epsilon)$
+
+\item Plug in solution of $G,u$ into firm size distribution \eqref{firm_size_dist}, and do the algebra:
+\begin{eqnarray}
+\lb{firm_size}
+I(w) = \left\{ \begin{array}{cc}
+0 & \text{if } w < w_R \\
+\frac{k_u (1+k_e(1-F(w_R)))/(1+k_u(1-F(w_R)))}{(1+k_e(1-F(w)))(1+k_e(1-F(w^{-})))} & \text{if } w \geq w_R
+\end{array} \right.
+\end{eqnarray}
+
+\item $I(w)$ is increasing in $w$ - why?
+
+\item $I(w)$ is continuous everywhere where $F$ is continuous
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Firm problem}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Firms maximize the discounted sum of expected profits
+
+\item For simplicity, we assume that $r \rightarrow 0$ $\Rightarrow$ firms only care about the steady state value of profits
+
+\item Firms post wage $w$ to maximize
+\begin{eqnarray}
+\lb{firm_problem}
+\pi = \max_{w} (y-w) I(w)
+\end{eqnarray}
+where $I(w)$ is the firm size distribution, taking the behavior of workers ($w_R$) and other firms ($F$) as given
+
+\item Equilibrium must have $\pi(w)=\pi(w')$ for all $w,w'\in F$
+
+\item Why don't all firms set $w=w_R$ (as in the wage posting equilibrium of McCall model)?
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium definition}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item An equilibrium is a triple $\{w_R, \pi, F\}$ such that
+\ben
+	\setlength\itemsep{1em}
+	\item Given $F$, each worker behaves optimally: $w_R$ solves reservation wage equation \eqref{reservation_wage_final} 
+	
+	\item Given $F$ and $w_R$, each firm behaves optimally:  $\pi$ follows from \eqref{firm_problem}
+	
+	\item $F, \mathbb{W}_F$ are such that there is no arbitrage:
+	\begin{eqnarray}
+	(y-w)I(w) \left\{ \begin{array}{cc}
+	< \pi & \text{if } w \notin \mathbb{W}_F \\
+	= \pi & \text{if } w \in \mathbb{W}_F
+	\end{array} \right. \nonumber
+	\end{eqnarray}
+	where $\mathbb{W}_F$ is the support of $F$
+\een
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Solution strategy}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Given the progress we made on characterizing worker behaviour and firm size distribution, the equilibrium can be solved with the following 5 steps:
+\ben
+\setlength\itemsep{1em}
+\item Establish that $F$ has bounded support $[\underbar w, \bar w]$
+
+\item Establish that $F$ is continuous
+
+\item Establish $\underbar w = w_R$
+
+\item Solve for $F$
+
+\item Solve for $w_R, \pi$
+\een
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Step 1: bounded support}
+
+\bit
+\setlength\itemsep{2em}
+
+\item No worker accept a wage $w< w_R \Rightarrow$ $\pi(w<w_R) = 0$
+
+\item Also, $\pi(w>y) < 0$
+
+\item Ergo, F has bounded support $[\underbar w, \bar w] \subset [w_R, y]$
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Step 2: continuity}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Proof strategy: If $F$ has a mass point $\hat w$, you make excess profits by offering $\hat w + \epsilon$
+
+\item Assume $F$ has a mass point at $\hat w$: {\rc (Draw graph on whiteboard)}
+\begin{eqnarray}
+F(\hat w) = F(\hat w^{-}) + v_1(\hat w) \text{  where $v_1(\hat w)>0$ }\nonumber
+\end{eqnarray}
+
+\item Then, average firm size $I$ is discontinuous at $\hat w$: {\rc (Do on whiteboard)}
+\begin{eqnarray}
+I(\hat w^{+}) = I(\hat w) + v_2(\hat w) \text{  where $v_2(\hat w)>0$ } \nonumber
+\end{eqnarray}
+
+\item Then,
+\begin{eqnarray}
+\lim\limits_{\epsilon \rightarrow 0} \pi(\hat w+\epsilon)-\pi(\hat w) &=& \lim\limits_{\epsilon \rightarrow 0} (y-\hat w-\epsilon) I(\hat{w}+\epsilon) - (y-\hat w) I(\hat{w}) \nonumber \\
+&=& \lim\limits_{\epsilon \rightarrow 0} (y-\hat w)(I(\hat{w}+\epsilon)-I(\hat{w})) -\epsilon I(\hat{w}+\epsilon) \nonumber \\
+&=& \lim\limits_{\epsilon \rightarrow 0}  (y-\hat w)(I(\hat{w}+\epsilon)-I(\hat{w})) \nonumber \\ 
+&=& (y-\hat w)v_2(\hat w)  \nonumber \\ 
+&>& 0 \nonumber 
+\end{eqnarray}
+
+\item You can make excess profits by offering wage contract $\hat{w}+\epsilon$ because
+\bit
+	\item per worker profit decrease continuously
+	\item firm competition decrease discretely 
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Step 3: $\underbar w = w_R$}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Step 1: $\mathbb{W}_F =[\underbar w, \bar w] \subset [w_R, y]$ 
+
+\item Step 2: $F$ is continuous:
+\begin{eqnarray}
+I(w) &=&  \frac{k_u (1+k_e(1-F(W_R)))/(1+k_u(1-F(w_R)))}{(1+k_e(1-F(w)))(1+k_1(1-F(w^{-})))} \nonumber \\
+&=&  \frac{k_u (1+k_e(1-F(w_R)))/(1+k_u(1-F(w_R)))}{(1+k_e(1-F(w)))^2} \nonumber
+\end{eqnarray}
+for $w \geq w_R$. 
+
+\item Moreover $F(\underbar w) = 0$, which in turn implies $F(w_R)=0$
+
+\item Hence, 
+\begin{eqnarray}
+I(\underbar w) =  \frac{k_u (1+k_e)/(1+k_u)}{(1+k_e)^2} =  \frac{k_u /(1+k_u)}{(1+k_e)} \nonumber
+\end{eqnarray}
+
+\item Expected firm size at $\underbar w$ is independent of the particular value of $\underbar w$!
+
+\item Therefore, $\underbar w = w_R$, since if $\underbar w > w_R$, a firm could offer $w_R$ and get the same amount of workers and higher per worker profits $\Rightarrow$ excess profits
+%
+%\item Notice: $\pi=\pi(w_R)=(p-w_R)I(\underbar w)>0$. Why?
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Step 4: solve for F}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item In equilibrium, $\pi(w) = \pi(w')$ for all $w, w' \in \mathbb{W}_F$
+
+\item In particular, $\pi(w) = \pi(w_R)$ for all $w \in \mathbb{W}_F$
+
+\item Solve $\pi(w) = \pi(w_R)$, using our solutions for $I(w), I(w_R)$:
+\begin{eqnarray}
+(y-w)I(w) &=& (y-w_R)I(w_R) \Leftrightarrow \nonumber \\
+(y-w)\frac{k_u (1+k_e)/(1+k_u)}{(1+k_e(1-F(w)))^2} &=& (y-w_R) \frac{k_u /(1+k_u)}{(1+k_e)} \nonumber
+\end{eqnarray}
+\item Do the algebra to find
+\begin{eqnarray}
+F(w) = \frac{1+k_e}{k_e} \left[1-\left(\frac{y-w}{y-w_R}\right)^{1/2}\right]
+\end{eqnarray}
+
+\item Using that $F(\bar w) = 1$, we see that $\bar w<y$:
+\begin{eqnarray}
+\bar w = y - \frac{y-w_R}{(1+k_e)^2}<y
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Step 5: solve for $w_R$}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Our reservation wage equation \eqref{reservation_wage_final}:
+\begin{eqnarray}
+w_R-b = (\lambda_u-\lambda_e) \int_{w \geq w_R}\frac{1-F(w)}{r+\sigma + \lambda_e(1-F(w))} dw \nonumber
+\end{eqnarray}
+\item For simplicity, we use the assumption $r \rightarrow 0$ again: 
+\begin{eqnarray}
+w_R-b = (k_u-k_e) \int_{w \geq w_R}\frac{1-F(w)}{1 + k_e(1-F(w))} dw \nonumber
+\end{eqnarray}
+\item Plug in the solution of $F$:
+%\begin{eqnarray}
+%w_R-b = \frac{(k_u-k_e)}{k_e} \int_{w_R}^{\bar w}\frac{k_e \left(\frac{y-w}{y-w_R}\right)^{1/2}-1}{k_e\left(\frac{y-w}{y-w_R}\right)^{1/2} + 1} dw \nonumber
+%\end{eqnarray}
+\begin{eqnarray}
+w_R-b = \frac{(k_u-k_e)}{k_e} \int_{w_R}^{\bar w} \left[1-\frac{1}{1+k_e} \left( \frac{y-w}{y-w_R}\right)^{-\frac{1}{2}}\right]dw \nonumber
+\end{eqnarray}
+\item Solve the integral and use the solution to $\bar w$ to find:
+\begin{eqnarray}
+w_R = \frac{(1+k_e)^2b + (k_u-k_e)k_ey}{(1+k_e)^2+(k_u-k_e)k_e}
+\end{eqnarray}
+
+\item Summary: a continuous offer distribution with $b<\underbar w = w_R< \bar w<y$!
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{Model summary}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Model components: McCall + on-the-job search + fixed number of optimizing firms
+
+\item Importantly, all firms and households are ex ante identical
+
+\item Key result: a {\bc non-degenerate continuous wage distribution}
+\bit 
+	\item Not possible in simple wage-posting model without on-the-job search 
+\eit
+
+\item Intuition?
+
+%\item Primitives: $b, \lambda_u, \lambda_e, \sigma, r$ - only one new parameter compared to McCall
+%\bit
+%	\setlength\itemsep{0.5em}
+%	\item $\lambda_e$ can be identified from the frequency of job-to-job transitions
+%	\item An employed worker with wage $w$ switches job with probability $\lambda_e(1-F(w))$ --- The mass of workers that switches at every instant: $ \xi = \int_{w_R}^{\bar w} \lambda_e (1-F(w)) d G(w)$
+%	\item One can show that $\xi = h(\sigma, \lambda_e)$	
+%	\item $\lambda_u$ is directly identified from the job-finding rate, as unemployed worker accept all offers in this model (Why?)
+%\eit
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{Taking the model to the data}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Primitives: $b, \lambda_u, \lambda_e, \sigma, r$ - only one new parameter compared to McCall (but also one less!)
+
+\item $\lambda_e$ can be identified from the frequency of job-to-job transitions
+
+\item An employed worker with wage $w$ switches job at rate  $\lambda_e(1-F(w))$ 
+
+\item Total job switch rate: $ \xi = \int_{w_R}^{\bar w} \lambda_e (1-F(w)) d G(w)$
+
+
+\item One can show that, in equilibrium, $\xi = \xi(\sigma, \lambda_e)$	(take-home exericse!)
+
+
+\item $\lambda_u$ is directly identified from the unemployed workers' job-finding rate, as unemployed worker accept all offers in this model
+
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{Predicitions I: wage dispersion}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Wage dispersion. As in the McCall model, a formula for the mean-to-min ratio can be derived:
+\begin{eqnarray}
+Mm_{BM} \approx \frac{\frac{\lambda_u - \lambda_e}{r+\sigma+\lambda_e} +1}{\frac{\lambda_u-\lambda_e}{r+\sigma + \lambda_e}+\rho}   \hspace{10mm} Mm_{McCall} = \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho} \nonumber
+\end{eqnarray}
+\item $\approx$ comes from assuming $r \rightarrow 0$
+
+\item The BM model generates additional dispersion, as workers do not only differ in initial offers, but also in that some have climbed further up the job-ladder than others
+
+\item Hornstein-Krusell-Violante (AER, 2011) reports monthly EE rate = 3.2 percent $\Rightarrow$ $\lambda_e = 0.135$
+
+\item {\bc$Mm_{BM} = 1.22$}, $Mm_{McCall} = 1.05$, $Mm_{data} > 1.8$
+
+\item Not there yet, but a big step in the right direction
+\bit
+	\item How does this relate to the results from the AKM regression?
+\eit
+
+\eit
+
+
+\end{frame}
+
+\begin{frame}{Predicitions II: wage correlations}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Worker with wage $w$ finds new job at rate:
+\begin{eqnarray}
+\lb{ee_rate}
+\lambda_e^* = \lambda_e(1-F(w))
+\end{eqnarray}
+
+\item Tenure is positively correlated with wage
+\bit
+	\item From \eqref{ee_rate}: higher $w$ $\Rightarrow$ lower job-finding rate
+\eit
+
+
+\item Challenges interpretation of returns-to-tenure as reflecting productivity
+
+\item Firm size is positvely correlated with wage
+\bit
+	\item From \eqref{firm_size}: $I(w)$ is increasing in $w$, beacuse workers continuously climb the job-ladder 
+\eit
+
+\item Both true in the data (Mortensen, Book 2003)
+%
+%\item Corollary: Firm size is negatively correlated with quit rate
+
+
+\eit
+
+
+\end{frame}
+
+
+
+\begin{frame}{Taking stock}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Benchmark model for studying frictional wage dispersion, easily taken to the data
+
+\item New predictions: search frictions can rationalize
+\bit
+\setlength\itemsep{0.5em}
+	\item wage-tenure correlation
+	\item wage-firm size correlation
+\eit
+
+\item We came closer in quantitatively accounting for unobserved wage dispersion
+
+\item Also, BM offers an interpretation of the AKM regression results
+	\bit
+	\setlength\itemsep{0.5em}
+		\item all wage dispersion stems from firm heterogeneity, but all firms are identical in terms of productivity
+		\item firm fixed effects in AKM should not necessarily be interpreted as firm productivity differentials
+	\eit
+
+
+\item But, no role for search frictions in explaining
+\bit
+\setlength\itemsep{0.5em}
+	\item Within-firm wage dispersion and, therefore, individual-fixed effects in AKM	
+	
+	\item Downward wage mobility
+\eit
+%
+%\item And, what about person fixed effects in residual wages?
+%\bit
+%	\item Should we interpret the individual fixed effects in AKM as solely reflecting unobserved heterogeneity and having nothing to do with frictions?
+%\eit
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{Extensions}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The basic BM model is too stylized to deal with many empirical phenomena
+
+\item Because of its parsimony, the model can be extended in various directions: firm heterogeneity, worker heterogeneity etc.
+
+\item For quantitative assessments, see Jolivet-\{Postel-Vinay\}-Robin (EER 2006), Mortensen (Book 2003), Barlevy (ReStud 2008)
+
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{Recent applications}
+
+
+\bit
+\setlength\itemsep{1em}
+\item Sorkin (QJE 2018) estimate a BM model for US to quantify the role of compensating differentials in residual wage dispersion
+\bit
+\setlength\itemsep{0.5em}
+\item Firms offer utility bundles rather than wage contracts. 
+
+\item Worker transitions from higher to lower paying firms can be used to infer value of compensating differentials 
+
+\item compensating differentials account for over half of the firm component of the variance of earnings
+\eit
+
+\item Gottfries-Jarosch (2023) estimate a BM model for US to quantify how much non-compete practices can surpress wages
+\bit
+\setlength\itemsep{0.5em}
+\item A BM model with finite number of firms and DRS productions technology - natural laboratory for studying the effects of monopsony power
+
+\item Model ``non-competes'' as wage offers which does not allow job-to-job transitions
+
+\item Banning ``non-competes'' raises average wages by 2-15\% depending on labor market characteristics
+\eit
+
+\item Engbom-Moser (AER 2023) estimate a BM model for Brazil 1996-2012 following a reform that increased the mandated minimum wage:
+\bit
+\setlength\itemsep{0.5em}
+\item Key fact: the entire wage distribution became more compressed after the reform, not just the lower end
+
+\item BM theory: Because firms set wage offer strategically in relation to $F(w)$, higher minimum wage affects entire distribution
+
+\item EM finds that 70 percent of the drop in earnings inequality during this period can be attributed to the increased mandated minimum wage
+\eit
+\eit
+
+
+
+\end{frame}
+
+\begin{frame}{Engbom-Moser (AER 2023)}
+
+\begin{center}
+	\includegraphics[width=\textwidth]{figures/em_fig1.pdf}
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Is wage posting reasonable benchmark?}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Key question: is wage posting a reasonable approximation for the applications considered?
+\bit	
+\setlength\itemsep{0.5em}
+\item Bilateral bargaining?
+\bit
+	\item See next lecture
+\eit
+
+\item Shouldn't contracts be allowed to be made contingent on observables?
+\bit
+	\item Stevens (ReStud 2004); Burdett-Coles (Ecmtra 2003) note that firms can reduce turnover and raise profits by offering wage-tenure contracts
+\eit
+
+\item Shouldn't firms be allowed to respond to employees' outside offers?
+\eit
+
+\item \{Postel-Vinay\}-Robin (Ecmtra 2002) construct job-ladder model extended with
+\bit
+	\setlength\itemsep{0.5em}
+	\item firm and worker heterogeneity
+	\item allowing firms to make counteroffers
+	\item rationalizes within-firm wage dispersion among similar workers as well as downward wage mobility
+	\item offers a way to quantitatively separate the role of unobserved firm heterogeneity, unobserved worker heterogeneity and luck in residual wage dispersion
+\eit
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Summary}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item AKM: Reduced-form model for quantifying sources of residual wage dispersion
+
+\item Burdett-Mortensen: Benchmark model for studying frictional wage dispersion
+
+\item Key assumptions: on the job-search + firm wage posting
+
+\item Key result: non-degenerate distrubition of wages across identical firms due to trade-off in wage-possting decision
+\bit
+\item Higher wage attracts more workers
+\item Higher wage reduces per-worker profit
+\eit
+
+\item We endogenized firm wage setting behavior, but not the contact rate
+
+\item Next up: endogenzing the contract rate (and thinking about its implications for unemployment)
+
+\eit
+
+
+\end{frame}
+
+%\begin{frame}
+%
+%\begin{center}
+%	\huge The \{Postel-Vinay\}-Robin model \normalfont
+%\end{center}
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}{Setup}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Basic BM structure: 
+%\bit
+%		\setlength\itemsep{0.5em}
+%	\item unit mass of workers, unit mass of firms
+%	\item job-finding rates $\lambda_u, \lambda_e$, matching is random
+%	\item separation rate $\sigma$
+%	\item worker problem: accept or reject offer
+%\eit
+%
+%\item Firm productivity heterogeneity: $y \sim F$
+%
+%\item Worker productivity heterogeneity: $\epsilon \sim H$ 
+%
+%\item A succesful match results in production $\epsilon y$
+%
+%\item workers unemployment utility is $\epsilon b$ (scaled with $\epsilon$ for tractability)
+%
+%\item Firms offer optimal long-term wage contracts as a function of worker observables
+%\bit
+%\item Firms observe employment status, worker productivity $\epsilon$ and wage on current job $w$ 
+%%\item Offers are \emph{take-it-or-leave-it}; no bargaining with the worker
+%\eit
+%
+%\item Incumbent employers can counteroffer new job offers
+%
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{Wage setting mechanism I}
+%
+%\bit
+%\setlength\itemsep{2em}
+%
+%\item Unemployed value function $U(\epsilon)$
+%
+%\item Employed value function $W(\epsilon, w, y)$
+%
+%\item If firm meets unemployed: offer reservation wage $w_R$, implicitly defined by
+%\begin{eqnarray}
+%U(\epsilon) = W(\epsilon, w_R(\epsilon,y),y) \nonumber
+%\end{eqnarray}	
+%
+%\item Notice: $w_R$ depends on which firm you meet
+%\bit
+%	\item You are willing to accept lower starting wage if the firm is very productive (counterintuitive?), as that means that you can raise your wage a lot if you get an outside offer
+%\eit
+%
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{Wage setting mechanism II}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item If employed worker with value $W(\epsilon, w_0, y)$ meets firm $y'$, the two firms enter Bertrand competition (sequential auction)
+%
+%\item Firm $y$ is willing to bid at maximum $\epsilon y$
+%
+%\item Firm $y'$ is willing to bid at maximum $\epsilon y'$
+%
+%\item Two cases:
+%\ben
+%	\item If $y'>y$
+%		\bit
+%			\item Firm $y'$ will win the auction
+%			
+%			\item Firm $y'$ offers the wage $w(\epsilon, y, y')$ required to get the worker to switch jobs, implicitly defined by
+%			\begin{eqnarray}
+%			W(\epsilon, \epsilon y, y) = W(\epsilon, w(\epsilon,y, y'), y') \nonumber
+%			\end{eqnarray}
+%		\eit
+%	\item If $y' \leq y$
+%		\bit
+%			\item Firm $y$ will win the auction
+%
+%			\item Firm $y$ offers the wage $w(\epsilon, y', y)$ required to get the worker to stay:
+%			\begin{eqnarray}
+%			 	w(\epsilon, y', y) = \max\{w_0, w^*(\epsilon, y', y)\} \nonumber
+%			\end{eqnarray}
+%			where $w^*(\epsilon, y', y)$ is implictly defined by
+%			\begin{eqnarray}
+%			W(\epsilon, \epsilon y', y') = W(\epsilon, w^*(\epsilon,y', y), y) \nonumber
+%			\end{eqnarray}
+%\eit
+%\een
+%
+%\eit
+%
+%\end{frame}
+
+
+%\begin{frame}{Predictions}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item The steady state wage distribution needs to be solved numerically
+%\bit
+%	\item However, the worker-firm allocation is independent of the wage distribution, since workers always switch jobs if $y'>y$ 
+%\eit	
+%
+%\item Unemployed workers will accept offers with $w<b$ $\Rightarrow$ lower tail of wage distribution more stretched 
+%\bit
+%	\item Using PVR's calibration, Papp (RED 2013) finds mean-to-min ratio $\approx 2$, close to empirical estimates 
+%\eit
+%
+%\item There is \emph{within-firm} wage dispersion because workers enter firms with
+%\ben
+%	\item different worker productivies
+%	\item different match history: some workers have been luckier than others, and will get a higher wage offer 
+%\een
+%
+%\item Second point challenges simple interpretation of AKM regression: individual fixed effects might be due to frictions, not only worker heterogeneity
+%\bit
+%	\item PVR estimate their model on french matched employer-employee data -- find that worker heterogeneity contribute substantially to wage dispersion among high-skilled, but nothing among low-skilled
+%\eit
+%
+%\item There is \emph{downwards mobility}
+%\bit
+%	\item If encountering a very productive firm, you might be willing to accept a wage cut, beacuse you know that this firm can outbid incoming offers in the future
+%\eit
+%
+%\eit
+%
+%\end{frame}
+
+
+
+%\begin{frame}{Applications}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Bagger-Fontaine-\{Postel-Vinay\}-Robin (AER 2014) 
+%\bit
+%\setlength\itemsep{0.5em}
+%	\item Estimate sequential auction model with human capital accumulation on Danish register data
+%	\item Decompose wage dispersion into human capital component and search component
+%	\item Find that search component is more important early in careers
+%\eit
+%
+%\item Moscarini-\{Postel-Vinay\} (2022)
+%\bit
+%\setlength\itemsep{0.5em}
+%	\item Integrate PVR into New-Keynesian business cycle model
+%	
+%	\item Offers new way to think about the Phillips curve
+%	
+%	\item In their model, unemployment is a poor measure of slack, as productivity also depends on placement in the job-ladder 
+%	
+%	\item A better measure is the number of job-to-job transitions, which predicts inflation well
+%\eit
+%
+%\item Bilal-Engbom-Mongey-Violante (Ecmtra 2023)
+%\bit
+%\setlength\itemsep{0.5em}
+%	\item Integrate PVR with competitive firm-dynamics model (Hopenhayn, Ecmtra 1992)
+%	
+%	\item Predicts that net poaching depends on firm size and age, consistent with micro data
+%	
+%	\item Predicts that job-to-job transitions fall as firm entry declines, consistent with macro data
+%\eit
+%
+%\eit
+%
+%\end{frame}
+
+
+
+%\begin{frame}{PVR: some recent developments}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Bagger, Fontaine, Postel-Vinay and Robin (2011) 
+%\bit
+%	\item estimate sequential auction model with human capital accumulation on Danish data
+%	\item decompose wage dispersion into human capital component and search component
+%	\item finds that search component is more important early in careers
+%\eit
+%
+%\item Bagger, Fontaine, Postel-Vinay and Robin (2011) 
+%\bit
+%\item estimate sequential auction model with human capital accumulation on Danish data
+%\item decompose wage dispersion into human capital component and search component
+%\item finds that search component is more important early in careers
+%\eit
+%
+%
+%\eit
+%
+%\end{frame}
+
+
+%\begin{frame}
+%
+%\begin{center}
+%	\huge Non-labor applications of search models \normalfont
+%\end{center}
+%
+%\end{frame}
+
+
+%\begin{frame}{Search models}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Search models have wider applications than discussed in this class
+%
+%\item The theory of money
+%\bit
+%	\item Goods markets are charachterized by the absence of \emph{double coincidence of wants}
+%	\item Search process without mediating transaction technology is very costly
+%	\item Useless assets, such as fiat money, can have positive value beacuse it mediates trade
+%	\item Microfounded theory of the price of money, as opposed to ad hoc cash-in-advance constraints
+%	\item See Williamson and Wright (Handbook of Monetary Economics, 2010)
+%\eit
+%
+%\item Liquidity in financial markets
+%\bit
+%	\item Some finanical markets are close to the Walrasian ideal
+%	\item Others, such as the market for mortage-backed securities, operate with \emph{over-the-counter} trading
+%	\item Search theory charachterize volume of trading, bid-ask spreads, how the supply of buyers might collapse during crises
+%	\item See Lagos and Rocheteau (2009)
+%\eit
+%
+%\item Family economics
+%\bit
+%	\item Marriage is a matching process under costly search
+%	\item See Shimer and Smith (2000)
+%\eit
+%
+%\eit
+%
+%\end{frame}
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

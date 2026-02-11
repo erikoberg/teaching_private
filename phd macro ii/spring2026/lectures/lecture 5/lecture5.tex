@@ -1,0 +1,977 @@
+\documentclass[9pt,xcolor={dvipsnames}]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{subfig}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\black}{\color{black}}
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+\newcommand{\gc}{\color{ForestGreen}}
+\newcommand{\wc}{\color{white}}
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[NK: Shocks \& Propagataion]{Macroeconomics II Part II, Lecture V:\\
+	  The New-Keynesian Model: Shocks \& Propagataion}
+\author{Erik {\"O}berg}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Introduction}
+
+
+\begin{frame}{Recap}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Basic NK model = RBC model + monopolistic competition and sticky prices
+
+\item Last lecture: Setup, derivations and determinacy
+
+\item Today: What are the predictions of the NK model?
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Agenda}
+
+\ben
+\setlength\itemsep{1.5em} 
+
+\item Monetary Policy shocks
+
+\item TFP shocks
+
+\item Cost-push shocks
+\een
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Monetary Policy shocks \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{The 3-equation representation}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium can be characterized by
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item 3 equations in 3 unknowns: $\{\hat y_t, \hat i_{t}, \pi_t\}$!	
+
+\item This is how the model is usually presented in the literature
+
+\item \bf Warning!: \normalfont Although very convenient, these equations mix multiple equilibrium relationships $\Rightarrow$ hard to extract a precise intuition about model mechanisms
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}{Calibration}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Quarterly frequency
+
+\item For the recurrent parameters, let's stick with we used for our RBC model
+\bit
+\setlength\itemsep{0.5em}
+\item $\beta = 0.99$
+
+\item $\varphi = 1$
+\eit
+
+\item The new ones:
+\bit
+\setlength\itemsep{0.5em}
+
+\item $\theta=2/3$ to match average price duruation of three quarters (Gal\'{i}-Lop\'{e}z-Salido EER 2001)
+
+\item $\epsilon=6$ to match average markup of $20 \%$
+
+\item $\phi = 1.5$ to match Fed reaction function during Greenspan era
+\eit
+
+\item The shock process:
+\begin{eqnarray}
+\nu_t = \rho_{\nu} \nu_{t-1} + \epsilon_t \nonumber
+\end{eqnarray}
+with $\rho_{\nu} = 0.5$ to generate a ``moderately'' persistent shocks, as we saw in the empirical IRFs
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRFs to monetary policy shock}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_4variables.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Comments I}
+
+\bit
+\setlength\itemsep{1em}
+\item In contrast to the vanilla RBC model, there are no humps and bumps here
+
+\item This is the because the model has no state variable - dynamics are completely forward-looking:
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item This means that the policy function for any variable $x_t \in \{\hat y_t, \pi_t, \hat i_t \}$
+\begin{eqnarray}
+x_t = \sum_{s=0}^{t} a^x_{t-s} \nu_s \nonumber
+\end{eqnarray}
+has $a_{t-s}=0$ for all $s<t$, i.e.,
+\begin{eqnarray}
+x_t = a^x_0 \nu_t. \nonumber
+\end{eqnarray}
+
+\item An implication is that you can solve for the IRFs analytically, see problem set 6.
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Comments II}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Basic NK model qualitatively matches the evidence: a surprise increase in the policy rate leads to a fall in $y$
+
+\item Quantitatively, it is way off, we'll get back to this in Lecture VI
+
+\item To understand the mechanism, let's go back to the full 8-equation system, where we have more clean interpretations of the equilibrium equations
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Reminder: Full system looks like...}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium is characterized by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1} ) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+
+\item Note: Real interest rate given by $\hat r_t =  \hat i_t - E_t \pi_{t+1}$
+\eit
+
+\end{frame}
+
+\begin{frame}{IRFs to monetary policy shock: full system}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_9variables.pdf}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{IRFs to monetary policy shock: mechanism}
+
+\bit
+\setlength\itemsep{1em}
+\item How can we explain the equilibrium responses?
+
+\item Simplify, simplify, simplify
+
+\item Let's start with flexible prices: $\theta \to 0$
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{IRFs to monetary policy shock under flexible prices}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_9variables_flexprices.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Mechanism under flexible prices}
+
+\bit
+\setlength\itemsep{1em}
+\item Last lecture, we showed that under flexible prices, system collapses to
+\begin{eqnarray}
+\text{DIS curve:} &&  \hat i_t = E_t \pi_{t+1}  \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item 0 response of all real variables, i.e., {\bc monetary neutraility}
+
+\item We also showed that the unique solution has
+\begin{eqnarray}
+\pi_t = -\sum_{s=0}^{\infty} \frac{1}{\phi^{s+1}} \nu_{t+s}  \nonumber
+\end{eqnarray}
+
+\item Inflation falling in response to ``contractionary'' monetary policy shock has nothing to do with sticky prices or other frictions, simply a consequence of a Taylor and rational expectations
+
+\item Inflation response so strong that interest rate falls in response to positive shock! 
+
+
+\eit
+
+
+\end{frame}
+
+\begin{frame}{Back to sticky prices}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_9variables.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Mechanism}
+
+\bit
+\setlength\itemsep{1em}
+\item Sticky price $\rightarrow$ smaller inflation response
+
+\item With smaller inflation response, nominal interest rate actually increases
+
+\item As a consequence, the real interest rate increases:
+\begin{eqnarray}
+\hat r_t = \hat i_t - E_t \pi_{t+1} \nonumber
+\end{eqnarray}
+
+\item {\bc Monetary non-neutraility!}
+
+\item Given that the real interest rate increases, we can back out the response of all other variables
+
+\item In so doing, recall that we have assumed that we only search for bounded solutions!
+
+
+\eit
+
+
+
+\end{frame}
+
+
+\begin{frame}{Mechanism cont'd}
+
+\bit
+\setlength\itemsep{1em}
+\item Take as given that $\hat r_t$ increases, then
+\begin{eqnarray}
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat r_t) + E_t \hat c_{t+1} \nonumber
+\end{eqnarray}
+implies $\Delta E_t c_{t+1}$ is positive
+
+\item $\Delta E_t c_{t+1}>0$ + Bounded solution $\Rightarrow$ $\{\hat c_{t+s}\}$ must converge to some steady state
+
+\item But the steady state is unique, so we know $\{\hat c_{t+s}\}$ must converge to $\hat c_{t+s}=0$
+
+\item Therefore, we must have that $\hat c_t<0$!
+
+\eit
+
+
+\end{frame}
+
+
+
+\begin{frame}{Mechanism cont'd}
+
+\bit
+\setlength\itemsep{1em}
+\item Take as given that $\hat c_t<0$
+
+\item Market clearing $\hat c_t = \hat y_t = \hat n_t < 0$
+\bit
+\item $\Rightarrow$ we may think of the output drop as being caused by drop in {\bc aggregate demand}
+\eit
+
+\item How is this consistent with optimal labor supply? Intratemporal optimality condition:
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber
+\end{eqnarray}
+
+\item $\hat n_t<0$ only if $\hat \omega_t < \hat y_t < 0$
+\bit
+\setlength\itemsep{0.5em}
+\item Wages need to respond more than output (and profits less)!
+\eit
+
+\item Is the fall in inflation consistent with the Phillips curve?
+\bit
+\setlength\itemsep{0.5em}
+\item $\hat \omega_t <0$ $\Rightarrow$ $\hat mc_t<0$ $\Rightarrow$ $\beta E_t \pi_{t+1}-\pi_t \approx \Delta \pi_{t+1} >0$ from the Phillips curve
+
+\item Again, bounded solution + unique steady state $\Rightarrow$ $\hat \pi_t<0$
+\eit
+
+\eit
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Monetary policy shock equivalent to demand shock}
+
+\bit
+\setlength\itemsep{1em}
+\item Recall: DIS curve stems from household Euler equation
+\begin{eqnarray}
+c_t &=& - (i_t-E_t \pi_{t+1}-\xi) + E_t c_{t+1} \nonumber
+\end{eqnarray}
+where $\xi = -\log \beta$
+
+\item Suppose there are shocks to discount factor $\beta$ 
+\bit
+\setlength\itemsep{0.5em}
+\item Specifically, assume $\xi_t = \rho_{\xi} \xi_{t-1} + \epsilon_{\xi, t}$
+
+\item $=$ shock to the marginal value of current consumption - a ``demand shock''
+\eit
+
+\item Then, 3-equation system becomes
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1} - \xi_t) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+or
+\begin{eqnarray}
+\text{DIS curve + Policy rule:} && \hat y_t = - (\phi \pi_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} + \xi_t - \nu_t \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber 
+\end{eqnarray}
+
+\item $\Rightarrow$ Positive monetary policy shocks are equivalent to negative demand shocks
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge TFP shocks \normalfont
+\end{center}
+
+\end{frame}
+
+\begin{frame}{TFP shocks}
+
+\bit
+\setlength\itemsep{1em}
+\item So far: focus on monetary policy shocks
+
+\item Naturally, we are interested in how sticky prices and the behavior of monetary policy affect response to non-policy shocks
+
+\item Let's consider TFP shocks
+
+\item Assume that $a_t \equiv \log A_t$ follows
+\begin{eqnarray}
+a_t = \rho_a a_{t-1} + \epsilon^a_t \nonumber
+\end{eqnarray}
+
+\item Which equations in our equilibrium system are affected?
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1} ) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{{\black Marginal cost:} } && {\black \widehat{mc}_t = \hat \omega_t}  \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{{\black Labor clearing:}} && {\black \hat y_t = \hat n_t} \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{TFP shocks}
+
+\bit
+\setlength\itemsep{1em}
+\item So far: focus on monetary policy shocks
+
+\item Naturally, we are interested in how sticky prices and the behavior of monetary policy affect response to non-policy shocks
+
+\item Let's consider TFP shocks
+
+\item Assume that $a_t \equiv \log A_t$ follows
+\begin{eqnarray}
+a_t = \rho_a a_{t-1} + \epsilon^a_t \nonumber
+\end{eqnarray}
+
+\item Which equations in our equilibrium system are affected?
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1} ) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{{\bc Marginal cost:} } && {\bc \widehat{mc}_t = \hat \omega_t}  \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{{\bc Labor clearing:}} && {\bc \hat y_t = \hat n_t} \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{Incorporating TFP shocks}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Marginal cost:
+\begin{eqnarray}
+MC_t = \frac{W_{t}}{A_tP_t} \hspace{2mm} \Rightarrow \hat mc_t = \hat \omega_t - a_t \nonumber
+\end{eqnarray}
+
+\item Labor market clearing:
+\begin{eqnarray}
+N_t = \frac{Y_{t}}{A_t} D_t \hspace{2mm} \Rightarrow \hat n_t = \hat y_t - a_t \nonumber
+\end{eqnarray}
+
+\item Again, here we have that $\hat a_t = a_t$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Full system with TFP shocks}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium is characterized by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1} ) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t - a_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t + a_t \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+
+\item Also, the law of motion for exogenous shocks:
+\begin{eqnarray}
+\nu_t &=& \rho_{\nu} \nu_{t-1} + \epsilon_t \nonumber \\
+a_t &=& \rho_a a_{t-1} + \epsilon^a_t \nonumber
+\end{eqnarray}
+\eit
+
+\end{frame}
+
+\begin{frame}{IRFs to a TFP shock}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_tfpshock_9variables.pdf}
+\end{figure}
+
+
+
+\end{frame}
+
+
+\begin{frame}{Mechanism}
+
+\bit
+\setlength\itemsep{1em}
+\item Again, no hump shapes like in the vanilla RBC model. 
+\bit
+	\item Again, without capital, there is no state variable.
+\eit
+
+\item Recall, in RBC without capital, hours worked did not respond at all
+
+\item Here, hours worked falls
+\bit
+	\item Gal\'{i} (AER 1999) and Basu-Fernald-Kimball (AER 2006) argue this is consistent with the data
+\eit
+
+\item What role does sticky prices and monetary policy play for this response?
+
+\item Again, let's go back to flexible prices (which is just the RBC model with no capital (and monopolistic competition))
+
+\item With flexible prices, firm optimality is
+\begin{eqnarray}
+P_{it} &=& M \psi_t \nonumber \\
+\frac{P_{it}}{P_t} &=& M \frac{\psi_t}{P_t} \hspace{2mm} \Rightarrow \widehat{mc}_t = 0 \nonumber
+\end{eqnarray}
+
+\item All other relationships are unaffected
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium system with flexible prices}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium is characterized by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{\bc Firm optimality:} && {\bc \widehat{mc}_t = 0} \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t - a_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t + a_t \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+
+\item Also, the law of motion for exogenous shocks:
+\begin{eqnarray}
+\nu_t &=& \rho_{\nu} \nu_{t-1} + \epsilon_t \nonumber \\
+a_t &=& \rho_a a_{t-1} + \epsilon^a_t \nonumber
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium system with flexible prices: solution}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium is characterized by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && {\widehat {mc}_t = 0} \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t - a_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t + a_t \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item Work it through to find {\bc the natural interest rate}: {\rc (Do on whiteboard)}
+\begin{eqnarray}
+\hat r^n_t &=& \hat i_t - E_t \pi_{t+1} \nonumber \\
+&=& - (1-\rho_a) a_t \nonumber
+\end{eqnarray}
+
+\item Key result: positive TFP shocks cause a decline in the natural real interest rate
+
+\item Mechanism: $a_t>0$ $\Rightarrow$ $\Delta E_t a_{t+1} <0$ $\Rightarrow$ $\Delta E_t c_{t+1} <0$ $\Rightarrow$ $ \hat r^n_{t} < 0$
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Sticky-price equilibrium in gaps}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Let's turn back to the {\bc sticky-price equilibrium}
+%\begin{eqnarray}
+%\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+%\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+%\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+%\end{eqnarray}
+
+\item We linearized the equilibrium around the steady state $\hat x = x_t - x_{ss}$, for any $x$
+
+\item Let's instead consider a linearization around the {\bc flexible-price equilibrium} or, using another terminology, the {\bc natural equlibrium}
+
+\item We'll go directly at the 3-equation system
+
+\item Define ``gaps'' as $\tilde x_t = x_t-x_t^n$
+
+\item Note $\tilde x_t = (x_t-x_{ss})- (x_t^n-x_{ss}) = \hat x_t - \hat x^n_t$
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Sticky-price equilibrium in gaps II}
+
+\bit
+\setlength\itemsep{1.5em}
+\item DIS curve: not affected by $a_t$, simply subtract natural equilibrium to find
+\begin{eqnarray}
+&& \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+\Leftrightarrow && \hat y_t-\hat y^n_t = - (\hat i_t-E_t \pi_{t+1}-\hat r^n_t) + E_t \hat y_{t+1}-E_t \hat y^n_{t+1}  \nonumber \\
+\Leftrightarrow && \tilde y_t = - (\hat i_t-E_t \pi_{t+1}-\hat r^n_t) + E_t \tilde y_{t+1}  \nonumber
+\end{eqnarray}
+
+%\item Recall that the natural interest rate is given by
+%\begin{eqnarray}
+%\hat r^n_t = - (\rho_a-1) a_t \nonumber
+%\end{eqnarray}
+
+\item Phillips curve: 
+\bit
+\setlength\itemsep{0.5em}
+	\item Start with firm optimality:
+	\begin{eqnarray}
+	\pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber
+	\end{eqnarray}
+
+	\item Flexible prices: $\widehat{mc}^n_t = 0$ $\Rightarrow$ $\widehat{mc}_t = \widetilde{mc}_t $
+	
+	\item Work through the flex-price equations to find $\widetilde{mc}_t = (1+\varphi) \tilde y_t$, hence
+	\begin{eqnarray}
+	\pi_t = \beta E_t \pi_{t+1} + \kappa \tilde y_t \nonumber 
+	\end{eqnarray}
+	where $\kappa = \lambda (1+\varphi)$
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Sticky-price equilibrium in gaps III}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Putting it together, the equilibrium can be summarized as
+\begin{eqnarray}
+\text{DIS curve:} && \tilde y_t = - (\hat i_t-E_t \pi_{t+1}-\hat r^n_t) + E_t \tilde y_{t+1}  \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \tilde y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber \\
+\text{Natural real interest rate:} && \hat r^n_t = - (\rho_a-1) a_t \nonumber 
+\end{eqnarray}
+
+\item $\tilde y_t$ measures fluctuations that are {\bc inefficient}
+
+\item Model captures two central assertions of the prevailing {\bc Neo-Wicksellian} view of business cycles
+\ben
+\setlength\itemsep{0.5em}
+\item Monetary factors does not affect the natural real interest
+
+\item Inefficient fluctuations are linked by deviations in the real interest rate from the natural real interest rate
+\een
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Intermezzo: The Great Knut Wicksell}
+
+
+\begin{figure}
+	\centering
+		\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[width=.4\linewidth]{figures/wicksell_bok.jpg}
+	\end{subfigure}%
+	\begin{subfigure}{\textwidth}
+		\centering
+		\includegraphics[width=.4\linewidth]{figures/wicksell.jpg}
+	\end{subfigure}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Intermezzo: is the natural-rate hypothesis correct?}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45]{figures/Hillenbrand_figure.pdf}
+\end{figure}
+
+From Hillenbrand (2023)
+
+\end{frame}
+
+
+\begin{frame}{IRFs to a TFP shock: Gaps}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_tfpshock_gaps_4variables.pdf}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{IRFs to a TFP shock: comments}
+
+\bit
+\setlength\itemsep{1.5em}
+\item A positive TFP shocks leads to ``gap'' recession
+
+\item This reflects that monetary policy is not doing a good job
+
+\item Mehcanism: TFP $\uparrow$ $\Rightarrow$ Marginal cost $\downarrow$ $\Rightarrow$ inflation $\downarrow$ $\Rightarrow$ Interest rate $\downarrow$
+\bit
+\setlength\itemsep{0.5em}
+
+	\item Monetary policy ``stimulates'' the economy...
+	
+	\item ... but not enough to raise consumption to its efficient level
+	
+	\item In the ``natural equilibrium'', real interest rate is even lower, and hours worked are constant 
+	
+	\item Therefore, hours decline in the observed equilibrium
+\eit
+
+\item Ineffiency not surprising: the policy rule was specified in a completely ad hoc manner
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Cost-push shocks \normalfont
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Cost-push shocks}
+
+\bit
+\setlength\itemsep{1.5em}
+\item TFP shocks is an example of a \emph{supply shock}
+
+\item Due to sticky prices, TFP shocks create a wedge (``deviations'') between the {\bc natural equilibrium} and the actual equilibrium
+
+\item Because the fluctuations in the natural equilibrium are efficient, the policy problem tends be organized around how to undo the effect of price stickiness 
+
+\item Another class of supply shocks creates a wedge between the {\bc natural equilibrium} and the {\bc efficient equilibrium}, so called {\bc cost-push shocks}
+
+\item Examples: shocks to firm's desired markup (greedflation?), shocks to distorionary taxes
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Rewriting the system once more}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Written in deviations from the natural equilibrium, our system is
+\begin{eqnarray}
+\text{DIS curve:} && \tilde y_t = - (\hat i_t-E_t \pi_{t+1}-\hat r^n_t) + E_t \tilde y_{t+1}  \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \tilde y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item Define $x_t = y_t-y^e_t$, where $y^e_t$ is the efficient equibrium path. 
+
+\item We have that  $\tilde y_t = x_t + (y^e_t-y^n_t)$
+
+\item We can write our system as
+\begin{eqnarray}
+\text{DIS curve:} && x_t = - (\hat i_t-E_t \pi_{t+1}-\hat r^e_t) + E_t x_{t+1}  \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa x_t + u_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $u_t = \kappa (y^e_t-y^n_t)$ and $\hat r^e_t = E_t \Delta y^e_{t+1}$
+
+\item $u_t$ is, in \emph{reduced form}, a cost-push shock
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRFs to a cost-push shocks}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_costpushshock_4variables.pdf}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Comments}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Cost-push shocks are interesting from a policy perspective
+
+\item These shocks increase inflation, but also cause an inefficient recession
+\bit
+	\item A monetary authority can combat inflation, but this will lead an even deeper recession
+\eit
+
+\item Contrast with a positive TFP shock: inefficient recession, but lowers inflation 
+\bit
+	\item Here, a monetary authority can seemingly adress two problems simoultaneously by stimulating the economy
+\eit
+
+\item It seems like we need to think more systematically about the policy problem...
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Basic NK model = RBC model + monopolistic competition and sticky prices
+
+\item In contrast to RBC, NK predicts inefficient fluctations, and a role for monetary policy
+
+\item In response to a positive shock, the NK model predicts that
+\vspace{5mm}
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|l|l|l|l|l|}
+		\hline
+		Shock & $\hat y_t$ & $\tilde y_t$ & $x_t$ & $\pi_t$ \\
+		\hline
+		Monetary policy & down & down & down & down \\
+		TFP & up & down & down & down \\
+		Cost-push & --- & --- & down & up \\
+		\hline
+	\end{tabular}
+	\label{tab:shocks}
+\end{table}
+
+
+
+\item In line with the evidence on monetary policy (qualitatively, but not quantitatively)
+
+\item Next lecture, optimal policy in the NK model
+
+
+\eit
+
+\end{frame}
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

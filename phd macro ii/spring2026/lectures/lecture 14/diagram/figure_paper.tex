@@ -1,0 +1,138 @@
+% EPC flow charts
+% Author: Fabian Schuh
+\documentclass{beamer}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title:  EPC flow charts
+:Grid: 1x2
+
+
+\end{comment}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+\begin{document}
+\begin{frame}
+\begin{tikzpicture}[->,>=stealth']
+
+ % Position of QUERY 
+ % Use previously defined 'state' as layout (see above)
+ % use tabular for content to get columns/rows
+ % parbox to limit width of the listing
+
+\node[state] (R) 
+ {\begin{tabular}{c}
+Real interest rate \\
+	$\{r_t\}$
+ 	\end{tabular}
+ 	};
+
+  
+ % State: ACK with different content
+ \node[state,    	% layout (defined above)
+  text width=3cm, 	% max text width
+  yshift=0cm, 		% move 2cm in y
+  right of=R, 	% Position is to the right of QUERY
+  node distance=6.5cm, 	% distance to QUERY
+  anchor=center] (URISK) 	% posistion relative to the center of the 'box'
+ {%
+ \begin{tabular}{c} 	% content
+  Unemployment risk \\ $\{\textup{URISK}_t\}$
+ \end{tabular}
+ };
+
+ % STATE EPC
+
+ \node[state,
+  right of=URISK,
+  node distance=6.5cm,
+  anchor=center] (U) 
+ {%
+ \begin{tabular}{c}
+  Output\\
+  $\{Y_t\}$
+ \end{tabular}
+ };
+
+
+
+ \node[state,
+below of=U,
+node distance=3cm,
+anchor=center] (THETA) 
+{%
+	\begin{tabular}{c}
+	Labor market\\
+	$\{\theta_t, u_t\}$
+	\end{tabular}
+};
+
+
+ \node[state,
+left of=THETA,
+node distance=6.5cm,
+anchor=center] (MC) 
+{%
+	\begin{tabular}{c}
+	Intermediate-good price\\
+	$\{P_t^x\}$
+	\end{tabular}
+};
+
+ \node[state,
+left of=MC,
+node distance=6.5cm,
+anchor=center] (PI) 
+{%
+	\begin{tabular}{c}
+	Inflation\\
+	$\{\Pi_t\}$
+	\end{tabular}
+};
+
+
+ % draw the paths and and print some Text below/above the graph
+ \path 
+
+ (R) 	edge[<->]  node[anchor=north,below]{Asset demand} (URISK)
+ (THETA)       	edge[->, bend right = 15]     node[anchor= west]{Matching function}        (URISK)    
+ 
+  (THETA)       	edge[<-, bend left = 10]     node[anchor=west,below]{Vacancy creation}            (MC)
+  
+    (MC)       	edge[->, bend left = 5]     node[above]{Job destruction}            (THETA)
+    
+    (THETA)       	edge[->, bend right = 30]     node[anchor=west]{Accounting}            (U)
+    
+  (MC)       	edge[<->]     node[anchor=west,above]{Phillips curve}            (PI)
+  
+   (PI)       	edge[<->]     node[anchor=west]{Taylor rule}            (R)
+   
+   (MC) edge[->, bend right = 25] node[anchor = west]{Job destruction}  (URISK)
+;
+\end{tikzpicture}
+\end{frame}
+
+
+\end{document}

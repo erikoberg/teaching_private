@@ -1,0 +1,257 @@
+             \documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macroeconomics II: Problem set 6}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+Send your solutions to Andrii by \bf March 27, 12.00 \normalfont at the latest.
+
+
+\section*{Exercise 1: Unconstrained versus constrained investment}
+Consider the RBC model in lecture 3, where the firm faces a potentially binding collateral constraint. Specifically, we assume that the representative firm can borrow up within-period debt up to $\xi q_t K_{t} $, at 0 interest rate, such that
+\begin{eqnarray}
+\max_{N_t, I_t, K_{t+1}} && E_O \sum_{t=0}^{\infty} M_{0, t} \left(A_t F(K_t, N_t) - W_t N_t - I_t - C(I_t, K_t) \right) \nonumber \\
+\text{s.t.} && K_{t+1} \leq I_t + (1-\delta) K_t \nonumber \\
+&& I_t \leq \xi q_t K_{t} \nonumber
+\end{eqnarray}
+\ben
+	\item Interpret $q_t K_{t}$ - What is this?
+	
+	\item The collateral constraint may or may not bind the solution to the firm problem. Compute the F.O.C. and the complementary slackness conditions. 
+	
+	\item Show that for the constraint to be binding in steady state, the parameters must satisfy $\xi<\delta$ 
+	
+	\item Assume that $\xi=\frac{1}{2}*\delta$, write down the equilibrium characterization of the full model, log-linearize, and compute the IRF to a TFP shock, using the same parameter values in class.  
+	
+	\item Assume that $\xi>\delta$, write down the equilibrium characterization of the full model, log-linearize, and solve for the IRF to a TFP shock, using the same parameter values in class.  
+	
+	\item Explain why the response of consumption, investment and the price of capital $q_t$ is different in your two IRFs.
+\een
+
+\section*{Exercise 2: Solving the NK model with the method of undetermined coefficients}
+Consider the vanilla NK model studied in lecture 4, written on the 3-equation form:
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where we assume the monetary policy shocks follows an AR(1) process $\nu_t = \rho \nu_{t-1} + \epsilon_t$, and $\epsilon_t$ is an i.i.d. disturbance.
+
+Because this model have no state variable, we can actually solve it analytically*. Let's compute the policy functions to a single disturbance in preiod $t$, i.e., $\epsilon_t>0$ and $\epsilon_{t+s}=0$ for all $s>1$.
+\ben
+	\item Since this is a linear model, a policy function for any variable $x_t \in \{\hat y_t, \pi_t, \hat i_t \}$ is some linear combination of past shocks 
+	\begin{eqnarray}
+	x_t = \sum_{s=0}^{t} a^x_{t-s} \nu_s. \nonumber
+	\end{eqnarray}
+	where the coefficients $a^x_{t-s}$ depends on the parameters of the model. Argue that $a_{t-s}=0$ for all $s<t$.
+	
+	\item Insert the three policy functions into the the three equilibrium conditions. You should now have a system of the three equations in three unknowns: $\alpha_0^y, \alpha_0^\pi, \alpha_0^i$.
+
+	\item Solve the system for the values of $a_0^y, a_0^\pi, a_0^i$.
+	
+	\item Using your policy functions, plot the IRF to a monetary policy shock, using the same parameter values as in class. Verify that the IRFs are the same as in the lecture notes. 
+\een
+
+*This is not strictly true, there exist a variant of this method that also applies to models with one endogeneous state variable, see Roulleau-Pasdeloup (JEDC 2023)
+
+
+\section*{Exercise 3: Identification of Taylor Rules}
+A big literature has, in various ways, estimated time-series regressions of nominal interest rates on inflation (and other variables), with the purpose of retrieving the coefficients of the Taylor rule, i.e., regressions of the form:
+\begin{eqnarray}
+i_t = \alpha + \beta \pi_t + \zeta_t
+\end{eqnarray}
+The perhaps most famous example is Clarida-Gali-Gertler (QJE 2000). Let's explore how we can interpret such regressions, focusing on the case with flexible price setting.
+
+The flexible-price model studied in the class is summarized by
+\begin{eqnarray}
+\text{DIS curve:} &&  i_t = r + E_t \pi_{t+1}  \nonumber \\
+\text{Policy rule:} && i_t = r + \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $r$ is the log of the steady state real interest rate and the monetary policy shock is assumed to follow $\nu_t = \rho \nu_{t-1} + \epsilon_t$, where $\epsilon_t$ is an i.i.d. disturbance. Note, the system is not written in terms of log deviations from steady state, but just in terms of logs.
+
+\ben
+	\item Assume that $\phi>1$. Show that the unique bounded solution is given by
+	\begin{eqnarray}
+	\pi_t = - \frac{\nu_t}{\phi-\rho} \nonumber
+	\end{eqnarray}
+	
+	\item Show that, in equilibrium, inflation follows
+	\begin{eqnarray}
+	i_t = r  +  \rho \pi_{t}.
+	\end{eqnarray}
+	
+	\item Why does this equilibrium condition (2) not contradict the assumed policy rule $i_t = r + \phi \pi_t + \nu_t$?
+	
+	\item Would you interpret the time-series estimate of $\beta$ in Equation (1) as the structural Taylor rule coefficient $\phi$? Explain in the words what the identification problem is.
+	
+	\item Bonus question (not graded): Show that the same identification problem arises also with sticky price setting. You may wanna use the solutions you retrieved in Exercise 2.
+\een
+
+
+	
+\end{document}
+
+
+\section*{Exercise 2: Forward Guidance}
+A tool used by many central banks since the zero lower bound became binding during the Financial Crisis 2007-2008 is called \emph{Forward Guidance}. The idea is that although you're not able to affect current interest (due to the zero lower bound), you can still affect aggregate demand by promising to keep future interest rates low. 
+\ben
+\item Consider the linearized Euler equation in the vanilla NK model
+\begin{eqnarray}
+\hat c_t &=& - (\hat i_t-E_t \pi_{t+1}) + E_t \hat c_{t+1}. \nonumber
+\end{eqnarray}
+Iterate on this condition, and use the boundary condition $\lim\limits_{T \to \infty} \hat c_T=0$ to show that
+\begin{eqnarray}
+\hat c_t = - E_t \sum_{s=0}^{\infty} (\hat i_{t+s}-\pi_{t+s+1}) \nonumber	
+\end{eqnarray}
+
+\item Suppose the central bank can affect the future real interest rate $E_t[\hat i_{t+s}-\pi_{t+s+1}]$ by 1 percent for some $s>0$. How will that affect consumption demand in period $t$ in comparison to changing the current real interest rate $\hat i_{t}-E_t\pi_{t+1}$ by 1 percent? Does it matter if $s=1,10,1000$?
+
+\item Explain the intuition to this result
+
+\item Do you think this result is a reasonable prediction of the vanilla NK model?
+
+\item Gabaix (AER 2020) shows that if assuming bounded rationality in the form of ``cognitive discounting''- the idea that agents understand current economic conditions better than future ones -  the linearized Euler equation changes to
+\begin{eqnarray}
+\hat c_t &=& - (\hat i_t-E_t \pi_{t+1}) + \delta E_t \hat c_{t+1}. \nonumber
+\end{eqnarray} 
+where $\delta \in [0,1)$ is the discounting parameter. In this model, does it now matter if the central bank changes the interest rates in period $s=1,10$ or $s=1000$?
+\een
+
+
+
+\section*{Exercise 3: Rigid wages instead of rigid prices in the NK model}
+Let's consider the basic NK model discussed in class, but instead of rigid prices, let's assume rigid wages (together with fully flexible price setting). Specifically, let's be a bit extreme and assume that while resting in the steady state, the representative household and the firms have agreed to honor a labor contract with the following features: 
+\bit
+\item If a transitory shocks occurs, the nominal wage will not change. 
+
+\item Firms are always free to choose how much labor services to hire at the going wage 
+
+\item Households are committed to supply whatever hours worked is demanded by the firms
+\eit
+In contrast to the NK model discussed in class, we assume that the intermedidate goods market is fully competitive (meaning that the final goods producer operates a linear production function) and also that intermediate goods production function is DRS:
+\begin{eqnarray}
+Y_{it} = N_{it}^{1-\alpha} \nonumber
+\end{eqnarray}
+where TFP $A=1$.
+
+\ben
+\item Show that in this model, optimal firm behavior prescribes that the real wage equals 
+\begin{eqnarray}
+\frac{W_t}{P_t} = (1-\alpha) Y_{t}^{-\frac{\alpha}{1-\alpha}} \nonumber
+\end{eqnarray}
+where, $Y_t$ is the production of final goods.
+
+\item Denote log deviations in the real wage with $\hat \omega_t = \hat w_t- p_t$. Argue that the growth rate in log real wages must equal the negative of the inflation rate, i.e., $\Delta\hat{\omega}_t = -\pi_t$,
+
+\item Show that combining the results from question 1 and 2 yields the following Phillips curve
+\begin{eqnarray}
+\pi_t = \frac{\alpha}{1-\alpha}\Delta \hat y_t \nonumber
+\end{eqnarray}  
+
+\item Interpret the previous equation, why does firm optimality imply a positive relationship between inflation and output growth in this model?
+
+\item Show that household optimality together with goods market clearing imply the following IS curve:
+\begin{eqnarray}
+\Delta E_t \hat y_{t+1} = \hat i_t - E_t \pi_{t+1} \nonumber
+\end{eqnarray}
+You don't need to set up the entire household problem, but can depart from log-linearized optimality condition directly.
+
+\item Suppose the central bank policy rule responds to inflation expectations rather than realized inflation (this is argubly pretty close to how actual monetary policy is conducted):
+\begin{eqnarray}
+\hat i_t  = \phi E_t \pi_{t+1} + \nu_t \nonumber
+\end{eqnarray}
+Show that if $\phi \leq \frac{1}{\alpha}$, then a positive monetary policy shock will result in positive expected output growth $\Delta E_t \hat y_{t+1}>0$.
+
+\item One can show that a unique bounded solution is garuanteed if also $\phi > 1$. Argue that, given a unique bounded solution and $\phi < \frac{1}{\alpha}$, output today (in the period in which the shock occurs) must be negative: $\hat y_t<0$
+
+\item Summing up, explain the mechanism, step-by-step, whereby a positive monetary contraction results in a negative output response in this model.
+
+\item Finally, compare the welfare properties in this model to the rigid-price model discussed in this class. Specifically, indicate in what manner the allocation in this model is inefficient, and compare that to the inefficiency in the rigid-price model discussed in class.
+
+\een
+
+
+%\section*{Exercise 1: Investment-adjustment costs in accumulation equation}
+%Consider the RBC model with firm ownership of capital studied in Lecture 3. In the class, we introduced investment-adjustment costs paid with consumption goods. Let's instead assume that adjustment costs materialize in lower production of capital goods. That is, we assume that the capital accumulation equation is
+%\begin{eqnarray}
+%K_{t+1} = (1-\delta)K_t + I_t - C(I_t, K_t) \nonumber
+%\end{eqnarray}
+%where
+%\begin{eqnarray}
+%C(I_t, K_t) = \frac{\phi}{2} \left(\frac{I_t}{K_t}-\delta\right)^2K_t \nonumber
+%\end{eqnarray}
+%\ben
+%\item State the firm problem, form the Lagrangian, and find the F.O.C:'s
+%
+%\item Interpret the F.O.C's: what do each equation say? How do they differ from the corresponding equations in the model stuided in class.
+%
+%\item State the other equations that characterize the equilibrium? Is there any other equation that is different from the equilibrium of the model studied in class?
+%
+%\item Plug the equilibrium characterization into Dynare and compute IRFs. Use $\phi=2$. Compare your IRFs to the IRFs from the model studied in class (you will use in exercise 3, so you might just go ahead and compute them yourself). Does it make a meaningful difference which of the two setups we use? 
+%\een
+
+
+%\section*{Exercise 2: Government spending multipliers}
+%Since the days of Keynes, there's been the hypothesis that you can use government spending to stimulate the economy. Let's study this in the vanilla NK model. 
+%
+%Assume the government finances wasteful government spending $G_t$ (by ``wasteful'', we mean that $G_t$ does not enter anyone's utility nor any production function) by non-distortionary lump-sum taxes $TAX_t$ levied on households. We assume the government budget is balanced, so $G_t=TAX_t$ in all periods. The household problem is still
+%\begin{eqnarray}
+%\max_{\{C_t, N_t, B_{t+1}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[\log C- \theta \frac{N^{1+\varphi}}{1+\varphi}\right]\nonumber \\
+%\text{s.t} && P_t C_t + Q_t B_{t+1} \leq W_t N_t + B_{t} + T_t \nonumber \\
+%&& C_t, N_t, B_{t+1}  \geq 0 \nonumber
+%\end{eqnarray}
+%but now, $T_t=D_t-TAX_t$ is the sum of firm dividends and taxes.
+%
+%\ben
+%\item In our baseline model with $G_t=0$, the log-linear equilibrium was described by
+%\begin{eqnarray}
+%\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+%\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+%\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+%\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+%\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+%\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+%\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+%\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t. \nonumber 
+%\end{eqnarray}
+%Argue that introducing positive and time-varying government spending only changes one of these equations. Which, and how?
+%
+%\item Suppose government spending follows the process
+%\begin{eqnarray}
+%g_t = \rho_g g_{t-1} + \epsilon^g_t \nonumber
+%\end{eqnarray}
+%with $\rho_g=0.5$ and the government spending share of output is 30 percent in steady state. Construct graphs of the response of output, inflation and interest rates to 1 percent positive government spending shock.
+%
+%\item To start interpreting these results, let's first start with constructing the same graphs, but with flexible prices. With flexible prices, the firm optimaility condition changes to $\widehat{mc}_t=0$, as discussed in class. You should find that output increases in response to the shock. What is the mechanism?
+%
+%\item Let's go back to sticky prices. With sticky prices, you should have found a larger response of output to the same shock. What is the intuition for this? To uncover the mechanism, you might find it helpful to investigate how the response of output changes when you vary the monetary policy response parameter $\phi$.
+%
+%\item If you are interested in digging deeper, check out Woodford (AEJmacro, 2011).
+%\een

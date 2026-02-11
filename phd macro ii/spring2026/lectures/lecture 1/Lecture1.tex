@@ -1,0 +1,2025 @@
+\documentclass[9pt,xcolor={dvipsnames}]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+\newcommand{\gc}{\color{ForestGreen}}
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[The Real Business Cycle Model: Basics]{Macroeconomics II, Lecture I:\\
+	  The Real Business Cycle Model: Basics}
+\author{Erik {\"O}berg}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Introduction}
+
+
+\begin{frame}{This course}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Business cycle models
+\bit
+\setlength\itemsep{0.5em}
+	\item 6 lectures
+	\item Frameworks for studying aggregate fluctuations
+\eit
+
+
+\item Frictional labor markets
+\bit
+\setlength\itemsep{0.5em}
+	\item 4 lectures
+	\item Digging deepering into the determinants of household income
+\eit
+
+\item Incomplete asset markets 
+\bit
+\setlength\itemsep{0.5em}
+	\item 3 lectures
+	\item Digging deeper into the determinants of consumption-savings dynamics, taking the income process as given
+\eit
+
+\item 1 Dynare tutorial session; 6 problem sets
+
+\item Each of my problem sets are worth 4 points (Dora's are worth 2). The exam is worth 70 points. To pass the course, you need 50 points in total, with at least 30 points from the exam. 75 points for a Distinction.
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Learning outcomes}
+
+\ben
+\setlength\itemsep{2em}
+
+\item You should know a few key empirical facts about business cycles, the labor market and the distribution/dynamics of earnings-consumption-wealth
+
+\item You should be able to construct, solve and analyze workhorse models within the business-cycle, macro-labor and incomplete-markets literatures
+\bit
+\setlength\itemsep{0.5em}
+\item Within these models, you should know which assumptions are essential and which can be relaxed
+
+\item You should acquire the technical skills needed to solve/analyze the presented models
+\eit
+
+\item You should know key predictions of the models presented and how the models can be used to interpret the data
+
+\een
+
+\end{frame}
+
+\begin{frame}{Hidden agenda}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Two guiding principlies:
+\ben
+\setlength\itemsep{0.5em}
+	\item You should acquire sufficient tools to continue studying on your own (especially for those that decide to specialize in macro)
+	
+	\item You should acquire an overview about how research in this field looks like, and how it relates to other areas of economic research (labor, public finance etc.)
+\een
+
+\item Repeated emphasis on how to use models for \emph{quantitative interpretation} of the data
+
+\item Repeated emphasis on how to use micro data for informing macroeconomic research
+
+
+\eit
+
+\end{frame}
+
+\begin{frame}{My teaching style}
+
+\bit
+\setlength\itemsep{2em}
+
+\item In class, we go through most steps, but not all, when solving the models
+\bit
+	\item I expect you to work (or know how to work) through the missing pieces at home
+\eit
+
+\item The problem sets are the heart of the course
+\bit
+\setlength\itemsep{0.5em}
+\item Primary benefit is that you learn economics
+
+\item Secondary benefit is that you practice for the main exam
+
+\item Third benefit is that you gain som points for the exam
+\eit
+
+\item References: I use convention Name-Name-... (journal, year)
+\bit
+\setlength\itemsep{0.5em}
+\item Example: Gabaix-Lasry-Lions-Moll (Ecmtra, 2016)
+\item Abbreviation when reference is recurrently repeated
+\item If not published, I do not write out journal
+\eit
+
+\item I very much appreciate questions and you pointing out errors, inconsistencies or anything else that makes my slides/teaching unclear
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Part I: Business cycles}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Basic questions:
+\ben
+\setlength\itemsep{0.5em}
+	\item What are business cycles?
+	
+	\item What causes business cycles?
+	
+	\item What consequences do they have?
+	
+	\item When, and if so, how, should government policy intervene?
+\een
+
+\item The facts and models that we introduce represent \emph{an attempt} to start reasoning about these questions
+
+\item As you will see, there are many questions raised by these facts and models that we still do not have great answers to
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Agenda}
+
+\ben
+\setlength\itemsep{1.5em} 
+
+\item Business cycle facts
+
+\item Math preliminaries
+
+\item The Real Business Cycle model: Setup and solution
+
+\item The Real Business Cycle model: Analysis
+
+\een
+
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\huge Business cycle facts \normalfont
+\end{center}
+
+\end{frame}
+
+%\begin{frame}{What is a recession? US GDP components during the 2008 crisis}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.8]{Figures/perri_lec10_fig7.pdf}
+%	\caption*{From Fabrizio Perri's website}
+%\end{figure}
+%
+%\end{frame}
+
+
+\begin{frame}{Two approaches to business cycle measurement}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{Figures/perri_lec10_fig1.pdf}
+\end{figure}
+
+\bit
+	\item NBER recession dating focus on periods of contraction
+	
+	\item In our course (and most academic literature): Periods where output is below trend
+\eit
+
+\end{frame}
+
+
+\begin{frame}{US post-war real GDP: trend and cycle}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_raw_trend.pdf}
+	\caption*{Own calculations using FRED data}
+\end{figure}
+
+\bit
+	\item Our focus: the deviations of blue from orange line
+\eit
+
+\end{frame}
+
+\begin{frame}{US Cyclical Real GDP}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_cycle.pdf}
+	\caption*{Own calculations using FRED data}
+\end{figure}
+
+\bit
+	\item Fact 1: considerable variations in GDP growth from year to year
+\eit
+
+\end{frame}
+
+
+\begin{frame}{US Cyclical Real GDP + Hours and productivity}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_na_cycle.pdf}
+	\caption*{Own calculations using FRED data}
+\end{figure}
+
+\bit
+\item Fact 2: Many key macroeconomic aggregates comove with GDP
+\eit
+
+\end{frame}
+
+
+\begin{frame}{US Cyclical Real GDP + Hours and productivity}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_na_cycle.pdf}
+	\caption*{Own calculations using FRED data}
+\end{figure}
+
+\bit
+\item Fact 3: Hours as volatile as GDP, Productivity less volatile than GDP
+\eit
+
+\end{frame}
+
+\begin{frame}{US Cyclical Real GDP + Consumption and Investment}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_ci_cycle.pdf}
+	\caption*{Own calculations using FRED data}
+\end{figure}
+
+\bit
+\item Fact 2 again: Many key macroeconomic aggregates comove with GDP
+\eit
+
+\end{frame}
+
+
+\begin{frame}{US Cyclical Real GDP + Consumption and Investment}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_ci_cycle.pdf}
+	\caption*{Own calculations using FRED data}
+\end{figure}
+
+\bit
+\item Fact 4: Investment more volatile, consumption less volatile than GDP
+\eit
+
+\end{frame}
+
+\begin{frame}{US Cyclical Real consumption}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/c_components_cycle.pdf}
+	\caption*{Own calculations using FRED data}
+\end{figure}
+
+\bit
+\item Moreover: Investment-like consumption goods more volatile than other consumption goods...
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Summary of US business cycle moments}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{Figures/sims_bc_table.pdf}
+	\caption*{From Eric Sims. Based on quarterly HP-filtered data 1948Q1-2010Q3}
+\end{figure}
+
+On top of the facts already discussed, we see that 
+\bit
+\item All series display and considerable degree of persistence
+
+\item Wages and interest rates are not very correlated with output (especially not contempouraneously correlated)
+\eit
+
+\end{frame}
+
+\begin{frame}{US Business cycle: key facts}
+
+\ben
+\setlength\itemsep{1.5em}
+\item Standard deviation of US quarterly Real GDP $\sim$ 2 percent
+
+\item Many macroeconomic variables comove with output
+
+\item Productivity less volatile than output, Hours worked as volatile as output
+
+\item Investment more volatile that output, consumption less volatile than output
+
+\item All series display considerable degree of persistence
+
+\item Wages and interest rates are not very correlated with output
+\een
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Math preliminaries \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Math preliminaries I: Natural Logarithms}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item An appealing feature of the natural logarithm is that for small $x$, we have that
+\begin{eqnarray}
+\log (1+x) \approx x \nonumber
+\end{eqnarray}
+
+\item As a result, we can interpret log differences as percentage growth rates
+\begin{eqnarray}
+\log (x_1)-\log (x_2) &=& \log \left(\frac{x_1}{x_2}\right) \nonumber \\
+&=& \log \left(1+\frac{x_1-x_2}{x_2}\right) \nonumber \\
+&\approx& \frac{x_1-x_2}{x_2} \nonumber
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Math preliminaries II: Log-linearization}
+
+\bit
+\setlength\itemsep{2em}
+
+\item An equilibrium characterization is set of $n$ equations in $n$ unknowns
+\begin{eqnarray}
+F^1(\mathbf{X}) = 0, F^2(\mathbf{X}) = 0,..., F^n(\mathbf{X}) = 0 \nonumber
+\end{eqnarray}
+where $\mathbf{X}=\{X_{1}, X_{2}, ..., X_{n}\}$ are endogenous variables
+
+
+\item For example, the Cobb-Douglas production function represent one such equation
+\begin{eqnarray}
+Y_t &=& A_t K_t^{\alpha}N_t^{1-\alpha} \nonumber
+\end{eqnarray}
+where the endogenous variables are $Y_t, A_t, K_{t}, N_t$.
+
+\item When analyzing the dynamic equilibrium response to shocks, we often consider a {\bc log-linear approximation} of the equilibrium characterization $\{F^i(\mathbf{X})\}^{n}_{i=0}$ around its {\bc steady state}
+\eit
+
+\end{frame}
+
+\begin{frame}{Math preliminaries II: Log-linearization}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Let's focus on the two-variable case
+
+\item Taylor's theorem: the value of a differentiable function $F$ at the point ${X_1, X_2}$, can be approximated knowing its value at the point $X^*_1, X^*_2$, like
+\begin{eqnarray}
+F(X_1, X_2) &\approx& F(X^*_1, X^*_2) +\frac{\partial F(X^*_1, X^*_2)}{\partial X_1}(X_1-X_1^*)+\frac{\partial F(X^*_1, X^*_2)}{\partial X_2}(X_2-X_2^*) \nonumber \\
+\Leftrightarrow \Delta F(X_1, X_2) &\approx& F_1(X^*_1, X^*_2)\Delta X_1+F_2(X^*_1, X^*_2)\Delta X_2 \nonumber 
+\end{eqnarray}
+
+\item If we take logs first, this becomes
+\begin{eqnarray}
+\Delta \log F(X_1, X_2) &\approx& \frac{\partial \log F(X^*_1, X^*_2)}{\partial X_1}\Delta X_1  +\frac{\partial \log F(X^*_1, X^*_2)}{\partial X_2}\Delta X_2 \nonumber \\
+&=& \frac{F_1(X^*_1, X^*_2)}{F(X^*_1, X^*_2)}\Delta X_1   +\frac{F_2(X^*_1, X^*_2)}{F(X^*_1, X^*_2)}\Delta X_2  \nonumber \\
+&=& \frac{F_1(X^*_1, X^*_2)X^*_1}{F(X^*_1, X^*_2)}\hat x_1   +\frac{F_2(X^*_1, X^*_2)X^*_2}{F(X^*_1, X^*_2)}\hat x_2  \nonumber 
+\end{eqnarray}
+where $\hat x_i= \frac{X_i-X_i^*}{X_i^*} \approx \Delta \log X_i$
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Math preliminaries II: Log-linearization}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Result: the percentage growth of the function value can be approximated with an appropriate linear combination of the percentage growths in the function variables
+
+\item {\bc Log-linearizing} = applying this formula
+
+\item Lets consider a few examples from dynamic economic models
+
+\item For any variable $X_t$,  denote
+\bit
+\setlength\itemsep{0.5em}
+\item its steady state value with $X$
+
+\item its log with $x_t$
+
+\item its log steady state value $x$
+
+\item its log difference to steady state with $\hat x_t$
+\eit
+
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Math preliminaries II: Log-linearization {\rc (do on whiteboard)}}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Example 1: Capital law of motion
+\begin{eqnarray}
+K_{t+1} &=& (1-\delta) K_t + I_t \nonumber 
+\end{eqnarray}
+
+\item Log-linearizing around the steady state gives
+\begin{eqnarray}
+\hat k_{t+1} &\approx& (1-\delta) \hat k_t +\delta \hat i_t \nonumber
+\end{eqnarray} 
+
+\item Example 2: Resource constraint
+\begin{eqnarray}
+Y_{t} = C_t + I_t \nonumber
+\end{eqnarray}
+
+\item Log-linearizing around the steady state gives
+\begin{eqnarray}
+\hat y_{t} &\approx& \frac{ C}{Y} \hat c_t + \frac{I}{Y} \hat i_t \nonumber
+\end{eqnarray} 
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Math preliminaries II: Log-linearization}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Multiplicative-exponential relationships are log-linear to start with, these need not to be approximated
+
+\item Example: Cobb-Douglas production function:
+\begin{eqnarray}
+Y_t = A_t K_t^{\alpha}N_t^{1-\alpha} \nonumber
+\end{eqnarray}
+
+\item Taking logs
+\begin{eqnarray}
+y_t &=& a_t + \alpha k_t  + (1-\alpha)  n_t \nonumber
+\end{eqnarray} 
+
+\item Subtracting steady state
+\begin{eqnarray}
+y_t-y &=& a_t-a + \alpha (k_t-k)  + (1-\alpha)  (n_t-n) \nonumber \\
+\hat y_t &=& \hat a_t + \alpha \hat k_t  + (1-\alpha)  \hat n_t \nonumber
+\end{eqnarray} 
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Math preliminaries III: Systems of linear difference equations}
+
+\bit
+\setlength\itemsep{2em}
+
+\item After log-linearizing, the typical macro model can be written as a {\bc forward-looking auto-regressive system} of {\bc linear difference equations}:
+\begin{eqnarray}
+\mathbf A_1 \mathbf{x}_{t} = \mathbf A_2 E_t \mathbf x_{t+1} + \mathbf {B_1} \mathbf \epsilon_t \nonumber
+\end{eqnarray}
+where 
+\bit
+	\item $\mathbf{x}_{t} = [x_{1t}, ..., x_{nt}]'$ is a vector of endogenous variables
+	\item $\mathbf{\epsilon}_{t} = [\epsilon_{1t}, ..., \epsilon_{kt}]'$ is a vector of exogenous shocks
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Math preliminaries III: Systems of linear difference equations}
+
+\bit
+\setlength\itemsep{2em}
+
+\item We are typically interested in finding a {\bc bounded} solution to this system, in response to the shocks $\mathbf{\epsilon}_t$
+
+\item Question: Under what conditions does a {\bc unique bounded solution} exist?
+
+\item Rewrite system as
+\begin{eqnarray}
+&& \mathbf{x}_{t} = \mathbf A E_t \mathbf x_{t+1} + \mathbf {B} \mathbf {\epsilon}_t \nonumber
+\end{eqnarray}
+where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$ and $\mathbf B = \mathbf A_1^{-1} \mathbf B_1$ 
+
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}{Math preliminaries III: Systems of linear difference equations}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item To gain intuition, consider a 1-equation system with {\bc one forward-looking variable}
+\begin{eqnarray}
+x_t = a E_t x_{t+1} + \epsilon_t \nonumber
+\end{eqnarray}
+with the shock sequence $\epsilon_t=\epsilon>0$, $\epsilon_{t+s}=0$ for all $s>0$
+
+\item Any solution satisfies
+\begin{eqnarray}
+x_t &=& a E_t \left[a E_{t+1} x_{t+2}\right] + \epsilon_t \nonumber \\
+&=& .... \nonumber \\
+&=& \lim_{T \to \infty} a^T E_t  x_{t+T} + \epsilon_t \nonumber
+\end{eqnarray}
+
+\item What is a solution? A: Any stochastic process for $x_t$ that satisifes this equation.
+
+\item What is a {\bc bounded solution}? A: any stochastic process for $x_t$ such that $x_{t+s} \leq M$ for some $M<\infty$ and all $s\geq 0$
+
+\item Ergo, a bounded solution has $\lim_{T \to \infty} E_t  x_{t+T}<\infty$
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Math preliminaries III: Systems of linear difference equations}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Our equation:
+\begin{eqnarray}
+x_t &=& \lim_{T \to \infty} a^T E_t  x_{t+T} + \epsilon_t \nonumber
+\end{eqnarray}
+
+\item Q: How many solutions to this equation has $\lim_{T \to \infty} E_t  x_{t+T}<\infty$?
+
+
+\item Suposse $a<1$, then  
+\bit
+\setlength\itemsep{0.5em}
+\item Given $\lim_{T \to \infty} E_t  x_{t+T}<\infty$, we have $\lim_{T \to \infty}  a^T E_t x_{t+T}=0$
+
+\item Hence, $x_t=\epsilon_t$ is the unique bounded solution
+\eit
+
+
+\item Suppose $a\geq1$, then 
+\bit
+\setlength\itemsep{0.5em}
+\item any stochastic process for $x_t$ with $\lim_{T \to \infty} E_t  x_{t+T}=0$ is a solution. 
+
+\item Example:
+\begin{eqnarray}
+x_t = \epsilon_t + \nu_t, \hspace{2mm} \nu_t \sim F \text{ with } E_t \nu_t = 0 \nonumber
+\end{eqnarray}
+
+\item Infintely many bounded solutions!
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Math preliminaries III: Systems of linear difference equations}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Consider the general system of n equations:
+\begin{eqnarray}
+\lb{system}
+\mathbf{x}_{t} = \mathbf A E_t \mathbf x_{t+1} + \mathbf {B} \mathbf \epsilon_t
+\end{eqnarray}
+
+\item The counterpart of the AR(1) scalar $a$ in our 1-equation system are the eigenvalues of $\mathbf{A}$ 
+
+\item The eigenvalues are the solution to the deterministic equation
+\begin{eqnarray}
+\det(\mathbf{A}-\mathbf{I}\lambda) = 0  \nonumber
+\end{eqnarray}
+
+\item Theorem (Blanchard-Kahn, Ecmtra 1981): There exist a {\bc unique bounded solution} to the system \eqref{system} if and only if $\mathbf{A}$ has the {\bc same number of eigenvalues  inside the unit circle as the number of forward-looking variables.}
+
+\item Forward-looking variables $=$ variables that are not pre-determined
+
+\eit
+
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\huge The Real Business Cycle Model: Setup and solution \normalfont
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Overview}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Vanilla RBC model $=$ Neoclassical growth model with stochastic TFP shocks
+
+\item No market frictions: dynamics caused by efficient response of production inputs to technology shocks
+
+\item Why use this as our starting point?
+\ben
+	\setlength\itemsep{0.5em}
+	\item To establish a minimal efficient benchmark
+	\bit
+		\item Modern business cycle models can be thought of as extensions to this framework 
+		
+		\item Policy analysis often boils down to the question: ``how we can make the world behave more like an RBC model?''
+	\eit
+	
+	\item Use this model as an example for understanding commonly employed methods
+		\bit
+			\item Log-linear approximation of model dynamics
+			
+			\item Calibration
+		\eit
+\een 
+
+\item Origination: Kydland-Prescott (Ecmtra, 1982); King-Plosser (AER, 1984)
+\bit
+\setlength\itemsep{0.5em}
+	\item Important prior developments: Rational expectations paradigm (Lucas, JET 1972); structural econometrics (Sargent, JPE 1976)
+	
+	\item These models and methods completely transformed economic research 
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Model structure}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A representative household chooses consumption $C$, labor supply $N$ and investment $I$, taking $W$ and $R$ as given
+\bit
+	\item $\Rightarrow$ Supply curves of $N$ and $K$, Demand curve for goods $Y$
+\eit
+
+\item A representative firm chooses capital and labor input, taking $W$ and $R$ and {\bc a stochastic process for TFP $A_t$} as given
+\bit
+	\item $\Rightarrow$ Demand curves of $N$ and $K$, Supply curve for $Y$
+\eit
+
+\item {\bc Markets are complete}: every good can be traded at very point in time.
+
+\item Equilibrium concept: $W$ and $R$ has to be such that when agents optimize, we have that
+\bit
+	\setlength\itemsep{0.5em}
+	\item Labor supply $=$ Labor Demand
+
+	\item Capital supply $=$ Capital Demand
+
+	\item Goods supply $=$ Goods Demand
+\eit
+
+\item Since markets are complete and there are {\bc no distortions}, the decentralized equilibrium and the social planner solution yield the same allocation
+
+\item We proceed with using the decentralized setup
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Household problem}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Program of the representative household 
+\begin{eqnarray}
+\max_{\{C_t, N^s_t, I_{t}, K^s_{t+1}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N^s_t) \right]\nonumber \\
+\text{s.t} && C_t + I_t \leq W_t N^s_t + R^{r}_t K^s_t, \nonumber \\
+&& K^s_{t+1} \leq (1-\delta)K^s_t + I_t,  \nonumber \\
+&& C_t, N^s_t, I_t \geq 0, \nonumber
+\end{eqnarray}
+with $U(C_t), V(N^s_t)$ satisfying the usual regularity conditions 
+
+\item Note:
+\bit
+\setlength\itemsep{0.5em}
+	\item Separable preferences for simplicity
+
+	\item The household owns the capital stock
+
+	\item $R^{r}_t=$ rental rate earned on capital stocked rented to firm in period $t$
+	
+	\item $R^{r}_t \neq$ risk-free real interest rate $R_t$
+	
+	\item Return on period $t$ investment, $R^{r}_{t+1}+(1-\delta)$, not known in period $t$
+	
+	\item However, $E_t \left[R^{r}_{t+1}+(1-\delta)\right]$ intimately related to $R_t$
+		\bit
+			\item In a first-order approximation, they are, in fact, the same
+		\eit
+\eit
+
+%\item We could have set up the model with heterogeneous households just as well
+%\bit
+%	\item Under complete markets, the two setups are equivalent in terms of aggregate dynamics for a broad class of preferences (more on this in lecture XX)
+%\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firm problem}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The firm rents labor and capital from the household, can freely adjust in each period $\Rightarrow$ Static problem
+
+\item Program of the representative firm 
+\begin{eqnarray}
+\max_{\{N^d_t, K^d_{t}\}} && A_t F(K^d_t, N^d_t) - R^{r}_t K^d_t - W_t N^d_t \nonumber \\
+\text{s.t} && A_t = A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+with $F_t(\cdot)$ being {\bc homogeneous of degree 1}
+
+\item Note:
+\bit
+\setlength\itemsep{0.5em}
+\item Competitive markets ensures profits are zero
+
+\item The process for $A_t$ is AR(1) in logs - parsimonious, and captures the fluctuations in measured TFP well
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A {\bc competitive equilibrium} is a set of allocations $\{C_t, N^s_t, I_t, K^s_t, N^d_t, N^d_t\}$ and prices $\{W_t, R^{r}_t\}$ such that
+\bit
+\setlength\itemsep{1em}
+	\item Given $\{W_t, R^{r}_t\}$, $\{C_t, N^s_t, I_t, K^s_t\}$ solve the household problem
+	
+	\item Given $\{W_t, R^{r}_t\}$, $\{N^d_t, K^d_t\}$ solve the firm problem
+	
+	\item Markets clear:
+	\begin{eqnarray}
+		&& \text{Goods Market:} \hspace{2mm} C_t + I_t = A_t F(K^d_t, N^d_t)  \hspace{2mm} \text{for all } t \nonumber \\
+		&& \text{Labor Market:} \hspace{2mm} N^s_t = N^d_t  \hspace{2mm} \text{for all } t \nonumber \\	
+		&& \text{Capital Market:} \hspace{2mm} K^s_t = K^d_t  \hspace{2mm} \text{for all } t \nonumber
+	\end{eqnarray}
+\eit
+
+\item Going forward, I will skip supply-demand notation and simply use $N_t, K_t$ in both the household and firm problem
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Equilibrium (imposing some market clearing)}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A {\bc competitive equilibrium} is a set of allocations $\{C_t, N_t, I_t, K_t\}$ and prices $\{W_t, R^{r}_t\}$ such that
+\bit
+\setlength\itemsep{1em}
+\item Given $\{W_t, R^{r}_t\}$, $\{C_t, N_t, I_t, K_t\}$ solve the household problem
+
+\item Given $\{W_t, R^{r}_t\}$, $\{N_t, K_t\}$ solve the firm problem
+
+\item Markets clear:
+\begin{eqnarray}
+C_t + I_t = A_t F(K_t, N_t) \hspace{2mm} \text{for all } t \nonumber
+\end{eqnarray}
+\eit
+
+\item Comment: In fact, now the last equation is redudant. Since we have imposed that the capital and labor market clear, the goods market will clear by {\bc Walras law}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium (imposing some market clearing and Walras' law)}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A {\bc competitive equilibrium} is a set of allocations $\{C_t, N_t, I_t, K_t\}$ and prices $\{W_t, R^{r}_t\}$ such that
+\bit
+\setlength\itemsep{1em}
+\item Given $\{W_t, R^{r}_t\}$, $\{C_t, N_t, I_t, K_t\}$ solve the household problem
+
+\item Given $\{W_t, R^{r}_t\}$, $\{N_t, K_t\}$ solve the firm problem
+\eit
+
+\eit
+
+\end{frame}
+%
+%\begin{frame}{Model solution}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item What is a model solution?
+%\bit
+%\setlength\itemsep{0.5em}
+%	\item A set of policy functions that specifies the equilibrium response of the endogenous variables as a function of {\bc parameters} and the realization of the {\bc TFP shocks}
+%	
+%	\item $C_t = g_c(A_t)$, $I_t = g_{i}(A_t)$, etc.
+%\eit
+%
+%\item Given such policy functions, we can compute impulse-response functions and simulate the model dynamics
+%
+%\item Only in special parametric cases, a closed-form solution exists
+%
+%\item We therefore need to resort to numerical methods
+%
+%\eit
+%
+%\end{frame}
+
+
+\begin{frame}{Model solution}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item What is a model solution?
+\bit
+\setlength\itemsep{0.5em}
+\item A set of policy functions that specifies the equilibrium response of the endogenous variables as a function of {\bc parameters} and the realization of the {\bc exogenous shocks}
+\eit
+
+
+\item Two ways to solve the for the equilibrium:
+\ben
+\setlength\itemsep{0.5em}
+\item Global solution: solve for global policy functions, using, e.g., value function iteration
+
+\item Log-linear approximation: Do a local approximation of the policy functions around some point of the equilibrium
+\een
+
+\item Here, we will explore option 2
+
+\item Why?
+\bit
+\setlength\itemsep{0.5em}
+
+\item Becuase we know how to handle linear difference equations
+
+\item Because log-differences have an appealing interpretation (percent growth)
+
+\item Because, in practice, a large class of models that we use are, in fact, not very non-linear 
+\eit
+
+\item In practice, this means that we will {\bc log-linearize} the model around the (non-stochastic) {\bc steady state}
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Log-linearization cook book}
+
+\ben
+\setlength\itemsep{1.5em}
+
+\item Start with making an {\bc equilibrium characterization}
+\bit
+\setlength\itemsep{0.5em}
+\item List all equations that must hold true in equilibrium
+
+\item Given our equilibrium defintion, they must consist of
+\bit
+\setlength\itemsep{0.5em}
+\item Equations that must be satisfied in a solution to the household problem
+
+\item Equations that must be satisfied in a solution to the firm problem
+
+\item Market clearing conditions
+\eit
+
+\eit
+
+\item Solve for the {\bc steady state}
+\bit
+	\item Typically a simple algebraic exercise once you have the equilibrium characterization
+\eit
+
+\item {\bc Log-linearize} the {\bc equilibrium characterization} around the {\bc steady state}
+
+\een
+
+\end{frame}
+
+\begin{frame}{Step 1: Equilibrium characterization}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Lagrangian to the household problem:
+\begin{eqnarray}
+\mathbf{L} = E_0 \Bigg(\sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]-\sum_{t=0}^{\infty} \lambda_t \left[ C_t + K_{t+1} - W_t N_t - (R^{r}_t + (1-\delta))K_t \right] \Bigg) \nonumber
+\end{eqnarray}
+where I have substituted the capital accumulation equation into the budget constraint
+
+\item First order conditions
+\begin{eqnarray}
+C_t: && \beta^t U'(C_t) - \lambda_t = 0 \nonumber \\
+N_t: && -\beta^t V'(N_t) + \lambda_tW_t = 0 \nonumber \\
+K_{t+1}: && -\lambda_t   + E_t\lambda_{t+1} (R^{r}_{t+1}+(1-\delta)) = 0 \nonumber
+\end{eqnarray}
+
+\item In an {\bc interior solution}, these equations + the constraints must be satisfied, and also the {\bc transversality condition}:
+\begin{eqnarray}
+\lim_{T \to \infty} \beta^T K_{T} U'(C_T) \leq 0 \nonumber
+\end{eqnarray}
+
+\item In practice, we search for a candidate solution to the household problem, then check that this candidate also satisfies tranversality
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Equilibrium characterization II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Necessary conditions for household optimality:
+\begin{eqnarray}
+U'(C_t)W_t &=& V'(N_t) \nonumber \\
+U'(C_t) &=& \beta E_t(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \nonumber \\
+C_t + I_t &=& W_t N_t + R^{r}_tK_t \nonumber \\
+K_{t+1} &=& (1-\delta) K_t + I_t \nonumber
+\end{eqnarray}
+
+\item Necessary conditions for firm optimality:
+\begin{eqnarray}
+R^{r}_t &=& A_t F_k (K_t, N_t) \nonumber \\
+W_t &=& A_t F_n (K_t, N_t) \nonumber \\
+A_t &=& A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+\item This completes the equilibrium characterization
+
+\item Again: resource constraint $C_t + I_t = A_t F(K_t, N_t)$ is implied by Walras' law
+\bit
+\setlength\itemsep{0.5em}
+	\item Going forward, however, I will add the resource constraint, and drop the household budget constraint instead
+\eit
+
+\eit
+
+\end{frame}
+%
+%\begin{frame}{RBC - Equilibrium characterization (intermezzo)}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Let's check our statement about {\bc Walras law}: the market clearing condition should be redudant
+%
+%\item Euler's theorem: If $F(X_1,..., X_k)$ is homogeneous of degree 1, then $F_{1}(X_1, ..., X_k)X_1 +, ..., +F_{k}(X_1, ..., X_k)X_k = 0$
+%
+%\item \emph{Proof (2-variable case)}: 
+%Homogeneity of degree 1 means
+%\begin{eqnarray}
+%F(AX_1, AX_2) = AF(X_1,X_2) \nonumber
+%\end{eqnarray}
+%Differentiate w.r.t. $A$:
+%\begin{eqnarray}
+%F_1(AX_1, AX_2)X_1 + F_2(AX_1,AX_2)X_2 = F(X_1,X_2) \nonumber
+%\end{eqnarray}
+%Evaluate at $A=1$
+%\begin{eqnarray}
+%F_1(X_1, X_2)X_1 + F_2(X_1,X_2)X_2 = F(X_1,X_2) \nonumber
+%\end{eqnarray}
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{RBC - Equilibrium characterization (intermezzo)}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Applied to our model, this means that
+%\begin{eqnarray}
+% C_t + I_t &=& W_t N_t + R_tK_t \text{ {\rc (Household bc)}}\nonumber \\
+%&=& A_t F_n (K_t, N_t) N_t + A_t F_k (K_t, N_t) K_t\text{ {\rc (Firm optimality)}} \nonumber \\
+%&=& A_t F (K_t, N_t) \text{ {\rc (Euler's theorem)}}  \nonumber
+%\end{eqnarray}
+%
+%\item The market clearing condition is implied by firm and household optimality
+%
+%\item Ergo, the market clearing condition is redudant in the equilibrium characterization
+%
+%\item This is because we have imposed the the labor and capital market clear!
+%
+%\eit
+%
+%\end{frame}
+
+\begin{frame}{Equilibrium characterization III}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Summing up, the equilibrium is characterized by:
+\begin{eqnarray}
+U'(C_t)W_t &=& V'(N_t) \nonumber \\
+U'(C_t) &=& \beta E_t\left[(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1})\right] \nonumber \\
+C_t + I_t &=& A_t F(K_t, N_t) \nonumber \\
+{\color{white} Y_t} &{\color{white}=}& {\color{white}A_t F(K_t, N_t)} \nonumber \\
+K_{t+1} &=& (1-\delta) K_t + I_t \nonumber \\
+R^{r}_t &=& A_t F_k (K_t, N_t) \nonumber \\
+W_t &=& A_t F_n (K_t, N_t) \nonumber \\
+A_t &=& A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+\item Seven variables $\{C_t, N_t, I_t, K_{t}, W_t, R^{r}_t, A_t\}$ and seven equations
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium characterization III (it's nice with output as a separate variable)}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Summing up, the equilibrium is characterized by:
+\begin{eqnarray}
+U'(C_t)W_t &=& V'(N_t) \nonumber \\
+U'(C_t) &=& \beta E_t\left[(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \right] \nonumber \\
+C_t + I_t &=& {\rc Y_t} \nonumber \\
+{\rc Y_t} &{\color{red}=}& {\color{red}A_t F(K_t, N_t)} \nonumber \\
+K_{t+1} &=& (1-\delta) K_t + I_t \nonumber \\
+R^{r}_t &=& A_t F_k (K_t, N_t) \nonumber \\
+W_t &=& A_t F_n (K_t, N_t) \nonumber \\
+A_t &=& A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+\item {\rc Eight} variables $\{C_t, N_t, I_t, K_{t}, {\rc Y_t}, W_t, R^{r}_t\}$ and {\rc eight} equations
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium characterization III (it's nice with output as a separate variable)}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Summing up, the equilibrium is characterized by:
+\begin{eqnarray}
+U'(C_t)W_t &=& V'(N_t) \nonumber \\
+U'(C_t) &=& \beta E_t\left[(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \right] \nonumber \\
+C_t + I_t &=& {\rc Y_t} \nonumber \\
+{\rc Y_t} &{\color{red}=}& {\color{red}A_t F(K_t, N_t)} \nonumber \\
+K_{t+1} &=& (1-\delta) K_t + I_t \nonumber \\
+R^{r}_t &=& A_t F_k (K_t, N_t) \nonumber \\
+W_t &=& A_t F_n (K_t, N_t) \nonumber \\
+A_t &=& A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+\item {\rc Eight} variables $\{C_t, N_t, I_t, K_{t}, {\rc Y_t}, W_t, R^{r}_t\}$ and {\rc eight} equations
+
+\item Question: Which are the state variables and which are the shocks?
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Functional forms}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item To compute the steady state, we need to impose some functional forms
+
+\item Note: choice of functional forms of course restricts the quantitative properties of the model - it should be treated as part of the {\bc calibration}
+
+\item Cobb-Douglas (AER, 1928) production function:
+\begin{eqnarray}
+F (K_t, N_t) = K_t^{\alpha}N_t^{1-\alpha} \nonumber
+\end{eqnarray}
+
+\item MacCurdy (JPE, 1981) consumption-leisure preferences:
+\begin{eqnarray}
+U(C_t)-V(N_t) = \log C_t - \theta \frac{N_t^{1+\varphi}}{1+\varphi} \nonumber
+\end{eqnarray}
+
+\item Note: 
+\bit
+	\setlength\itemsep{0.5em}
+	\item MacCurdy is a special case of balance-growth path preferences (King-Plosser-Rebelo, JME 1988; Boppart-Krusell JPE 2019)
+	
+	\item Generate constant hours if wage and non-wage (capital) income grow at the same rate
+	
+	\item With MacCurdy, $\frac{1}{\varphi}$ measures the {\bc Frisch elasticity} (more on this next class)
+\eit
+\eit
+
+\end{frame}
+
+\begin{frame}{Equilibrium characterization with assumed functional forms}
+
+
+\begin{eqnarray}
+\frac{1}{C_t}W_t &=& \theta N_t^{\varphi} \nonumber \\
+\frac{1}{C_t} &=& \beta E_t\left[(R^{r}_{t+1}+(1-\delta)) \frac{1}{C_{t+1}} \right] \nonumber \\
+C_t + I_t &=& Y_t \nonumber \\
+Y_t &=& A_t K_t^{\alpha}N_t^{1-\alpha} \nonumber \\
+K_{t+1} &=& (1-\delta) K_t + I_t \nonumber \\
+R^{r}_t &=& \alpha A_t \left(\frac{K_t}{N_t}\right)^{\alpha-1} \nonumber \\
+W_t &=& (1-\alpha) A_t \left(\frac{K_t}{N_t}\right)^{\alpha} \nonumber \\
+A_t &=& A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Step 2: solve for steady state}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Set $A_t=1$ and impose $X_t=X_{t+1}$ for all variables $X$, then work through the algebra
+
+\item Take-home exercise: show that the steady state is given by:
+\begin{eqnarray}
+R^{r} &=& \frac{1}{\beta}-(1-\delta) \nonumber \\
+W &=& (1-\alpha)\left(\frac{R^{r}}{\alpha}\right)^{-\frac{\alpha}{1-\alpha}} \nonumber \\
+N &=& \left[\frac{1}{\theta} \frac{W}{\frac{R^{r}}{\alpha}-\delta}\left(\frac{R^{r}}{\alpha
+}\right)^{\frac{1}{1-\alpha}}   \right]^{\frac{1}{1+\varphi}} \nonumber \\
+K &=& \left(\frac{R^{r}}{\alpha
+}\right)^{-\frac{1}{1-\alpha}}N \nonumber \\
+Y &=& \frac{R^{r}K}{\alpha} \nonumber \\
+I &=& \delta K \nonumber \\
+C &=& (\frac{R^{r}}{\alpha}-\delta) K \nonumber
+\end{eqnarray}
+
+\item (Trick: after solving for $R^{r}$ and $W$, write the intratemporal household optimality condition in terms of $\frac{K}{N}$)
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Step 3: Log-linearize}
+
+\bit
+\setlength\itemsep{1em}
+
+\item From levels to log deviations: {\rc(Do an example on whiteboard)}
+\begin{eqnarray}
+\frac{1}{C_t}W_t = \theta N_t^{\varphi} &\Rightarrow& {\bc \hat w_t = \hat c_t + \varphi \hat n_t} \nonumber \\
+\frac{1}{C_t} = \beta E_t\left[(R^{r}_{t+1}+(1-\delta)) \frac{1}{C_{t+1}} \right] &\Rightarrow& {\bc 
+\hat c_t = - \beta R^{r} E_t \hat r^{r}_{t+1} + E_t \hat {c}_{t+1}} \nonumber \\
+C_t + I_t = Y_t &\Rightarrow& {\bc \frac{C}{Y}\hat c_t + \frac{I}{Y} \hat i_t = \hat y_t} \nonumber \\
+Y_t = A_t K_t^{\alpha}N_t^{1-\alpha} &\Rightarrow& {\bc \hat y_t = \hat a_t + \alpha \hat k_t + (1-\alpha ) \hat n_t} \nonumber \\
+K_{t+1} = (1-\delta) K_t + I_t &\Rightarrow& {\bc \nonumber \hat k_{t+1} = (1-\delta) \hat k_t +\delta \hat i_t} \nonumber\\
+R^{r}_t = \alpha A_t \left(\frac{K_t}{N_t}\right)^{\alpha-1}  &\Rightarrow& {\bc \hat r^{r}_t = \hat a_t -(1-\alpha)(\hat k_t - \hat n_t)}  \nonumber \\
+W_t = (1-\alpha) A_t \left(\frac{K_t}{N_t}\right)^{\alpha} &\Rightarrow& {\bc  \hat w_t = \hat a_t + \alpha (\hat k_t-\hat n_t)} \nonumber \\
+A_t = A_{t-1}^{\rho_a}exp(\epsilon_t) &\Rightarrow& {\bc  \hat a_t = \rho_a \hat a_{t-1} + \epsilon_{t}} \nonumber
+\end{eqnarray}
+
+\item Note: we can interpret $\hat r^r_{t+1}$ as:
+\bit
+\setlength\itemsep{0.5em}
+	\item percent deviation in gross rental rate $R^r_{t+1}$ from steady state
+	
+	\item percentage point deviation in net rental rate $(R^r_{t+1}-1)$ from steady state
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Log-linear equilibrium system}
+
+\bit
+\setlength\itemsep{0.5em}
+
+\item The log-linear system can be written as:
+\begin{eqnarray}
+\mathbf A_1 \mathbf{x}_{t} = \mathbf A_2 E_t \mathbf x_{t+1} + \mathbf {B_1} \epsilon_t  \nonumber
+\end{eqnarray}
+where $\mathbf{x}_{t} = [\hat r_t, \hat w_t,\hat c_t,\hat n_t,\hat i_t,\hat y_t,\hat k_{t},\hat a_{t-1}]'$, and
+\begin{eqnarray} \scriptstyle
+\mathbf A_1 = \left[\begin{array}{cccccccc}
+0 & 1 & -1 & - \varphi & 0 & 0 & 0 & 0 \\
+0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & \frac{C}{Y} & 0 & \frac{I}{Y} & -1 & 0 & 0 \\
+0 & 0 & 0 & -(1-\alpha) & 0 & 1 & -\alpha & 0 \\
+0 & 0 & 0 & 0 & -\delta & 0 & -(1-\delta) & 0 \\
+1 & 0 & 0 & -(1-\alpha) & 0 & (1-\alpha) & 0 &  \\
+0 & 1 & 0 & \alpha & 0 & -\alpha &  & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & -\rho_a
+\end{array}\right] \nonumber
+\end{eqnarray}
+\begin{eqnarray} \scriptstyle
+\mathbf A_2 = \left[\begin{array}{cccccccc}
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+- \beta R^r  & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & 1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & -1 \\
+0 & 0 & 0 & 0 & 0 & 0 & -\alpha & -1 \\
+0 & 0 & 0 & 0 & 0 & 0 & 0 & -1
+\end{array}\right]  \hspace{3mm} 
+\mathbf B_1 = \left[\begin{array}{cc}
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+0 \\
+1
+\end{array}\right] \nonumber
+\end{eqnarray}
+
+\item Which variables in $\mathbf{x}_{t}$ are pre-determined?
+
+\eit
+
+\end{frame}
+
+
+
+%\begin{frame}{Log-linear equilibrium system}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item The log-linear system can be written as:
+%\begin{eqnarray}
+%\mathbf A_1 \mathbf{x}_{t} = \mathbf A_2 E_t \mathbf x_{t+1} + \mathbf A_3 \mathbf x_{t-1} + \mathbf {C_1} \epsilon_t  \nonumber
+%\end{eqnarray}
+%where $\mathbf{x}_{t} = [\hat r_t, \hat w_t,\hat c_t,\hat n_t,\hat i_t,\hat y_t,\hat k_{t+1},\hat a_{t}]'$, and
+%\begin{eqnarray} \scriptstyle
+%\mathbf A_1 = \left[\begin{array}{cccccccc}
+%0 & 1 & -1 & - \varphi & 0 & 0 & 0 & 0 \\
+%0 & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & \frac{C}{Y} & 0 & \frac{I}{Y} & -1 & 0 & 0 \\
+%0 & 0 & 0 & -(1-\alpha) & 0 & 1 & 0 & -1 \\
+%0 & 0 & 0 & 0 & -\delta & 0 & 1 & 0 \\
+%1 & 0 & 0 & (1-\alpha) & 0 & 0 & 0 & -1 \\
+%0 & 1 & 0 & -\alpha & 0 & 0 &  & -1 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 1
+%\end{array}\right] \hspace{3mm} 
+%\mathbf C_1 = \left[\begin{array}{cc}
+%0 \\
+%0 \\
+%0 \\
+%0 \\
+%0 \\
+%0 \\
+%0 \\
+%1
+%\end{array}\right] \nonumber
+%\end{eqnarray}
+%\begin{eqnarray} \scriptstyle
+%\mathbf A_2 = \left[\begin{array}{cccccccc}
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%- \beta R^r  & 0 & 1 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0
+%\end{array}\right] \nonumber 
+%\mathbf A_3 = \left[\begin{array}{cccccccc}
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0  & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & \alpha & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & (1-\delta) & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & -(1-\alpha) & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & \alpha & 0 \\
+%0 & 0 & 0 & 0 & 0 & 0 & 0 & \rho_a
+%\end{array}\right] \nonumber 
+%\end{eqnarray}
+%
+%\eit
+%
+%\end{frame}
+
+\begin{frame}{Log-linear equilibrium system}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item We rewrite this as:
+\begin{eqnarray}
+&& \mathbf A_1 \mathbf{x}_{t} = \mathbf A_2 E_t \mathbf x_{t+1}  + \mathbf {B_1} \epsilon_t  \nonumber \\
+\Rightarrow && \mathbf{x}_{t} = \mathbf A E_t \mathbf x_{t+1}  + \mathbf {B} \epsilon_t \nonumber
+\end{eqnarray}
+where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^{-1} \mathbf B_1$ 
+
+\item Goal: simulate this system
+
+\item Simulate = Solve the path of endogenous variables $\{\mathbf{x}_{t}\}$ given some sequence of shocks $\{\mathbf \epsilon_t\}$
+
+\item Given that the system has one unique bounded solution, solving this system amounts to some clever usage of matrix algebra
+\bit
+ 	\item Older approach: Blanchard-Kahn (Ecmtra, 1981)
+ 	
+ 	\item Modern approach: QZ-method (Klein, JEDC 2000)
+\eit
+
+\item Nowadays, there exist ready-made routines that do the job for us, e.g., {\bc Dynare}
+\eit
+
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\huge The Real Business Cycle Model: Analysis \normalfont
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Quantitative analysis}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item We have discussed how to solve and simulate the system
+
+\item So let's proceed and analyze it
+
+\item To do so, we need to pick parameter values
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Calibration}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Main idea: 
+\ben
+\setlength\itemsep{0.5em}
+	\item Estimate driving process for exogenous TFP shocks
+	
+	\item Pick the other parameters to a) be consistent with external estimates and/or b) that the model steady state matches long-run data moments
+\een
+
+\item The idea that you could calibrate a theoretical model to quantitatively analyze data was the second major contribution of Kydland-Prescott (Ecmtra, 1982)
+\bit
+\setlength\itemsep{0.5em}
+	\item Traditional method: use theory to generate hypotehses, and reduced-form econometrics for quantification
+	
+	\item Prior development: structural econometrics, where theory is used to derive an estimating equation
+
+	\item Calibration was very controversial when introduced
+	
+	\item Now: bread and butter in all of economics
+\eit
+\eit
+
+\end{frame}
+
+\begin{frame}{Calibration II}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The model has 6 parameters: $\varphi, \delta, \beta, \alpha, \rho_a, \sigma_{\epsilon}$
+
+\item Typical procedure:
+\bit
+\setlength\itemsep{0.5em}
+	\item Pick $\delta$ to match NIPA estimates of average yearly capital depreciation rate $\sim 10 \%$
+	\item Pick $\beta$ to match average gross yearly real return on capital $\sim 1+0.04+\delta_{yearly}$
+		\bit
+			\item Recall steady-state relationship $R^{r} = \frac{1}{\beta}-(1-\delta)$
+		\eit
+	\item Pick $\varphi$ to match outside estimates of the Frish elasticity $\sim 1$ (to be discussed more!)
+	\item Pick $\alpha$ to match long-run labor share $\sim 2/3$
+		\bit
+			\item Recall steady-state relationship $\frac{R^{r}K}{Y} = \alpha$
+		\eit
+\eit
+
+\item For TFP, one starting point is to assume that these shocks has to be consistent with the fluctuations of the {\bc Solow residuals}
+	\bit
+	\setlength\itemsep{0.5em}
+		\item Suppose we have quarterly data on $Y_t, K_t, N_t$
+		
+		\item Taking logs of the production function, we can estimate SR's as the residuals from the regression
+		\begin{eqnarray}
+		y_t-n_t = \alpha (k_t-n_t) + a_t \nonumber
+		\end{eqnarray}
+	
+		\item Having estimated $a_t$, we can estimate $\rho_a$ and $\sigma_{\epsilon}$ of
+		\begin{eqnarray}
+		a_t = \rho_a a_{t-1} + \epsilon_{t} \nonumber
+		\end{eqnarray}	
+	Sims (Mitman) reports $\rho_a=0.973$ ($0.95$) and $\sigma_{\epsilon}=0.009$ ($0.007$)
+	\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Simulation results}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.43,trim= 0 150 0 150, clip]{Figures/rbc_simulation.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Simulation results (HP-filtered)}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|cc|cc|cc|cc|}
+		\multicolumn{1}{c}{} &\multicolumn{2}{c}{\textbf{SD}}&\multicolumn{2}{c}{\textbf{Rel. SD}}& \multicolumn{2}{c}{\textbf{Corr $Y_t$}} & \multicolumn{2}{c}{\textbf{Autocorr}}  \\
+		\hline
+		& Data &Model & Data & Model & Data & Model & Data & Model \\
+		\hline
+		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & \colorbox{white}{0.85} & \colorbox{white}{0.72} \\
+		\hline
+		$C_t$ & 0.009 & 0.006  & \colorbox{white}{0.53} & \colorbox{white}{0.40} & \colorbox{white}{0.76} & \colorbox{white}{0.95}  & 0.79 & 0.78 \\
+		\hline
+		$I_t$ & 0.047 & 0.041 & \colorbox{white}{2.76} & \colorbox{white}{2.73}  & \colorbox{white}{0.79} & \colorbox{white}{0.99} & 0.87 & 0.72 \\
+		\hline
+		$N_t$ & 0.019 &  0.005 & \colorbox{white}{1.12} & \colorbox{white}{0.33} & \colorbox{white}{0.88} &  \colorbox{white}{0.98} & 0.90 & 0.72 \\
+		\hline
+		$W_t$ & 0.009 & 0.010 & 0.53 & 0.66 & \colorbox{white}{0.10} & \colorbox{white}{0.996} & 0.73 & 0.74 \\
+		\hline
+		$R_t$ & 0.004 & 0.015  & \colorbox{white}{0.24} & \colorbox{white}{1.0} & \colorbox{white}{0.00} & \colorbox{white}{0.97} & \colorbox{white}{0.42} & \colorbox{white}{0.71} \\
+		\hline
+		$A_t$ & 0.012 & 0.012 & \colorbox{white}{0.71} & \colorbox{white}{0.80}  & 0.76 & 0.999 & 0.75 & 0.72 \\
+		\hline
+	\end{tabular}
+	\captionsetup{font=small}
+	\label{sim_results}
+\end{table} 
+
+\bit
+\setlength\itemsep{1em}
+
+\item \colorbox{white}{{\color{white}Consistent with the data, the RBC model has}}
+\bit
+\item {\color{white} positive comovement of all GDP components}
+\item {\color{white} big swings in investment and small swings in consumption}
+\eit
+
+
+\item \colorbox{white}{{\color{white}In contrast to the data, the model has}}
+\bit
+\item {\color{white} too little amplification}
+\item {\color{white} no persistence beyond that inherited by TFP process}
+\item {\color{white} way to little volatility in hours worked}
+\item {\color{white} inconsistent behavior of prices}
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Simulation results (HP-filtered)}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|cc|cc|cc|cc|}
+		\multicolumn{1}{c}{} &\multicolumn{2}{c}{\textbf{SD}}&\multicolumn{2}{c}{\textbf{Rel. SD}}& \multicolumn{2}{c}{\textbf{Corr $Y_t$}} & \multicolumn{2}{c}{\textbf{Autocorr}}  \\
+		\hline
+		& Data &Model & Data & Model & Data & Model & Data & Model \\
+		\hline
+		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & \colorbox{white}{0.85} & \colorbox{white}{0.72} \\
+		\hline
+		$C_t$ & 0.009 & 0.006  & \colorbox{ForestGreen}{0.53} & \colorbox{ForestGreen}{0.40} & \colorbox{ForestGreen}{0.76} & \colorbox{ForestGreen}{0.95}  & 0.79 & 0.78 \\
+		\hline
+		$I_t$ & 0.047 & 0.041 & \colorbox{ForestGreen}{2.76} & \colorbox{ForestGreen}{2.73}  & \colorbox{ForestGreen}{0.79} & \colorbox{ForestGreen}{0.99} & 0.87 & 0.72 \\
+		\hline
+		$N_t$ & 0.019 &  0.005 & \colorbox{white}{1.12} & \colorbox{white}{0.33} & \colorbox{ForestGreen}{0.88} &  \colorbox{ForestGreen}{0.98} & 0.90 & 0.72 \\
+		\hline
+		$W_t$ & 0.009 & 0.010 & 0.53 & 0.66 & \colorbox{white}{0.10} & \colorbox{white}{0.996} & 0.73 & 0.74 \\
+		\hline
+		$R_t$ & 0.004 & 0.015  & \colorbox{white}{0.24} & \colorbox{white}{1.0} & \colorbox{white}{0.00} & \colorbox{white}{0.97} & \colorbox{white}{0.42} & \colorbox{white}{0.71} \\
+		\hline
+		$A_t$ & 0.012 & 0.012 & \colorbox{white}{0.71} & \colorbox{white}{0.80}  & 0.76 & 0.999 & 0.75 & 0.72 \\
+		\hline
+	\end{tabular}
+	\captionsetup{font=small}
+	\label{sim_results}
+\end{table} 
+
+
+\bit
+\setlength\itemsep{1em}
+\item \colorbox{ForestGreen}{{\color{black}Consistent with the data, the RBC model has}}
+\bit
+\item {\color{black} positive comovement of all GDP components}
+\item {\color{black} big swings in investment and small swings in consumption}
+\eit
+
+
+\item \colorbox{white}{{\color{white}In contrast to the data, the model has}}
+\bit
+\item {\color{white} too little amplification}
+\item {\color{white} no persistence beyond that inherited by TFP process}
+\item {\color{white} way to little volatility in hours worked}
+\item {\color{white} too much volatility in prices}
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Simulation results (HP-filtered)}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|cc|cc|cc|cc|}
+		\multicolumn{1}{c}{} &\multicolumn{2}{c}{\textbf{SD}}&\multicolumn{2}{c}{\textbf{Rel. SD}}& \multicolumn{2}{c}{\textbf{Corr $Y_t$}} & \multicolumn{2}{c}{\textbf{Autocorr}}  \\
+		\hline
+		& Data &Model & Data & Model & Data & Model & Data & Model \\
+		\hline
+		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & \colorbox{red}{0.85} & \colorbox{red}{0.72} \\
+		\hline
+		$C_t$ & 0.009 & 0.006  & \colorbox{ForestGreen}{0.53} & \colorbox{ForestGreen}{0.40} & \colorbox{ForestGreen}{0.76} & \colorbox{ForestGreen}{0.95}  & 0.79 & 0.78 \\
+		\hline
+		$I_t$ & 0.047 & 0.041 & \colorbox{ForestGreen}{2.76} & \colorbox{ForestGreen}{2.73}  & \colorbox{ForestGreen}{0.79} & \colorbox{ForestGreen}{0.99} & 0.87 & 0.72 \\
+		\hline
+		$N_t$ & 0.019 &  0.005 & \colorbox{red}{1.12} & \colorbox{red}{0.33} & \colorbox{ForestGreen}{0.88} &  \colorbox{ForestGreen}{0.98} & 0.90 & 0.72 \\
+		\hline
+		$W_t$ & 0.009 & 0.010 & 0.53 & 0.66 & \colorbox{red}{0.10} & \colorbox{red}{0.996} & 0.73 & 0.74 \\
+		\hline
+		$R_t$ & 0.004 & 0.015  & \colorbox{red}{0.24} & \colorbox{red}{1.0} & \colorbox{red}{0.00} & \colorbox{red}{0.97} & \colorbox{red}{0.42} & \colorbox{red}{0.71} \\
+		\hline
+		$A_t$ & 0.012 & 0.012 & \colorbox{red}{0.71} & \colorbox{red}{0.80}  & 0.76 & 0.999 & 0.75 & 0.72 \\
+		\hline
+	\end{tabular}
+	\captionsetup{font=small}
+	\label{sim_results}
+\end{table}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item \colorbox{ForestGreen}{{\color{black}Consistent with the data, the RBC model has}}
+\bit
+\item {\color{black} positive comovement of all GDP components}
+\item {\color{black} big swings in investment and small swings in consumption}
+\eit
+
+
+\item \colorbox{red}{{\color{black}In contrast to the data, the model has}}
+\bit
+\item {\color{black} too little amplification}
+\item {\color{black} no persistence beyond that inherited by TFP process}
+\item {\color{black} way too little volatility in hours worked}
+\item {\color{black} too much volatility in prices}
+\eit
+
+\eit
+
+\end{frame}
+
+
+%\begin{frame}{Simulation results: what did we just look at?}
+%
+%\bit
+%\setlength\itemsep{1em} 
+%
+%\item We comptued moments from a set of time series of our endogenous variables $\mathbf{x}_{t}$
+%
+%\item These time series are the solution to the system
+%\begin{eqnarray}
+%\mathbf{x}_{t} = \mathbf A E_t \mathbf x_{t+1} + \mathbf {B} \epsilon_t  \nonumber
+%\end{eqnarray}
+%when feeding a sequence of shocks $\{\epsilon_0, \epsilon_1, ...\}$
+%
+%\item System is linear: simulations $=$ {\bc superimposing} responses to individual shocks
+%\bit
+%\setlength\itemsep{0.5em} 
+%	\item Response to shock $\epsilon_0$: $\mathbf{x}_{0} = \mathbf{a}_0 \epsilon_0 $, $\mathbf{x}_{1} = \mathbf{a}_1 \epsilon_0 $,...
+%
+%	\item Response to shock $\epsilon_1$: $\mathbf{x}_{1} = \mathbf{a}_0 \epsilon_1 $, $\mathbf{x}_{2} = \mathbf{a}_1 \epsilon_1 $,...
+%	
+%	\item Simulated time series given by: 
+%	\begin{eqnarray}
+%	  \mathbf{x}_{0} &=& \mathbf{a}_0 \epsilon_0, \nonumber \\
+%	  \mathbf{x}_{1} &=& \mathbf{a}_1 \epsilon_0 + \mathbf{a}_0 \epsilon_1,... \nonumber \\
+%	  \mathbf{x}_{t} &=& \sum_{s=0}^{t} a_{t-s} \epsilon_s \nonumber
+%	\end{eqnarray}
+%\eit
+%
+%\item Note: Individual responses scale linearly with shock size: $\mathbf{x}_{t}(2\epsilon) = 2\mathbf{x}_{t}(\epsilon)$
+%
+%\item $\Rightarrow$ Mechanism of the model revealed by studying the {\bc impulse-response function} to a single-period shock or arbitrary size
+%
+%
+%\eit
+%
+%\end{frame}
+
+
+\begin{frame}{Simulation results: what did we just look at?}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item We computed moments from a time series of our endogenous variables $[\mathbf{x}_{t}]^{\infty}_{t=0}$
+
+\item This time series $[\mathbf{x}_{t}]$ solved
+\begin{eqnarray}
+\mathbf{x}_{t} = \mathbf A E_t \mathbf x_{t+1}  + \mathbf {B} \epsilon_t \nonumber
+\end{eqnarray}
+when feeding a sequence of shocks $\{\epsilon_0, \epsilon_1, ...\}$
+
+\item Since the system is linear, the solution is linear in the underlying shocks:
+\begin{eqnarray}
+\mathbf{x}_{t} = \sum_{s=0}^{t} \mathbf{a}_{t-s} \epsilon_s, \nonumber
+\end{eqnarray}
+i.e.,
+\begin{eqnarray}
+\mathbf{x}_{0} &=& \mathbf{a}_0 \epsilon_0, \nonumber \\
+\mathbf{x}_{1} &=& \mathbf{a}_1 \epsilon_0 + \mathbf{a}_0 \epsilon_1, \nonumber \\
+\mathbf{x}_{2} &=& \mathbf{a}_2 \epsilon_0 + \mathbf{a}_1 \epsilon_1 + \mathbf{a}_0 \epsilon_2,... \nonumber
+\end{eqnarray}
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Simulation = superimposing IRFs}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Define the {\bc impulse-response function} as
+\begin{eqnarray}
+F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
+			&=& \epsilon[a_0 , a_1 , a_2,...] \nonumber
+\end{eqnarray}
+\bit
+\setlength\itemsep{0.5em} 
+	\item IRF = vector of responses in period $t, t+1, t+2, ...$ to a singular shock in period $t$
+	
+	\item Note: A linear IRF scales linearly with the size of the shock $\epsilon$ 
+\eit
+
+\item Boppart-Krusell-Mitman (JEDC 2018): the simulation solution is a {\bc superimposition} of IRFs:
+\begin{eqnarray}
+[\mathbf{x}_t] &=& [\mathbf{a}_0 \epsilon_0, \mathbf{a}_1 \epsilon_0 + \mathbf{a}_0 \epsilon_1, \mathbf{a}_2 \epsilon_0 + \mathbf{a}_1 \epsilon_1 + \mathbf{a}_0 \epsilon_2,...] \nonumber  \nonumber \\
+&=& F(\epsilon_0) + [0, F(\epsilon_1)] +  [0, 0, F(\epsilon_2)] + ... \nonumber \\
+&=& \epsilon_0F(1) + \epsilon_1[0, F(1)] +  \epsilon_2[0, 0, F(1)] + ... \nonumber
+\end{eqnarray}
+
+\item $\Rightarrow$ $F(1)$ is a {\bc sufficient statistic} for the model simulation results
+
+\item Put differently, the mechanism of the model revealed by studying the {\bc impulse-response function} to a unitary single-period shock 
+
+\eit
+
+\end{frame}
+
+\begin{frame}{IRFs to single persistent TFP shock}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_standardshock.pdf}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{How to unpack the responses?}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item When staring at IRFs, it can be hard to discern the mechanism and to discern \emph{impulse} from \emph{propagation}
+
+\item How to unpack any model: simplify as much as you can, and then build the model gradually up again
+
+\item Two simplifications:
+\ben
+	\item $\alpha = 0$ (such that $I=K=0$, and therefore $Y=F(N)=C$)
+	
+	\item $\rho_a = 0$ (no persistence in the impulse)
+\een
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRFs using a blip shock in model without capital}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_blipshock_nocapital.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{What's going on?}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item When TFP increases; output, consumption and wages jump
+\bit
+	\item Production function: $y_t = a_t +  n_t$
+	\item Market clearing: $c_t = y_t$
+	\item Firm F.O.C.: $w_t = a_t$
+\eit
+
+\item Why is hours worked flat?
+
+\item Household intratemporal F.O.C: $w_t = c_t + \varphi n_t$ 
+
+\item Holding marginal utility of consumption fixed, hours increase as wages increase (substitution effect)
+
+\item But in equilibrium, consumption increases, dampening hours (income effect)
+
+\item Balance-growth path preferences: income and substitution effect cancels
+
+\item This model has no internal propagation!
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRFs using a blip shock with capital}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_blipshock.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{What's going on?}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item With capital, hosuehold can now smooth consumption
+\begin{eqnarray}
+\hat c_t = - \beta R^{r} E_t \hat r^{r}_{t+1} + E_t \hat {c}_{t+1} \nonumber
+\end{eqnarray}
+
+\item TFP up, households feel wealthier, consumption increases (but much less so compared to previous model)
+
+\item Consumption smoothing $\Rightarrow$ investment jumps
+\begin{eqnarray}
+	 \frac{C}{Y}\hat c_t + \frac{I}{Y} \hat i_t = \hat y_t \nonumber
+\end{eqnarray}
+
+\item When TFP increases, wages and current interest rate jumps
+\begin{eqnarray}
+\hat r^{r}_t = \hat a_t -(1-\alpha)(\hat k_t - \hat n_t)  \nonumber \\
+\hat w_t = \hat a_t + \alpha (\hat k_t-\hat n_t) \nonumber
+\end{eqnarray}
+
+\item Moreover, higher capital stock means that wages (rental rate) will be persistently higher (lower)
+
+\item Now, becuase of lower consumption response, hours worked increases 
+\begin{eqnarray}
+\hat w_t = \hat c_t + \varphi \hat n_t \nonumber
+\end{eqnarray}
+
+\item Now there is some propagation!
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRFs in core model (persistent shock and capital)}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_standardshock.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{What's going on?}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item With a persistent shock, all responses become more persistent
+
+\item Some, in particular household consumpion, even hump-shaped
+
+\item Now there is an additional motive for investing besides consumption smoothing: future capital is unusually productive
+
+\item Households face trade-off when saving: smoothing consumption vs. maximizing lifetime consumption
+
+\item Turns out hump-shape is the optimal path
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item RBC = minimal GE model to get started with business cycles analysis
+\bit
+	\item Abstracts from a lot of things, but this was intentional
+\eit
+
+\item Key features: 
+\bit
+	\item No distortions
+	\item TFP is the only driving process
+	\item Propagation happens through equilibrium responses of hours worked and investment
+\eit
+
+\item Underlying philosophy:
+\bit
+	\item Business cycles analyzed in the same framework as long-run growth
+	\item GE models can be calibrated and used to quantitatively interpret the data
+\eit
+
+\item Results:
+\bit
+	\item The model can seemingly explain a whole lot of business cycle moments
+	\item Fails in some key aspects
+\eit
+
+\item Next up:
+\bit
+	\item RBC as a diagnosis tool
+	\item Thinking deeper about mechanisms and model fit
+\eit
+
+\eit
+
+\end{frame}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

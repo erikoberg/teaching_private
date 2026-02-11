@@ -1,0 +1,172 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+
+\title{Retake Exam Ph.D. Macroeconomics II \\
+Department of Economics, Uppsala University\\
+August 13, 2025}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Instructions}
+\bit
+	\item Writing time: 5 hours.
+	
+	\item The exam is closed book. 
+	
+	\item The exam has 70 points in total 
+	
+	\item A passing grade requires a) at least 30 points on  the exam, and b) 50 points in total for the course (incl the points you have from your problem sets).
+	
+	\item Start each question on a new paper. Write your anonymous code on all answer pages.
+	
+	\item You may write your solutions by pen or pencil; use your best handwriting.
+	
+	\item Answers shall be given in English.
+
+	\item Motivate your answers carefully; if you think you need to make additional assumptions to answer the questions, state them.
+	
+	\item If you have any questions during the exam, you may call Erik Öberg (+46 730 606 796) or Teodora Borota (+46 739 262 330) at any time between 10 AM and noon.
+\eit
+
+\newpage
+
+\section{The Romer (1990) model of expanding varieties (20 points)}
+
+Take the Romer model of expanding varieties as seen in lectures, but with some modifications. Consumer preferences are $\int_{0}^{\infty} e^{-\rho t}[\log C(t)] d t$. The final good production function is $Y(t)=\frac{1}{1-\beta} L_{E}(t)^{\beta} \int_{0}^{N(t)} x(\nu, t)^{1-\beta} d \nu$, and machines can be produced at a marginal cost $\psi \equiv 1-\beta$. New ideas are produced according to $\dot{N}(t)=\eta N(t) L_{R}(t)$, where $L_{R}(t)$ is the number of workers engaged in research. The remaining workers ($L_E(t)$) are employed in the production of the final good and earn a wage $w(t)$. Workers are perfectly mobile between the two activities. Let $V(\nu, t)$ be the value of a machine patent and let $w(t)$ be the wage paid by final good firms. Suppose that profits from selling machines $\pi(\nu, t)$ are subsidized at a rate $s>0$.\\
+
+1. Explain why $\eta N(t) V(\nu, t)=w(t)$ must hold in an equilibrium in which both production and research take place. [2 points]\\
+
+2. Explain why $r(t) V(\nu, t)=(1+s) \pi(\nu, t)+\dot{V}(\nu, t)$ must hold in equilibrium. [2 points]\\
+
+3. It can be shown that $\pi(\nu, t)=\beta L_{E}(t)$ and $w(t)=\frac{\beta}{1-\beta} N(t)$. Use these and prior results to show that $r(t)=\eta(1+s)(1-\beta) L_{E}(t)$. [4 points]\\
+
+4. The equilibrium of the model is a balanced growth path on which output, consumption, and ideas grow at a constant rate $g$. Let $L$ denote the size of the labor force. Show that
+
+$$
+g=\frac{\eta(1+s)(1-\beta) L-\rho}{\eta(1+s)(1-\beta)+1}
+$$
+
+Hint: Consumer optimization requires that $\dot{C}(t) / C(t)=r(t)-\rho$. [4 points]\\
+
+5. A social planner (SP) would allocate resources such that $g_{S P}=\eta L-\rho$. Let $s^{*}$ denote the value of the subsidy that ensures $g=g_{S P}$. Derive $s^{*}$. [2 points]\\
+
+6. TRUE or FALSE? "If $s=s^{*}$, welfare is maximized. That is, welfare is the same as in the SP solution." Briefly explain your answer. [2 points]\\
+
+7. In the quality ladders model, growth in the decentralized economy may either be too high or too low relative to the social planner solution. On the other hand, in the expanding varieties model growth in the decentralized economy is always too low. Explain briefly how this differences arises. [4 points]
+
+
+\section{New-Keynesian Frictions and Business-Cycle Accounting (15 points)}
+As discussed in class, the social planner problem to the vanilla New-Keynesian model with linear production is
+\begin{eqnarray}
+\max_{C_t, N_{it}} && \log C_t - \theta \frac{N_t^{1+\varphi}}{1+\varphi} \nonumber \\
+\text{s.t.} && C_t = \left(\int_{0}^{1} (A_t N_{it})^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{\epsilon}{\epsilon-1}} \nonumber \\
+&& N_t = \int_{0}^{1} N_{it} di \nonumber
+\end{eqnarray}
+where $C$ is consumption and $N_i, A$ are hours worked and exogenous labor productivity across varieties $i$, respectively. 
+
+\ben
+    \item Set up the Lagrangian and take the F.O.C. to find the following set of equations that characterize the socially optimal allocation: [4 points]
+    \begin{eqnarray}
+    \label{eq:mrs_mrt}
+    \frac{\theta N^{\varphi}}{C^{-1}} &=& A_t,   \\
+    \label{eq:clearing}
+    C_{t} &=& A_t N_t.
+    \end{eqnarray}
+
+    \item Interpret Equations \eqref{eq:mrs_mrt} and \eqref{eq:clearing}. [3 points]
+
+    \item The corresponding decentralized equilibrium is not optimal, due to firms having market power and face price-setting frictions. Which of Equations \eqref{eq:mrs_mrt} and \eqref{eq:clearing} does not hold in the decentralized equilibrium, and why? [4 points]
+
+    \item Evaluate the following claim: ``That firms face frictions in their price-setting decisions cannot explain fluctuations in the labor wedge, since these frictions concern the goods market, and not the labor market''. [4 points]
+
+\een
+
+\section*{Taxes and Government Spending in the DMP Model (20 points)}
+Consider the basic continuous-time DMP model studied in class. There is a conintuum of workers with mass $1$, and large mass of firm who decides whether to post a vacancy or not, with free entry. Denote the unemployment and vacancy rate with $u,v$ repsectively. The job-finding and job-filing rates are given by the aggregate matching function, which is $m(u,v)=Au^{\alpha}v^{1-\alpha}$. The vacancy posting cost is $c$. Jobs desolve at exogenous rate $\sigma$. The discount rate is $r$. Upon a match, the worker-firm pair produces $y$. The wage level is determined by Nash bargaining, in which the worker bargaining power is $\gamma$. 
+
+The unemployed workers retrieve utility $b$. We interpret $b$ as an unemployment benefit provided by the government with its level being exogenously fixed. This benefit is financed by taxing all employed workers with a lump-sum tax $\tau$, which is allowed to vary to keep the government's budget is balanced. A balanced budget means that total tax income equals total benefit payments at every instant.
+
+Put together, the Bellman equations for the vacancy value $V$, Job value $J$, unemployment value $U$ and employment value $E$ are, respectively, given by
+\begin{eqnarray}
+rV &=& -c + q(\theta)(J-V), \nonumber \\
+rJ &=& y-w + \sigma(V-J), \nonumber \\
+rU &=& b + p(\theta)(W-U), \nonumber \\
+rW &=& w - \tau + \sigma(U-W), \nonumber
+\end{eqnarray}
+where $q(\theta), p(\theta)$ are the job-filling and job-finding rates implied by the matching function.
+
+\ben
+\item Write the government's balanced budget constraint and show that $\tau$ is increasing in $u$. [2 points]
+
+
+\item Derive a relation between $v$ and $u$ in steady state (a Beveridge curve). [2 points]
+
+
+
+\item Derive the job-creation curve in $\{w.\theta\}$-space. [4 points]
+
+
+\item Using the results above, derive the wage curve. Is the wage level increasing or decreasing in $\tau$? What is the intuition? [4 points]
+
+
+\item Use the government's budget constraint and the Beveridge curve to write the wage curve in terms of $\theta, w$ and exogenous parameters only. [4 points]
+
+\item Describe the shape of the wage curve and draw it in a graph together with the job-creation curve. Argue that under certain conditions, the model can have two steady state equilibria. Describe the intuition as to how this can be possible. [4 points]
+\een
+
+\section{Taxing capital investment in the Ayiagari model (15 points)}
+Consider an economy with a continuum (measure 1) of ex-ante identical households, each living for two periods. Each household $i$ has utility $U_i$ given by
+\begin{eqnarray}
+U_i = \log(c_{i1}) + \beta E \log (c_{i2})
+\end{eqnarray}
+where $c_{i1}, c_{i2}$ are period 1 and 2 consumption, $\beta$ is the discount factor and $E$ is the expected value operator. In period 1, each household is endowed with $y_1$ units of output that can either be consumed, $c_{i1}$, or invested, $k_i$. In period 1, there is a proportional tax $\tau$ on investment, which is collected by the government, and then handed out lump-sum equally to all households in the same period. Denoting the aggregate capital stock with $K$, the period 1 budget constraint reads
+\begin{eqnarray}
+c_{i1} + (1+\tau)k_i = y_1 + \tau K.
+\end{eqnarray}
+In period 2, households recieve income from the capital they saved in period 1 and from wages earned from supplying $l_{i}$ efficiency units of labor. $l_{i}$ is a random variable, i.i.d. across households and equals $1+\epsilon$ with probability $1/2$ and $1-\epsilon$ with probability $1/2$, with $0 \leq \epsilon<1$. 
+
+The Law of large numbers imply that the aggregate efficiency units of labor supply $L=1$. In period $2$, output is produced by a competitive representative firm which operate a Cobb-Douglas production function $K^{\alpha}L^{1-\alpha}$, renting capital and labor services from the households at rate $r$ and $w$, respectively. 
+
+\ben
+\item Write the household and firm problems and define a competitive equilibrium for this economy. [4 points]
+
+\item Solve for the aggregate capital stock in this economy. [4 points]
+
+\item Assume $\epsilon=0$. Show that increasing $\tau$ decreases $U_i$. Explain. [4 points]
+
+\item Show that around some given tax rate $\tau$, there exist an $\epsilon>0$ such that marginally increasing $\tau$ increases $U_i$. Explain. [3 points]
+
+
+\een
+
+
+	
+\end{document}

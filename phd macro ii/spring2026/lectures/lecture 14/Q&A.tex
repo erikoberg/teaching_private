@@ -1,0 +1,388 @@
+\documentclass[9pt]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[Incomplete Markets in General Equilibrium]{Macroeconomics II, Q\&A session}
+\author{Erik {\"O}berg}
+\date{May 15, 2023}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Agenda}
+
+\ben
+\setlength\itemsep{2em}
+
+\item Clarification of some lecture note material
+
+\item Some questions regarding problem set exercises
+
+\item Some questions regarding old exams
+
+\een
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Clarification of some lecture note material \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Question: How to use "bounded solution condition" when analyzing IRFs?}
+
+\bit
+	\setlength\itemsep{2em}
+	\item Context: IRF to monetary policy shock in NK model (lecture 3)
+\eit
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_9variables.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{IRFs to monetary policy shock: mechanism}
+
+\bit
+\setlength\itemsep{1em}
+\item Take as given that $\hat r_t$ increases, then
+\begin{eqnarray}
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat r_t) + E_t \hat c_{t+1} \nonumber
+\end{eqnarray}
+implies $\Delta E_t c_{t+1}$ is positive
+
+\item {\bf Bounded solution $\Rightarrow$ $\hat c_t<0$}
+
+\item Market clearing $\hat c_t = \hat y_t = \hat n_t < 0$
+\bit
+\item $\Rightarrow$ we may think of the output drop as being caused by drop in {\bc aggregate demand}
+\eit
+
+\item How is this consistent with optimal labor supply? Intratemporal optimality condition:
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber
+\end{eqnarray}
+
+\item $\hat n_t<0$ only if $\hat \omega_t < \hat y_t < 0$
+\bit
+\setlength\itemsep{0.5em}
+\item Wages need to respond a lot!
+\eit
+
+\item $\hat \omega_t <0$ $\Rightarrow$ $\hat mc_t<0$ $\Rightarrow$ $\beta E_t \pi_{t+1}-\pi_t \approx \Delta \pi_{t+1} >0$ from the Phillips curve
+
+\item Bounded solution $\Rightarrow$ $\hat \pi_t<0$
+
+\item Notice how the assumption of a ``bounded solution'' enters the analysis
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{bounded solution}
+
+\bit
+\setlength\itemsep{1em}
+\item ``Bounded solution'' means that no IRF diverge
+
+\item Ignoring ``oscillation solutions'' (they are only possible with higher order AR(p) solutions - not possible in these models), the solution must converge to some steady state
+
+\item Moreover, we also know that steady state is unique
+
+\item Therefore, the solution must have $\hat c \to 0$ in the long run
+
+\item With $\Delta E_t \hat c_{t+1}>0$ for all $t$, we must have $\hat c_0 <0$ 
+
+\eit
+
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Some questions regarding problem set exercises \normalfont
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Question: How to interpret IRFs in the NK model?}
+
+\bit
+\setlength\itemsep{2em}
+\item Context: Problem set 2, question 1 (government spending shocks).
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{The vanilla equilibrium system with sticky prices }
+
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Mon policy rule:} && \hat i_t = \phi \pi_t. \nonumber 
+\end{eqnarray}
+
+\end{frame}
+
+\begin{frame}{The equilibrium system with sticky prices and gov spending}
+
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \bar c\hat c_t + \bar g \hat g_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Mon policy rule:} && \hat i_t = \phi \pi_t. \nonumber \\
+\text{Spe policy rule:} && \hat g_t = \rho g_{t-1} + \epsilon^g_t. \nonumber 
+\end{eqnarray}
+where 
+\begin{eqnarray}
+\bar c = \frac{C}{Y}, \bar g = \frac{G}{Y} \nonumber
+\end{eqnarray}
+
+\end{frame}
+
+\begin{frame}{The equilibrium system with flexible prices and gov spending}
+
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} &&  \widehat{mc}_t = 0 \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \bar c\hat c_t + \bar g \hat g_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Mon policy rule:} && \hat i_t = \phi \pi_t. \nonumber \\
+\text{Spe policy rule:} && \hat g_t = \rho g_{t-1} + \epsilon^g_t. \nonumber 
+\end{eqnarray}
+where 
+\begin{eqnarray}
+\bar c = \frac{C}{Y}, \bar g = \frac{G}{Y} \nonumber
+\end{eqnarray}
+
+\end{frame}
+
+
+\begin{frame}{IRFs in the flex price equilibrium}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45,trim= 0 0 0 0, clip]{figures/nk_govshock_flexprices.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Interpretation}
+
+\bit
+\setlength\itemsep{1em}
+\item Direct effect of government spending shock: $\hat g_t$ up $\hat c_t$ down (due to tax financing)
+\bit
+	\item Always start here!
+	
+	\item Similar to when you analyze (positive) TFP shocks, direct effect: output up.
+\eit
+
+\item Equilibrium effects:
+\bit
+	\item Household intratemporal optimality: $\hat c_t$ down $\rightarrow$ $\hat n_t$ up (``wealth effect'')
+	
+	\item Bounded solution: $\hat c_t$ down $\rightarrow$ $\Delta \hat c_{t+1} > 0$
+	
+	\item Household intertemporal optimality: $\Delta \hat c_{t+1} > 0$  $\Rightarrow$ $\hat i_t - E_t \pi_{t+1}$ up
+	
+	\item Policy rule: $\hat i_t - E_t \pi_{t+1}$ up $\rightarrow$ $i_t$ up and $\pi_t$ up
+	\bit
+		\item Policy rule implies that interest rates and (expected) inflation always moves in the same direction. 
+	\eit
+\eit
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{IRFs in the sticky-price equilibrium}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45,trim= 0 0 0 0, clip]{figures/nk_govshock.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Interpretation}
+
+\bit
+\setlength\itemsep{1em}
+\item Direct effect of government spending shock: $\hat g_t$ up $\hat c_t$ down (due to tax financing)
+
+\item Equilibrium effects in flex-price equilibrium:
+\bit
+\item Household intratemporal optimality: $\hat c_t$ down $\rightarrow$ $\hat n_t$ up (``wealth effect'')
+
+\item Bounded solution: $\hat c_t$ down $\rightarrow$ $\Delta \hat c_{t+1} > 0$
+
+\item Household intertemporal optimality: $\Delta \hat c_{t+1} > 0$  $\Rightarrow$ $\hat i_t - E_t \pi_{t+1}$ up
+
+\item Policy rule: $\hat i_t - E_t \pi_{t+1}$ up $\rightarrow$ $i_t$ up and $\pi_t$ up
+
+\eit
+
+
+\item Added equilibrium effects in sticky-price equilibrium:
+\bit
+\item With sticky prices, what changes is
+\begin{eqnarray}
+\text{Firm optimality:} &&  \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber
+\end{eqnarray}
+
+\item Bounded solution: $\pi_t$ up $\rightarrow$ $\Delta E_t \pi_{t+1}$ down
+
+\item Firm optimality: $\Delta E_t \pi_{t+}1$ down $\rightarrow$ $\widehat{mc}_t = \hat \omega_t$ up
+
+\item Household intratemporal optimality: $\hat \omega_t$ up $\rightarrow$ $\hat n_t$ down
+
+\item The fall in wages offset the wealth effect in the labor-supply decision, making the equilibrium response of output smaller.
+\eit
+
+\item Note: the increase in inflation was key to this argument!
+\bit
+\item The central bank could have offsetted the increase in inflation if it met the shock with increasing the interest rate more, i.e., a higher coefficent $\phi$
+
+\item In this sense, the larger government spending multiplier under sticky prices is a consequence of ``loose'' monetary policy
+
+\item Remark: This is also why the NK model predicts that spending multipliers may be very high when monetary policy is stuck at the ZLB (Woodford AEJmacro 2011, and a very large follow-up literature)
+
+\eit
+
+
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Some questions regarding old exams \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Questions}
+
+\bit
+\setlength\itemsep{1em}
+\item August 2022 Q3: How are two steady states possible?
+
+\item March 2022 Q1: How to sketch IRFs?
+
+\item March 2022 Q2 (also March 2022 Q1): How to use guess-and-verify?
+
+\item March 2022 Q3: How to solve for the Hosios condition? 
+
+\item March 2022 Q4: How to solve for changes in aggregate welfare? 
+
+\eit
+
+
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+

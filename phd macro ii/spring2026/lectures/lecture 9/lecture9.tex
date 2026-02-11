@@ -1,0 +1,2293 @@
+\documentclass[9pt]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+
+\title{Macroeconomics II, Lecture IX: \\
+	Diamond-Mortensen-Pissarides: Statics}
+\author{Erik {\"O}berg}
+\date{}
+
+\begin{document}
+	
+	\begin{frame}
+	\maketitle
+\end{frame}
+
+\section{Introduction}
+
+
+\begin{frame}{Recap and motivation}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Last lecture: framework for studying wage dispersion in a fricitional labor market
+
+\item Today: framework for studying unemployment in a frictional labor market
+
+\item Unemployment dynamics in McCall followed from exogenous arrival rates of offers/separation shocks.
+
+\item To understand the underlying forces that govern unemployment dynamics, we need to endogenize these arrival rates.
+
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{The Diamond-Mortensen-Pissarides (DMP) model}
+
+\bit
+\setlength\itemsep{2em}
+
+\item DMP emphasizes how jobs are endogeneously created and destructed
+
+
+\item Key references: Diamond (JPE 1981; JPE 1982; ReStud 1982), Mortensen (AER 1982; NBER 1982) and Pissarides (ReStud 1984; AER 1985)
+
+\item Sometimes referred to as the ``Pissarides model'' or the ``Mortensen-Pissarides model''
+
+\item Large literature testing its assumptions/implications and proposing extensions
+
+\eit
+
+\end{frame}
+
+\begin{frame}{DMP: agenda}
+
+\ben
+\setlength\itemsep{1.5em}
+
+\item The matching function
+
+
+\item Static DMP with exogenous separations
+
+
+\item Static DMP with endogenous separations
+
+%\item Efficiency (briefly)
+%\bit
+%\setlength\itemsep{0.5em}
+%	\item Value functions
+%	\item Wage determination
+%	\item Equilibrium
+%	\item Comparative statics
+%\eit
+
+%\item Dynamics
+%\bit
+%\setlength\itemsep{0.5em}
+%	\item Steady-state approximation of dynamic equilibrium
+%	\item Unemployment volatility puzzle
+%\eit
+
+\een
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge The matching function \normalfont
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{The job-finding rate and market tightness}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Hypothesis: job search is a competitive process - it takes less time for a worker to find a job when demand is abundant and supply is low 
+
+\item Supply $=$ the number of unemployed $U$
+
+\item Demand $=$ the number of vacancies $V$
+
+\item Define \emph{vacancy rate} as $v = \frac{V}{P}$, where $P$ is number of labor force participants 
+
+\item Define market tightness:
+\begin{eqnarray}
+\theta \equiv \frac{V}{U} = \frac{v}{u} \nonumber
+\end{eqnarray}
+\bit
+	\item The market is tight when demand is high relative to supply
+\eit
+
+\item {\bc Testable implication}: Job-finding rate should be positively correlated with $\theta$
+
+\eit
+\end{frame}
+
+
+
+\begin{frame}{Corr(Job-finding rate, market tightness)}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{figures/rs_2011_fig10.pdf}
+	\caption*{\footnotesize From Rogerson and Shimer (Handbook LE 2011).}
+\end{figure}
+
+\end{frame}
+
+
+
+
+\begin{frame}{The aggregate matching function}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The {\bc aggregate matching function} endogenizes the job-finding rate via the competition analogy
+
+\item $M=M(U,V)$ gives the \emph{flow rate of matches} as a function of current level of unemployment and vacant positions
+
+\item \# matches in $\Delta t = M(U,V) \Delta t$  
+
+\item $M(\cdot)$ should have two basic properties
+\bit
+\item increasing in both arguments
+
+\item concave in both arguments
+\eit
+
+\item Common assumption: $M(\cdot)$ is homogeneous of degree 1
+\bit
+	\setlength\itemsep{0.5em}
+	\item Big gain in tractability 
+	\item Support in aggregate time series data (Petrongolo-Pissarides, JEL 2001)
+	\item Without explicit microfoundations tied to micro evidence, it is difficult to assess this assumption
+		\bit
+			\item \{Carillo-Tudela\}-Gartner-Kaas (2020) use German micro data, Skandalis (2019) use French micro data, exciting research area!
+		\eit
+\eit
+
+\eit
+\end{frame}
+
+
+
+\begin{frame}{Job-finding and job-filing rates}
+
+\bit
+\setlength\itemsep{2em}
+
+\item With random matching, the aggregate matching function delivers a job-finding and job-filing rate
+
+\item Homogeneity of degree 1 implies
+\bit
+\setlength\itemsep{0.5em}
+\item rate at which unemployed worker meets vacant firms: $\lambda_u=\frac{M(U,V)}{U} = M(1, \frac{V}{U}) = M(1, \theta)$
+\item rate at which vacant firm meets unemployed workers: $\lambda_v=\frac{M(U,V)}{V} = M(\frac{U}{V},1) = M(\theta^{-1},1)$
+\eit
+
+\item $\lambda_u=\lambda_u(\theta)$ increasing and concave, $\lambda_v=\lambda_v(\theta)$ decreasing (and often convex)
+
+\item Note that $\lambda_u(\theta) = \theta \lambda_v(\theta)$
+
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Example: Cobb-Douglas}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Common functional form: Cobb-Douglas $M(U,V) = AU^{\alpha}V^{1-\alpha}$
+
+\item Satisfies all assumptions: increasing, concave, homogeneous of degree 1
+
+\item Job-finding and job-filing rates:
+\begin{eqnarray}
+\lambda_u(\theta) &=& A \theta^{1-\alpha} \nonumber \\
+\lambda_v(\theta) &=& A \theta^{-\alpha} \nonumber
+\end{eqnarray}
+
+\item Parameteric interpretation:
+\bit
+	\item $A$: aggregate matching efficiency
+	
+	\item $\alpha$: elasticity of matches w.r.t. unemployment
+\eit
+
+\item Note that $\log \lambda_u = \log A + (1-\alpha) \log \theta$
+\bit
+\item Estimate $A$ and $\alpha$ by regressing the (log) job-finding rate on (log) market tightness
+\eit
+
+\eit
+\end{frame}
+
+%
+%\begin{frame}{Estimating matching function parameters}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.5]{figures/rs_2011_fig10.pdf}
+%	\caption*{\footnotesize From Rogerson and Shimer (2011).}
+%\end{figure}
+%
+%\bit
+%	\item Regressing one line on the other yields $\alpha = 0.58$
+%\eit
+%
+%\end{frame}
+
+\begin{frame}{Matching function implies a steady-state relationship between $v$ and $u$}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Unemployment dynamics:
+\begin{eqnarray}
+\dot{u} &=& \sigma (1-u) - \lambda_u(\theta)u \nonumber
+\end{eqnarray}
+
+\item Steady state:
+\begin{eqnarray}
+u &=& \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+
+\item With Cobb-Douglas:
+\begin{eqnarray}
+u &=& \frac{\sigma}{\sigma + A \left(\frac{v}{u}\right)^{1-\alpha} }\nonumber
+\end{eqnarray}
+
+\item Rewrite $v=f(u)$:
+\begin{eqnarray}
+v = \left( \frac{\sigma}{ A}\right)^{\frac{1}{1-\alpha}} \left(u^{-\alpha}(1-u)\right)^{\frac{1}{1-\alpha}} \nonumber
+\end{eqnarray}
+
+\item Properties of $f$: for $0<u<1$, we have $f>0$, $f'<0$, $f''>0$ {\rc (Draw graph on Whiteboard)}
+\bit
+	\item $f'<0 \Rightarrow$ $Corr(u,v)<0$
+	%\item How does a decrease in matching efficiency $A$ look like?
+\eit
+
+\eit
+\end{frame}
+
+\begin{frame}{$Corr(u,v)$ in the data}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{figures/rs_2011_fig9.pdf}
+	\caption*{\footnotesize From Rogerson and Shimer (Handbook LE 2011).}
+\end{figure}
+
+\bit
+	\item Negative correlation referred to as the \bf Beveridge curve \normalfont
+\eit
+
+\end{frame}
+
+%\begin{frame}{Beverdige curve analytics}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Beveridge curve is usually depicted in $\{u,v\}$-space
+%
+%\item With Cobb-Douglas:
+%\begin{eqnarray}
+%u &=& \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber \\
+%&=& \frac{\sigma}{\sigma + A \left(\frac{v}{u}\right)^{1-\alpha} }\nonumber
+%\end{eqnarray}
+%
+%\item Rewrite $v=f(u)$:
+%\begin{eqnarray}
+%v = \left( \frac{\sigma}{ A}\right)^{\frac{1}{1-\alpha}} \left(u^{-\alpha}(1-u)\right)^{\frac{1}{1-\alpha}} \nonumber
+%\end{eqnarray}
+%
+%\item Properties of $f$: for $0<u<1$ (Draw picture)
+%\bit
+%	\item $f>0$ 
+%	\item $f'<0$
+%	\item $f''>0$
+%\eit
+%
+%\item How does a decrease in matching efficiency $A$ look like? 
+%
+%\eit
+%\end{frame}
+
+
+
+%\begin{frame}{The Beveridge curve in $u,v$-space}
+%
+%\begin{center}
+%\includegraphics[scale=0.2]{figures/beveridge_shimer.jpg}
+%\end{center}
+%
+%
+%\bit
+%\item From Shimer's website
+%\item Big literature investigating the apparent decline in US matching efficiency
+%
+%\eit
+%\end{frame}
+%
+%\begin{frame}
+%
+%\begin{center}
+%	\huge DMP Statics \normalfont
+%\end{center}
+%
+%\end{frame}
+
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Static Equilibrium \normalfont
+\end{center}
+
+\end{frame}
+
+
+
+
+\begin{frame}{DMP: basic elements}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Continuous time; infinitely lived agents
+
+\item Workers: employed or unemployed
+
+\item Firms: non-operating, vacant or filled
+
+\item A filled firm has one employee, producing instantaneous output flow $y$
+
+\item {\bc Exogenous job-separation rate}
+\bit
+	\item For endogenous separations, see you problem set
+\eit
+
+\item {\bc Endogenous job-finding rate}
+
+\item We will abstract from any heterogeneity, closing down wage dispersion
+\bit
+\setlength\itemsep{0.5em}
+	\item For the case with stochastic firm productivity, see Pissarides (AER 1985)
+	
+	\item You can also integrate DMP with Burdett-Mortensen
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{DMP: defining elements}
+
+\bit
+\setlength\itemsep{2em}
+
+
+\item \bf Matching function \normalfont
+\bit
+\setlength\itemsep{0.5em}
+	\item Increasing, concave and homogenous of degree 1 
+	\item Determines the job-finding and filing rates as function of $\theta$
+\eit
+
+\item \bf A wage setting rule \normalfont
+\bit
+\setlength\itemsep{0.5em}
+	\item Our starting point: {\bc Nash Bargaining}
+	\item Because of matching frictions, a match creates a surplus
+	\item Wages are set to split the match surplus between workers and firms 
+	\item Contrasts with wage posting, as in Burdett-Mortensen
+\eit
+
+\item \bf Free entry \normalfont
+\bit
+	\item The vacancy market is competitive: the value of opening a vacancy must be $0$ in equilibrium
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}{Worker values}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Now: static analysis (dynamics later)
+
+\item Workers take no decisions and there is no wage distribution.
+
+\item Worker values are simply
+\begin{eqnarray}
+rW &=& w  + \sigma \left(U-W \right) \nonumber \\ 
+rU &=& b  + \lambda_u(\theta) \left(W-U\right) \nonumber
+\end{eqnarray}
+
+\item continuous-time structure always the same: flow value $=$ flow benefit + (flow probability of event) $\times$ (change of value from event)
+
+
+\eit
+\end{frame}
+
+\begin{frame}{Firm values}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Similarly, we have firm value functions
+\begin{eqnarray}
+rJ &=& (y-w)  + \sigma \left(V-J\right) \nonumber \\ 
+rV &=& -c  + \lambda_v(\theta) \left(J-V\right) \nonumber
+\end{eqnarray}
+
+\item $c =$ vacancy posting cost; summarizes all costs related to hiring
+
+\item Firms take one decision: should I open a vacancy or not?
+
+\item Here is where the free entry assumption come into play
+\bit
+\setlength\itemsep{0.5em}
+\item Firms open vacancies as long as  $V\geq 0$
+\item Competitive vacancy market, i.e., \emph{free entry}: $V=0$ in equilibrium
+\eit
+
+\eit
+\end{frame}
+
+\begin{frame}{Wage setting}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The model has one price: $w$
+
+\item Without further assumptions, the equilibrium wage level $w$ is indeterminate
+
+\item Combining the worker Bellman equations, we get worker surplus:
+\begin{eqnarray}
+r(W-U) &=& w-b-(\sigma+\lambda_u(\theta))\left(W-U\right) \nonumber \\
+W-U &=& \frac{w-b}{r+\sigma + \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+\item From firm job Bellman equations and $V=0$, we get firm suprlus:
+\begin{eqnarray}
+rJ &=& (y-w)  - \sigma J \nonumber \\
+J-V &=& \frac{y-w}{r+\sigma}  \nonumber
+\end{eqnarray}
+
+\item For any wage $w\geq b$, the worker is better off employed than unemployed
+
+\item For any wage $w \leq y$, the firm is better off operating than vacant
+
+\item Ergo, any wage $w \in [b,y]$ is consistent with individual rationality
+
+\item Standard assumption of wage determination in the context of DMP: \bf Nash bargaining \normalfont
+
+\eit
+\end{frame}
+
+\begin{frame}{Nash bargaining}
+
+\bit
+\setlength\itemsep{1em}
+
+\item When workers and firms meet, they sit down and bargain:
+\begin{eqnarray}
+\max_{w} \left(W(w)-U\right)^{\gamma} \left(J(w)-V\right)^{1-\gamma} \nonumber
+\end{eqnarray}
+\item i.e., they maximize the geometric mean of their surpluses, with bargaining weights $\gamma, 1-\gamma$
+
+\item Nash (Ecmtra 1950): the solution to this problem is also the unqiue solution to a general bargaining problem that satisfies 4 reasonable axioms
+\bit
+	\item Notably, one axiom is Pareto efficiency
+\eit
+
+\item It is by no means clear that this is a reasonable approximation of the how wages are determined in the data, but it gives us a way to start thinking about it
+
+\item First order condition:
+\begin{eqnarray}
+\gamma (J-V) W' + (1-\gamma) (W-U)J' =0 \nonumber
+\end{eqnarray}
+
+\item From the definition of the value functions, we have $W'(w) = -J'(w)$
+\bit
+	\item intuition?
+\eit
+
+\item Hence
+\begin{eqnarray}
+\gamma (J-V) = (1-\gamma) (W-U) \nonumber
+\end{eqnarray}
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Nash bargaining: an alternative expression}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Define total match surplus $S$:
+\begin{eqnarray}
+S = (J-V) + (W-U) \nonumber
+\end{eqnarray}
+
+%\item Why is $S>0$?
+
+\item Combine with
+\begin{eqnarray}
+\gamma (J-V) = (1-\gamma) (W-U) \nonumber
+\end{eqnarray}
+
+\item to find
+\begin{eqnarray}
+W -U&=& \gamma S \nonumber \\
+J -V&=& (1-\gamma) S \nonumber 
+\end{eqnarray}
+
+\item Nash bargaining: contesters split the total surplus according to their bargaining power
+
+\eit
+\end{frame}
+
+\begin{frame}{Equilibrium definition}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item An equilibrium is a collection $\{W,U, J, V, w, \theta\}$ s.t. the following equations hold
+\bit
+	\item \bf Bellman equations:
+		\begin{eqnarray}
+		rW &=& w  + \sigma \left(U-W \right) \nonumber \\ 
+		rU &=& b  + \lambda_u(\theta) \left(W-U\right) \nonumber \\
+		rJ &=& (y-w)  + \sigma \left(V-J\right) \nonumber \\ 
+		rV &=& -c  + \lambda_v(\theta) \left(J-V\right) \nonumber
+		\end{eqnarray}
+
+	\item Free entry:
+		\begin{eqnarray}
+		V &=& 0 \nonumber 
+		\end{eqnarray}
+
+	\item Wage setting rule: \normalfont
+	\begin{eqnarray}
+	\gamma (J-V) = (1-\gamma) (W-U) \nonumber
+	\end{eqnarray}
+\eit
+
+\item Six equations, six unknowns
+
+\item Given $\theta$, we can solve for $\{v,u\}$ from
+\begin{eqnarray}
+\dot{u} &=& \sigma (1-u) + \lambda_u(\theta)u \nonumber \\
+u(0) &=& \underbar{u} \nonumber \\
+\theta &=& \frac{v}{u} \nonumber
+\end{eqnarray}
+\eit
+\end{frame}
+
+\begin{frame}{Solving DMP I: job creation}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Start from firm side:
+\begin{eqnarray}
+rJ &=& (y-w)  + \sigma \left(V-J\right) \nonumber \\ 
+rV &=& -c  + \lambda_v(\theta) \left(J-V\right) \nonumber
+\end{eqnarray}
+
+\item Free entry in vacancy value equation implies:
+\begin{eqnarray}
+J = \frac{c}{\lambda_v(\theta)} \nonumber
+\end{eqnarray}
+
+%\item Intuition?
+
+%\item A producing firm has asset value $=$ flow cost of bening vacant (c) $\times$ average vacancy duration $\frac{1}{q(\theta)}$
+
+\item Free entry in job value equation implies:
+\begin{eqnarray}
+J &=& \frac{y-w}{r+\sigma} \nonumber
+\end{eqnarray}
+
+\item Together:
+\begin{eqnarray}
+\frac{y-w}{r+\sigma} = \frac{c}{\lambda_v(\theta)} \nonumber \hspace{5mm} \text{or} \hspace{5mm} w = y - \frac{c(r+\sigma)}{\lambda_v(\theta)}
+\end{eqnarray}
+
+\item This is the {\bc job-creation curve} \normalfont in $\{w, \theta\}$-space
+\bit
+	\item Tells you how many vacancies per unemployed, $\theta$, firms create given the wage $w$ 
+	\item Given $\lambda_v(\theta)$ decreasing, JC curve $w(\theta)$ is decreasing (and typically convex)
+\eit
+
+\eit
+\end{frame}
+
+
+
+\begin{frame}{Solving DMP II: wage curve}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Plug in firm and worker surplus into wage setting rule
+\begin{eqnarray}
+\gamma (J-V) &=& (1-\gamma) (W-U) \nonumber \\
+\gamma \left(\frac{y-w}{r+\sigma} \right) &=& (1-\gamma) \left(\frac{w-b}{r+\sigma + \lambda_u(\theta)}  \right) \nonumber 
+\end{eqnarray}
+
+\item CRS matching: $\frac{\lambda_u(\theta)}{\lambda_v(\theta)}=\theta$ implies
+\begin{eqnarray}
+\gamma \left(\frac{y-w}{r+\sigma} \right) &=& (1-\gamma) \left(\frac{w-b}{r+\sigma + \theta \lambda_v(\theta)}  \right) \nonumber 
+\end{eqnarray}
+
+\item Use the job creation curve $y-w = \frac{c(r+\sigma)}{\lambda_v(\theta)}$ to substitute for $\lambda_v(\theta)$, eliminate terms and rearrange:
+\begin{eqnarray}
+w = (1-\gamma)b + \gamma (y +c \theta) \nonumber
+\end{eqnarray}
+
+\item This is the {\bc wage curve}
+
+\item WC and JC: two equations in two unkowns ($\theta$ and $w$)
+
+\eit
+\end{frame}
+
+\begin{frame}{Solving DMP III: steady state}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Up till now, we have not imposed steady state anywhere in the solution
+
+\item In general, the level of unemployment and its dynamics is given by
+\begin{eqnarray}
+\theta &=& \frac{v}{u} \nonumber \\
+\dot{u} &=& \sigma (1-u) - \lambda_u(\theta)u \nonumber \\
+u(0) &=& \underbar{u} \nonumber
+\end{eqnarray}
+
+\item Since $\theta$ is determined without imposing steady state, the transition rates in the unemployment law of motion are constant, also outside the steady state
+
+\item In the steady state, $\dot{u}=0$ and we have the Beveridge curve
+\begin{eqnarray}
+u = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Solving DMP IV: equilibrium charachterization}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Summary: the equilibrium steady state $\{w, \theta, u, v\}$ is characterized by
+\begin{eqnarray}
+\text{JC:} && w = y - \frac{c(r+\sigma)}{\lambda_v(\theta)} \nonumber \\
+\text{WC:} && w = (1-\gamma)b + \gamma (y +c \theta) \nonumber \\
+\text{BC:} && u = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber \\
+\text{TD:} && v = \theta u \nonumber
+\end{eqnarray}
+
+\item Note: the system is \emph{block recursive}, we can solve for $\theta$ through combining the first 2 equations
+\begin{eqnarray}
+\frac{c}{\lambda_v(\theta)} = \frac{(1-\gamma)(y-b)}{r + \sigma + \lambda_u(\theta) \gamma} \nonumber
+\end{eqnarray} 
+\bit
+	\item LHS: firm cost of posting a vacancy
+	
+	\item RHS: firm value of a match
+\eit
+
+\item Given $\theta$, we can solve for $u$ and $v$ from the last two equations
+
+\item To understand how the equilibrium ``work'', let's draw some grapgs {\rc(Do on whiteboard)}
+
+%\item To solve the model explicitly, we need to impose a specific matching function
+%
+%\item Usually, we use Cobb-Douglas
+%\begin{eqnarray}
+%M(u,v) = Au^{\alpha}v^{1-\alpha} \nonumber
+%\end{eqnarray}
+%which implies
+%\begin{eqnarray}
+%p(\theta) &=& A\theta^{1-\alpha} \nonumber \\
+%q(\theta) &=& A\theta^{-\alpha} \nonumber
+%\end{eqnarray}
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Solving DMP V: graphical view of equilibrium}
+
+\begin{center}
+	\includegraphics[scale=0.8, trim=0.4cm 0.4cm 0.4cm 0.4cm, clip]{steady_state.png}
+\end{center}
+
+
+\end{frame}
+
+
+\begin{frame}{Comparative statics}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Using our graphs, comparative statics are straightforward:
+\begin{eqnarray}
+\text{JC:} && w = y - \frac{c(r+\sigma)}{\lambda_v(\theta)} \nonumber \\
+\text{WC:} && w = (1-\gamma)b + \gamma (y +c \theta) \nonumber \\
+\text{BC:} && u = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber \\
+\text{TD:} && v = \theta u \nonumber
+\end{eqnarray}
+
+\item $b \uparrow$ $\Rightarrow$ $w \uparrow$ and $\theta \downarrow$ $\Rightarrow$ $u \uparrow$ and $v \downarrow$
+\bit
+	\item Intuition? How does this compare to McCall model?
+\eit
+
+\item $\gamma \uparrow$ $\Rightarrow$ $w \uparrow$ and $\theta \downarrow$ $\Rightarrow$ $u \uparrow$ and $v \downarrow$
+\bit
+	\item Intuition?
+\eit
+
+\item $y \uparrow$ $\Rightarrow$ $w \uparrow$ and $\theta \uparrow$ $\Rightarrow$ $u \downarrow$ and $v \uparrow$
+\bit
+	\item Intuition?
+\eit
+
+\item And so on...
+
+\item \bf A bunch of hypothesis that can be taken to the data! \normalfont
+\eit
+\end{frame}
+
+\begin{frame}{Digression: equilibrium effects of extending unemployment benefits}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Did the unemployment benefit extensions in the US during the great recession contribute to the sharp increase in the unemployment rate?
+
+\item In lecture 1, we saw that a rich micro literature has estimated the partial equilibrium effect of extending unemployment benefits on unemployment duration
+\bit
+	\item Estimates, however, not large enough to explain recession spike (Chetty's rule of thumb: 10 weeks of extra UI gives 1 week of extra unemployment)
+\eit
+
+\item DMP emphasises a different {\bc general equilibrium channel} through which unemployment benefits affect unemployment: {\bc vacany creation}
+
+\item Recent research employing microeconometric methods to estimate macro effects:
+\bit
+	\setlength\itemsep{0.5em}
+	\item US great recession: federal benefit extension program depended on state-level characteristics, such as the elevation in the state-level unemployment rate
+	\item Hagedorn-Karahan-Manovskii-Mitman (2019) exploit policy discontinuity at US state borders: find big effect 
+	\item Chodorow-Reich-Coglienese-Karabarbounis (QJE 2018) exploit state-level differences in duration extension due to real-time mismeasurement of unemployment rate: find no effect
+	\item See also Marinescu (JPubE 2017) and Fredriksson-Söderström (JPubE 2020). Ongoing debate --- more research needed!
+\eit
+
+\eit
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Endogenous separations \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Endogenous separations}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item How to endogenize the separation decision?
+
+\item Separations presumably happen when matches are not beneficial to one of the two parties
+
+\item Consider the following twist to the our model:
+\bit
+\setlength\itemsep{0.5em}
+
+\item Production is $xy$, where $y$ is aggregate productivity, and $x$ is match-specific productivity
+
+\item When forming a match, $x=1$
+
+\item A matched firm-worker pair draw match-specific productivity shocks $x \sim \Gamma (x)$, $x \in [0, 1]$ at arrival rate $\lambda_x$
+
+\item If $J(x)<V$, the match is terminated
+
+\item In each period, the firm-worker pair renegoiate the wage according to Nash bargaining
+
+\eit
+
+\item We focus on steady state
+
+\item More generally, we would perhaps also think the match is terminated if $W(x)<U$, but let's start assuming the worker takes no decisions 
+
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Firm Values and the reservation productivity}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Firm Bellman equations
+\begin{align*}
+rJ(x) &= xy - w(x)+\lambda_x \left[ \int_{0}^{1} \max\{V, J(\epsilon)\}d\Gamma (\epsilon) -J(x) \right] \\
+rV &= -c +\lambda_v(\theta)\left(J(1)-V\right)
+\end{align*}
+
+
+\item Suppose $J(x)$ is increasing in $x$ (will be prooved later)
+
+\item Then, there is reservation productivity $x_R$ below which all matches are dissovled, satisfying $J(x_R)=V$
+
+\item Rewritten Bellman equation for job values
+\begin{align*}
+rJ(x) &= xy - w(x)+\lambda_x \left[ \int_{0}^{1} \max\{V, J(x')\}d\Gamma (x) -J(x) \right] \\
+\Rightarrow rJ(x) &= xy - w(x)+\lambda_x \left[ \int_{x_R}^{1} (J(x')-J(x)) d\Gamma (x') + \int_{0}^{x_R} (V-J(x)) d\Gamma (\epsilon)  \right] \\
+\Leftrightarrow rJ(x) &= xy - w(x)+\lambda_x \left[ \int_{x_R}^{1} (J(x')-J(x)) d\Gamma (x') + (V-J(x))\Gamma (x_R)  \right]
+\end{align*}
+
+\eit
+\end{frame}
+
+\begin{frame}{Worker values}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Taking $x_R$ as given, worker Bellman equations are
+\begin{eqnarray}
+rW(x) &=& w(x)  + \lambda_x \left[ \int_{x_R}^{1} (W(x')-W(x)) d\Gamma (x') + (U-W(x))\Gamma (x_R)  \right] \nonumber \\ 
+rU &=& b  + \lambda_u(\theta) \left(W(1)-U\right) \nonumber
+\end{eqnarray}
+
+\eit
+\end{frame}
+
+\begin{frame}{Nash bargaining and the wage curve}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item With Nash rebargaining every time a match-specific shock arrives implies that
+\begin{eqnarray}
+\gamma (J(x)-V) = (1-\gamma) (W(x)-U) \nonumber
+\end{eqnarray}
+or
+\begin{eqnarray*}
+	W(x)-U &=& \gamma S(x) \\
+	J(x)-V &=& (1-\gamma) S(x)
+\end{eqnarray*}
+
+\item Implication: $J(x)-V<0 \Rightarrow W(x)-U<0$, i.e., terminations are mutually benificial
+\bit
+	\item This is only true because of the rebargaining assumption (``flexible wage setting'')
+\eit
+
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Equilibrium definition}
+
+\bit
+\setlength\itemsep{1em}
+
+\item An equilibrium is a collection $\{W,U, J, V, w, x_R, \theta\}$ s.t. the following equations hold
+\bit
+\item \bf Bellman equations:
+\begin{eqnarray}
+rW(x) &=& w(x)  + \lambda_x \left[ \int_{x_R}^{1} (W(x')-W(x)) d\Gamma (x') + (U-W(x))\Gamma (x_R)  \right] \nonumber \\ 
+rU &=& b  + \lambda_u(\theta) \left(W(1)-U\right) \nonumber \\
+rJ(x) &=& xy - w(x)+\lambda_x \left[ \int_{x_R}^{1} (J(x')-J(x)) d\Gamma (x') + (V-J(x))\Gamma (x_R)  \right] \nonumber \\
+rV &=& -c +\lambda_v(\theta)\left(J(1)-V\right) \nonumber
+\end{eqnarray}
+
+\item Separation decision:
+\begin{eqnarray}
+J(x_R) &=& V \nonumber 
+\end{eqnarray}
+
+\item Free entry:
+\begin{eqnarray}
+V &=& 0 \nonumber 
+\end{eqnarray}
+
+\item Wage setting rule: \normalfont
+\begin{eqnarray}
+\gamma (J(x)-V) = (1-\gamma) (W(x)-U) \nonumber
+\end{eqnarray}
+\eit
+
+\item 7 equations, 7 unknowns
+\eit
+\end{frame}
+
+
+\begin{frame}{Equilibrium unemployment}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Given $\theta, x_R$, we can solve for $\{v,u\}$ from
+\begin{eqnarray}
+\dot{u} &=& \sigma(x_R) (1-u) + \lambda_u(\theta)u \nonumber \\
+u(0) &=& \underbar{u} \nonumber \\
+\theta &=& \frac{v}{u} \nonumber
+\end{eqnarray}
+where $\sigma(x_R)  = \lambda_x \Gamma(x_R)$
+
+\item In steady state:
+\begin{eqnarray}
+ u = \frac{\lambda_x \Gamma(x_R)}{\lambda_x \Gamma(x_R) + \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Computing the equilibrium I: the wage curve}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Combine Bellman equations, the surplus splitting rule and the free entry condition $V=0$ to find the wage curve ({\rc Do at home!}):
+\begin{align}
+\lb{ws_rule}
+w(x) &= (1-\gamma)b + \gamma (xy+c\theta) \nonumber
+\end{align}
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Computing the equilibrium II: the surplus function}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Use the surplus splitting rule, the wage curve and the free entry condition to find the Bellman equation for total match surplus $S(x)$: ({\rc Do at home!})
+\begin{align}
+rS(x) =  xy-b-\frac{\gamma}{1-\gamma}c\theta + \lambda_x \left[\int_{x_R}^{1}S(x')d\Gamma(x') - S(x)\right] \nonumber
+\end{align}
+
+\item Evaluate at $x=x_R$:
+\begin{align}
+0 =  x_R y-b-\frac{\gamma}{1-\gamma}c\theta + \lambda_x \left[\int_{x_R}^{1}S(x')d\Gamma(x') \right] \nonumber
+\end{align}
+
+\item Take difference to get
+\begin{align}
+rS(x) &=  rS(x)-rS(x_R) \nonumber \\
+&= (x-x_R)y -  \lambda_x S(x) \nonumber
+\end{align}
+or
+\begin{eqnarray}
+	\lb{s_solution}
+	S(x) = \frac{y(x-x_R)}{r+\lambda_x} \nonumber
+\end{eqnarray}
+
+\item Interpretation?
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Computing the equilibrium III: the job-creation curve}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Nash bargaining:
+\begin{eqnarray}
+	J(x)-V &=& (1-\gamma) S(x) \nonumber \\
+	&=& \frac{(1-\gamma) y(x-x_R)}{r+\lambda_x}  \nonumber
+\end{eqnarray}
+
+\item Free entry in Bellman for vacancy value:
+\begin{eqnarray}
+J(1)-V &=& \frac{c}{\lambda_v(\theta)} \nonumber
+\end{eqnarray}
+
+\item Together: 
+\begin{eqnarray}
+	\frac{c}{\lambda_v(\theta)} = (1-\gamma) y \frac{1-x_R}{r+\lambda_x} \nonumber
+\end{eqnarray}
+
+\item Let's name this the \emph{Job-creation curve} in $\theta, x_R$-space
+
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Computing the equilibrium IV: the job-destruction curve}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Bellman for Surplus:
+\begin{align}
+rS(x) =  xy-b-\frac{\gamma}{1-\gamma}c\theta + \lambda_x \left[\int_{x_R}^{1}S(x')d\Gamma(x') - S(x)\right] \nonumber
+\end{align}
+\item Evaluated at $x=x_R$:
+\begin{align}
+0 =  x_R y-b-\frac{\gamma}{1-\gamma}c\theta + \lambda_x \left[\int_{x_R}^{1}S(x')d\Gamma(x')\right] \nonumber
+\end{align}
+\item Using our solution for $S(x)$:
+\begin{align}
+0 =  x_R y-b-\frac{\gamma}{1-\gamma}c\theta + \lambda_x \left[\int_{x_R}^{1}\frac{ y(x-x_R)}{r+\lambda_x}d\Gamma(x')\right] \nonumber
+\end{align}
+or
+\begin{eqnarray}
+	x_Ry = b + \frac{\gamma}{1-\gamma}c\theta - y \frac{\lambda_x}{r+\lambda_x}  \int_{x_R}^{1} (x'-x_R)d\Gamma(x') \nonumber
+\end{eqnarray}
+
+\item Let's name this the \emph{Job-destruction curve} in $\theta, x_R$-space
+
+\eit
+\end{frame}
+
+
+
+\begin{frame}{Equilibrium characterization}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Summing up, $\{x_R, \theta\}$ is solved from the job-creation and the job-destruction curve:
+\begin{eqnarray}
+&& \frac{c}{\lambda_v(\theta)} = (1-\gamma) y \frac{1-x_R}{r+\lambda_x} \nonumber \\
+&& x_Ry = b + \frac{\gamma}{1-\gamma}c\theta - y \frac{\lambda_x}{r+\lambda_x}  \int_{x_R}^{1} (x'-x_R)d\Gamma(x') \nonumber
+\end{eqnarray}
+
+\item Given $x_R, \theta$, we can solve for $\{v,u\}$ from
+\begin{eqnarray}
+&& v = \theta u\nonumber \\
+&& u = \frac{\lambda_x \Gamma(x_R)}{\lambda_x \Gamma(x_R) + \lambda_u(\frac{v}{u})} \nonumber
+\end{eqnarray}
+
+\item In the background, match-specific wages are given by
+\begin{eqnarray}
+w(x) &= (1-\gamma)b + \gamma (xy+c\theta) \nonumber 
+\end{eqnarray}
+
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Graphical representation}
+
+\begin{center}
+	\includegraphics[scale=0.8, trim=0.4cm 0.4cm 0.4cm 0.4cm, clip]{steady_state_JD.png}
+\end{center}
+\end{frame}
+
+
+\begin{frame}{Comparative statics?}
+
+\bit
+\setlength\itemsep{1em}
+
+\item See your problem set
+
+
+\eit
+\end{frame}
+
+\begin{frame}{Summary}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item DMP: A GE theory of unemployment
+\bit
+	\item emphasizes vacancy creation and job destruction as key mechanisms
+\eit
+
+\item Defining elements: Matching function + Wage-setting rule + Free-entry condition
+
+\item Can be integrated in growth and business cycle frameworks
+
+\item Today we focused on steady state equilibrium and comparative statics
+
+\item Next lecture: welfare and dynamics
+
+\eit
+\end{frame}
+
+
+
+
+
+\end{document}
+
+
+
+
+\begin{frame}{Efficiency}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Is the DMP equilibrium efficient? 
+\bit
+\item Clearly not (in the usual sense) 
+\item An unconstrained social planner would ignore the search frictions and allocate all workers to a firm at all points in time
+\eit
+
+\item Is the DMP equilibrium \bf constrained efficient\normalfont? 
+\bit
+\item Constrained efficiency: would a social planner, who can pick the choices of all agents but still face the same frictions, make different choices than the agents in the decentralized equilibrium?
+\eit
+
+\item Remember: the only choice in DMP is whether to post a vacany or not
+
+\item Reformulated question: would the creation of more vacancies increase or decrease welfare?
+
+\item In general, there are two externalities from a firm creating an additional vacancy
+\bit
+\item Positive \emph{thick market externality}: workers will find jobs faster
+\item Negative \emph{congestion externality}: other firms will find workers slower
+\item Note: these externalities arise due to the matching function
+\eit
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Efficiency in Steady State}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item fff
+
+\eit
+\end{frame}
+
+\begin{frame}{Efficiency out of Steady State}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item fff
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Efficiency}
+
+\bit
+\setlength\itemsep{2em}
+
+\item One can show that the decentralized equilibrium is efficient if and only if $\gamma = \epsilon_{m,u}(\theta)$ (Hosios, ReStud 1990), where
+\begin{eqnarray}
+\epsilon_{m,u} = \frac{d M(u,v)}{du} \frac{u}{M(u,v)} = 1 - \frac{\theta \lambda_u'(\theta)}{\lambda_u(\theta)} \nonumber
+\end{eqnarray}
+\bit
+\setlength\itemsep{0.5em}
+\item Show the latter equality at home!
+\eit
+
+\item If $\epsilon_{m,u}<\gamma$, worker get too large share of the surplus leading to too little vacancy creation (thick market externality dominates and unemployment is too high)
+
+\item If $\epsilon_{m,u}>\gamma$, firms get too large share of the surplus and spend too much costly resources on creating vacancies (the congestion externality dominates and unemployment is too low)
+
+\item If $\epsilon_{m,u} = \gamma$, the social value of creating an additional vacancy equals the private gain to firm
+
+\eit
+\end{frame}
+
+\begin{frame}{Effiency: a comment}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item In this model, there is no reason why we should expect $\epsilon_{m,u} = \gamma$
+
+\item Random matching implies generically inefficient equilibria, opening the room for welfare-improving government interventations
+
+\item Primary motivation for models with {\bc directed search}: introduces competitive force that ensures an efficient benchmark (See Moen, JPE 1997; Menzio and Shi, JPE 2011)  
+
+\eit
+\end{frame}
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item In this model, there is no reason why we should expect $\epsilon_{m,u} = \gamma$
+
+\item Random matching implies generically inefficient equilibria, opening the room for welfare-improving government interventations
+
+\item Primary motivation for models with {\bc directed search}: introduces competitive force that ensures an efficient benchmark (See Moen, JPE 1997; Menzio and Shi, JPE 2011)  
+
+\eit
+\end{frame}
+
+
+
+
+
+%
+%\appendix
+%
+%\begin{frame}{DMP: Bonus material I, job creation via match surplus I}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item Wage setting rule:
+%\begin{eqnarray}
+%\gamma (J-V) = (1-\gamma) (W-U) \nonumber
+%\end{eqnarray}
+%
+%\item Note that
+%\begin{eqnarray}
+%W-U &=& \gamma S \nonumber \\
+%J-V &=& (1-\gamma)S \nonumber
+%\end{eqnarray}
+%where $S=(W-U) + (J-V)$ is total match surplus
+%
+%\item Total match surplus does not depend on the wage:
+%\begin{eqnarray}
+%r S &=& r \left[ (W-U) + (J-V) \right] \nonumber \\
+%&=&  y-b - \sigma \left[ (U-W) + (J-V)\right] - \lambda_u(\theta)(W-U) \nonumber \\
+%&=&  y-b - \sigma S - \lambda_u(\theta) \gamma S \nonumber \\
+%\Rightarrow &S& = \frac{y-b}{\rho + \sigma + \lambda_u(\theta) \gamma} \nonumber
+%\end{eqnarray}
+%
+%\item Why does total match surplus not depend on the wage?
+%
+%\eit
+%\end{frame}
+%
+%\begin{frame}{DMP: Bonus material II, job creation via match surplus II}
+%
+%\bit
+%\setlength\itemsep{2em}
+%
+%\item Use previous expression together with $J = \frac{c}{\lambda_v(\theta)}$:
+%\begin{eqnarray}
+%\frac{c}{\lambda_v(\theta)} = (1-\gamma)S= \frac{(1-\gamma)(y-b)}{r + \sigma + \lambda_u(\theta) \gamma} \nonumber
+%\end{eqnarray} 
+%
+%\item This is the \emph{Job creation equation} in $\{u, v\}$-space
+%\bit
+%\item Given that we know total match surplus, we apparently do need to know the wage to know how many jobs should be created
+%\item Why?
+%\eit
+%
+%\item LHS: firm cost of posting a vacancy
+%
+%\item RHS: firm value of a match
+%
+%\eit
+%\end{frame}
+
+
+
+
+\begin{frame}
+\begin{center}
+	\huge DMP Dynamics \normalfont
+\end{center}
+
+\end{frame}
+
+
+
+
+\begin{frame}{The question}
+
+\bit
+\setlength\itemsep{2em}
+
+\item \bf Can DMP explain the cyclicality of unemployment? \normalfont
+
+\item This question refers to a dynamic response of unemployment rate to some underlying shock
+
+\item So far, our analysis has only concerned the steady state
+
+\item Potential shocks: {\bc productivity $y$}, {\rc separation rate $\sigma$}
+
+
+
+\eit
+\end{frame}
+
+
+
+
+\begin{frame}{Productivity, separations and unemployment}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{figures/prod_urate_srate.pdf}
+\caption*{\footnotesize Own calculations using hp-filtered quarterly data. Productivity: OECD Labor productivity measure downloaded from FRED. Unemployment: FRED. Separation rate: Shimer's webiste}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Strategy}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Strategy: Calibrate model primitives to match log-run moments, feed in shocks that fit detrended processes of TFP and separation rates, evalutate unemployment dynamics 
+\bit
+\item Just as you would evaluate an RBC or a New-Keynesian model of business cycle dynamics in output
+\eit
+
+\item A ``proper'' evaluation requires us to
+\ben
+\item specify a process of the aggregate (productivty) shock, e.g, they hit with an arrival rate $z$
+\item describe how the value functions change with the aggregate state, e.g., 
+\begin{eqnarray}
+r U_{y} =  b  +  \lambda_u(\theta_{y}) \left( W_{y} - U_{y} \right) + z E_{y'|y} (U_{y'}- U_{y})  \nonumber
+\end{eqnarray}
+\item solve the model numerically
+\een
+
+%\item We will not discuss numerical solution methods in this class
+%\bit
+%\item Kurt Mitman and Kathrin Schlaffman teach \emph{Quantitative Methods} in Q1
+%\eit
+
+\item However, insights about the dynamics of DMP can be gained by simple comparative statics
+
+\item This is because the dynamics in DMP (and the data) is fast: with realistical job-finding rates, the model converges almost instantaneously to steady state
+
+\eit
+\end{frame}
+
+
+%\begin{frame}{Dynamic model}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item Suppose the aggregate state is indexed by $s$, and the producticity varies across these states $y=y_s$
+%
+%%\item When the environment is nonstationary, the value functions depend on the aggregate state $s$ at time t.
+%
+%\item Assume that an aggregate shock hits the economy at Poission rate $z$, in which the state $s'$ is drawn from distribution $f(s)$
+%
+%\item Departing from discrete time value functions, taking the limit and using l'H\^{o}pital's rule, we arrive at 
+%\begin{eqnarray}
+%r U_{s} =  b  +  p(\theta_{s}) \left( W_{s} - U_{s} \right) + z E_{s'|s} (U_{s'}- U_{s})  \nonumber
+%\end{eqnarray}
+%
+%\item Note structure: Value $=$ flow utility + (prob of event) $\times$ (\bf{expected} \normalfont change of value from event), discounted by $r$
+%
+%\item Similarly
+%		\begin{eqnarray}
+%			rW_{s} &=& w_{s}  + \sigma \left(U_{s}-W_{s} \right) + z E_{s'|s} (W_{s'}- W_{s}) \nonumber \\ 
+%			rJ_{s} &=& y_{s}-w_{s}  + \sigma \left(V_{s}-J_{s}\right) + z E_{s'|s} (J_{s'}- J_{s}) \nonumber \\ 
+%			rV_{s} &=& -c  + q(\theta_{s}) \left(J_{s}-V_{s}\right) + z E_{s'|s} (V_{s'}- V_{s}) \nonumber
+%		\end{eqnarray}
+%
+%\item Assume process $f(\cdot)$, solve model numerically (see, e.g., Shimer (2005))
+%
+%\eit
+%\end{frame}
+
+
+%\begin{frame}{Solving dynamic DMP without simulations?}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item We will not discuss numerical solution methods in this class
+%\bit
+%	\item Kurt Mitman and Kathrin Schlaffman teach \emph{Quantitative Methods} in Q1
+%\eit
+%
+%\item However, insights about the dynamics of DMP can be gained by simple comparative statics
+%
+%\item This is because the dynamics in DMP (and the data) is extremely fast: the model converges almost instanteously to steady state
+%
+%\eit
+%\end{frame}
+
+
+\begin{frame}{Fast dynamics I}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Consider the law of motion for unemployment
+\begin{eqnarray}
+\dot u = \sigma (1-u_t)-\lambda_u(\theta)u_t \nonumber
+\end{eqnarray}
+\item This is a {\bc first order linear ordinary differential equation}
+
+\item General solution:
+\begin{eqnarray}
+u_t = C e^{-(\sigma + \lambda_u(\theta))t}+\frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber 
+\end{eqnarray} 
+for some constant $C$
+
+\item For any positive $\sigma, \lambda_u$: $u_t \rightarrow u_{ss} = \frac{\sigma}{\sigma + \lambda_u(\theta)}$
+
+\item Larger $\sigma, \lambda_u$ $\rightarrow$ faster convergence
+
+\item What is the half-life of \bf out-of-steady-state unemployment \normalfont? i.e., which $T$ solves the following equation? 
+\begin{eqnarray}
+\frac{u_T-u_{ss}}{u_0-u_{ss}}=\frac{1}{2} \nonumber
+\end{eqnarray}
+
+\eit
+\end{frame}
+
+\begin{frame}{Fast dynamics II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Steady state unemployment:
+\begin{eqnarray}
+u_{ss} = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber 
+\end{eqnarray}
+
+
+\item Half life given by
+\begin{eqnarray}
+\frac{u_T-u_{ss}}{u_0-u_{ss}} &=& \frac{1}{2} \nonumber  \\
+\frac{C e^{-(\sigma + \lambda_u(\theta))T}+\frac{\sigma}{\sigma + \lambda_u(\theta)}-\frac{\sigma}{\sigma + \lambda_u(\theta)}}{C e^{-(\sigma + \lambda_u(\theta))*0}+\frac{\sigma}{\sigma + \lambda_u(\theta)}-\frac{\sigma}{\sigma + \lambda_u(\theta)}}  &=& \frac{1}{2} \nonumber \\
+e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
+\end{eqnarray}
+
+\item That is, $T = - \frac{1}{\sigma + \lambda_u} \log \frac{1}{2}$
+
+\item US monthly transitition rates $\sigma \approx 0.03 , \lambda_u \approx 0.6$ $\Rightarrow$  $T=1.1$ months
+
+\item Since convergence is so fast: $u_{ss}(\sigma_t, \lambda_{ut}) \approx u_t$
+
+
+\eit
+\end{frame}
+
+
+\begin{frame}{$u_{ss}$ vs actual $u_t$}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{figures/urate_ss.pdf}
+\caption*{\footnotesize Own calculcations based on quarterly data. Unemployment data: FRED. Transition rate data: Shimer's webiste}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Solving dynamic DMP without simulations?}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Lesson: given sufficiently high transition rates, the labor market converges to steady state very fast
+%\bit
+%	\item Recall that some countries do not have very dynamic labor markets
+%\eit
+
+\item Implication: Given that DMP is calibrated to match these high transition rates, the DMP equilibrium converges to steady state very fast
+
+\item Consider a dynamic DMP model in which a simulated sequence of productivty $\{y_0, y_1, y_2,...\}$ maps into a sequence of unemployment $\{u_0, u_1, u_2,...\}$
+
+\item Since convergence to steady state is almost immediate, we can approximate the unemployment sequence with $\{u_{ss}(y_0), u_{ss}(y_1), u_{ss}(y_2),...\}$
+
+\item That is, we can simply do comparative statics of steady state unemployment $u$ w.r.t. to $y$!
+
+
+\eit
+\end{frame}
+
+\begin{frame}{Recap: steady state equilibrium}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Recall: the steady state equilibrium is given by
+\begin{eqnarray}
+&& \frac{c}{\lambda_v(\theta)} = \frac{(1-\gamma)(y-b)}{r + \sigma + \lambda_u(\theta) \gamma} \nonumber \\
+&& u = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber
+\end{eqnarray} 
+
+\item Given that the matching function is (approximately) correct, the model response of $u$ to $y$ shock matches the data if the elasticity of $\theta$ w.r.t. $y$ matches the data 
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Tightness-productivity elasticity in the data}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{figures/prod_tight.pdf}
+\caption*{\footnotesize Own calculations using detrended quarterly data using hp-filter. OECD Labor productivity measure downloaded from FRED. Tightness constructed using BLS unemployment from FRED and vacancy data (Help-wanted index) from Regis Barnichon's website.}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Rescaled tightness-productivity elasticity in the data}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.45]{figures/prod_tight_adj.pdf}
+\caption*{\footnotesize Own calculations using detrended quarterly data using hp-filter. OECD Labor productivity measure downloaded from FRED. Tightness constructed using BLS unemployment from FRED and vacancy data (Help-wanted index) from Regis Barnichon's website.}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Can DMP explain unemployment volatility? Shimer (AER 2005)}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Empirical elasticity $\epsilon_{\theta, y} \approx 20$
+
+\item DMP elasiticty $\epsilon_{\theta, y}$?
+
+\item Job creation curve in $\{y, \theta\}$-space (using $\lambda_u(\theta)=\theta \lambda_v(\theta)$):
+\begin{eqnarray}
+\frac{c}{\lambda_v(\theta)} = \frac{(1-\gamma)(y-b)}{r + \sigma + \lambda_u(\theta) \gamma} \nonumber 
+\end{eqnarray} 
+
+\item Total differentiation to find {\rc (Do on whiteboard)}:
+\begin{eqnarray}
+\epsilon_{\theta, y} \equiv \frac{y}{\theta} \frac{\partial \theta}{\partial y} \nonumber = \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambda_u'(\theta)$ is the elasticity of $\lambda_u(\theta)$ w.r.t. $\theta$
+
+
+
+
+\eit
+\end{frame}
+
+
+
+\begin{frame}{Can DMP explain unemployment volatility? Shimer (AER 2005)}
+
+\begin{eqnarray}
+\epsilon_{\theta, y} &=& \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Shimer's (standard) calibration, quarterly frequency: 
+\bit
+\item $\sigma = 0.1, r = 0.012, y=1, b=0.4, c = 0.2$
+\item Cobb-Douglass matching function with $A=1.34, \alpha = 0.72$, $\epsilon_{\lambda_u,\theta} = 1-\alpha$	
+\eit
+
+\item If $\gamma=\alpha$ (Hosios condition): $\lambda_u(\theta) = 2.13$ and
+\begin{eqnarray}
+\epsilon_{\theta, y} = \frac{y}{y-b} \times  \frac{r+ \sigma + \alpha \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \alpha \lambda_u(\theta)}  = 1.7  \nonumber
+\end{eqnarray}
+
+
+\item If $\gamma=0$:
+\begin{eqnarray}
+\epsilon_{\theta, y} = \frac{y}{y-b} \times \frac{1}{1-\epsilon_{\lambda_u,\theta}} = 3.5  \nonumber
+\end{eqnarray}
+
+
+\item The model comes no way near the data
+
+\eit
+\end{frame}
+
+\begin{frame}{Shimer (AER 2005): intuition}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Why does DMP fail in generating unemployment volatility?
+
+\item Shimer suggests intuition:
+\bit
+\setlength\itemsep{1em}
+
+\item $y$ $\uparrow$ $\Rightarrow$ Value of vacancy $\uparrow$
+
+\item Free entry and $v$ $\uparrow$ $\Rightarrow$ Tightness $\uparrow$
+
+\item $\lambda_u(\theta)$ $\uparrow$ $\Rightarrow$ Value of unemployment $\uparrow$
+
+\item Worker's outside option $\uparrow$ $\Rightarrow$ Wages $\uparrow$ 
+
+\item Value of vacancy $\downarrow$ $\Rightarrow$ Equilibrium response small
+
+\eit
+
+\item Summarizing: The equilibrium response of wages via Nash bargaining inhibits firms' incentive to create vacancies
+
+%\item So rigid wage setting, a plausible assumption in the context of business-cycle dynamics, should do the trick?
+\eit
+\end{frame}
+
+
+
+\begin{frame}{The Shimer puzzle}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Result: a reasonable calibration of the basic DMP model cannot explain observed unemployment volatility
+\bit
+\setlength\itemsep{0.5em}
+\item True both for productivity shocks and separation rate shocks
+\item Separation rate shocks even worse: implies that $v$ responds countercyclically, in contrast to data --- Why?
+\eit
+
+\item Should we reject the model or are we missing something? 
+
+\item Important papers trying the resolve the ``Shimer puzzle'':
+\bit
+\setlength\itemsep{1em}
+
+\item Hall (AER 2005): Ad hoc wage rigidity
+
+\item Hagedorn-Manovskii (AER 2008): alternative calibration
+
+\item Hall-Milgrom (AER 2008): Alternative wage setting mechanism
+
+\item Ljungqvist-Sargent (AER 2017): unified framework for analysing above propositions 
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{The Shimer puzzle}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Result: a reasonable calibration of the basic DMP model cannot explain observed unemployment volatility
+\bit
+\setlength\itemsep{0.5em}
+\item True both for productivity shocks and separation rate shocks
+\item Separation rate shocks even worse: implies that $v$ responds countercyclically, in contrast to data --- Why?
+\eit
+
+\item Should we reject the model or are we missing something? 
+
+\item Important papers trying the resolve the ``Shimer puzzle'':
+\bit
+\setlength\itemsep{1em}
+
+\item Hall (AER 2005): Ad hoc wage rigidity
+
+\item \bf Hagedorn-Manovskii (AER 2008): alternative calibration \normalfont
+
+\item Hall-Milgrom (AER 2008): Alternative wage setting mechanism
+
+\item Ljungqvist-Sargent (AER 2017): unified framework for analysing above propositions 
+\eit
+
+\eit
+
+\end{frame}
+
+
+%\begin{frame}{Hall's question}
+%
+%\bit
+%\setlength\itemsep{2em}
+%
+%\item Why does DMP fail in generating unemployment volatility?
+%
+%\item Shimer suggests intuition:
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item $y$ $\uparrow$ $\Rightarrow$ Value of vacancy $\uparrow$
+%
+%\item Free entry and $v$ $\uparrow$ $\Rightarrow$ Tightness $\uparrow$
+%
+%\item $\lambda_u(\theta)$ $\uparrow$ $\Rightarrow$ Value of unemployment $\uparrow$
+%
+%\item Worker's outside option $\uparrow$ $\Rightarrow$ Wages $\uparrow$ 
+%
+%\item Value of vacancy $\downarrow$ $\Rightarrow$ Equilibrium response small
+%
+%\eit
+%
+%\item {\bc The equilibrium response of wages via Nash bargaining inhibits firms' incentive to create vacancies} in response to shocks
+%
+%\item So rigid wage setting, a plausible assumption in the context of business-cycle dynamics, should do the trick?
+%\eit
+%\end{frame}
+
+
+%\begin{frame}{Is rigid wage setting reasonable?}
+%
+%\bit
+%\setlength\itemsep{2em}
+%
+%\item But isn't rigid wage setting inconsistent with individual rationaility? (Barro, 1977)
+%
+%\item In Walrasian markets: yes
+%\bit
+%\setlength\itemsep{0.5em}
+%\item Suppose wages cannot adjust when you feed a positive productivity shock to the RBC model
+%
+%\item Workers would like to work more if wages were higher, and firms would like to hire more workers than what is available at the given wage
+%
+%\item If wages cannot adjust, we exclude mutually beneficial bilateral trading opportunities 
+%\eit 
+%
+%\item In search markets: no
+%\bit
+%	\item A match produces a match rent - how it is divided is not theoretically clear
+%\eit
+%
+%\item In the stationary DMP model, any wage $w \in [b,y]$ is consistent with individual rationality
+%
+%\eit
+%\end{frame}
+
+
+
+
+%\begin{frame}{Hall's argument}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item In his paper, Hall employs a dynamic discrete-time model 
+%
+%\item We focus on the intuition using steady-state elasticities within our continuous-time model
+%
+%\item DMP-model with Nash bargaining:
+%\begin{eqnarray}
+%\text{JC:} && w = y - \frac{c(r+\sigma)}{\lambda_v(\theta)} \nonumber \\
+%\text{WC:} && w = (1-\gamma)b + \gamma (y +c \theta) \nonumber \\
+%\text{BC:} && u = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber \\
+%\text{TD:} && v = \theta u \nonumber
+%\end{eqnarray}
+%
+%
+%\item DMP model with fixed wage $w=\bar w$:
+%\begin{eqnarray}
+%\text{JC:} && \bar w = y - \frac{c(r+\sigma)}{\lambda_v(\theta)} \nonumber \\
+%\text{BC:} && u = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber \\
+%\text{TD:} && v = \theta u \nonumber
+%\end{eqnarray}
+%
+%%\item Basic model:
+%%\begin{eqnarray}
+%%r U_{s} &=&  b  +  p(\theta_{s}) \left( W_{s} - U_{s} \right) + z E_{s'|s} (U_{s'}- U_{s})  \nonumber \\
+%%rW_{s} &=& w_{s}  + \sigma \left(U_{s}-W_{s} \right) + z E_{s'|s} (W_{s'}- W_{s}) \nonumber \\ 
+%%rJ_{s} &=& y_{s}-w_{s}  + \sigma \left(V_{s}-J_{s}\right) + z E_{s'|s} (J_{s'}- J_{s}) \nonumber \\ 
+%%rV_{s} &=& -c  + q(\theta_{s}) \left(J_{s}-V_{s}\right) + z E_{s'|s} (V_{s'}- V_{s}) \nonumber \\
+%%V_{s} &=& 0 \nonumber
+%%\end{eqnarray}
+%%
+%%\item Nash bargaining solution:
+%%\begin{eqnarray}
+%%w_s = \arg \max_{w_s} \left(W_s-U_s\right)^{\gamma} \left(J_s-V_s\right)^{1-\gamma} \nonumber
+%%\end{eqnarray}
+%%
+%%\item Hall's sticky wage solution:
+%%\begin{eqnarray}
+%%w_s = w \hspace{3mm} \forall s\nonumber
+%%\end{eqnarray}
+%
+%
+%\eit
+%\end{frame}
+
+%
+%\begin{frame}{Hall's argument II}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Job creation curve:
+%\begin{eqnarray}
+%\bar w = y - \frac{c(r+\sigma)}{\lambda_v(\theta)} \nonumber
+%\end{eqnarray} 
+%
+%\item Total differentiation w.r.t to $\theta$ and $y$ yields
+%\begin{eqnarray}
+%\epsilon_{\theta, y} &=& \frac{y}{\theta} \frac{\partial \theta}{\partial y} \nonumber \\
+%&=& \frac{y}{y- \bar w} \frac{1}{1-\epsilon_{\lambda_u,\theta}} \nonumber
+%\end{eqnarray}
+%
+%\item Hall's result: {\bc if wages are constant and set close to its upper limit, you find a high elasticity}
+%
+%\eit
+%\end{frame}
+%
+%\begin{frame}{Hall's calibration}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.5]{figures/hall2005_fig3.pdf}
+%\end{figure}
+%
+%\bit
+%\item Hall calibrates his dynamic model so that the fixed wage is close to its upper limit
+%\eit
+%
+%\end{frame}
+
+
+
+%\begin{frame}{Hall's main result}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.5]{figures/hall2005_fig2.pdf}
+%\end{figure}
+%
+%\bit
+%	\item As a result, his model generates a lot of unemployment volatility
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{If instead assuming Nash bargaining}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.5]{figures/hall2005_fig4.pdf}
+%\end{figure}
+%
+%\end{frame}
+
+
+
+%
+%\begin{frame}{Is rigid wage setting the answer?}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item At the business-cycle frequency, wages on existing contracts must be rigid to some degree
+%
+%\item But what matters in this model is if wages are rigid for {\bc new hires}
+%
+%\item Whether incumbents' wages are rigid over the business cycle does not matter for firms' incentive to create additional vacancies
+%
+%\item Even though the overall wage level may seem rigid in relation to productivity fluctations (remember lecture I), this does not mean that wages for new hires are rigid
+%
+%\item Pissarides (Ecmtra 2009) summarises existing evidence and argues that wages of newly hires closely co-moves with productivity
+%\bit
+%	\item Recent evidence from Haefke-Sonntag-van Rens (JME 2013) and Kudlyak (JME 2014) support this conclusion
+%\eit
+%
+%\item New research has uncovered channels from which rigidity of incumbent workers affect unemployment dynamics:
+%\bit
+%	\item Schoefer (2015):  financial frictions
+%	\item Carlsson-Westermark (AEJmacro 2020): endogenous separations 
+%\eit
+%
+%\eit
+%\end{frame}
+
+
+
+\begin{frame}{Hagedorn-Manovskii (2008)}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Hagedorn and Manovskii argue: the previous literature have calibrated the DMP model wrongly; if you do it right, there is no puzzle
+
+\item Again, tightness-productivity elasticity with Nash bargaining:
+\begin{eqnarray}
+\epsilon_{\theta, y} &=& \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+
+\item If $b$ is high relative to $y$, the model can generate substantial unemployment fluctations
+
+\item Why is $b$ the key parameter? Let's investigate
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Hagedorn and Manovskii's argument}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Intuition: To generate a strong vacancy creation response to a productivity shock, two criteria need to be satisfied
+\ben
+\setlength\itemsep{0.5em}
+\item The productivity increase must not be fully absorbed by an increase in wages 
+
+\item The initial level of profits need to be small 
+\een
+
+\item Why does the initial level of profits matter?
+\bit
+\setlength\itemsep{0.5em}
+\item The elasticity of vacancy creation w.r.t. to productivity creation depends on the elasticity of profits w.r.t. productivity
+
+\item Suppose wages are fixed and study a 1 percent productivity increase; $y_0=1 \rightarrow y_1 = 1.01$
+\item Suppose $w=0.99$:
+\begin{eqnarray}
+\epsilon_{\pi, y} = 100*\frac{(1.01-0.99)-(1-0.99)}{(1-0.99)}= 100 \% \nonumber
+\end{eqnarray}
+\item Suppose $w=0.01$:
+\begin{eqnarray}
+\epsilon_{\pi, y} = 100*\frac{(1.01-0.01)-(1-0.01)}{1-0.01}= 1 \% \nonumber
+\end{eqnarray}	
+\eit
+
+%\item Remember: Hall had not only a rigid wage setting, but also a high intitial wage level
+
+\eit
+\end{frame}
+
+\begin{frame}{Hagedorn and Manovskii's argument II}
+
+\bit
+\setlength\itemsep{2em}
+
+\item How to get a small (high) initial level of profits (wages) with Nash Bargaining? 
+
+\item Look at wage curve:
+\begin{eqnarray}
+w &=& (1-\gamma)b + \gamma (y +c \theta) \nonumber \\
+&=& b + \gamma(y-b) + \gamma c \theta \nonumber
+\end{eqnarray}
+Either $\gamma$ or $b$ must be high
+
+\item Why then was it only $b$ that seemed to have a large impact on tightness-productivity elastcity?
+\begin{eqnarray}
+\epsilon_{\theta, y} &=& \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} \nonumber
+\end{eqnarray}
+
+\item High $\gamma$ also implies volatile wages w.r.t to $y$ $\rightarrow$ level and volatility effect on vacancy elasticity approximately cancel each other out
+
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Hagedorn and Manovskii's argument III}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Main question: is data supportive of high $b$?
+
+\item H\&M stress two data points
+\ben
+\setlength\itemsep{0.5em}
+\item Based on time used for hiring activities, vacancy posting costs $c$ seem small $\approx$ 3-4 percent of quarterly output per worker $y$
+
+\item Wages are moderately procyclical, $\epsilon_{w, y} =0.45$
+\een
+
+\item Fact 1 implies that the expected firm profits from vacancy posting must be low
+
+\item Fact 2 implies worker bargaining power $\gamma$ must be low.
+
+\item Ergo, $b$ must be high
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Hagedorn and Manovskii's calibration}
+
+\bit
+\setlength\itemsep{2em}
+%\item Data suggest that
+%\ben
+%\item Vacancy posting costs $c$ are very small, $\approx$ 3-4 percent of output $y$
+%
+%\item Wages are moderately procyclical, $\epsilon_{w, y} =0.45$
+%\een
+%
+%\item Fact 1 implies $y-w$ must be small. Fact 2 implies worker bargaining power must be low.
+%
+%\item Ergo, $b$ must be high
+
+\item H\&M calibrate the DMP model to match these data moments and find $\gamma = 0.05$ and $y-b= 0.05$
+
+\item With these numbers, the tightness-productvity elasticity becomes:
+\begin{eqnarray}
+\epsilon_{\theta, y} &=& \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} = 20.6 \nonumber
+\end{eqnarray}
+
+\item Does this make economic sense? H\&M: yes!
+\bit
+\setlength\itemsep{0.5em}
+\item $b$ is really the total utility flow of being unemployed:  unemployment benefit value, leisure value, home production value etc.
+
+\item A larger model of household labor decisions will equate the marginal value of search for job with the marginal cost of giving up time for nonmarket activities.
+
+\item If the value of unemployment is not close to that of being employed, it is difficult to explain why unemployed people don't search harder for jobs
+\eit
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Shimer Puzzle: Taking stock}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Hagedorn and Manovskii's argument is controversial
+
+\item If the welfare loss of being unemployed is so small, why do we seemingly care so much about it?
+
+\item Hall (AER 2005): you can just specify an ad hoc fully rigid wage, high enough to make initial profits small
+\bit
+\setlength\itemsep{0.5em}
+\item Yes, this works, but...
+
+\item Pissarides (Ecmtra 2009) summarises existing evidence and argues that wages of newly hires closely co-moves with productivity
+
+\item Recent evidence from Haefke-Sonntag-van Rens (JME 2013) and Kudlyak (JME 2014) support this conclusion
+\eit
+
+
+\item $\Rightarrow$ Shimer puzzle still a puzzle
+
+\item Ljungqvist-Sargent (AER 2017) summarizes the litterature and provides new perspective on the underlying mechanism
+\bit
+\item Analysis recently questioned in Christiano-Eichenbaum-Trabant (2020)
+\eit
+
+\eit
+\end{frame}
+
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item DMP: A GE theory of unemployment levels and dynamics
+\bit
+\item emphasizes vacancy creation as the key economic mechanism
+\eit
+
+\item Defining elements: Matching function + Wage-setting rule + Free-entry condition
+
+\item Generates reasonable predictions, explored by growing empirical literature
+
+\item Key question: can DMP explain unemployment volatility?
+
+\item Maybe, but still not fully understood
+
+\eit
+\end{frame}
+
+\begin{frame}{DMP: extensions and applications}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Standard extensions
+\bit
+\setlength\itemsep{0.5em}
+\item Endogenous job destruction (Mortensen-Pissarides. ReStud 1994) - see problem set!
+\item Heterogeneous match productivities (Pissarides, AER 1985)
+\eit
+
+\item Because of its tractable setup, DMP can easily be integrated in other business-cycle frameworks:
+\bit
+\setlength\itemsep{0.5em}
+\item DMP embedded in RBC model (Merz, JME 1995)
+\item DMP embedded in new-Keynesian model (Ravenna-Walsh, AEJmacro 2011)
+\item DMP embedded in asset-pricing model (Hall, AER 2017) 
+\eit
+
+\item Recent applications (that I like)
+\bit
+\setlength\itemsep{0.5em}
+\item Krusell-Mukoyama-Rogerson-Sahin (AER 2017): DMP extended with participation decision can account for the joint co-movement of unemployment, employment and participation
+
+\item Gavazza-Mongey-Violante (AER 2018): DMP with endogeneous recruitment effort can explain procyclicality of matching efficiency
+
+\item Coles-Kelishomi (AEJmacro 2018): Replacing free entry with stochastic entry cost implies that separation shocks can explain dynamics in job-finding rates and solve the Shimer puzzle
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}{Search models: what we have not covered}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The theory of money
+\bit
+\setlength\itemsep{0.5em}
+\item Goods markets are charachterized by the absence of \emph{double coincidence of wants}
+\item Search process without mediating transaction technology is very costly
+\item Useless assets, such as fiat money, can have positive value beacuse it mediates trade
+\item See Williamson and Wright (Handbook ME 2010)
+\eit
+
+\item Liquidity in financial markets
+\bit
+\setlength\itemsep{0.5em}
+\item Some finanical markets are close to the Walrasian ideal. Others, such as the market for mortage-backed securities, operate with \emph{over-the-counter} trading
+\item Search theory charachterize volume of trading, bid-ask spreads, how the supply of buyers might collapse during crises
+\item See Lagos and Rocheteau (Ecmtra 2009)
+\eit
+
+\item Family economics
+\bit
+\setlength\itemsep{0.5em}
+\item Marriage is a matching process under costly search
+\item See Shimer and Smith (Ecmtra 2000)
+\eit
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Search models: what we have not covered: Epidemilogy}
+
+\bit
+\setlength\itemsep{1em}
+
+\item The baseline model of disease spread is a random matching model - the SIR model
+
+\item Given a number of Susceptibles $S$ and a number of infected $I$, assume that the number of newly infected is given by matching function $M = \beta S I$
+
+\item Law of motions
+\begin{eqnarray}
+\dot{S} &=& - \beta S I \nonumber \\
+\dot{I} &=& \beta S I - \gamma I \nonumber \\
+\dot{R} &=& \gamma I \nonumber
+\end{eqnarray}
+where $R$ is the number of dead/recovered 
+
+\item SIR offers a way to forecast disease spread and study lockdown policies 
+
+\item In epi literature, there is little treatment of optimizing behaviour and incentives
+\bit
+\item In other words, $\beta$ is taken as a parameter and not an endogeneous variable
+\eit
+
+\item Eichenbaum-Rebelo-Trabant (RFS 2021): $\beta = \beta (C_t, H_t)$, integrate SIR with standard RBC economy
+\bit
+\item A lot of papers currently extendning this analysis in many interesting ways
+\eit
+
+
+\eit
+
+\end{frame}
+
+
+
+

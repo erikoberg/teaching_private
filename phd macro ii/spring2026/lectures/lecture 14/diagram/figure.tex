@@ -1,0 +1,154 @@
+% EPC flow charts
+% Author: Fabian Schuh
+\documentclass{beamer}
+
+\usepackage{pgf}
+\usepackage{tikz}
+\usetikzlibrary{overlay-beamer-styles}
+%%%<
+\usepackage{verbatim}
+\usepackage[active,tightpage]{preview}
+\PreviewEnvironment{tikzpicture}
+\setlength\PreviewBorder{5pt}%
+%%%>
+
+\begin{comment}
+:Title:  EPC flow charts
+:Grid: 1x2
+
+
+\end{comment}
+\usepackage[utf8]{inputenc}
+\usetikzlibrary{arrows,automata}
+\usetikzlibrary{positioning}
+
+
+\tikzset{
+    state/.style={
+           rectangle,
+           rounded corners,
+           minimum height=2em,
+           inner sep=2pt,
+           text centered,
+           },
+}
+
+\begin{document}
+\begin{frame}
+\begin{tikzpicture}[->,>=stealth']
+
+ % Position of QUERY 
+ % Use previously defined 'state' as layout (see above)
+ % use tabular for content to get columns/rows
+ % parbox to limit width of the listing
+ \uncover<2>{\node[state] (R) 
+ {\begin{tabular}{c}
+Real interest rate \\
+	$\{r_t\}$
+ 	\end{tabular}
+ 	};
+}
+  
+ % State: ACK with different content
+ \node[state,    	% layout (defined above)
+  text width=3cm, 	% max text width
+  yshift=0cm, 		% move 2cm in y
+  right of=R, 	% Position is to the right of QUERY
+  node distance=6.5cm, 	% distance to QUERY
+  anchor=center] (URISK) 	% posistion relative to the center of the 'box'
+ {%
+ \begin{tabular}{c} 	% content
+  Unemployment risk \\ $\{URISK_{t}\}$
+ \end{tabular}
+ };
+
+ % STATE EPC
+ \uncover<4->{
+ \node[state,
+  right of=URISK,
+  node distance=6.5cm,
+  anchor=center] (U) 
+ {%
+ \begin{tabular}{c}
+  Output\\
+  $\{y_t\}$
+ \end{tabular}
+ };
+}
+
+\uncover<3->{
+ \node[state,
+below of=U,
+node distance=3cm,
+anchor=center] (THETA) 
+{%
+	\begin{tabular}{c}
+	Tightness,\\
+	unemployment\\
+	$\{\theta_t, u_t\}$
+	\end{tabular}
+};
+}
+
+ \node[state,
+left of=THETA,
+node distance=6.5cm,
+anchor=center] (MC) 
+{%
+	\begin{tabular}{c}
+	Labor productivity\\
+	$\{A_t P_t^x\}$
+	\end{tabular}
+};
+
+\uncover<2>{
+ \node[state,
+left of=MC,
+node distance=6.5cm,
+anchor=center] (PI) 
+{%
+	\begin{tabular}{c}
+	Inflation\\
+	$\{\pi_t\}$
+	\end{tabular}
+};
+}
+
+\uncover<1->{
+	\node[state,
+	below of=MC,
+	node distance=3cm,
+	anchor=center] (SHOCK) 
+	{%
+		\begin{tabular}{c}
+		Productivity shock 
+		\end{tabular}
+	};
+}
+
+ % draw the paths and and print some Text below/above the graph
+ \path 
+
+ (R) 	edge[<->, alt=<2>{opacity=1}{opacity=0}]  node[anchor=north,below]{Asset market clearing} (URISK)
+ (URISK)       	edge[<->, alt=<3->{opacity=1}{opacity=0}]     node[anchor=south west]{Matching function}            (THETA)
+ 
+  (THETA)       	edge[<->, alt=<3->{opacity=1}{opacity=0}]     node[anchor=west,above]{VC+JD}            (MC)
+  
+    (URISK)       	edge[<->, alt=<3->{opacity=1}{opacity=0}]     node[anchor=west]{JD}            (MC)
+    
+    (THETA)       	edge[->, bend right = 10, alt=<4->{opacity=1}{opacity=0}]     node[anchor=west]{Accounting}            (U)
+    
+  (MC)       	edge[<->, alt=<2>{opacity=1}{opacity=0}]     node[anchor=west,above]{Phillips curve}            (PI)
+  
+   (PI)       	edge[<->, alt=<2>{opacity=1}{opacity=0}]     node[anchor=west]{Taylor rule}            (R)
+   
+   	(URISK)       	edge[<->, bend left = 90, alt=<-2>{opacity=1}{opacity=0}] node[anchor=west]{SAM}            (MC)
+   (URISK)       	edge[<->, bend right = 90, alt=<2>{opacity=0}{opacity=1}]     node[anchor=east]{HANK}            (MC)
+   
+      (SHOCK)       	edge[->]               (MC)
+;
+\end{tikzpicture}
+\end{frame}
+
+
+\end{document}

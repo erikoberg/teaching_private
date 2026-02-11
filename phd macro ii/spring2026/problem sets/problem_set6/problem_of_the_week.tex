@@ -1,0 +1,67 @@
+             \documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macro II Problem of the week: Identification of Taylor Rules}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+A big literature has, in various ways, estimated time-series regressions of nominal interest rates on inflation (and other variables), with the purpose of retrieving the coefficients of the Taylor rule, i.e., regressions of the form:
+\begin{eqnarray}
+i_t = \alpha + \beta \pi_t + \zeta_t
+\end{eqnarray}
+The perhaps most famous example is Clarida-Gali-Gertler (QJE 2000). Let's explore how we can interpret such regressions, focusing on the case with flexible price setting.
+
+The flexible-price model studied in the class is summarized by
+\begin{eqnarray}
+\text{DIS curve:} &&  i_t = r + E_t \pi_{t+1}  \nonumber \\
+\text{Policy rule:} && i_t = r + \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $r$ is the log of the steady state real interest rate and the monetary policy shock is assumed to follow $\nu_t = \rho \nu_{t-1} + \epsilon_t$, where $\epsilon_t$ is an i.i.d. disturbance.
+
+\ben
+	\item Assume that $\phi>1$. Show that the unique bounded solution is given by
+	\begin{eqnarray}
+	\pi_t = - \frac{\nu_t}{\phi-\rho} \nonumber
+	\end{eqnarray}
+	
+	\item Show that, in equilibrium, inflation and interest rates are related according to
+	\begin{eqnarray}
+	i_t = r  +  \rho \pi_{t}.
+	\end{eqnarray}
+	
+	\item Why does this equilibrium condition (2) not contradict the assumed policy rule $i_t = r + \phi \pi_t + \nu_t$?
+	
+	\item Would you interpret the time-series estimate of $\beta$ in Equation (1) as the structural Taylor rule coefficient $\phi$? Explain in the words what the identification problem is.
+	
+	\item Bonus question (not graded): Show that the same identification problem arises also with sticky price setting.
+\een
+
+
+	
+\end{document}

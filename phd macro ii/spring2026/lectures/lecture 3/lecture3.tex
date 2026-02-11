@@ -1,0 +1,1040 @@
+\documentclass[9pt,xcolor={dvipsnames}]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\black}{\color{black}}
+\newcommand{\rc}{\color{red}}
+\newcommand{\gc}{\color{ForestGreen}}
+\newcommand{\wc}{\color{white}}
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[RBC: investment dynamics]{Macroeconomics II, Lecture III:\\
+	  RBC: Investment Dynamics}
+\author{Erik {\"O}berg}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Introduction}
+
+
+\begin{frame}{Last time}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item We worked harder on confronting the RBC model with data
+
+\item Learned the importance of generating a large fluctuations in efficiency and labor wedge $\Rightarrow$ led us to consider
+\bit
+\setlength\itemsep{0.5em} 
+\item Variable capacity utilization
+
+\item Extensive-margin models of labor supply
+
+\item GHH preferences/rigid wage contracts
+\eit
+
+\item Investment wedge, however, small - does that mean basic RBC model has a fully satisfactory theory of investment?
+\bit
+\setlength\itemsep{0.5em} 
+	\item BC accounting is just one (although a very nice one) measure of empirical fit
+	
+	\item The basic RBC model had too little persistence, and one might think this has to do with the very jumpy response of investment
+\eit
+
+\item Today, we'll dig deeper into the theory of investment
+
+\eit
+
+\end{frame}
+
+%\begin{frame}{Is investment important}
+%
+%\bit
+%\setlength\itemsep{1.5em} 
+%
+%\item Before we start, we should ask: Is investment at all important to the RBC transmission mechanism?
+%
+%\item ff
+%
+%\item Easy to find out: take our vanilla RBC model and set $\alpha=0$ in production function $F(K, N)=K^{\alpha}N^{1-\alpha}$
+%\bit
+%	\item Capital is useless $\Rightarrow$ investment is always 0
+%\eit
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{IRFs to TFP shock with $\alpha=0$}
+%
+%\bit
+%\setlength\itemsep{1.5em} 
+%
+%\item ff
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{Comments}
+%
+%\bit
+%\setlength\itemsep{1.5em} 
+%
+%\item ff
+%\eit
+%
+%\end{frame}
+
+
+\begin{frame}{Agenda}
+
+\ben
+\setlength\itemsep{1.5em} 
+
+\item RBC setup with firm ownership of capital
+
+\item Neoclassical theory vs. Q theory of investment
+
+\een
+
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\huge RBC setup with firm ownership of capital \normalfont
+\end{center}
+
+\end{frame}
+
+\begin{frame}{An alternative, but equivalent, setup}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item In the basic RBC model we've studied, household owned and rented out the capital stock to the firm
+\bit
+	\item Convenient because all dynamics of the model became encapsulated in household problem; firm problem was static
+\eit
+
+\item To get us started thinking about investment, let's consider a more realistic setup where firms own the capital stock
+
+\item Households still own the firm equity, and therefore, indirectly, the firm capital stock
+
+\item Because there are no frictions, we'll see that the two setups are equivalent
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Household problem}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Program of the representative household 
+\begin{eqnarray}
+\max_{\{C_t, N_t, B_{t+1}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]\nonumber \\
+\text{s.t} && C_t + Q_t B_{t+1} \leq W_t N_t + B_t + T_t \nonumber \\
+&& C_t, N_t, B_{t+1} \geq 0 \nonumber
+\end{eqnarray}
+
+\item Note:
+\bit
+\setlength\itemsep{0.5em}
+\item $T_t$ are firm profits transfered back to the household (=0 in equilibrium)
+
+\item $Q_t$ is the price risk-free bonds that pay 1 unit of consumption goods in $t+1$ in terms of consumption goods in period $t$
+
+\item $R_{t}=\frac{1}{Q_t}$ is the gross real return on bonds that pay in period $t+1$
+
+\item In contrast to the $t+1$ return to capital investments in period $t$, $R^{r}_{t+1}$, $R_{t}$ is known in period $t$
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Household optimality conditions}
+
+\bit
+\setlength\itemsep{1.5em} 
+\item Set up the Langrangian, take the F.O.C. to find
+\begin{eqnarray}
+U'(C_t)W_t &=& V'(N_t) \nonumber \\
+U'(C_t) &=& \beta\frac{1}{Q_t} E_t U'(C_{t+1}) \nonumber 
+\end{eqnarray}
+or we can write the second equation as
+\begin{eqnarray}
+U'(C_t) &=& \beta R_{t} E_t U'(C_{t+1}) \nonumber 
+\end{eqnarray}
+\bit
+ \item Note: in steady state $Q=\beta$ $\Rightarrow$ $R=\frac{1}{\beta}$
+\eit
+
+\item Contrast with the optimality conditions in household-ownership setup
+\begin{eqnarray}
+U'(C_t)W_t &=& V'(N_t) \nonumber \\
+U'(C_t) &=& \beta E_t(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \nonumber 
+\end{eqnarray}
+
+
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Asset pricing implications}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The Euler equation is also an asset valuation equation:
+\begin{eqnarray}
+Q_t = \mathbb E_t \left[\frac{\beta U'(C_{t+1}) }{U'(C_{t}) }\right] \nonumber
+\end{eqnarray}
+
+\item Define $Q_{t,t+s}$ as 
+\begin{eqnarray}
+Q_{t, t+s} &=& Q_t \times Q_{t+1} \times  .... \times Q_{t+s-1} \nonumber\\
+ &=& \mathbb E_t \left[\frac{\beta U'(C_{t+1}) }{U'(C_{t}) }\right] \times \mathbb E_{t+1} \left[\frac{\beta U'(C_{t+2}) }{U'(C_{t+1}) }\right] \times  .... \times \mathbb  E_{t+s-1} \left[\frac{\beta U'(C_{t+s}) }{U'(C_{t+s-1}) }\right] \nonumber\\
+&=& \mathbb E_t M_{t,t+s} \nonumber
+\end{eqnarray}
+where 
+\begin{eqnarray}
+M_{t,t+s}\equiv \beta^s\frac{U'(C_{t+s}) }{U'(C_{t})} \nonumber
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Asset pricing implications}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item We label $M_{t,t+s}$ the {\bc stochastic discount factor}
+
+\item The SDF measures the households' willingness to forego consumption in period $t$ to have more consumption in a particular state in period $t+s$
+
+\item In asset market equilibrium, $M_{t,t+s}$ prices assets that pays off in a particular state in period $t+s$
+
+\item $\mathbb E M_{t,t+s}$ prices risk-free assets that pays off in period $t+s$
+
+\item $M_{t,t+s}$ is the key object of interest in much of {\bc macro finance}
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firm problem}
+
+\bit
+\setlength\itemsep{1em} 
+\item A representative firm can choose investment and labor hirings, taking prices as given
+
+\item It can finance investment using internal funds (=equity) or risk-free debt
+
+\item The household owns the firm: firm therefore discounts future profits using household stochastic discount factor $M_{t,t+s}$
+
+\item Program
+\begin{eqnarray}
+\max_{N_t, I_t, B_{t+1}, K_{t+1}} && \mathbb E_0 \sum_{t=0}^{\infty} M_{0, t} \left(A_t F(K_t, N_t) - W_t N_t - I_t + Q_tB_{t+1} - B_t \right) \nonumber \\
+\text{s.t.} && K_{t+1} \leq I_t + (1-\delta) K_t \nonumber
+\end{eqnarray}
+
+\item Note: 
+\begin{eqnarray}
+V_0 = \sup \left[\mathbb E_0 \sum_{t=0}^{\infty} M_{0, t} \left(A_t F(K_t, N_t) - W_t N_t - I_t + Q_tB_{t+1} - B_t \right)\right] \nonumber
+\end{eqnarray}
+is the value of the firm in period 0
+\bit
+	\item Basic asset pricing result: value of firm $=$ discounted NPV of future cash flows
+\eit
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firm optimality conditions}
+
+\bit
+\setlength\itemsep{1.5em} 
+\item Set up the Lagrangian, take the F.O.C. to find: {\rc (Do on whiteboard)}
+\begin{eqnarray}
+W_t &=& A_t F_N(K_t, N_t)  \\
+q_t &=& 1  \\
+q_t &=&  \mathbb E_t \left[M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta)q_{t+1} \right] \right]  \\
+Q_t &=& \mathbb E_t M_{t,t+1} 
+\end{eqnarray}
+where $q_t$ is the Lagrange multiplier on the firm constraint
+ 
+\item Optimality conditions 2-3, together with definition of $M_{t,t+1}$, implies
+\begin{eqnarray}
+U'(C_t) &=& \beta E_t(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \nonumber 
+\end{eqnarray}
+where $R^{r}_{t+1}= A_{t+1}F_K(K_{t+1}, N_{t+1})$ - which we recognize!
+
+\item Note: Equation (4) is satisfied whenever households' are optimizing, what does this mean? {\wc Miller-Modgliani (AER 1963): the capital structure of the firm is irrelevant if the household can trade in the same assets as the firm}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Firm optimality conditions}
+
+\bit
+\setlength\itemsep{1.5em} 
+\item Set up the Lagrangian, take the F.O.C. to find: {\rc (Do on whiteboard)}
+\begin{eqnarray}
+\setcounter{equation}{1}
+W_t &=& A_t F_N(K_t, N_t)  \\
+q_t &=& 1  \\
+q_t &=&  \mathbb E_t \left[M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta)q_{t+1} \right] \right]  \\
+Q_t &=& \mathbb E_t M_{t,t+1} 
+\end{eqnarray}
+where $q_t$ is the Lagrange multiplier on the firm constraint
+
+\item Optimality conditions 2-3, together with definition of $M_{t,t+1}$, implies
+\begin{eqnarray}
+U'(C_t) &=& \beta E_t(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \nonumber 
+\end{eqnarray}
+where $R^{r}_{t+1}= A_{t+1}F_K(K_{t+1}, N_{t+1})$ - which we recognize!
+
+\item Note: Equation (4) is satisfied whenever households' are optimizing, what does this mean? {\bc Miller-Modgliani (AER 1963): the capital structure of the firm is irrelevant if the household can trade in the same assets as the firm}
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Equivalence}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+
+\item Combining this with household optimaility conditions and resource constraints, the equilibrium is characterized by
+\begin{eqnarray}
+\text{HH intertemporal optimality:} && {\bc U'(C_t) = \beta\frac{1}{Q_t} E_t U'(C_{t+1})} \nonumber \\
+\text{HH intratemporal optimality:} && U'(C_t)W_t = V'(N_t) \nonumber \\
+\text{Firm optimality 1:} && U'(C_t) = \beta E_t\left[(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1})\right] \nonumber \\
+\text{Resource constraint:} && C_t + I_t = A_t F(K_t, N_t) \nonumber \\
+\text{Producation function:} && Y_t = A_t F(K_t, N_t) \nonumber \\
+\text{Capital LOM:} && K_{t+1} = (1-\delta) K_t + I_t \nonumber \\
+\text{Firm optimality 2:} && R^{r}_t = A_t F_k (K_t, N_t) \nonumber \\
+\text{Firm optimality 3:} && W_t = A_t F_n (K_t, N_t) \nonumber \\
+\text{TFP process:} && A_t = A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+\item Which, apart, from first equation is exactly the same set of equations characterizing the RBC model with household ownership of capital
+\bit
+	\item One more unkown $Q_t$ - one more equation
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Firm optimality conditions: interpretation I}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Let's go back to the investment decision - firm optimality conditions:
+\begin{eqnarray}
+W_t &=& A_t F_N(K_t, N_t) \nonumber \\
+q_t &=& 1 \nonumber \\
+q_t &=&  \mathbb E_t \left[M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta)q_{t+1} \right] \right] \nonumber \\
+Q_t &=& \mathbb E_t M_{t,t+1} \nonumber
+\end{eqnarray}
+
+\item How to interpret $q_t?$
+\bit
+\setlength\itemsep{0.5em} 
+	\item Lagrange multiplier $=$ shadow value of relaxing constraint $=$ shadow value of having one more unit of installed capital $K_{t+1}$
+	
+	\item Supposed the firm has optimized and then, out of the sky, it gains some extra $\partial K_{t+1}$ - what will it do?
+	
+	\item Optimal choice of $K_{t+1}$ has not changed, so it just lowers investment by $\partial K_{t+1}$ and uses proceeds to increase current profits 
+	
+	\item Along the optimal path, we therefore have $q_t = \frac{\partial V_t}{\partial K_{t+1}}$ (recall {\bc envelope theorem})
+	
+%	\item This argument is an application of the {\bc envelope theorem}
+	
+	\item Implication 1:  $q_t$ is the price of capital in terms of goods - why?
+	
+	\item Implication 2:  $q_t=1$ - why?
+	
+%	\item Firm value in period $t$:
+%	\begin{eqnarray}
+%	V_t = E_t \sum_{s=0}^{\infty} Q_{t, t+s} \left(A_{t+s} F(K_{t+s}, N_{t+s}) - W_{t+s} N_{t+s} - (K_{t+s+1}-(1-\delta)K_{t+s}) \right)\nonumber
+%\end{eqnarray}
+%	Suppose the firm already picked $K_{t+1}$ in period $t$ and then, out of the sky, it gains some extra $K_{t+1}$ - what is the value of this extra capital?
+%	\begin{eqnarray}
+%	\frac{\partial V_t}{\partial K_{t+1}} = Q_t E_t \left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta) \right] = q_t. \nonumber
+%	\end{eqnarray}
+	
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firm optimality conditions: interpretation II}
+
+\bit
+\setlength\itemsep{2em} 
+
+\item Firm optimality conditions:
+\begin{eqnarray}
+W_t &=& A_t F_N(K_t, N_t) \nonumber \\
+q_t &=& 1 \nonumber \\
+q_t &=&  \mathbb E_t \left[M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta)q_{t+1} \right] \right] \nonumber \\
+Q_t &=& \mathbb E_t M_{t,t+1} \nonumber
+\end{eqnarray}
+
+\item Optimality condition 3 can be iterated forward:
+\begin{eqnarray}
+q_t = \frac{1}{1-\delta} \mathbb E_t \sum_{s=1}^{\infty} M_{t,t+s}(1-\delta)^s \left(A_{t+s}F_K(K_{t+s}, N_{t+s})\right) \nonumber
+\end{eqnarray}
+\bit
+\setlength\itemsep{0.5em} 
+\item RHS $=$ marginal benefit of having one more unit of installed capital $K_{t+1}$
+
+\item LHS $=$ price of having one more unit of installed capital
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firm optimality conditions: interpretation III}
+
+\bit
+\setlength\itemsep{2em} 
+
+\item Firm optimality conditions:
+\begin{eqnarray}
+W_t &=& A_t F_N(K_t, N_t) \nonumber \\
+q_t &=& 1 \nonumber \\
+q_t &=&  \mathbb E_t \left[M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta)q_{t+1} \right] \right] \nonumber \\
+Q_t &=& \mathbb E_t M_{t,t+1} \nonumber
+\end{eqnarray}
+
+
+\item With $q_t=1$, optimality condition 3 can be rewritten
+\begin{eqnarray}
+1  &=&  (1-\delta) \mathbb E_t M_{t,t+1} + \mathbb E_t M_{t,t+1} \mathbb E_t MPK_{t+1} + CoV(MPK_{t+1}, M_{t,t+1}) \nonumber 
+\end{eqnarray}
+where $MPK_{t+1} = A_{t+1}F_K(K_{t+1}, N_{t+1})$
+
+\item To a first order, we thus have
+\begin{eqnarray}
+r_{t} + \delta = E_t A_{t+1}F_K(K_{t+1}, N_{t+1}) \nonumber
+\end{eqnarray}
+where 
+\begin{eqnarray}
+r_{t}=R_{t}-1=\frac{1}{Q_t}-1 \nonumber
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{The neoclassical theory of investment}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The vanilla RBC model embeds the {\bc neoclassical theory of investment}
+\bit
+	\item Pioneered by Jorgenson (AER 1963); Hall-Jorgenson (AER 1967) 
+\eit
+
+\item Key idea: firms should invest until $E_t MPK_{t+1}$ equals {\bc user cost}
+
+\item {\bc User cost} = alternative cost $r_{t}$ + direct cost $\delta$
+
+\item Leaving the first-order approximation, the user cost also reflects investment risk (measured in terms of the covariance between the payoff and the discount factor)
+
+\item Very intuitive, but this hinges on that the real price of capital goods is always $1$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Equilibrium characterization including $q_t$}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Adding the price of capital $q$ to the model means that we split the firm optimality condition 1 into two pieces:
+\begin{eqnarray}
+\text{HH intertemporal optimality:} && U'(C_t) = \beta\frac{1}{Q_t} E_t U'(C_{t+1}) \nonumber \\
+\text{HH intratemporal optimality:} && U'(C_t)W_t = V'(N_t) \nonumber \\
+\text{Firm optimality 1:} && {\bc q_t = E_t \frac{\beta U'(C_{t+1})}{U'(C_{t})} \left[R^r_{t+1} + (1-\delta)q_{t+1} \right]}  \nonumber \\ 
+\text{Firm optimality 2:} && {\bc q_t = 1} \nonumber \\
+\text{Resource constraint:} && C_t + I_t = A_t F(K_t, N_t) \nonumber \\
+\text{Producation function:} && Y_t = A_t F(K_t, N_t) \nonumber \\
+\text{Capital LOM:} && K_{t+1} = (1-\delta) K_t + I_t \nonumber \\
+\text{Firm optimality 3:} && R^{r}_t = A_t F_k (K_t, N_t) \nonumber \\
+\text{Firm optimality 4:} && W_t = A_t F_n (K_t, N_t) \nonumber \\
+\text{TFP process:} && A_t = A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+\item Not very interesting, but allows better comparison to the next model that we introduce
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Neoclassical theory vs. Q theory of investment \normalfont
+\end{center}
+
+\end{frame}
+
+\begin{frame}{The Q theory of investment}
+
+\bit
+\setlength\itemsep{1em}
+\item The neoclassical theory of investment comes with the prediction that the price of capital is constant
+
+\item This is very much at oods with the data
+
+\item A more reasonable theory of investment has
+\bit
+	\item Fluctuations in the price of capital, and
+	
+	\item that fluctuations in the price of capital matter for investment decisions
+\eit
+
+\item Tobin (JMCB 1969): given fluctuations in the price of capital, a reasonable theory of investment would say: invest if  
+\begin{eqnarray}
+\frac{\text{Market value of firm capital}}{\text{Replacement cost of capital}} >1\nonumber 
+\end{eqnarray}
+\bit
+\setlength\itemsep{0.5em}
+	\item Th left-hand side ratio is called {\bc Tobin's Q}
+
+	\item This idea has guided much empirical research on investment
+\eit
+
+\item Note, in the notation of our firm problem:
+\begin{eqnarray}
+\text{Tobin's Q} = \frac{V}{k} \hspace{2mm} \text{while} \hspace{2mm} q_t = \frac{\partial V_t}{\partial k_{t+1}} \nonumber
+\end{eqnarray}
+
+\item Refining Tobin's intuition: what ought to matter for an optimizing firm is the \emph{marginal value of firm capital}, i.e, $q_t$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Operationalizing the Q theory of investment}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Some version of the (marginal) Q theory naturally comes out when adding investment costs to the firm problem
+
+\item Such costs are also very plausible - think about installing a new machine, building a new plant etc.
+
+\item Under some conditions of the investment cost function, the Q theory comes out exactly
+
+\item Suppose that the firm faces investment costs of the form
+\begin{eqnarray}
+C = C(I_t, K_t) \nonumber
+\end{eqnarray}
+
+\item Q theory arises with the following assumptions
+\ben
+	\item $C(\cdot)$ is convex in investment size, i.e., $C_I(I_t, K_t) \geq 0 $, $C_{II}(I_t, K_t) \geq 0 $
+
+	\item $C(\cdot)$ is homogeneous of degree 1
+	
+	\item $C(\delta K_t, K_t) = 0$
+	
+	\item $C_{I}(\delta K_t, K_t) = 0$
+
+	\item $C_K(I_t, K_t) < 0 $
+\een
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firm problem}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Popular cost function that satisfies these assumptions
+\begin{eqnarray}
+C(I_t, K_t) = \frac{\phi}{2} \left(\frac{I_t}{K_t}-\delta\right)^2K_t \nonumber
+\end{eqnarray}
+
+\item Consider a firm problem that faces such a cost function
+\begin{eqnarray}
+\max_{N_t, I_t, K_{t+1}} && \mathbb E_0 \sum_{t=0}^{\infty} M_{0, t} \left(A_t F(K_t, N_t) - W_t N_t - I_t -C(I_t, K_t) \right) \nonumber \\
+\text{s.t.} && K_{t+1} \leq I_t + (1-\delta) K_t \nonumber
+\end{eqnarray}
+
+\item I've taken out debt financing $B_{t+1}$ since it doesn't matter anyway
+
+\item Note: if $\phi=0$ $\Rightarrow$ we're back to vanilla RBC
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Firm optimality conditions}
+
+\bit
+\setlength\itemsep{1.5em} 
+\item Set up the Lagrangian, take the F.O.C. to find: 
+\begin{eqnarray}
+W_t &=& A_t F_N(K_t, N_t) \nonumber \\
+q_t &=& 1+C_I(I_t, K_t) \nonumber \\
+q_t &=& \mathbb E_t M_{t,t+1} \left[A_{t+1}F_K(K_{t+1}, N_{t+1}) - C_K(I_{t+1}, K_{t+1}) + (1-\delta)q_{t+1} \right] \nonumber  \nonumber
+\end{eqnarray}
+where $q_t$ is, again, the Lagrange multiplier on the firm constraint
+
+\item Observations:
+\bit
+\setlength\itemsep{0.5em} 
+\item $q_t \geq 1 $ - why?
+
+%\item  It is still true that
+%\begin{eqnarray}
+%q_t = \frac{\partial V_t}{\partial K_{t+1}} \nonumber
+%\end{eqnarray}
+%Remember: $C_K(I_t, K_t) < 0 $ - why does $q_t$ fall if $K_{t+1}$ rise?
+
+\item As before, we can iterate on third condition to find
+\begin{eqnarray}
+q_t = \frac{1}{1-\delta} \sum_{s=1}^{\infty} M_{t,t+s}(1-\delta)^s \left(A_{t+s}F_K(K_{t+s}, N_{t+s}) - C_K(I_{t+s}, K_{t+s})\right) \nonumber
+\end{eqnarray}
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{q and investment}
+
+\bit
+\setlength\itemsep{1.5em} 
+\item With our functional form $C(I_t, K_t) = \frac{\phi}{2} \left(\frac{I_t}{K_t}-\delta\right)^2K_t$, optimality condition 2 becomes
+\begin{eqnarray}
+q_t &=& 1+C_I(I_t, K_t) \nonumber \\
+&=& 1 + \phi\left(\frac{I_t}{K_t} - \delta\right) \nonumber
+\end{eqnarray}
+or
+\begin{eqnarray}
+\frac{I_t}{K_t} = \frac{1}{\phi}(q_t-1)+\delta \nonumber
+\end{eqnarray}
+
+\item Predictions: 
+\ben
+\setlength\itemsep{0.5em} 
+\item investment rate $>1$ if $q_t>1$
+
+\item $q_t$ is a {\bc sufficienct statistic} for investment
+
+\een
+
+%\item Smells like progress, but third prediction maybe seems a bit too sharp
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Taking the Q-theory to the data}
+
+\bit
+\setlength\itemsep{1em} 
+\item In the data, it is easy to observe the \emph{average q} = $\frac{V}{K}$
+\bit
+\setlength\itemsep{0.5em} 
+	\item $V$ could be stock market valuation of firm
+	
+	\item $K$ is the net worth on the firm balance sheet
+\eit
+
+\item The model tells us we should relate investment to \emph{marginal q}= $\frac{\partial V}{\partial K}$
+
+\item Hayashi (Ecmtra, 1982): if both $C(\cdot)$ and $F(\cdot)$ are homogeneous of degree 1, then average q = marginal q
+\bit
+	\item Take-home exercise: show that this is true with our quadratic $C(\cdot)$-function and Cobb-Douglas $F(\cdot)$!
+\eit
+
+\item {\bc Hayashi's theorem} provides rationale for estimating regression
+\begin{eqnarray}
+\frac{I_{it}}{K_{it}} = \alpha + \beta (\text{Average Q}_{it}-1) + \sum \gamma_{k} X_{kit} + \epsilon_{it} \nonumber
+\end{eqnarray}
+using firm level micro data
+
+\item A few key papers: Summers (BPEA, 1981); Fazzari-Hubbard-Petersen (BPEA, 1988); Cummins-Hassett-Hubbard (BPEA 1994); Kaplan-Zingales (QJE 1997)
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Cummins-Hassett-Hubbard (BPEA 1994): Compustat data 1962-1988}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45]{Figures/Hassett_table3.pdf}
+\end{figure}
+
+\bit
+	\item Estimating the equation reduced-form tends to produce small coefficients (implying unreasonbly large adjustment costs)
+	
+	\item Treatment effect of firm cash flow is seemingly much larger 
+\eit
+
+\end{frame}
+
+\begin{frame}{Cummins-Hassett-Hubbard (BPEA 1994): Compustat data 1962-1988}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{Figures/Hassett_table4.pdf}
+\end{figure}
+
+\bit
+\item Using tax reforms with heterogeneous treatment effect as instrumental variable: estimates much more reasonable 
+
+\item Still, financial variables, e.g., firm cash flow tend to show up as large and significant $\Rightarrow$ sufficient statistic hypothesis rejected
+
+\item This motivates introducing \emph{financial frictions} in firm investment decisions
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Integrating the Q theory in our RBC model}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Replacing the firm optimality conditions, and also the resource constraint in our equilibrium characterization, we have
+%\begin{eqnarray}
+%U'(C_t) &=& \beta\frac{1}{Q_t} E_t U'(C_{t+1}) \nonumber \\
+%U'(C_t)W_t &=& V'(N_t) \nonumber \\
+% q_t & =& Q_t E_t \left[R^r_{t+1} + (1-\delta)q_{t+1} \right] \nonumber  \nonumber \\
+%{\bc q_t} &{\bc =}& {\bc 1+C_I(I_t, K_t)} \nonumber \\
+%{\bc C_t + I_t + C(I_t, K_t)} &{\bc =}& {\bc A_t F(K_t, N_t)} \nonumber \\
+%Y_t &=& A_t F(K_t, N_t) \nonumber \\
+%K_{t+1} &=& (1-\delta) K_t + I_t \nonumber \\
+%{\bc R^r_t} &{\bc =}& {\bc A_t F_k (K_t, N_t) - C_K(I_{t}, K_{t})} \nonumber \\
+%W_t &=& A_t F_n (K_t, N_t) \nonumber \\
+%A_t &=& A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+%\end{eqnarray}
+\begin{eqnarray}
+\text{HH intertemporal optimality:} && U'(C_t) = \beta\frac{1}{Q_t} E_t U'(C_{t+1}) \nonumber \\
+\text{HH intratemporal optimality:} && U'(C_t)W_t = V'(N_t) \nonumber \\
+\text{Firm optimality 1:} && q_t = E_t \frac{\beta U'(C_{t+1})}{U'(C_{t})} \left[R^r_{t+1} + (1-\delta)q_{t+1} \right] \nonumber  \\ 
+\text{Firm optimality 2:} && {\bc q_t = 1+C_I(I_t, K_t)} \nonumber \\
+\text{Resource constraint:} && {\bc C_t + I_t + C(I_t, K_t) = A_t F(K_t, N_t)} \nonumber \\
+\text{Producation function:} && Y_t = A_t F(K_t, N_t) \nonumber \\
+\text{Capital LOM:} && K_{t+1} = (1-\delta) K_t + I_t \nonumber \\
+\text{Firm optimality 3:} && {\bc R^{r}_t = A_t F_k (K_t, N_t) - C_K(I_{t}, K_{t})} \nonumber \\
+\text{Firm optimality 4:} && W_t = A_t F_n (K_t, N_t) \nonumber \\
+\text{TFP process:} && A_t = A_{t-1}^{\rho_a}exp(\epsilon_t) \nonumber
+\end{eqnarray}
+
+\item $\Rightarrow$ Log-linearize and Dynare it
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRF to TFP shock}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_adjcost.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Mechanism}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item TFP up $\Rightarrow$ $q_t$ up $\Rightarrow$ investment up
+
+\item With adjustment costs, large investment jumps are especially costly
+
+\item Investment response therefore more smooth $\Rightarrow$ increases persistence
+\bit
+	\item To get persistence of both investment and overall GDP right, you typically want to include inbestment adjustment costs
+\eit
+
+\item Flip side: on impact, consumption jump larger, wage jump smaller $\Rightarrow$ labor supply response smaller
+ 
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Comment: Non-convex adjustment costs}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item Quadratic adjustment cost implies that investment dynamics is smooth
+
+\item However, it is clearly seen in micro data that investment is \emph{lumpy}: sometimes you invest nothing, sometimes you invest a lot
+
+\item Lumpy investment dynamics follow from \emph{non-convex adjustment costs}, e.g., fixed costs:
+\begin{eqnarray}
+C(I_t, K_t) = \left\{
+\begin{array}{cc}
+0 & \text{if } I_t = \delta K_t \\
+\zeta & \text{otherwise} 
+\end{array} \right. \nonumber
+\end{eqnarray}
+
+\item Non-convex decision problems $\rightarrow$ optimum cannot be solved with F.O.C.s, we need a computer to characterize firm problem
+
+\item Models that seriously try to get micro-level dynamics right typically find that both convex and non-convex adjustment costs are needed, see, e.g., Ottonello-Winberry (Ecmtra 2020)
+
+\item Type of cost matters a lot for some macro applications (e.g. uncertainaty shocks, see Bloom Ecmtra 2007), little for others
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Comment: Financial frictions}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item Micro evidence: firm financial variables (like cash flow) predict investment
+
+\item Macro evidence: many severe crisis epsiodes linked to Financial shocks (e.g. the Great Depression and the Great Recession) 
+
+\item Big literature on the effect of financial frictions for firm investment decisions
+
+\item Applied macro reseach intertwined with micro-theory research: Financial frictions always originate from an {\bc agency problem}, i.e., for some reason, a creditor cannot trust that a debtor will repay his/her debt
+
+\item Canonical models: Bernanke-Gertler (AER 1989); Kiyotaki-Moore (JPE 1997)
+
+\item KM (1997) show that collaterized debt can overcome a problem of limited enforcement
+
+\item A reduced-form collateral constraint in our firm problem (with within-period debt):
+\begin{eqnarray}
+\max_{N_t, I_t, K_{t+1}} && E_O \sum_{t=0}^{\infty} M_{0, t} \left(A_t F(K_t, N_t) - W_t N_t - I_t -C(I_t, K_t) \right) \nonumber \\
+\text{s.t.} && K_{t+1} \leq I_t + (1-\delta) K_t \nonumber \\
+&& I_t \leq \xi q_t K_{t} \nonumber
+\end{eqnarray}
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Optimality}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Lagrangian
+\begin{eqnarray}
+L =  E_O \sum_{t=0}^{\infty}&& M_{0, t} \Big[ \left(A_t F(K_t, N_t) - W_t N_t - I_t -C(I_t, K_t) \right)  \nonumber\\
+&&+ q_t\left(I_t + (1-\delta)K_t-K_{t+1} \right) + \mu_t \left(\xi q_t K_{t}-I_t\right)\Big] \nonumber
+\end{eqnarray}
+
+\item F.O.C.
+\begin{eqnarray}
+W_t &=& A_t F_N(K_t, N_t) \nonumber \\
+q_t &=& 1+C_I(I_t, K_t)+\mu_t \nonumber \\
+q_t &=& E_t M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) - C_K(I_{t+1}, K_{t+1}) + \left(\mu_{t+1} \xi  + (1-\delta)\right)q_{t+1} \right] \nonumber  \nonumber
+\end{eqnarray}
+
+\item Complementary slackness
+\begin{eqnarray}
+\mu_t &\geq& 0 \nonumber \\
+I_t &=& \xi q_t K_{t} \hspace{2mm} \text{iff } \mu>0 \nonumber 
+\end{eqnarray}
+\bit
+\item If constraint lax $\Rightarrow$ $\mu_t=0$, back to standard model 
+\item It constraint binds $\Rightarrow$ $I_t = \xi q_t K_{t}$ and $\mu_t>0$
+\eit
+
+\item One can show that (see your problem set): constraint binds in steady state iff $\xi < \delta$
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRF to TFP shock with $\phi=2$}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_finconstraint.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Without any market frictions - capital ownership doesn't matter for business cycle dynamics
+
+\item Vanilla RBC predicts a constant price of capital
+
+\item Investment adjustment costs predicts procyclical price of capital, and a ``Q theory of invesment''
+
+\item This closes our investigation of the RBC approach to studying business cycle dynamics
+
+\item Next up: Nominal rigidities and monetary policy (the ``New-Keynesian'' model)
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}{RBC: what have we not covered?}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Other shocks
+\bit
+\setlength\itemsep{0.5em}
+\item Investment-specific shocks: see, e.g., Greenwood-Hersowitz-Krusell (EER 2000)
+
+\item Uncertainty shocks: see, e.g., Bloom (Ecmtra 2007)
+
+\item News shocks: see, e.g., Beaudry-Portier (AER 2006; Koslyk 2023)
+\eit
+
+\item International business cycle models
+\bit
+\setlength\itemsep{0.5em}
+\item see, e.g., Backus-Kehoe-Kydland (JPE 1992); Baxter (HBintecon 1995); Schmitt-Grohe-Uribe (Book 2017)
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

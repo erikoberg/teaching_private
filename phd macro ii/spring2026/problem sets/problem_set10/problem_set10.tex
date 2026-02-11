@@ -1,0 +1,225 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macroeconomics II: Problem Set 10}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+Send your solutions to Andrii by \bf Friday, May 23, 12.00, \normalfont at the latest.
+
+
+	
+\section*{The natural borrowing limit}
+What is the maxmimum amount of debt that a household can purchase without risking default? Consider an infinetly lived household that earns income stream $\{y_t\}^{\infty}_{0}$, retrieves utility from consumption, which is not allowed to be negative, and who can, in each period $t$, borrow/save in a risk-free bond $a_{t+1}$ that pays of $(1+r)a_{t+1}$ in period $t+1$.
+\ben
+	\item Write the budget constraint of the household.
+
+	\item Suppose that the income stream $\{y_t\}^{\infty}_{0}$ is deterministic. Show that the household can repay its debt $a_{t+1} $if and only if:
+	\begin{eqnarray}
+		a_{t+1} \geq - \sum_{k=0}^{\infty} \frac{y_{t+k+1}}{(1+r)^{k+1}} \nonumber
+	\end{eqnarray}
+	
+	\item What is economic interpretation of the right-hand side of this equation?
+	
+	\item Suppose $\{y_t\}^{\infty}_{0}$ is stochastic: $y_t \sim F$ where $F$ has support $[y_{min}, y_{max}]$. What is the maximum amount of debt that the household can repay?
+	
+	\item Suppose $y_{min}=0$. What is the maximum amount of debt that the household can repay?
+	
+	\item Suppose a household faces the borrowing constraint derived in question 4. Under what (standard) condition on the household's utility function $u$ does the borrowing constraint never bind in the solution to the household's problem?
+\een
+
+%\section*{Precuationary savings with CARA utility}
+%Consider an infinetly lived household that solves
+%\begin{eqnarray}
+%\max_{a_{t+1}, c_t} && E_0 \sum_{t=0}^{\infty} \beta^t u(c_t) \nonumber \\
+%\text{s.t.} && c_t + \frac{1}{1+r}a_{t+1} = y_t + a_t \nonumber
+%\end{eqnarray}
+%and a No-Ponzi constraint. We assume $y_t = \bar y + \epsilon_t$ where $\epsilon_t$ is i.i.d. and $E_t \epsilon_{t+1} =0$. 
+%
+%\subsection*{Part 1}
+%\ben
+%	\item Assume households have quadratic utility: $u(c_t)=\bar c - c_t^2$. Do these preferences exhibit prudence?
+%	
+%	\item Construct the Lagrangian, take the F.O.C.s and show us the Euler equation.
+%	
+%	\item By iterating on the budget constraint, show that
+%	\begin{eqnarray}
+%	\sum_{k=0}^{\infty} \frac{1}{(1+r)^k} c_{t+k} = \sum_{k=0}^{\infty} \frac{1}{(1+r)^k} y_{t+k} + a_t \nonumber
+%	\end{eqnarray}
+%	
+%	\item By taking expectations over the previous equation and invoking the Euler equation, show that if $\beta(1+r)=1$, then
+%	\begin{eqnarray}
+%	c_t = \frac{r}{1+r}(y_t+a_t + \frac{1}{r} \bar y) \nonumber
+%	\end{eqnarray}
+%	
+%	\item Interpret this equation
+%	
+%	\item Again assuming $\beta(1+r)=1$, show that
+%	\begin{eqnarray}
+%	\Delta c_t = \frac{r}{1+r}(y_t - \bar y) \nonumber
+%	\end{eqnarray}
+%	
+%	\item Interpret this equation
+%\een
+%
+%\subsection*{Part 2}
+%\ben
+%\item Assume households have CARA utility: $u(c_t)=-\frac{1}{\gamma}e^{-\gamma c_t}$. Do these preferences exhibit prudence?
+%
+%\item Show that, if the consumption function is
+%	\begin{eqnarray}
+%		c_t = \frac{r}{1+r}(y_t+a_t + \frac{1}{r} \bar y)  - \pi \nonumber
+%	\end{eqnarray}
+%where $\pi$ is some constant that depend on the parameters of the household problem ($\{\beta, \gamma, r\}$ and the dsitribution of $\epsilon$), then
+%	\begin{eqnarray}
+%		\Delta c_t = \frac{r}{1+r}(y_t - \bar y) + r\pi \nonumber
+%	\end{eqnarray}
+%
+%
+%\item Use the previous result to show that the postulated consumption function is optimal for a particular value of $\pi$. (Hint: Construct the Euler equation, and show that it is satisfied with the postulated consumption function for a particular value of $\pi$)
+%
+%\item Assume, for this particular subquestion, that $\epsilon_t \sim N(0,\sigma^2)$ (which allows you to compute $E_te^{-\epsilon_{t+1}}$). Is $c$ decreasing or increasing in $\sigma$? 
+%
+%\item Show that if $\beta(1+r)=1$, then $\pi>0$. Compare the consumption function to that with quadratic utility. Explain the underlying reason for the difference in the two types of consumption behaviour.
+%
+%\item Now assume that there is an economy populated by ontinuum (measure 1) of households solving the same problem. Argue that for the aggregate levels of consumption and assets to be constant, the interest rate must be such that $\pi=0$. Is this interest rate higher or lower than $\frac{1}{\beta}-1$?
+%
+%\item Denote the long-run aggregate level of assets by $A(r)$. Is $A(r)$ continuous in the vicinity of $r^*$ implicitly defined by $\pi(r^*)=0$? 
+%\een
+
+%\section*{Durable goods in the buffer-stock savings model}
+%Let's think about including durable goods and persistent (but not permanent) shocks in the Buffer-Stock savings model. Denote household holdings are durable goods with $d_{t}$. Assume that per-period utility is CRRA over a Cobb-Douglas aggregator of consumption of durable and nondurable goods. Durable goods depreciate geometrtically at rate $\delta>0$. The income process has an auto-regressive component of order 1. The household solve
+%\begin{eqnarray}
+%\max_{c_t, d_{t+1}, a_{t+1}} && E_0 \sum_{t=0}^{\infty}\beta^t\frac{(c_t^{\alpha} d_{t+1}^{1-\alpha})^{1-\sigma}}{1-\sigma} \nonumber \\
+%\text{s.t. } && c_t + d_{t+1} + a_{t+1} = y_t + (1-\delta)d_t + (1+r)a_t \\
+%&& y_t = (1-\rho) + \rho y_{t-1} + \epsilon_t   \\
+%\lb{credit_constraint}
+%&& a_{t+1} \geq 0  \\
+%&& c_t, d_{t+1} \geq 0 
+%\end{eqnarray}
+%
+%\ben
+%	\item What is expected income with this income process?
+%	
+%	\item Recast the problem on recursive form.
+%	
+%	\item What are the state variables in the recursive problem?
+%	
+%	\item Find the F.O.C. and the envelope condition.
+%	
+%	\item Show that, as long as the credit constraint \eqref{credit_constraint} is not binding, the household will hold the ratio $\frac{c_{t}}{d_{t+1}}$ constant. Explain why.
+%	
+%	\item Why does the constant ratio not hold when the credit constraint is binding? It might be helpful to consider the thought experiment where the $d_t$ is not a durable good, i.e., where $\delta=1$.
+%\een
+%
+\section*{A Huggett economy with a tight borrowing constraint}
+Consider an infinite-horizon economy with a continuum (measure 1) of ex-ante identical households each having efficiency units of labor $\epsilon_{it}$, drawn from distribution $F$ with finite support $[\epsilon_{min}, \epsilon_{max}]$ and mean $1$, i.i.d. across households and time. Consumers can trade a non-contingent bond but cannot borrow. Each household $i$ solves
+\begin{eqnarray}
+\max_{a_{it+1}, c_{it}} && E_0 \sum_{t=0}^{\infty} \beta^t u(c_{it}) \nonumber \\
+\text{s.t.} && c_{it} + a_{it+1} \leq \epsilon_{it} w_t + (1+r_t) a_{it} \nonumber \\
+&& a_{it+1} \geq 0 \nonumber
+\end{eqnarray}
+where $u$ satisfies standard conditions. A representative firm employs production function $Y_t=L_t$, where $L_t$ is the aggregate labor endowment. There is no goverment and assets are in zero net supply. 
+\ben
+	\item Define a competitive equilibrium
+	
+	\item Argue that any equilibrium allocation features autarky, i.e., that $c_{it} = \epsilon_{it} w_t$ for all $i,t$.
+	
+	\item Argue that any real interest rate that satisfies
+	\begin{eqnarray}
+	\lb{rate}
+	1+r_t \leq \frac{1}{\beta} \frac{u_c(\epsilon_{max})}{E_t u_c(\epsilon_{it+1})}
+	\end{eqnarray}	 
+	is consistent with a competitive equilibrium.
+	
+	\item Focus on the equilibrium in which Equation \eqref{rate} holds with equality. Why does the curvature of the utility function affect the equilibrium real interest rate, but not the equilibrium allocation, in this equilibrium?
+	
+	\item Is this equilibrium allocation efficient?
+	
+	\item Is this equilibrium allocation constrained efficient?	 
+\een
+
+
+\section*{An Ayiagari model with an exogeneous savings rule}
+Consider a stationary economy with a continuum (measure 1) of ex-ante identical households each having efficiency units of labor $\epsilon$ which is drawn from a discrete distribution with PDF $\pi(\epsilon)$, i.i.d. over time and across households. The distribution has non-negative support and mean $1$. Households can trade a risk-free asset $a$ but cannot borrow $a\geq 0$. Assume that the households' decision rule for savings $a'$ has this form
+\begin{eqnarray}
+a' = (1+r)a + \phi w \epsilon, \nonumber
+\end{eqnarray}
+where $r,w$ are the interest rate and the wage rate, respectively, and $0<\phi < 1$. That is, in each period, they add a constant fraction $\phi$ of their current-period labor income to their savings account. In the economy, there are also competitive firms which hire labor and capital at prices $w$ and $r$ and operate a standard production function $K^{\alpha}L^{1-\alpha}$, where $0< \delta < 1$ is the depreciation of capital. The economy is closed, and in equilibrium, the sum of household asset holdings must equal the capital stock.
+
+\ben
+\item Set up the firm problem and show the first order conditions. 
+
+%	{\bc Answer: The firm problem in each period is
+%	\begin{eqnarray}
+%	\max_{K,L} ZK^{\alpha}L^{1-\alpha} - \delta K - wL - rK \nonumber
+%	\end{eqnarray}	
+%	The F.O.C. are
+%	\begin{eqnarray}
+%	r+\delta &=& \left(\frac{K}{L}\right)^{\alpha-1} \nonumber \\
+%	w &=& \left(\frac{K}{L}\right)^{\alpha} \nonumber
+%	\end{eqnarray}}
+%	
+%	\item Let $\gamma(a)$ be the pdf of the distrubtion of asset holdings $a$. Write down the law of motion for $\gamma(a)$ and show that, because $\epsilon$ is i.i.d., this law-of-motion does not depend on the particular distribution of $\epsilon$.
+%	
+%	{\bc Answer: \normalfont Let $f(a,\epsilon)$ be the joint distrubtion over $a$ and $\epsilon$. The law of motion for assets is
+%	\begin{eqnarray}
+%	\gamma'(a')  &=& \int ((1+r)a + \gamma w \epsilon) f(a, \epsilon) da d\epsilon \nonumber \\
+%	&=& \sum_{\epsilon} \pi(\epsilon) \int ((1+r)a + \gamma w \epsilon) \gamma(a) da \nonumber \\
+%	&=& \int ((1+r)a + \gamma w) \gamma(a) da \nonumber 
+%	\end{eqnarray}}
+
+\item Show that a stationary distribution of $a$ cannot exist if $r\geq 0$. (Hint: study the evolution of aggregate asset supply $A' = \int_i a'_i di$ where $i$ denotes an individual household)
+
+%	{\bc Answer: \normalfont Aggregate assets in any given period is given by
+%	\begin{eqnarray}
+%	A' &=& \int ((1+r)a_i + \phi \epsilon w) di \nonumber \\
+%	&=& (1+r)A + \phi w  \nonumber
+%	\end{eqnarray}
+%	from which we directly see that the aggregate level of assets is growing to infinity as time progresses if $r> 0$.}
+
+\item For $r<0$, solve for the long-run aggregate asset supply $A(r)$. Draw a graph of $A(r)$ together with capital demand $K(r)$.
+
+%	{\bc Answer: Aggregate assets in any given period is given by
+%	\begin{eqnarray}
+%	A' &=& (1+r)A + \phi w  \nonumber
+%	\end{eqnarray}
+%	so the long-run level of asset is given by
+%	\begin{eqnarray}
+%	A &=& (1+r)A + \phi w  \nonumber \\
+%	A &=& -\frac{\phi w}{r}
+%	\end{eqnarray}
+%	The graph will have a aggregate asset supply curve that is increasing in r and approaching infinity when $r\to 0$.}
+
+\item Discuss what happens to output, the interest rate and the wage level if the savings rate $\phi$ increases in the stationary state of this economy.
+%	
+%	{\bc Answer: Increasing $\phi$ increases the supply of assets for any given interest rate $r$, i.e., it pushes the asset supply curve outwards. Given that, the equilibrium level of capital has to increase and the interest rate fall. With more capital, the wage rate increases and output increases.}
+\een	
+
+\end{document}

@@ -1,0 +1,77 @@
+             \documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macro II Problem of the week: Identification of the Phillips curve}
+%\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+During the period of elevated inflation in the EU and the US 2021-2024, several academics and policy commentators argued that the data does not support a clear tradeoff between real economic activity and inflation (=a Phillips curve). An example is the Claudia Sahm's opinion piece in the Financial Times on Jul 27, 2022, which contained Figure 1 and argued that since the 70's, US data show little empirical support for a positive comovement between unemployment/output and inflation. The author concluded that the concept of a Phillips curve is dead. 
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25, trim={0cm 0cm 0 0cm},clip]{phillips.jpeg}
+	\caption{From FT, Jul 27 2022}
+\end{figure}
+
+\newpage
+
+Let's examine the argument from the point of view of the New Keynesian model. Consider the dynamics of the following version of the linearized NK model:
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} + \nu_t \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t  + \xi_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi E_t \pi_{t+1} \nonumber 
+\end{eqnarray}
+where $\nu_t$ is a ``demand shock'' and $\xi_t$ is a ``supply shock''. There are no ``policy shocks'', and to simplify some algebra, we assume that monetary policy responds to expected inflation rather than current inflation.
+
+\ben
+\item Suppose there are no supply shocks, $\xi_t=0$, but only AR(1) demand shocks: $\nu_t = \rho \nu_{t-1} + \epsilon_t$, where $\epsilon_t$ is exogenous. Guess that in a solution to a positive demand shock $\epsilon_t$, output and inflation responds linearly to $\nu_t$:
+\begin{eqnarray}
+&& \hat y_t = \theta_y \nu_t \nonumber \\
+&& \pi_t = \theta_{\pi} \nu_t \nonumber
+\end{eqnarray}
+By using this guess, solve for $\theta_y, \theta_{\pi}$ in terms of the model parameters (and thereby verify that the guess is correct). Is there a positive correlation between $\hat y_t$ and $\pi_t$?
+
+\item Now, suppose there are no demand shocks, $\nu_t=0$, but only AR(1) supply shocks: $\xi_t = \rho \xi_{t-1} + \epsilon_t$, where $\epsilon_t$ is exogenous. Analogously, guess that in the solution to a positive supply shock $\epsilon_t$:
+\begin{eqnarray}
+&& \hat y_t = \theta_y \xi_t \nonumber \\
+&& \pi_t = \theta_{\pi} \xi_t \nonumber
+\end{eqnarray}
+Solve for $\theta_y, \theta_{\pi}$ in this case too. Is there a positive correlation between $\hat y_t$ and $\pi_t$?
+
+\item Much research have showed in the late 70's, US monetary policy shifted from being ``passive'' to ``active''. Put differently, since the late 70's, the Fed has tried to raise the real interest rate in response to inflation rising above target (and lowering rates in response to inflation below target). We can interpret this in our model as if $\phi$ shifted from $\phi<1$ to $\phi>1$. Ignoring determinacy issues, how does this parameter shift affect the correlation between inflation and output in response to demand and supply shocks? 
+
+\item In general, do you think that we should expect a positive correlation between inflation and real activity in the data? Can we retrieve the slope of the Phillips curve from the reduced-form relationship in Figure 1? Use your findings from subquestions 1-3 to motivate your answer. 
+\een 
+Note: If you are interested in digging deeper, check out McLeay-Tenreyro (NBER Macro Annual 2020) and Rognlie (NBER Macro Annual 2020).
+
+
+	
+\end{document}
+
+

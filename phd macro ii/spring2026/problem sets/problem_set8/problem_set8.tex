@@ -1,0 +1,103 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macroeconomics II: Problem set 8}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+Send your solutions to Andrii by \bf April 29, 12.00 \normalfont at the latest.
+
+
+\section{Reservation wages and wage dispersion}
+Consider the McCall model stuided in class, with the reservation wage given by
+\begin{eqnarray}
+w_R  -b = \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
+\end{eqnarray} 
+where $F(w)$ is the CDF of the offer distribution with support $[w_{min}, w_{max}]$
+
+\ben
+\item Show that the reservation wage equation can be rewritten as
+\begin{eqnarray}
+w_R  -b = \frac{\lambda_u }{r+\sigma} \left[(Ew-w_R) - \int_{w <w_R} (w-w_R) dF(w) \right]\nonumber
+\end{eqnarray} 
+where $Ew$ is the expected wage of the next offer.
+
+\item Using integration by parts, show that the previous equation can be rewritten
+\begin{eqnarray}
+w_R  -b = \frac{\lambda_u }{r+\sigma} \left[(Ew-w_R) + \int_{w <w_R} F(w)dw \right]\nonumber
+\end{eqnarray} 	
+
+\item Using the last equation, what happens to $w_R$ if there is a mean-preserving spread to the offer distribution $F$, which puts more mass in each of its tails?
+
+\item What is the economic intuition behind your answer to the previous question? 
+\een
+
+
+\section{McCall with stochastic wage growth}
+Consider the following version of the McCall model stuided in class. Time is continuous. Workers' utility is linear and the discount rate is $r$. Workers can be employed or unemployed. Unemployed workers recieve flow utility $b$ and get job offers at rate $\lambda_u$. When recieving a job offer, the wage of that offer is drawn from a distribution with cdf $F(w)$ with finite support $\mathcal{W} = [w_{min}, w_{max}]$, and the unemployed household decides whether to accept or reject. While employed, workers experience wage changes at rate $\lambda_w>0$. When the shock is realized, an employed worker with current wage $w$ draws an $\epsilon$ from a distribution with cdf $G(\epsilon)$ with finite support $\mathcal{E} = [0, \epsilon_{max}]$ and mean value $\bar \epsilon$. The new wage $w'$ is then $w'=w(1+\epsilon)$. The workers separatate at the exogenous rate $\sigma$.
+
+\ben
+\item Denote the employment value with $W(w)$. Write the Bellman equation for an employed worker.
+
+\item Guess that the employment value $W(w)$ is linear in $w$: $W(w)=kw+m$. What are the values of $k$ and $m$ if the Bellman equation of the employed worker is to be satisfied for all wages $w$? 
+
+\item Write the new Bellman equation for an unemployed worker.
+
+\item Find the reservation wage equation. Is the reservation wage in this model higher or lower compared to the model without stochastic wage growth?
+
+\item In the standard model without stochatic wage growth, the mean-min ratio of observed wages is given by
+\begin{eqnarray}
+Mm = \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho} \nonumber
+\end{eqnarray}
+where $\lambda$ is the job-finding rate and $\rho$ is the average replacement rate ($\rho$ is defined by $b=\rho \bar w$, where $\bar w$ is the average observed wage). If matched to the same data on the discount rate, separation rate, job-finding rate and average replacement rate, would the model with stochastic wage growth predict more or less residual wage dispersion compared to the standard model with constant wages on the job? Would it make a big difference?
+\een
+
+
+\section{Burdett-Mortensen with endogenous search intensitiy}
+Christensen-Lentz-Mortensen-Neumann-Werwatz (JOLE 2005) estimate a Burdett-Mortensen model with endogenous search intensitiy using Danish micro data. The central problem is how to infer the level of search intensity from data on wages and worker flows. In this question, you are asked to solve this problem.
+
+CLMNW's model assumes that an employed worker can exert search effort $s$ at flow cost $c(s)$ in return for an arrival rate of new offers of $s$. The Bellman equation for an employed worker is
+\begin{eqnarray}
+rW(w)  &=& \max_{s} \left\{ w - c(s) + s  \int \max\{W(w')-W(w), 0\} dF(w')  + \sigma(U-W(w))\right\} \nonumber
+\end{eqnarray}
+where $\sigma$ is the exogenous separation rate. The implied job-finding rate at wage $w$ is thus $s^*(w)(1-F(w))$, where $s^*(w)$ solves the maximisation problem.
+
+\ben
+	\item Differentiate the Bellman equation and invoke the envelope theorem (at the optimal choice of $s^*(w)$, the value $W(w)$ is independent of small changes in $s$) to find an expression for $W'(w)$.
+	
+	\item Assume $c(s) = \frac{s^{1-\gamma} }{1-\gamma}$. Derive an equation that implictily solves for $s(w)$ in terms of the wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$ and $\gamma$.
+	
+	\item What is the intuition? Why can we learn about the level of search intensity (and, by implication, the job finding rate) from just knowing wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$ and $\gamma$?
+\een
+
+ 
+
+
+
+\end{document}

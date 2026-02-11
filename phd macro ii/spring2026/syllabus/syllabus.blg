@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: syllabus.aux
+Reallocating 'name_of_file' (item size: 1) to 8 items.
+The style file: apalike.bst
+Reallocating 'name_of_file' (item size: 1) to 7 items.
+Database file #1: bibtex.bib
+Warning--empty publisher in Gali2015
+Warning--can't use both volume and number fields in King1999
+Warning--empty publisher in Krueger2016c
+You've used 41 entries,
+            1935 wiz_defined-function locations,
+            762 strings with 10035 characters,
+and the built_in function-call counts, 16488 in all, are:
+= -- 1674
+> -- 550
+< -- 31
++ -- 176
+- -- 176
+* -- 1442
+:= -- 2806
+add.period$ -- 124
+call.type$ -- 41
+change.case$ -- 291
+chr.to.int$ -- 41
+cite$ -- 44
+duplicate$ -- 618
+empty$ -- 1225
+format.name$ -- 239
+if$ -- 3239
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 43
+newline$ -- 206
+num.names$ -- 123
+pop$ -- 216
+preamble$ -- 1
+purify$ -- 293
+quote$ -- 0
+skip$ -- 478
+stack$ -- 0
+substring$ -- 1389
+swap$ -- 79
+text.length$ -- 7
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 242
+warning$ -- 3
+while$ -- 157
+width$ -- 0
+write$ -- 533
+(There were 3 warnings)

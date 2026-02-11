@@ -1,0 +1,154 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+
+\title{Exam Ph.D. Macroeconomics II \\
+Department of Economics, Uppsala University\\
+June 2, 2025}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Instructions}
+\bit
+	\item Writing time: 5 hours.
+	
+	\item The exam is closed book. 
+	
+	\item The exam has 70 points in total 
+	
+	\item A passing grade requires a) at least 30 points on  the exam, and b) 50 points in total for the course (incl the points you have from your problem sets).
+	
+	\item Start each question on a new paper. Write your anonymous code on all answer pages.
+	
+	\item You may write your solutions by pen or pencil; use your best handwriting.
+	
+	\item Answers shall be given in English.
+
+	\item Motivate your answers carefully; if you think you need to make additional assumptions to answer the questions, state them.
+	
+	\item If you have any questions during the exam, you may call Erik Öberg (+46 730 606 796) or Teodora Borota (+46 739 262 330) at any time between 3 PM and 5 PM.
+\eit
+
+\newpage
+
+\section{The Romer (1990) model of expanding varieties (20 points)}
+Suppose that final output $Y(t)$ is produced according to\\ $Y(t)=\frac{1}{1-\beta} L_{E}(t)^{\beta} \int_{0}^{N(t)} x(\nu, t)^{1-\beta} d \nu$, where $L_{E}(t)$ is the number of workers engaged in production, $x(\nu, t)$ is the number of machines of variety $\nu$ being used, and $N(t)$ is the number of existing varieties, all at time $t$. Suppose the final good sector is perfectly competitive, but each machine variety is supplied by a monopolist who faces a unit cost of making machines equal to $\psi$. For convenience, we assume $\psi=1-\beta$.\\
+
+1. Show that profit maximization by final good firms yields the demand curve $x(\nu, t)=p(\nu, t)^{-1 / \beta} L_{E}(t)$. Given this, show that $p(\nu, t)=1$, and show that therefore $Y(t)=\frac{1}{1-\beta} N(t) L_{E}(t)$. Finally, show that the profits of machine producers are $\pi(t)=\beta L_{E}(t)$.\\
+
+Ideas for new varieties are produced according to $\dot{N}(t)=\eta N(t) L_{R}(t)$, where $L_{R}(t)$ is the number of workers doing research at time $t$. A firm producing the new variety receives a patent and acts as a monopolist. Workers are perfectly mobile across the production and research sectors. Let $w(t)$ be the wage earned in both sectors, and let $V(t)$ be the value of a patent.\\
+
+2. State and explain the free-entry condition ensuring that workers are indifferent between the two activities.\\
+
+3. Infinitely lived consumers own Arrow securities paying a return $r(t)$. State and explain the no-arbitrage condition ensuring that traders in financial markets are indifferent between holding Arrow securities and patents.\\
+
+It can be shown that the wage equals $w(t)=\frac{\beta}{1-\beta} N(t)$ (not needed to derive this result). Finally, assume population is constant and consumers have log utility, so that the growth rate of consumption equals $g_{C}(t)=r(t)-\rho$.\\
+
+4. Define the BGP equilibrium of the economy.\\
+
+5. Take as given that the defined BGP is the unique equilibrium outcome of the model and solve for the BGP $r$, $g$ (growth rate of output pc), and $L_{E}$. What makes this economy grow sustainably?\\
+
+6. Assume now that the population grows at a constant rate $n$ and that you want to remove the scale effect property of the model. How would you modify the R\&D technology? What is the BGP growth rate in this economy?\\
+
+7. Suppose that the policy maker wants to promote the BGP growth and introduces a subsidy to R\&D cost by paying each research firm a fraction $s^R$ of the wage bill, i.e. the effective wage paid to researchers is now $w^R(t)=(1-s^R)w(t)$. Will the policy have the intended growth effect? How about the welfare effect?
+
+
+\section{Demand shocks in the New-Keynesian model (20 points)}
+Consider the vanilla New-Keynesian model in class, in which we allow for shocks to the household discount factor (``demand shocks''). The log-linear equilibrium is described by the following set of equations
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1} ) + E_t \hat c_{t+1} + \xi_t  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods market clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Labor market clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber \\
+\text{Shock process:} && \xi_t = \rho_{\xi} \xi_{t-1} + \epsilon_{\xi, t} \nonumber
+\end{eqnarray}
+where $\xi_t = -\log \beta_t$ is the negative of the log of the household discount factor, $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage, and $\lambda = \frac{(1-\theta)(1-\theta \beta)}{\theta}$.
+
+Figure 1 contains the IRFs to a positive demand shock with $\rho = 0.5$. The other parameters take the same value as in class: The Frisch elasticity $\varphi = 1$, the price-resetting probability $1-\theta = 1/3$, the policy rule coefficent $\phi = 1.5$, and the steady state value of the household discount factor $\beta = 0.99$.
+
+\ben
+	\item Explain the sign of the responses for all variables displayed in Figure 1.
+	
+	\item Figure 2 contains the IRFs to the same shock, but with $1-\theta = 0.999$. Explain why, in this case, we see close to no response in output. 
+	
+	\item Consider again the benchmark case where $1-\theta = 1/3$. How would the response of output look like if monetary policy were set to maximize social welfare?
+\een
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.75,trim= 0 200 0 200, clip]{figures/nk_cpshock_9variables.pdf}
+	\caption{IRFs to a demand shock in the vanilla NK model}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.75,trim= 0 200 0 200, clip]{figures/nk_cpshock_flexprice_9variables.pdf}
+	\caption{IRFs to a demand shock in the NK model with $1-\theta=0.999$}
+\end{figure}
+
+
+\section*{Hiring subsidies to reduce unemployment (15 points)} 
+Consider the standard DMP model of frictional unemployment with Nash bargaining and exogenous separations. A legislator is considering giving a constant subsidy $s$ to any firm that employs a worker in order to promote job creation and reduce the economy’s unemployment rate. With the subsidy, the profit flow of a producing firm is $y+s-w$, where $y$ is output and $w$ is the wage level. The legislator is considering two options to finance this subsidy under a balanced budget: 1) by levying a labor income tax $\tau_e$ on currently employed households, or 2) by levying an income tax $\tau_u$ on currently unemployed households (the second financing option may also be interpreted as a reduction in unemployment benefits).
+
+ \ben
+ \item Will the hiring subsidy be succesful in reducing the unemployment rate? Does it depend on how it is financed?
+ 
+ \item Suppose the policy is succesful in reducing the economy’s unemployment rate. Is it clear that the policy have also raised social welfare?
+ \een
+
+
+\section*{A Huggett model with government debt (15 points)}
+Consider an infinite-horizon economy with a continuum (measure 1) of ex-ante identical households each having efficiency units of labor $\epsilon_{it}$, drawn from distribution $F$ with finite support $[\epsilon_{min}, \epsilon_{max}]$ and mean $1$, i.i.d. across households and time. Consumers can trade a risk-free bond subject to a credit constraint. Each household $i$ solves
+\begin{eqnarray}
+\max_{a_{it+1}, c_{it}} && E_0 \sum_{t=0}^{\infty} \beta^t \left[u(c_{it}) + v(G_t) \right] \nonumber \\
+\text{s.t.} && c_{it} + a_{it+1} \leq \epsilon_{it} w_t - T_t + (1+r_t) a_{it} \nonumber \\
+&& a_{it+1} \geq - \underbar{a} \nonumber
+\end{eqnarray}
+where $u$ and $v$ satisfy standard conditions, $\underbar{a}>0$ is some exogenous debt limit, $G_t$ is government consumption and $T_t$ is lump-sum tax. A representative firm hires labor in a competitive labor market and employs the production function $Y_t=L_t$, where $L_t$ is the aggregate labor endowment. We denote total bond demand with $A_{t+1} = \int_{i=0}^{1} a_{it+1} di$.
+
+The bonds are issued by the government. The government sets the consumption level $G_t$ and the tax rate $T_t$ exogenously. Bond supply $B_{t+1}$ are resiudally determined from the government budget constraint:
+\begin{eqnarray}
+T_t+B_{t+1} = R_t B_t + G_t \nonumber
+\end{eqnarray}
+
+\ben
+\item Define a competitive equilibrium.
+
+\item Consider a steady state, in which government surplus is some positive constant: $T-G>0$. Derive an equation for bond supply, and draw it together with bond demand in an ``Ayiagari diagram''.
+
+\item What happens to the steady state interest rate if the steady state government suprlus increases?
+\een
+
+
+	
+\end{document}

@@ -1,0 +1,195 @@
+             \documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macroeconomics II: Problem set 9}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+Send your solutions to Andrii by \bf May 15, 12.00 \normalfont at the latest.
+
+\section{Pooled vs. segmented markets in the DMP model}
+Consider the DMP model studied in class but where a fraction $\phi$ of the workers are high-skilled, and a fraction $1-\phi$ are low-skilled. The difference between the two worker types is that when matched with a firm, the high-skilled workers produce $y_h$, whereas the low-skilled produce $y_l$, with $y_h>y_l$. The workers are the same in all other regards. We will study the determination of wages and unemployment under two different market structures.
+\bit
+	\item Market structure A: Unemployed workers cannot signal their productivity to potential employers. Accordingly, firms cannot direct their search and the probability that a worker match with an employer is $\lambda_u(\theta)$, where $\theta=\frac{v}{u}$, $u=\phi u_h +(1-\phi)u_l$. The corresponding probability that an employer match with a worker is $\lambda_v(\theta)$. The worker type is revealed to the employer upon a match, so this is known to both parties when entering Nash bargaining over wages.
+	
+	\item Market structure B: Unemployed workers can signal their productivity to potential employers. Accordingly, firms can direct their search and decide whether a vacancy is open for applicants of low or high type (it cannot be open to both). The probability that a worker of type $i$ match with an employer who search for workers of type $i$ is $\lambda_u(\theta_i)$, where $\theta_i=\frac{v_i}{u_i}$. The corresponding probability that an employer search for type $i$ meets a worker of type $i$ is $\lambda_v(\theta_i)$.
+\eit 
+
+Consider first the market structure $A$.
+\ben
+	\item Write down all the relevant Bellman equations with the value functions.
+	
+	\item Solve for expressions that determines the equilibrium unemployment rate and wages for the two different worker types. Which worker type has the higher wage? Which has the higher unemployment rate? Comment on your results.
+\een
+
+Consider now the market structure $B$.
+\ben
+\setItemnumber{3}
+\item Write down all the relevant Bellman equations with the value functions.
+
+\item Solve for the equilibrium unemployment rate and wages for the two different worker types. Which worker type has the higher wage? Which has the higher unemployment rate? Compare to market structure A.
+\een
+
+\section{Equilibrium and comparative statics with endogenous separations}
+Consider the DMP model with endogenous separations discussed in class. The equilibrium is summarized by the JC and JD curve:
+\begin{eqnarray}
+&& \frac{c}{\lambda_v(\theta)} = (1-\gamma) y \frac{1-x_R}{r+\lambda_x}, \nonumber \\
+&& x_Ry = b + \frac{\gamma}{1-\gamma}c\theta - y \frac{\lambda_x}{r+\lambda_x}  \int_{x_R}^{1} (x'-x_R)d\Gamma(x'). \nonumber
+\end{eqnarray}
+Given $x_R, \theta$, we can solve for $\{v,u\}$ from
+\begin{eqnarray}
+&& v = \theta u\nonumber \\
+&& u = \frac{\lambda_x \Gamma(x_R)}{\lambda_x \Gamma(x_R) + \lambda_u(\frac{v}{u})} \nonumber
+\end{eqnarray}
+
+\ben
+\item Show that the JD curve is a upward-sloping curve, and that JC is a downward-sloping curve, and that the two curves cross at most once in $\{x_R, \theta\}$-space.
+
+\item Assume the parameters are such that the two curves cross once. Using your graphs, show what happens to $x_R, \theta, u, v$ when $y$ increases. Explain the intuition behind all curve shifts.
+
+\item Are the assumptions we have made sufficient to determine the sign of all responses? 
+
+\item If not, can you think of any reasonable modification of the model which would determine all signs uniquely?
+\een
+
+
+\section{Unemployment on the Coconut Island}
+Consider the following environment: Time is continuous. There is a continuum of agents of mass one on an island. The island is composed of a forest and a beach. The forest is where coconut trees grow, while the beach is where people meet. Coconuts are the only good in the economy. All coconuts are the same, and each agent gets utility $y$ from consuming a coconut. Agents discount utility at rate $r$. 
+
+Production is done by climbing at coconut trees, which are of various height. Agents without coconuts walk in the forest and look for trees. They are said to be unemployed. When they are unemployed, they randomly bump into coconut trees at exogenous rate $\alpha$. When climbing a tree, they incur a utility cost $c$, drawn from an i.i.d. distribution with CDF  G(c), defined over $[\underbar c, \bar c]$, with $\underbar c >0$, reflecting that higher trees are more costly to climb. One cannot collect or carry more than one coconut.
+
+There is a taboo on this island, according to which one cannot eat self-collected coconuts. Therefore, once a coconut is collected, an agent has to walk on the beach carrying her coconut, and she will randomly meet another agent with a coconut. When walking in search for a trade partner, agents are said to be employed. When a meeting happens, the pair of agents that meets exchange their coconuts (one against one) and eat them. We denote by $e$ (employment) the measure of agents that are holding a coconut and looking for a partner. $e \in [0,1]$ is endogenous. Meeting someone else on the beach happens at rate $\beta$, which is a function of employment, $\beta = \beta(e)$. It is assumed that $\beta(e)$ is increasing and concave, and that $\beta(0)=0$.
+
+The life of an agent can therefore be described as follows: once agents have a coconut, they simply walk on the beach until they meet another agent with a coconut, and trade. Without a coconut, they walk in the forest until they run into the coconut tree, and then they decide whether to collect the coconut given the cost. 
+
+We will only be concerned with the steady state of this island economy.
+
+
+\ben
+\item The assumption that $\beta(e)$ is increasing implies a so called ``thick market externality''. Explain why, especially the ``externality'' part.
+
+\item Let $V_E$ and $V_U$ denote the value of being employed and unemployed, respectively. The Bellman equation for an employed agent is given by
+\begin{eqnarray}
+rV_E(e) = \beta(e)\left(y + (V_U(e)-V_E(e)) \right).
+\end{eqnarray} 
+Explain in words what this equation says.
+
+\item Argue that optimizing unemployed agents follow a \emph{reservation cost strategy}: they will only climb the tree they bump into if the cost of doing so is smaller than some reservation cost $c_R(e)$. Why does the reservation cost depend on $e$? 
+
+\item Write the Bellman equation for an unemployed agent.
+
+%\bf Answer: \normalfont \emph{The Bellman equation is
+%	\begin{eqnarray}
+%	rV_U(e) = \alpha \int_{\underbar c}^{c_R} \left(V_e(e)-V_U(e) -c\right)dG(c) 
+%	\end{eqnarray}
+%	}
+
+\item Show that $c_R(e)$ satisfies
+
+\begin{eqnarray}
+\beta(e)y-(\beta(e)+r)c_R(e)=rV_U(e).
+\end{eqnarray}
+
+%\bf Answer: \normalfont \emph{From the Bellman equation for the employed, we have
+%	\begin{eqnarray}
+%	V_E(e) = \frac{\beta(e)(y+V_U(e))}{r+\beta(e)}.
+%	\end{eqnarray}
+%	Using this in the Bellman equation for the unemployed, we get
+%	\begin{eqnarray}
+%	rV_U(e) = \alpha \int_{\underbar c}^{c_R} \left(\frac{\beta(e)(y+V_U(e))-(r+\beta(e))(V_U(e)+c)}{r+\beta(e)} 	\right)dG(c) 
+%	\end{eqnarray}
+%	or
+%	\begin{eqnarray}
+%	rV_U(e) = \frac{\alpha}{r+\beta(e)} \int_{\underbar c}^{c_R} \left(\beta(e)(y-c)-r(V_U(e)+c)	\right)dG(c) 
+%	\end{eqnarray}
+%	At the reservation cost $c=c_R$, the agent must be indifferent between climbing or nor, from which we get
+%	\begin{eqnarray}
+%	\beta(e)y-(\beta(e)+r)c_R(e)=rV_U(e).
+%	\end{eqnarray}
+%}
+
+\item Using the previous results, solve for an equation that implicitly solves for $c^R(e)$. Let's name this equation the \emph{reservation cost equation}.
+
+%\bf Answer: \normalfont \emph{Using the result in question 5 in the Bellman equation for the unemployed, we get
+%	\begin{eqnarray}
+%	\frac{\beta(e)}{r+\beta(e)}y-c_R(e)= \frac{\alpha}{r+\beta(e)} \int_{\underbar c}^{c_R(e)} (c^R(e)-c)dG(c) 
+%	\end{eqnarray}
+%	which is the reservation cost equation
+%}
+
+\item Using the reservation cost equation, show that $c^R(e)$ is increasing and concave in $e$ whenever $y>c_R(e)$, and that $c_R(0)=0$. What is the intuition for the ``increasing'' part?
+
+For answering this question you might find Leibniz' rule useful. Recall that this rule says that if the functions $f(x,t), \alpha(t), \beta(t)$ are differentiable in $t$, the function
+\begin{eqnarray}
+\phi(t) = \int_{\alpha(t)}^{\beta(t)} f(x,t) dg(x) \nonumber
+\end{eqnarray}
+is differentiable, and
+\begin{eqnarray}
+\phi'(t) = f(\beta(t),t) \frac{dg(\beta(t))}{dt} - f(\alpha(t),t)\frac{dg(\alpha(t))}{dt} + \int_{\alpha(t)}^{\beta(t)} f_t(x,t) dg(x). \nonumber
+\end{eqnarray}
+
+%\bf Answer: \normalfont \emph{By total differentation (and using Leibniz' rule), we get
+%	\begin{eqnarray}
+%	\beta'(e)y -\beta'(e)c_R(e) - (r+\beta(e))c'_R(e) = \alpha G(c_R(e))c'_R(e)
+%	\end{eqnarray}
+%	or
+%	\begin{eqnarray}
+%	c_R'(e)  = \frac{\beta'(e)(y - c_R(e))}{(r+\beta(e)) + \alpha G(c_R(e))}
+%	\end{eqnarray}
+%	which shows that $c_R'(e)>0$ whenever $y>c_R(e)$, i.e., that $c_R(e)$ is increasing whenever $y>c_R(e)$. The intuition is that if $e$ is higher, the probability of meeting a trading partner is higher, which increases the marginal value of climbing a tree. 
+%	 Total differentiation one more time yields
+%	\begin{eqnarray}
+%	c_R''(e)(r+\beta(e)) + \alpha G(c_R(e)) + c_R'(e)(\beta'(e)) + \alpha g(c_R(e)c'_R(e)) = \beta''(e)(y - c_R(e)) - \beta'(e)c_R'(e)
+%	\end{eqnarray}
+%	or
+%	\begin{eqnarray}
+%	c_R''(e) =  \frac{\beta''(e)(y - c_R(e)) - c_R'(e) (2\beta'(e) + \alpha g(c_R(e)c'_R(e))}{r+\beta(e)) + \alpha G(c_R(e)}
+%	\end{eqnarray}
+%	which shows that $c_R''(e)<0$ whenever $y>c_R(e)$, i.e., that $c_R(e)$ is concave whenever $y>c_R(e)$.
+%}
+
+\item Write the law of motion for employment in this economy, and solve for the steady state value of employment in terms of $\alpha$ and $\beta(e)$. Let's name this steady state relation to the ``Beveridge curve''. 
+
+%\bf Answer: \normalfont \emph{The LOM is
+%	\begin{eqnarray}
+%	\frac{d}{dt} e = \alpha G(c^R(e))(1-e) - \beta(e) e. \nonumber
+%	\end{eqnarray}
+%	Steady state is given by
+%	\begin{eqnarray}
+%	e = \frac{\alpha G(c^R(e))}{\alpha G(c^R(e))+\beta(e)}. \nonumber
+%	\end{eqnarray}	
+%} 
+
+\item The ``Beveridge curve'' implies yet another relation between $c^R$ and $e$, which is increasing and convex. By drawing an appropriate graph, show that the model either has zero or two steady state equilibria; in the latter case, one equilibrium is associated with low emplyment and the other with high employment. Explain how this can be the case.
+
+\een
+
+
+
+\end{document}

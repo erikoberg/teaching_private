@@ -1,0 +1,1773 @@
+\documentclass[9pt,xcolor={dvipsnames}]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+\newcommand{\gc}{\color{ForestGreen}}
+\newcommand{\wc}{\color{white}}
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[NK: Basics]{Macroeconomics II Part II, Lecture IV:\\
+	  The New-Keynesian Model: Basics}
+\author{Erik {\"O}berg}
+\date{}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Recap}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item We've learned a lot about RBC: natural starting point for studying business cycles 
+
+\item But! No role for monetary factors
+
+\item One may think \emph{monetary factors} are key to many business cycle phenomena
+
+\item With this, we mean that fluctuations in nominal variables - money stock, nominal interest rates, inflation, etc. - cause fluctuations in real activity 
+
+\item To get started to think about this, we will introduce the {\bc New-Keynesian Model} 
+
+\item The New-Keynesian Model $=$ RBC with frictional price setting
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Today's agenda}
+
+\ben
+\setlength\itemsep{1.5em} 
+
+\item Evidence concering the effects of monetary policy
+
+\item The vanilla NK model: Setup and equilibrium
+
+\item The vanilla NK model: Determinacy
+
+\een
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Evidence concering the effects of monetary policy \normalfont
+\end{center}
+
+\end{frame}
+
+
+
+\begin{frame}{Monetary factors and real activity: how to approach the data?}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item How to test the hypothesis that monetary factors matter for real activity?
+
+\item This is not easy, as monetary shocks are almost always coupled with other macroeconomic disturbances
+
+\item Four types of approaches:
+\ben
+\setlength\itemsep{0.5em} 
+	\item Historical analysis of unusual episodes, e.g.,
+		\bit
+			\item The Great Depression (e.g. Friedman \& Schwartz, Book 1963)
+			
+			\item Hyperinflations (e.g. Sargent-Velde, JPE 1995)
+			
+			\item Sweden's experiment with using monetary policy for counteracting household debt (Coglianese-Olsson-Patterson, R\&R AER 2024)
+		\eit
+		
+	
+	\item Monetary regime shifts, e.g., 
+		\bit
+			\item Introduction of Volcker rule (Clarida-Gal\'{i}-Gertler, QJE 2000)
+		\eit
+	
+	\item Monetary policy shocks
+	
+	\item Indirect inference based on other macroeconomic shocks
+\een
+
+\item Summary of evidence: i) monetary factors affect real activity, ii) a contraction in nominal demand causes a fall in real activity, iii) size of effect is context specific
+
+\item Approach 3 \& 4 speak directly to the NK model; we will briefly discuss approach 3, following Ramey (HB Macro 2016)
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Monetary policy shocks}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Current monetary policy regime (in most developed countries): use the interest rate on risk-free overnight bond-like instruments issued by the central bank (=``policy rate'') to ``control'' fluctuations in inflation and real activity
+
+\item Research question: What is the casual effect of a change in the policy rate on inflation and real activity?
+
+\item Data at hand: time series of the policy rate $i_t$ and various macro aggregates
+
+\item Problem: Given our monetary regime, changes in monetary policy are super endogenous to changes in macro aggregates, e.g., inflation and real activity
+
+\item Operational question: How to isolate exogenous changes in the policy rate?
+\bit
+	\item ``Exogenous'' = ``Unexpected'', given the various macro aggregates 
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Isolating exogenous shocks: an illustrative framework I}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item With time series data, we can estimate a {\bc Vector AutoRegression (VAR)} 
+\begin{eqnarray}
+\lb{reduced_form}
+X_t &=& \mathbf{B} X_{t-1} + \eta_{t} \nonumber
+\end{eqnarray}
+where, e.g., $X_t = [y_t, \pi_t, i_t]$ and $\eta_t$ is vector of {\bc reduced-form residuals}
+
+\item Assuming no omitted variable, the OLS estimate of $\hat{\mathbf{B}}$ allow us to estimate the impulse-response function to some \emph{given} exogenous shock
+
+\item Temptation: interpret OLS residuals $\hat \eta$ as exogenous shocks 
+
+\item But of course, this is not credible 
+
+\item For exampple, an ``unusually'' high value of $i_t$ could reflect both a shock and an endogenous reaction to a shock to $\pi_t$
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Isolating exogenous shocks: an illustrative framework II}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Suppose the data-generating process (the ``true'' model) is
+\begin{eqnarray}
+\mathbf{A}_0 X_t &=& \mathbf{A}_1 X_{t-1} + \epsilon_{t}    \nonumber 
+\end{eqnarray}
+where $\epsilon_t$ is vector of {\bc structural shocks}
+
+\item $\mathbf{A}_0$ captures the contemporanous causal relationships between the endogenous variables 
+
+\item The structural system can be written
+\begin{eqnarray}
+X_t &=& \mathbf{A}_0^{-1} \mathbf{A}_1 X_{t-1} + \mathbf{A}_0^{-1}\epsilon_{t}    \nonumber 
+\end{eqnarray}
+
+\item Identification problem: How to extract the $\epsilon$'s from the $\eta$'s?
+
+\item Solution: make assumptions on $\mathbf{A}_0$
+\bit
+	\item Make assumptions $=$ theory
+	
+	\item Identification is always ``structural''
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Isolating exogenous shocks: common methods}
+
+\ben
+\setlength\itemsep{1.5em} 
+
+\item Cholesky decompostion/Recursive ordering (Sims, Ecmtra 1980; Bernanke-Blinder AER 1992)
+\bit
+\setlength\itemsep{0.5em} 
+\item Idea: Monetary policy can react to output/inflation within the same quarter, but output/inflation can only react to monetary policy with a lag 
+
+\item $\Rightarrow$ the contemporanous causal effect of MP on output/inflation is zero; justifies placing restrictions on $A_0$
+
+\eit
+
+\item Narrative shocks (Romer-Romer AER 2004)
+\bit
+\setlength\itemsep{0.5em} 
+\item Idea: Use the Fed's own forecast (the ``Greenbook'') to construct unexpected interest rate changes
+
+\item The residual from regressing the policy rate on the forecast is the unexpected component, should not be correlated with other shocks
+
+\item Can be used as instrument for OLS residuals in VAR system; justifies placing restrictions on $A_0$
+
+\eit
+
+
+\item High-frequency identification (Kuttner, JME 2001; Nakamura-Steinson QJE 2018)
+\bit
+\setlength\itemsep{0.5em} 
+\item Idea: discontinuous jumps in price of interest-rate forward contracts around policy announcement reflect unexpected policy change
+
+\item Can be used as instrument for OLS residuals in VAR system; justifies placing restrictions on $A_0$
+\eit
+
+\een
+
+\end{frame}
+
+
+
+\begin{frame}{IRFs using recursive ordering}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.9]{Figures/Ramey_fig1a.pdf}
+	\caption*{US monthly data, from Ramey (HB Macro 2016)}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{IRFs using narrative shocks}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.9]{Figures/Ramey_fig2c.pdf}
+	\caption*{US monthly data, from Ramey (HB Macro 2016)}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{IRFs using HFI shocks}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.9]{Figures/Ramey_fig3a.pdf}
+	\caption*{US monthly data, from Ramey (HB Macro 2016)}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Monetary policy shocks: summary}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item US data suggests a surprise increase in the policy rate leads to 
+\ben
+\setlength\itemsep{0.5em} 
+
+	\item persistent hump-shaped decline in output
+	
+	\item small lagged decline in the price level (more uncertain)
+\een
+
+\item Very large literature exploring robustness, other countries, time periods etc.
+\bit
+	\item Bauer-Czarnota-Klein (2025) constructs HFI shocks for Sweden, find similar effects
+\eit
+
+\item Clearly inconsistent with models with frictionless price setting
+
+\item The NK model, in contrast, provides a starting point for interpreting this evidence
+
+\eit
+
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\huge The New-Keynesian Model \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{NK Model: Overview}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Basic skeleton: RBC model with trade in nominal bonds
+\bit
+\setlength\itemsep{0.5em} 
+	\item Older NK papers typically also an explicit role for money in facilitating transactions  (e.g., CIA constraint, Money in the utility function)
+
+	\item We study the model in the {\bc cashless limit} (which is arguably a very good approximation for transactions nowadays)
+
+	\item The price level (=the inverse of the price of money) still matters since bonds are denominated in units of money
+\eit
+
+
+\item Two definining features:
+\ben
+\setlength\itemsep{0.5em} 
+	\item Monopolistic competition $\Rightarrow$ firms are \emph{price setters}, not price takers
+	
+	\item Frictions in price setting $\Rightarrow$ some firms cannot freely set the price they would like
+\een
+
+\item To simplify, we assume no capital and first consider monetary policy shocks only (more shocks in next lecture)
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{The end product}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item The log-linearized equilibrium of the vanilla NK model can be described by 3 equations
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where 
+\bit
+	\item $y_t$ is output
+	\item $\pi_t$ is inflation
+	\item $i_t$ is the nominal interest rate
+	\item $\nu_t$ is the policy shock
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{How we will get there}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item When presenting a model, a good practice is to
+\ben
+\setlength\itemsep{0.5em}
+
+\item State the assumptions
+
+\item Define a solution concept (equilibrium definition)
+
+\item Solve the model; when solving a model by log-linearization, the cook book says
+\ben
+\setlength\itemsep{0.5em}
+
+\item Start with making an {\bc equilibrium characterization}
+
+\item Solve for the {\bc steady state}
+
+\item {\bc Log-linearize} the {\bc equilibrium characterization} around the {\bc steady state}
+
+\een
+
+\een
+
+\item We will not follow this recommended practice today, because the NK model is a bit more ``messy'' compared to RBC
+
+\item Instead, we will set up, characterize and log-linearize the agent's optimization problems in a sequential manner
+\bit
+	\item By so doing, we will move back and forth between stating assumptions and solving the model
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}{Household problem}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Program of the representative household 
+\begin{eqnarray}
+\max_{\{C_t, N_t, B_{t+1}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]\nonumber \\
+\text{s.t} && P_t C_t + Q_t B_{t+1} \leq W_t N_t + B_{t} + T_t \nonumber \\
+&& C_t, N_t, B_{t+1}  \geq 0 \nonumber
+\end{eqnarray}
+with $U(C_t), V(N_t)$ satisfying the usual regularity conditions 
+
+\item Note:
+\bit
+\setlength\itemsep{0.5em}
+\item Budget constraint denominated in units of money, $P_t$ is the price level
+
+\item Monopoly firm profits are returned to the household $\Rightarrow $$T_t \neq 0$ 
+
+\item $W_t = $ nominal, not the real wage (conflicting with our notation for the RBC model)
+
+\item The gross nominal return on bonds that pay in period $t+1$, $1/Q_t$ is known in period $t$
+
+\item The gross real return, $R_t=1/(Q_t \Pi_{t+1} ) $, is not known in period $t$
+	\bit
+		\item $\Pi_{t+1} = P_{t+1}/P_t$
+	\eit
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Household problem optimality condtions}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Lagrangian to the household problem:
+\begin{eqnarray}
+\mathbf{L} = E_0 \Bigg(\sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]-\sum_{t=0}^{\infty} \lambda_t \left[ P_t C_t + Q_t B_{t+1} - W_t N_t - B_t - T_t \right] \Bigg) \nonumber
+\end{eqnarray}
+
+\item First order conditions:
+\begin{eqnarray}
+C_t: && \beta^t U'(C_t) - \lambda_t P_t = 0 \nonumber \\
+N_t: && -\beta^t V'(N_t) + \lambda_tW_t = 0 \nonumber \\
+B_{t+1}: && -\lambda_t Q_t   + E_t\lambda_{t+1}  = 0 \nonumber
+\end{eqnarray}
+
+\item Put together:
+\begin{eqnarray}
+\frac{W_t}{P_t} &=& \frac{V'(N_t)}{U'(C_t)}  \nonumber \\
+U'(C_t) &=& E_t \left[\beta \frac{1}{Q_t \Pi_{t+1}} U'(C_{t+1})   \right] \nonumber
+\end{eqnarray}
+%
+%\item In the Euler equation, which variables can be lifted outside the expectation operator?
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Log-linearizing household optimaility conditions}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Using our standard utility functions, $U(C)=\log C$ and $V(N) = \theta \frac{N^{1+\varphi}}{1+\varphi}$:
+\begin{eqnarray}
+\frac{W_t}{P_t} &=& C_t \theta N_t^{\varphi} \nonumber \\
+C_t^{-1} &=& E_t \left[\beta \frac{1}{Q_t \Pi_{t+1}} C^{-1}_{t+1})   \right] \nonumber
+\end{eqnarray}
+
+\item Taking logs:
+\begin{eqnarray}
+w_t -  p_t &=& \log \theta + c_t + \varphi n_t \nonumber \\
+c_t &=& - (i_t-E_t \pi_{t+1}-\xi) + E_t c_{t+1} \nonumber
+\end{eqnarray}
+where $i_t = \log \left(\frac{1}{Q_t}\right)$ is the net nominal interest rate and $\xi = -\log \beta$
+
+\item Substracting steady state:
+\begin{eqnarray}
+\hat w_t - \hat p_t &=& \hat c_t + \varphi \hat n_t \nonumber \\
+\hat c_t &=& - (\hat i_t-E_t \pi_{t+1}) + E_t \hat c_{t+1} \nonumber
+\end{eqnarray}
+
+\item Note: $\log$ utility implies that the elasticity of current consumption w.r.t. to the real interest rate is $-1$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Firms: 2 layers}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Final goods producers:
+\bit
+\setlength\itemsep{0.5em}
+\item A representative firm operates in a competitive market 
+
+\item Take \emph{differentiated} intermediate goods as input
+
+\item Combine them using a production function that exhibits {\bc constant elasticity of substitution (CES)}
+
+\item $\Rightarrow$ CES demand function for intermediate goods
+\eit
+
+\item Intermediate goods producers:
+\bit
+\setlength\itemsep{0.5em}
+	\item A continuum of firms operates under monopolistic competition
+
+	\item Take labor as input
+	
+	\item produce differeniated intermediate goods
+	
+	\item Set sale price to maximize discounted stream of profits, taking demand function as given
+\eit
+
+\item Alternative and equivalent setup: only one production layer, but households have preferences over a CES bundle of goods
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Final goods producers}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item CES production technology
+\begin{eqnarray}
+Y_t = \left(\int_{0}^{1} Y_{it}^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{\epsilon}{\epsilon-1}} \nonumber
+\end{eqnarray}
+
+\item Firms take prices as given to solve
+\begin{eqnarray}
+\max_{\{Y_{it}\}} Y_t P_t - \int_{0}^{1} Y_{it} P_{it} di \nonumber
+\end{eqnarray}
+where $P_t$ is the price of the final good, and $P_{it}$ are the prices of the intermediate goods
+
+\item Problem is static: no interdependence between profits in period $t$ and $t+s$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Final goods producers optimality condition}
+
+\bit
+\setlength\itemsep{1em}
+
+\item An interior solution requires the F.O.C. to hold:
+\begin{eqnarray}
+P_t \frac{\partial Y_t}{\partial Y_{it}} - P_{it} = 0 \hspace{2mm} \forall i \in [0,1]\nonumber
+\end{eqnarray}
+with  
+\begin{eqnarray}
+\frac{\partial Y_t}{\partial Y_{it}} &=& \frac{\epsilon}{\epsilon-1} \left(\int_{0}^{1} Y_{it}^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{\epsilon}{\epsilon-1}-1} \times \frac{\epsilon-1}{\epsilon} Y_{it}^{\frac{\epsilon-1}{\epsilon} - 1} \nonumber \\
+&=& \left(\int_{0}^{1} Y_{it}^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{1}{\epsilon-1}} \times  Y_{it}^{\frac{-1}{\epsilon}} \nonumber \\
+&=& Y_t^{\frac{1}{\epsilon}}  Y_{it}^{\frac{-1}{\epsilon}} \nonumber
+\end{eqnarray}
+
+\item So, F.O.C. can be written
+\begin{eqnarray}
+\label{demand}
+Y_{it} = \left(\frac{P_{it}}{P_t}\right)^{-\epsilon} Y_t
+\end{eqnarray}
+
+\item $\Rightarrow$ $Y_{it}$ has constant elasticity $\epsilon$ w.r.t $P_{it}$
+
+\item \eqref{demand} is the demand function for intermediate goods $Y_{it}$
+
+\eit
+
+\end{frame}
+
+
+%\begin{frame}{Log-linearizing}
+%
+%\begin{eqnarray}
+%Y_{it} = \left(\frac{P_{it}}{P_t}\right)^{-\epsilon} Y_t \hspace{2mm}\Rightarrow \hat y_{it} = -\epsilon (\hat p_{it}- \hat p_t) + \hat y_t \nonumber
+%\end{eqnarray}
+%
+%\bit
+%\setlength\itemsep{1em}
+%\item $\Rightarrow$ $Y_{it}$ has constant elasticity $\epsilon$ w.r.t $P_{it}$
+%\eit
+%
+%\end{frame}
+
+
+\begin{frame}{A price index}
+
+\bit
+\setlength\itemsep{1em}
+
+\item The demand function implies that $P_t$ can be interpreted as a {\bc price index}
+
+\item Use the CES aggregator; manipulate and integrate:
+\begin{eqnarray}
+ && Y_{it} = \left(\frac{P_{it}}{P_t}\right)^{-\epsilon} Y_t \nonumber \\
+\Leftrightarrow && Y_{it}^{\frac{\epsilon-1}{\epsilon}} P_t^{\frac{\epsilon-1}{\epsilon}\times -\epsilon} = P_{it}^{\frac{\epsilon-1}{\epsilon}\times -\epsilon} Y_t^{\frac{\epsilon-1}{\epsilon}} \nonumber \\
+\Leftrightarrow && \left(P_t^{1-\epsilon} \int_{0}^{1} Y_{it}^{\frac{\epsilon-1}{\epsilon}}  di\right)^{\frac{\epsilon}{\epsilon-1}} = \left(Y_t^{\frac{\epsilon-1}{\epsilon}} \int_{0}^{1} P_{it}^{1-\epsilon}  di\right)^{\frac{\epsilon}{\epsilon-1}} \nonumber \\
+\Leftrightarrow && P_t^{-\epsilon} Y_t = Y_t \left(\int_{0}^{1} P_{it}^{1-\epsilon}  di\right)^{\frac{\epsilon}{\epsilon-1}} \nonumber \\
+\Leftrightarrow && P_t =  \left(\int_{0}^{1} P_{it}^{1-\epsilon}  di\right)^{\frac{1}{1-\epsilon}} \nonumber
+\end{eqnarray}
+
+\item The price index $P_t = P_t(P_{it})$ is convex $\Rightarrow$ when the dispersion of $P_{it}$ increases, the value of money, $1/P_t$, is lower
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Intermediate goods producers}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A continuum of firms, indexed by $i \in [0,1]$
+
+\item Each produce a different good $Y_i$
+
+\item No capital; no TFP shocks; CRS technology in labor:
+\begin{eqnarray}
+Y_{it} = A N_{it} \nonumber
+\end{eqnarray}
+
+\item Monopolistic producers: set prices $P_{it}$, taking the demand curve (1) and aggregate variables as given
+
+\item We first consider their optimization problem in the case of {\bc flexible price setting}, then add the pricing friction
+
+\item With flexible pricing, the optimization problem is static
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Intermediate goods producers with flexible prices I}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Program:
+\begin{eqnarray}
+\max_{P_{it}} && A N_{it} P_{it}- W_t N_{it} \nonumber \\
+\text{s.t.} && Y_{it} = \left(\frac{P_{it}}{P_t}\right)^{-\epsilon} Y_t \nonumber \\
+&& Y_{it} = A N_{it} \nonumber
+\end{eqnarray}
+
+\item Equivalently:
+\begin{eqnarray}
+\max_{P_{it}} && Y_{it} P_{it}-\Psi(Y_{it}) \nonumber \\
+\text{s.t.} && Y_{it} = \left(\frac{P_{it}}{P_t}\right)^{-\epsilon} Y_t \nonumber
+\end{eqnarray}
+with nominal cost function $\Psi(Y_{it}) = W_{t} \frac{Y_{it}}{A}$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Intermediate goods producers with flexible prices II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item F.O.C:
+\begin{eqnarray}
+\frac{\partial Y_{it}}{\partial P_{it}} P_{it} + Y_{it} - \psi_t \frac{\partial Y_{it}}{\partial P_{it}}  = 0 \nonumber
+\end{eqnarray}
+where $\psi_t  \equiv \frac{\partial \Psi(Y_{it})}{\partial Y_{it}} = \frac{W_{t}}{A}$ is nominal marginal cost
+
+\item Compute the derivative and plug in the demand constraint to find:
+\begin{eqnarray}
+0 &=& Y_{it} (P_{it}-M\psi_t) \nonumber \\
+P_{it} &=& M \psi_t \nonumber
+\end{eqnarray}
+where $M = \frac{\epsilon}{\epsilon-1}$
+
+\item With lower elasticity $\epsilon$, firms charge higher markups $M$
+
+%\item Note: profits are $T_{it} = Y_{it} (P_{it}-\psi_t ) = (M-1) Y_{it}$
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Intermediate goods producers with Calvo prices}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Now we understand the frictionless pricing problem
+
+\item Let's introduce the pricing friction, following Calvo (JME 1983)
+
+\item In each period, with probability $\theta$, a firm $i$ cannot change its price: $P_{it} = P_{it-1}$
+
+\item With probability $1-\theta$, it can set whatever price it likes; denote its choice with $P^*_t$
+
+\item A price-resetting firm sets the price $P^*_t$ to maximize expected discounted profits, during the time in which $P^*_t$ is in place
+
+\item Since the firm is owned by the representative household, it discounts profits in period $t+s$ using the households' stochastic discount factor $M_{t,t+s}=\beta^s E_t \frac{U(C_{t+s})}{U(C_t)}$
+
+\item What is the firm program? How to interpret its optimality condition? {\rc (Do on Whiteboard)}
+\eit
+
+\end{frame}
+
+
+%\begin{frame}{Intermediate goods producers with Calvo prices}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item A resetting firm's program:
+%\begin{eqnarray}
+%\max_{P^*_t} && \sum_{s=0}^{\infty} \theta^s E_t \left[M_{t,t+s} (P^*_t Y_{it+s|t} - \Psi(Y_{it+s|t}))  \right] \nonumber \\
+%\text{s.t.} && Y_{it+s|t} = \left(\frac{P^*_{t}}{P_{t+s}}\right)^{-\epsilon} Y_{t+s} \nonumber
+%\end{eqnarray}
+%where the notation $E_t X_{t+s|t}$ shold be read as ``firm's expected value of $X$ in period $t+s$ conditional on resetting price in period $t$''
+%
+%\item F.O.C.
+%\begin{eqnarray}
+%0 &=& \sum_{s=0}^{\infty} \theta^s E_t \left[M_{t,t+s} \left(Y_{it+s|t} + P^*_t\frac{\partial Y_{it+s|t}}{\partial P^*_t} - \psi(Y_{it+s|t})\frac{\partial Y_{it+s|t}}{\partial P^*_t}\right)  \right] \nonumber \\
+%&=& \sum_{s=0}^{\infty} \theta^s E_t \left[M_{t,t+s} Y_{it+s|t} \left( P^*_t - M \psi (Y_{it+s|t}) \right) \right] \nonumber 
+%\end{eqnarray}
+%
+%\item Compare to frictionless F.O.C. - how to interpret this optimality condition?
+%
+%\eit
+%
+%\end{frame}
+
+\begin{frame}{Log-linearization}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Firm F.O.C. can be rewritten
+\begin{eqnarray}
+0 &=& \sum_{s=0}^{\infty} \theta^s E_t \left[Q_{t,t+s} Y_{it+s|t} \left( P_t^* - M \times MC_{t+s} P_{t+s} \right) \right] \nonumber 
+\end{eqnarray}
+where $MC_{t+s} = \frac{\psi (Y_{it+s|t})}{P_{t+s}} = \frac{W_{t+s}}{A P_{t+s}} $ is real marginal cost
+
+\item In steady state:
+\bit
+	\item $\bar Q_{t,t+s} = \beta^s$
+	\item $P^*=P=1$ (last equality is just a normalization)
+	\item $P^* = M \times MC \times P$, and therefore $M \times MC = 1$
+\eit
+
+\item Log-linearizing yields {\rc (Do this at home!!)}
+\begin{eqnarray}
+0 &=& \sum_{s=0}^{\infty} (\beta \theta)^s E_t \left( p^*_t-p_{t+s}- \widehat{mc}_{t+s}  \right) \nonumber \\
+&=& \sum_{s=0}^{\infty} (\beta \theta)^s E_t \left( (p^*_t-p_{t-1})-(p_{t+s}-p_{t-1}) - \widehat{mc}_{t+s}  \right) \nonumber
+\end{eqnarray}
+or
+\begin{eqnarray}
+p^*_t-p_{t-1}= (1-\beta \theta) \sum_{s=0}^{\infty} (\beta \theta)^s E_t \left((p_{t+s}-p_{t-1}) + \widehat{mc}_{t+s}  \right) \nonumber
+\end{eqnarray}
+
+%\item Why can we write $p^*_t, p_{t-1}$ instead of $\hat p^*_t, \hat p_{t-1}$?
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Optimality condition has a recursive structure}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Note that
+\begin{eqnarray}
+p^*_t-p_{t-1} &=& (1-\beta \theta) \sum_{s=0}^{\infty} (\beta \theta)^s E_t \left((p_{t+s}-p_{t-1}) + \widehat{mc}_{t+s}  \right) \nonumber  \\
+&=& (1-\beta \theta) \sum_{s=0}^{\infty} (\beta \theta)^s E_t \left((p_{t+s}-p_t) + (p_t-p_{t-1}) + \widehat{mc}_{t+s}  \right) \nonumber  \\
+&=& (1-\beta \theta) \widehat{mc}_t + \pi_t + \beta \theta (1-\beta \theta) \sum_{s=0}^{\infty} (\beta \theta)^s E_t \left((p_{t+1+s}-p_{t}) + \widehat{mc}_{t+1+s}  \right)  \nonumber  \\
+&=& (1-\beta \theta) \widehat{mc}_t + \pi_t  + \beta \theta (E_t p^*_{t+1}-p_{t}) \nonumber 
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Aggregation}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Calvo pricing implies, in general, a non-degenerate price distribution 
+
+\item However, because resetting is random, the LOM for $P_t$ can be expressed keeping track only of one moment, $P_{t-1}$:
+\begin{eqnarray}
+P_t &=& \left(\int_{0}^{1} P_{it}^{1-\epsilon}  di\right)^{\frac{1}{1-\epsilon}} \nonumber \\
+&=& \left(\int_{i \in S(t)} P_{it-1}^{1-\epsilon}  di  + (1-\theta) (P^*_t)^{1-\epsilon} \right)^{\frac{1}{1-\epsilon}} \nonumber \\
+&=& \left(\theta P_{t-1}^{1-\epsilon}  + (1-\theta) (P^*_t)^{1-\epsilon} \right)^{\frac{1}{1-\epsilon}} \nonumber
+\end{eqnarray} 
+where $S(t) \in [0,1]$ is the set of non-resetters, and where we've used the {\bc Law of Large Numbers}
+
+\item Hence
+\begin{eqnarray}
+\Pi_t^{1-\epsilon} = \theta + (1-\theta)\left(\frac{P^*_t}{P_{t-1}}\right)^{1-\epsilon} \nonumber \hspace{2mm} \Rightarrow \pi_t = (1-\theta)(p^*_t-p_{t-1}) 
+\end{eqnarray}
+
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Firm optimality + price law of motion $\Rightarrow$ Phillips curve}
+	
+	\bit
+	\setlength\itemsep{1.5em}
+	
+	\item Log-linear law of motion and firm optimality
+	\begin{eqnarray}
+	\pi_t &=& (1-\theta)(p^*_t-p_{t-1}) \nonumber \\
+	p^*_t-p_{t-1} &=& (1-\beta \theta) \widehat{mc}_t + \pi_t  + \beta \theta (E_t p^*_{t+1}-p_{t}) \nonumber  
+	\end{eqnarray}
+	
+	\item Together:
+	\begin{eqnarray}
+	\pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber
+	\end{eqnarray}
+	where $\lambda = \frac{(1-\theta)(1-\beta \theta)}{\theta}$
+		
+	\item Phillips curve: firm set higher prices in response to 1) increases in real marginal cost and 2) increases in expected future prices
+	
+	\item Note! Linear production + constant TFP $\Rightarrow$ $\widehat{mc}_t  = \hat w_t-p_t$
+	
+	\eit
+	
+\end{frame}
+
+\begin{frame}{Intermezzo: evidence on price-setting behavior}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Evidence of sticky prices is abundant
+
+\item But: is Calvo really a reasonable model of price-setting behavior?
+
+\item Alternative view: menu costs
+\bit
+	\item Key difference 1: implies state-dependence, not time-dependence
+	
+	\item Key difference 2: with menu costs, firm selection is endogenous, potentially implying much smaller real effects of monetary shocks (Golosov-Lucas, JPE 2007)
+\eit
+
+\item Need micro data to tell them apart
+\bit
+\setlength\itemsep{0.5em}
+\item Bils-Klenow (JPE 2004) exploit BLS price data
+
+\item Nakamura-Steinsson (QJE 2008) exploit the CPI and PPI research database
+
+\item Carlsson-Nordström Skans (AER 2013) exploit Swedish administrative data
+\bit
+	\item Great advantage: with Swedish data, you can also estimate real costs of production
+\eit
+
+\eit
+
+\item My reading: truth seems to be somewhere in the middle
+
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Final ingredient: a policy rule}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item We assume the central bank sets the nominal interest rate according to a Taylor rule
+\begin{eqnarray}
+\frac{1}{Q_t} = (1/\beta) * \Pi_t^{\phi}*\exp(\nu_t) \nonumber
+\end{eqnarray}
+where
+\begin{eqnarray}
+\nu_t = \rho_{\nu} \nu_{t-1} + \epsilon_t \nonumber
+\end{eqnarray}
+
+\item We interpret $\epsilon_{t}$ as a monetary policy shock
+
+\item This is a so called {\bc Taylor rule}
+\bit
+	\item Following Taylor (JME, 1993), rules of this sort (also with some weight on output) have proven to provide very good approximations of how monetary policy has been practiced in many countries since the 80's/90's
+\eit
+
+\item Log linearizing:
+\begin{eqnarray}
+\hat i_t = \phi \pi_t + \nu_t \nonumber
+\end{eqnarray}
+where, again, $i_t = \log \left(\frac{1}{Q_t}\right)$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Market clearing}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Three markets: Goods, bonds, and labor
+
+\item Goods market:
+\begin{eqnarray}
+C_t = Y_t  \hspace{2mm} \Rightarrow \hat c_t = \hat y_t \nonumber
+\end{eqnarray}
+
+\item Bond market (no government debt):
+\begin{eqnarray}
+B_t = 0 \hspace{2mm} \Rightarrow \hat b_t = 0 \nonumber
+\end{eqnarray}
+
+\item Labor market
+\begin{eqnarray}
+N_t = \int_{0}^{1} N_{it} di \hspace{2mm} \Rightarrow ? \nonumber
+\end{eqnarray}
+\eit
+
+\end{frame}
+
+\begin{frame}{Log-linearizng labor market clearing}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Using the production function
+\begin{eqnarray}
+N_t =\int_{0}^{1} N_{it} di  = \int_{0}^{1} \frac{Y_{it}}{A} di  \nonumber
+\end{eqnarray}
+
+\item Using the demand function
+\begin{eqnarray}
+N_t = \int_{0}^{1} \frac{Y_{t}}{A}\left(\frac{P_{it}}{P_t} \right)^{-\epsilon} di  = \frac{Y_{t}}{A} D_t \nonumber
+\end{eqnarray}
+where 
+\begin{eqnarray}
+D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
+\end{eqnarray}
+\bit
+\setlength\itemsep{0.5em}
+\item $D_t$ is a measure of price disperion, and therefore output dispersion
+
+\item $D_t$ drives a wedge in the aggregate production function; measures the efficiency cost of {\bc missallocation}
+
+\item One can prove that in a first order approximation, $\hat d_t = 0$ (See Gal\'{i}, Ch. 3 appendix)
+\eit
+
+\item Therefore, the log-linearized labor market clearing condition is simply
+\begin{eqnarray}
+\hat n_t = \hat y_t \nonumber
+\end{eqnarray}
+\eit
+
+\end{frame}
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium is characterized by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+
+\item 8 equations in 8 unknowns: $\{\hat \omega_t, \hat c_t, \hat n_t, \hat i_{t}, \pi_t, \widehat{mc}_t,\hat b_t\}$
+	
+\item Also, the law of motion for exogenous shocks:
+\begin{eqnarray}
+\nu_t = \rho_{\nu} \nu_{t-1} + \epsilon_t \nonumber
+\end{eqnarray}
+\eit
+	
+\end{frame}
+
+\begin{frame}{Towards the 3-equation representation}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Consider the full system
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item Firm optimality + intratemporal hh optimality + goods clearing + labor clearing produce the {\bc Phillips curve}
+\begin{eqnarray}
+\pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber
+\end{eqnarray} 
+where $\kappa = (1+\varphi)\lambda$
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Towards the 3-equation representation}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium is characterized by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item Intertemporal hh optimality + goods clearing produce the {\bc Dynamic IS curve}
+\begin{eqnarray}
+\hat y_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat y_{t+1}\nonumber
+\end{eqnarray} 
+\eit
+
+\end{frame}
+
+\begin{frame}{3-equation representation}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium can be characterized by
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item 3 equations in 3 unknowns: $\{\hat y_t, \hat i_{t}, \pi_t\}$!	
+
+\item This is how the model is usually presented in the literature
+
+\item \bf Warning!: \normalfont Although very convenient, these equations mix multiple equilibrium relationships $\Rightarrow$ hard to extract a precise intuition about model mechanisms
+\eit
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Determinacy and Taylor rules \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Determinacy}
+
+\bit
+\setlength\itemsep{1em}
+\item Our system is
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item Before analyzing the response to some shock, we should ask: When is that response a unique solution?
+
+
+\item Recall Blanchard-Kahn condition: There exist a {\bc unique bounded solution} to a autoregressive linear system of difference equations if and only if the system {\bc has the same number of eigenvalues inside the unit circle as the number of has forward-looking variables}
+
+\item Insert monetary policy rule into DIS to eliminate one variable
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\phi \pi_t -E_t \pi_{t+1}) + E_t \hat y_{t+1} - \nu_t \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber 
+\end{eqnarray}
+
+\item How many forward-looking variables do we have here?
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Some matrix algebra}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Our system
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\phi \pi_t -E_t \pi_{t+1}) + E_t \hat y_{t+1} - \nu_t \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber 
+\end{eqnarray}
+
+\item The system can be written as
+\begin{eqnarray}
+\mathbf A_0 \mathbf{x}_{t} = \mathbf A_1 E_t \mathbf x_{t+1} + \mathbf B_1 \nu_t \nonumber
+\end{eqnarray}
+where $\mathbf{x}_{t} = [\hat y_t, \pi_t]'$ and
+\begin{eqnarray}
+\mathbf A_0 = \left[\begin{array}{cc}
+1 & \phi \\
+-\kappa & 1
+\end{array}\right] \hspace{2mm} \mathbf A_1 = \left[\begin{array}{cc}
+1 & 1 \\
+0 & \beta
+\end{array}\right] \hspace{2mm} \mathbf B_1 = \left[\begin{array}{c}
+-1 \\
+0
+\end{array}\right] \nonumber
+\end{eqnarray}
+
+\item Rearrange to
+\begin{eqnarray}
+\mathbf{x}_{t} = \mathbf A E_t \mathbf x_{t+1} + \mathbf{B} \nu_t \nonumber
+\end{eqnarray}
+where $\mathbf A = \mathbf A_0^{-1} \mathbf A_1$ and $\mathbf B =  \mathbf A_0^{-1} \mathbf B_1$ 
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Some matrix algebra}
+
+\bit
+\setlength\itemsep{1.2em}
+\item Do the algebra to find \begin{eqnarray}
+\mathbf A = \Omega \left[\begin{array}{cc}
+1 & 1-\beta \phi \\
+\kappa & \kappa + \beta
+\end{array}\right] \hspace{2mm} \mathbf B = -\Omega \left[\begin{array}{c}
+1  \\
+\kappa 
+\end{array}\right] \nonumber
+\end{eqnarray}
+where $\Omega = \frac{1}{1+\kappa \phi}$
+
+\item Reminder: Eigenvalues of $\mathbf A$ given by solution to characteristic equation
+\begin{eqnarray}
+&& det(\mathbf{A}-\mathbb{I}\lambda)=0 \nonumber \\
+\Leftrightarrow && (\Omega-\lambda)(\Omega(\kappa+\beta)-\lambda) - \Omega^2(1-\beta\phi)\kappa = 0 \nonumber
+\end{eqnarray}
+
+\item Quadratic equation in $\lambda$; both eigenvalues of $\mathbf A $ are inside the unit circle if and only if $\phi>1$ (Bullard-Mitra JME 2002)
+
+\item Conversely, if $\phi \leq 1$ $\Rightarrow$ indeterminacy
+
+\item $\Rightarrow$ Unless monetary policy reacts sufficiently strong to inflation, we have multiple bounded equilibra!
+
+\eit
+
+\end{frame}
+
+\begin{frame}{How to think about this? Back to flexible prices...}
+
+\bit
+\setlength\itemsep{1em}
+
+\item Following discussion draws heavily on Cochrane (JPE 2011)
+
+\item To learn what's going on, let's consider the flex-price model
+
+\item Under flexible price, firm optimality says:
+\begin{eqnarray}
+P_{it} &=& M \psi_t \nonumber \\
+\frac{P_{it}}{P_t} &=& M \frac{\psi_t}{P_t} \hspace{2mm} \Rightarrow \widehat{mc}_t = 0 \nonumber
+\end{eqnarray}
+
+\item The equilibrium is thus described by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \widehat{mc}_t = 0 \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Equilibrium with flexible prices}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The equilibrium:
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \widehat{mc}_t = 0 \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Bonds clearing:} && \hat b_t = 0 \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+
+\item Implying $\omega_t = \hat c_t = \hat n_t = \hat y_t = 0$ ({\bc monetary neutrality!})
+
+\item System reduces to
+\begin{eqnarray}
+\text{DIS curve:} &&  \hat i_t = E_t \pi_{t+1}  \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+or
+\begin{eqnarray}
+&& E_t \pi_{t+1} = \phi \pi_t + \nu_t  \nonumber
+\end{eqnarray}
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Determinacy with $\phi>1$}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Q: What bounded sequence of $\{\pi_t\}$ solves 
+\begin{eqnarray}
+&& E_t \pi_{t+1} = \phi \pi_t + \nu_t? \nonumber
+\end{eqnarray}
+
+
+\item Iterating forward, we have that
+\begin{eqnarray}
+\pi_t = -\sum_{s=0}^{T} \frac{1}{\phi^{s+1}} \nu_{t+s}  + \frac{1}{\phi^{T+1}} \mathbb E_t \pi_{t+T+1} \nonumber
+\end{eqnarray}
+
+\item Suppose $\phi>1$, then there is the unique solution
+\begin{eqnarray}
+\pi_t = -\sum_{s=0}^{\infty} \frac{1}{\phi^{s+1}} \nu_{t+s}  \nonumber
+\end{eqnarray}
+
+%\item Note: In this solution, a positive shock to the interest rate causes inflation to fall.
+%\bit
+%	\item Inflation falling in response to ``contractionary'' monetary policy shock has nothing to do with sticky prices or other frictions, simply a consequence of a Taylor and rational expectations
+%\eit
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Indeterminacy with $\phi<1$}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Now suppose $\phi<1$, and consider our equilibrium condition
+\begin{eqnarray}
+&& E_t \pi_{t+1} = \phi \pi_t + \nu_t \nonumber
+\end{eqnarray}
+
+\item Consider the sequence 
+\begin{eqnarray}
+&& \pi_0 = 3.2 \nonumber \\
+&& \pi_{t+1} = \phi \pi_t + \nu_t \text{ if } t>0 \nonumber
+\end{eqnarray}
+This sequence is bounded and satisfies our condition, and is thus a bounded solution.
+
+\item More generally, any sequence that satisfies
+\begin{eqnarray}
+\pi_{t+1} =  \phi \pi_t + \nu_t +  \delta_{it+1} \nonumber
+\end{eqnarray} 
+with $E_t \delta_{it+1} = 0$ is a bounded solution
+
+\item The $\delta_{it+1} $ are sometimes referred to as sunspots
+
+
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{What's going on?}
+
+\bit
+\setlength\itemsep{1em}
+\item $\phi>1$ implies that if inflation happens to be ``wrong'', the policy rule will ensure that inflation grows without bound
+\bit
+\setlength\itemsep{0.5em}
+\item Household optimality implies {\bc Fisher equation}: $i_t = r + E_t \pi_{t+1}$
+
+\item If inflation happens to be ``too large'' $\Rightarrow$ central bank raises interest rate $\Rightarrow$ inflation tomorrow rise
+
+\item Put differently, the central bank ``threats'' with explosive dynamics
+\eit
+
+
+\item In a model where inflation has no real effects, this is a completely ad hoc theory of inflation
+\bit
+\item Sure, we can restrict attention to bounded equilibria, but what is the economic argument to that?
+\eit
+
+\item In a model where inflation has real effects, a transversality condition would eventually be broken, so it works logically
+
+\item Still very unrealistic - if we woke up and inflation was $20 \%$, would you think the central bank would try to raise it to $200 \%$?
+
+\item Very much in contrast with the ``layman's'' interpretation of Taylor rules, emphasizing stability, not determinacy:
+\bit
+\setlength\itemsep{0.5em}
+
+\item Taylor's original interpretation: $\phi>1$ implies real interest rate $r_t \approx i_t-\pi_t = (\phi- 1)\pi_t$ reacts to inflation $\Rightarrow$ stabilizes inflationary shocks
+
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{The Taylor rule theory of the Price level}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Taylor rule theory of the price level: determination by threats of explosive dynamics 
+
+\item Leading theory in applied models, but foundations seem very shaky
+
+\item The possibility of explosive dynamics stems from the extremely forward-looking behavior in the model
+\bit
+\item If any variable jumps, agents update their expectations about the equilibrium path immediately
+\eit
+
+\item $\Rightarrow$ much work has explored determinacy properties with alternative expectation formation processes, e.g., least-square learning
+
+\item See, e.g., Woodford (AnnualRE, 2013), Angeletos-Huo (AER 2021)
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Alternative theories of the price level}
+
+\bit
+\setlength\itemsep{1em}
+\item Back in the days: Quantity theory
+\bit
+\setlength\itemsep{0.5em}
+\item See, e.g., Mitlon Friedman's AEA presidential address (AER 1968)
+
+\item Central assertion: velocity $v$ semi-exogenous in the formula
+\begin{eqnarray}
+Y P = vM \nonumber
+\end{eqnarray}
+
+\item Problem: $v$ is highly endogenous to the interest rate (at $i=0$, bonds are perfect subsitutes to money) and $M$ is not controllable anymore
+\eit
+
+\item Main competitor today: Fiscal Theory of the Price Level
+\bit
+\setlength\itemsep{0.5em}
+\item See, e.g., Chris Sims' AEA presidential address (AER 2013)
+
+\item Central assertion: $B_t$ predetermined in government budget equation
+\begin{eqnarray}
+\frac{B_t}{P_t} = \sum_{s=0}^{\infty} Q_{t,t+s} S_{t+s} \nonumber
+\end{eqnarray}
+where $S_{t+s}$ is the real government surplus stream
+
+\eit
+
+\item Exciting research area!
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{FTPL explains cross-country inflation heterogeneity during COVID crisis? }
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5]{barro_bianchi_2024_figure.pdf}
+\end{figure}
+
+\bit
+\item From Barro-Bianchi (2024)
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Abundant evidence of monetary non-neutrality; In response to positive monetary policy shocks, real activity falls
+
+\item Basic NK model = RBC model + monopolistic competition and sticky prices + Taylor rule
+
+\item Taylor rule theory of inflation: inflation is bounded due to central bank making explosive threats 
+
+\item Next class: Analysis of NK model's predictions in response to shocks
+\eit
+
+\end{frame}
+
+
+
+\end{document}
+
+
+\begin{frame}{Calibration}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Quarterly frequency
+
+\item For the recurrent parameters, let's stick with we used for our RBC model
+\bit
+\setlength\itemsep{0.5em}
+\item $\beta = 0.99$
+
+\item $\varphi = 1$
+\eit
+
+\item For the new ones:
+\bit
+\setlength\itemsep{0.5em}
+
+\item $\theta=2/3$ to match average price duruation of three quarters (Gal\'{i}-Lop\'{e}z-Salido EER 2001)
+
+\item $\epsilon=6$ to match average markup of $20 \%$
+
+\item $\phi = 1.5$ to match Fed reaction function during Greenspan era (Taylor Book 1999)
+
+\item $\rho_{\nu} = 0.5$ to generate a moderately persistent shocks, as we saw in the empirical IRFs
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{IRFs to monetary policy shock}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_4variables.pdf}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Comments}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Basic NK model qualitatively matches the evidence: a surprise increase in the policy rate leads to a fall in $y$
+
+\item To match the data quantitatively, the model needs to be expanded, we'll talk more about this next week
+
+\item To understand the mechanism, it's more instructive to look at IRFs from the full 8-equation system
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Reminder: Full system looks like...}
+
+\bit
+\setlength\itemsep{1.5em}
+\item The log-linearized equilibrium is characterized by
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber \\
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1} ) + E_t \hat c_{t+1}  \nonumber \\
+\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t \nonumber \\
+\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t \nonumber \\
+\text{Goods clearing:} && \hat c_t = \hat y_t \nonumber \\
+\text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
+\text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+
+\item Also, the law of motion for exogenous shocks:
+\begin{eqnarray}
+\nu_t = \rho_{\nu} \nu_{t-1} + \epsilon_t \nonumber
+\end{eqnarray}
+
+\item Note: Real interest rate given by $\hat r_t =  \hat i_t - E_t \pi_{t+1}$
+\eit
+
+\end{frame}
+
+\begin{frame}{IRFs to monetary policy shock: full system}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_9variables.pdf}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{IRFs to monetary policy shock: mechanism}
+
+\bit
+\setlength\itemsep{1em}
+\item How can explain the equilibrium responses?
+
+\item Guess that $\hat r_t>0$
+
+\item Then, teason in two steps
+\ben
+\setlength\itemsep{1em}
+
+\item Establish that this implies $\hat c_t<0$
+
+\item Confirm that $\hat c_t<0$ implies $\hat \pi_t<0$, confirming the guess
+
+\een
+
+\item In so doing, recall that we have assumed that we only search for bounded solutions!
+
+
+\eit
+
+
+
+\end{frame}
+
+
+\begin{frame}{IRFs to monetary policy shock: mechanism, step 1}
+
+\bit
+\setlength\itemsep{1em}
+\item Take as given that $\hat r_t$ increases, then
+\begin{eqnarray}
+\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat r_t) + E_t \hat c_{t+1} \nonumber
+\end{eqnarray}
+implies $\Delta E_t c_{t+1}$ is positive
+
+\item $\Delta E_t c_{t+1}>0$ + Bounded solution $\Rightarrow$ $\{\hat c_{t+s}\}$ must converge to some steady state
+
+\item But the steady state is unique, so we know $\{\hat c_{t+s}\}$ must converge to $\hat c_{t+s}=0$
+
+\item Therefore, we must have that $\hat c_t<0$!
+
+\eit
+
+
+\end{frame}
+
+
+
+\begin{frame}{IRFs to monetary policy shock: mechanism, step 2}
+
+\bit
+\setlength\itemsep{1em}
+\item Take as given that $\hat c_t<0$
+
+\item Market clearing $\hat c_t = \hat y_t = \hat n_t < 0$
+\bit
+\item $\Rightarrow$ we may think of the output drop as being caused by drop in {\bc aggregate demand}
+\eit
+
+\item How is this consistent with optimal labor supply? Intratemporal optimality condition:
+\begin{eqnarray}
+\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t  \nonumber
+\end{eqnarray}
+
+\item $\hat n_t<0$ only if $\hat \omega_t < \hat y_t < 0$
+\bit
+\setlength\itemsep{0.5em}
+\item Wages need to respond more than output (and profits less)!
+\eit
+
+\item $\hat \omega_t <0$ $\Rightarrow$ $\hat mc_t<0$ $\Rightarrow$ $\beta E_t \pi_{t+1}-\pi_t \approx \Delta \pi_{t+1} >0$ from the Phillips curve
+
+\item Again, bounded solution + unique steady state $\Rightarrow$ $\hat \pi_t<0$
+
+\eit
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Monetary policy shock equivalent to demand shock}
+
+\bit
+\setlength\itemsep{1em}
+\item Recall: DIS curve stems from household Euler equation
+\begin{eqnarray}
+c_t &=& - (i_t-E_t \pi_{t+1}-\xi) + E_t c_{t+1} \nonumber
+\end{eqnarray}
+where $\xi = -\log \beta$
+
+\item Suppose there are shocks to discount factor $\beta$ 
+\bit
+\setlength\itemsep{0.5em}
+\item Specifically, assume $\xi_t = \rho_{\xi} \xi_{t-1} + \epsilon_{\xi, t}$
+
+\item $=$ shock to the marginal value of current consumption - a ``demand shock''
+\eit
+
+\item Then, 3-equation system becomes
+\begin{eqnarray}
+\text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1} - \xi_t) + E_t \hat y_{t+1} \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
+\text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
+\end{eqnarray}
+or
+\begin{eqnarray}
+\text{DIS curve + Policy rule:} && \hat y_t = - (\phi \pi_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} + \xi_t - \nu_t \nonumber \\
+\text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber 
+\end{eqnarray}
+
+\item $\Rightarrow$ Positive monetary policy shocks are equivalent to negative demand shocks
+
+\eit
+
+
+\end{frame}
+
+
+
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Basic NK model = RBC model + monopolistic competition and sticky prices
+
+\item In contrast to RBC, NK predicts real effects of monetary policy and ``demand-driven'' fluctuations
+
+\item Can match evidence on monetary policy qualitatively, but not quantitatively
+
+%\item Central predictions:
+%\ben
+%\setlength\itemsep{0.5em}
+%\item Monetary factors does not affect the natural real interest
+%
+%\item Inefficienct fluctuations are caused by deviations in the real interest rate from the natural real interest rate
+%\een
+
+\item Next class: TFP shocks, a deeper investigation of monetary policy, quantitative NK models 
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}{NK Model: A very incomplete history}
+
+\bit
+\setlength\itemsep{1em} 
+
+\item Original ideas: Wicksell (1898); Keynes (1936)
+
+\item IS-LM model and Keynesian economics: Hicks, Samuelson, Tobin etc.
+
+\item Phelps (Economica 1967; JPE 1968) initiated effort to model forward-looking Phillips curve based on firm's price setting behavior
+
+\item 1980's: A series of theoretical insights regarding the relationship between business cycle fluctations, price stickiness and monopoly power
+\bit
+\setlength\itemsep{0.5em} 
+
+\item Akerlof-Yellen (QJE 1985); Mankiw (QJE (1985); Blanchard-Kiyotaki (AER 1987); Ball-Romer (ReStud 1990)
+
+\item Technical innovation: Calvo (JME 1983)
+
+\eit
+
+\item 1990's: ``Neoclassical synthesis'', i.e., the integration of sticky prices in micro-founded (RBC-style) business cycle models
+\bit
+\setlength\itemsep{0.5em} 
+
+\item Yun (JME 1996); Rotemberg-Woodford (NBER 1997); Goodfriend-King (NBER 1997); Clarida-Gal\'{i}-Gertler (JEL 1999)
+
+\eit
+
+\item 2003: First publication of Woodford's \emph{interest and prices}
+
+\item Theory development parallelled by the systematic exploration of identified macroeconomic shocks, following Sims (1980)
+
+\eit
+
+\end{frame}

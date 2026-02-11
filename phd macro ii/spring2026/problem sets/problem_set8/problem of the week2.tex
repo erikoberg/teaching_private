@@ -1,0 +1,54 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macro II Problem of the week: Inference of search intensity}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+Christensen-Lentz-Mortensen-Neumann-Werwatz (JOLE 2005) estimate a Burdett-Mortensen model with endogenous search intensitiy using Danish micro data. The central problem is how to infer the level of search intensity from data on wages and worker flows. In this question, you are asked to solve this problem.
+
+CLMNW's model assumes that an employed worker can exert search effort $s$ at flow cost $c(s)$ in return for an arrival rate of new offers of $s$. The Bellman equation for an employed worker is
+\begin{eqnarray}
+rW(w)  &=& \max_{s} \left\{ w - c(s) + s  \int \max\{W(w')-W(w), 0\} dF(w')  + \sigma(U-W(w))\right\} \nonumber
+\end{eqnarray}
+where $\sigma$ is the exogenous separation rate. The implied job-finding rate at wage $w$ is thus $s^*(w)(1-F(w))$, where $s^*(w)$ solves the maximisation problem.
+
+\ben
+	\item Differentiate the Bellman equation and invoke the envelope theorem (at the optimal choice of $s^*(w)$, the value $W(w)$ is independent of small changes in $s$) to find an expression for $W'(w)$.
+	
+	\item Assume $c(s) = \frac{s^{1-\gamma} }{1-\gamma}$. Derive an equation that implictily solves for $s(w)$ in terms of the wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$ and $\gamma$.
+	
+	\item What is the intuition? Why can we learn about the level of search intensity (and, by implication, the job finding rate) from just knowing wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$ and $\gamma$?
+\een
+
+ 
+
+
+
+\end{document}

@@ -1,0 +1,81 @@
+Starting Dynare (version 4.5.1).
+Starting preprocessing of the model file ...
+Found 8 equation(s).
+Evaluating expressions...done
+Computing static model derivatives:
+ - order 1
+Computing dynamic model derivatives:
+ - order 1
+ - order 2
+Processing outputs ...
+done
+Preprocessing completed.
+
+STEADY-STATE RESULTS:
+
+ahat 		 0
+yhat 		 0
+nhat 		 0
+khat 		 0
+chat 		 0
+ihat 		 0
+what 		 0
+rhat 		 0
+
+MODEL SUMMARY
+
+  Number of variables:         8
+  Number of stochastic shocks: 1
+  Number of state variables:   3
+  Number of jumpers:           2
+  Number of static variables:  3
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables           e
+e            0.000081
+
+POLICY AND TRANSITION FUNCTIONS
+                                ahat            yhat            nhat            khat            chat            ihat            what            rhat
+khat(-1)                           0        0.052099       -0.408854        0.974004        0.173961       -0.294333        0.460953       -0.921905
+ihat(-1)                           0        0.001391       -0.010912        0.025996        0.004643       -0.007856        0.012303       -0.024606
+e                           1.000000        1.434657        0.651985               0        0.026137        5.438798        0.782672        1.434657
+
+
+THEORETICAL MOMENTS (HP filter, lambda = 1600)
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+ahat           0.0000     0.0087     0.0001
+yhat           0.0000     0.0124     0.0002
+nhat           0.0000     0.0059     0.0000
+khat           0.0000     0.0017     0.0000
+chat           0.0000     0.0003     0.0000
+ihat           0.0000     0.0474     0.0022
+what           0.0000     0.0066     0.0000
+rhat           0.0000     0.0131     0.0002
+
+
+
+MATRIX OF CORRELATIONS (HP filter, lambda = 1600)
+Variables      ahat    yhat    nhat    khat    chat    ihat    what    rhat
+ahat         1.0000  1.0000  0.9939 -0.3361  0.4148  1.0000  0.9936  0.9936
+yhat         1.0000  1.0000  0.9931 -0.3298  0.4209  0.9999  0.9944  0.9928
+nhat         0.9939  0.9931  1.0000 -0.4383  0.3115  0.9949  0.9751  1.0000
+khat        -0.3361 -0.3298 -0.4383  1.0000  0.7176 -0.3455 -0.2280 -0.4406
+chat         0.4148  0.4209  0.3115  0.7176  1.0000  0.4057  0.5145  0.3091
+ihat         1.0000  0.9999  0.9949 -0.3455  0.4057  1.0000  0.9925  0.9946
+what         0.9936  0.9944  0.9751 -0.2280  0.5145  0.9925  1.0000  0.9745
+rhat         0.9936  0.9928  1.0000 -0.4406  0.3091  0.9946  0.9745  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION (HP filter, lambda = 1600)
+Order         1       2       3       4       5
+ahat    -0.0742 -0.0709 -0.0661 -0.0604 -0.0541
+yhat    -0.0736 -0.0705 -0.0659 -0.0603 -0.0541
+nhat    -0.0715 -0.0690 -0.0650 -0.0598 -0.0539
+khat     0.7176  0.4780  0.2790  0.1179 -0.0089
+chat     0.7176  0.4780  0.2790  0.1179 -0.0089
+ihat    -0.0749 -0.0713 -0.0664 -0.0606 -0.0541
+what    -0.0537 -0.0567 -0.0572 -0.0558 -0.0529
+rhat    -0.0712 -0.0688 -0.0648 -0.0597 -0.0539
+Total computing time : 0h00m04s

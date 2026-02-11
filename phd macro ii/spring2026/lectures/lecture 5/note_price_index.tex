@@ -1,0 +1,189 @@
+\documentclass[9pt,xcolor={dvipsnames}]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+\usepackage{tikz}
+\usepackage{subfig}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\black}{\color{black}}
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+\newcommand{\gc}{\color{ForestGreen}}
+\newcommand{\wc}{\color{white}}
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[NK: Topics]{Macroeconomics II: A Note on Price Indices}
+\author{Erik {\"O}berg}
+\date{February 16, 2022}
+
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+
+\begin{frame}{The price level and its relation to individual prices}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item In the NK model presented yesterday, $P_t$ referred to the price of ``final goods'' and $P_{it}$ to the price of ``intermediate goods''
+
+\item With a CES production function in the final goods producer problem, we showed that they are related through
+\begin{eqnarray}
+P_t =  \left(\int_{0}^{1} P_{it}^{1-\epsilon}  di\right)^{\frac{1}{1-\epsilon}} \nonumber
+\end{eqnarray}
+
+\item Hence, we can interpret the final good price $P_t$ as a ``Producer Price Index'' (PPI)
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Another setup}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item An alternative, but equivalent, setup is to assume that there exist only one firm layer, which produce differentiated consumer goods
+
+\item In such a setup, the household problem becomes
+\begin{eqnarray}
+\max_{\{C_{it}, N_t, B_{t+1}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]\nonumber \\
+\text{s.t} && \int_{i=0}^{1} P_{it} C_{it} di + Q_t B_{t+1} \leq W_t N_t + B_{t} + T_t \nonumber 
+\end{eqnarray}
+with
+\begin{eqnarray}
+C_t = \left(\int_{0}^{1} C_{it}^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{\epsilon}{\epsilon-1}} \nonumber
+\end{eqnarray}
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Another setup II}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item By first solving the within-period cost-minimization problem:
+\begin{eqnarray}
+\min_{C_{it}} && \int_{i=0}^{1} P_{it} C_{it} di \nonumber \\
+\text{s.t} &&  \int_{i=0}^{1} P_{it} C_{it} \leq E \nonumber \\
+&& \left(\int_{0}^{1} C_{it}^{\frac{\epsilon-1}{\epsilon}} di \right)^{\frac{\epsilon}{\epsilon-1}} = C_t \nonumber
+\end{eqnarray}
+one will similarly find that
+\begin{eqnarray}
+C_{it} = \left(\frac{P_{it}}{P_t}\right)^{-\epsilon} C_t \nonumber
+\end{eqnarray}
+with
+\begin{eqnarray}
+P_t =  \left(\int_{0}^{1} P_{it}^{1-\epsilon}  di\right)^{\frac{1}{1-\epsilon}} \nonumber
+\end{eqnarray}
+
+\item In this setting, $P_t$ can be interpreted as a ``Consumer Price Index'' (CPI)
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Another setup III}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item After having solved the static expenditure allocation problem, the household problem becomes
+\begin{eqnarray}
+\max_{C_t, N_t, B_{t+1}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]\nonumber \\
+\text{s.t} && P_t C_t + Q_t B_{t+1} \leq W_t N_t + B_{t} + T_t \nonumber 
+\end{eqnarray}
+where $C_t$ now is an optimally chosen consumption bundle
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Models vs data}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item $\Rightarrow$ In these models, not really any distinction between PPI and CPI
+
+\item In the data, they can differ a lot
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.25]{fredgraph.png}
+\end{figure}
+
+\eit
+
+\end{frame}
+
+
+
+
+\end{document}

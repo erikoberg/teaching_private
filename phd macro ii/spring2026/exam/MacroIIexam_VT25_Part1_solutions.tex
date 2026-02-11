@@ -1,0 +1,142 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+\section*{Part 1}
+
+
+\subsection*{The Romer (1990) model of expanding varieties (20 points)}
+Suppose that final output $Y(t)$ is produced according to\\ $Y(t)=\frac{1}{1-\beta} L_{E}(t)^{\beta} \int_{0}^{N(t)} x(\nu, t)^{1-\beta} d \nu$, where $L_{E}(t)$ is the number of workers engaged in production, $x(\nu, t)$ is the number of machines of variety $\nu$ being used, and $N(t)$ is the number of existing varieties, all at time $t$. Suppose the final good sector is perfectly competitive, but each machine variety is supplied by a monopolist who faces a unit cost of making machines equal to $\psi$. For convenience, we assume $\psi=1-\beta$.\\
+
+1. Show that profit maximization by final good firms yields the demand curve $x(\nu, t)=p(\nu, t)^{-1 / \beta} L_{E}(t)$. Given this, show that $p(\nu, t)=1$, and show that therefore $Y(t)=\frac{1}{1-\beta} N(t) L_{E}(t)$. Finally, show that the profits of machine producers are $\pi(t)=\beta L_{E}(t)$.\\
+\\
+The final goods producers maximization problem at time $t$ is given by
+
+
+\begin{equation*}
+\max _{[x(\nu, t)]_{\nu \in[0, N(t)]}} \frac{1}{1-\beta}\left(\int_{0}^{N(t)} x(\nu, t)^{1-\beta} d \nu\right) L_E(t)^{\beta}-\int_{0}^{N(t)} p^{}(\nu, t) x(\nu, t) d \nu-w(t) L_E(t) \tag{1}
+\end{equation*}
+
+
+The first-order condition of this maximization problem with respect to $x(v, t)$ for any $v \in[0, N(t)]$ yields the demand for machines from the final good sector, i.e.
+
+\begin{equation*}
+x(\nu, t)=p^{}(\nu, t)^{-1 / \beta} L_E(t) \tag{2}
+\end{equation*}
+
+Machines are produced by monopolists at cost $\psi$, so given demand $x(\nu,t)$ in (2), optimal price is $p^{}(\nu,t)=\frac{\psi}{1-\beta}$. Using the normalization $1-\beta=\psi$, the profits become
+
+\begin{equation*}
+\pi(t)=\beta L_{E}(t) \tag{3}
+\end{equation*}
+
+Substituting (2), with $p^{}(\nu,t)=\frac{\psi}{1-\beta}$, in the production of final goods yields $Y(t)=\frac{1}{1-\beta} N(t) L_{E}(t)$. Finally, the profits of machine producers, $\pi(\nu, t) \equiv p^{}(\nu, t) x(\nu, t)-\psi x(\nu, t)$ are then, given (2) and $p^{}(\nu,t)=1$, derived as $\pi(\nu, t)=\beta L_E(t)$.\\
+
+
+
+
+Ideas for new varieties are produced according to $\dot{N}(t)=\eta N(t) L_{R}(t)$, where $L_{R}(t)$ is the number of workers doing research at time $t$. A firm producing the new variety receives a patent and acts as a monopolist. Workers are perfectly mobile across the production and research sectors. Let $w(t)$ be the wage earned in both sectors, and let $V(t)$ be the value of a patent.\\
+
+2. State and explain the free-entry condition ensuring that workers are indifferent between the two activities.\\
+
+Free entry into research implies
+
+\begin{equation*}
+\eta N(t) V(\nu, t)=w(t) . \tag{4}
+\end{equation*}
+
+
+The left-hand side of (4) is the return from hiring one more worker for R\&D. The term $N(t)$ is on the left-hand side, because higher $N(t)$ translates into higher productivity of R\&D workers. The right-hand side is the flow cost of hiring one more worker for $\mathrm{R} \& \mathrm{D}, w(t)$.\\
+
+3. Infinitely lived consumers own Arrow securities paying a return $r(t)$. State and explain the no-arbitrage condition ensuring that traders in financial markets are indifferent between holding Arrow securities and patents.\\
+
+ Assuming that the value function $V(\nu, t)=\int_{t}^{\infty} \exp \left(-\int_{t}^{s} r\left(s^{\prime}\right) d s^{\prime}\right) \pi(\nu, s) d s$ is differentiable in time, it could be written in the form of a HJB equation as in Theorem 7.10 in DA Chapter 7:
+
+\begin{equation*}
+r(t) V(\nu, t)-\dot{V}(v, t)=\pi(\nu, t)
+\end{equation*}
+or
+\begin{equation*}
+r(t) = \frac{\pi(\nu, t)}{V(\nu, t)}+\frac{\dot{V}(v, t)}{V(\nu, t)}. \tag{5}
+\end{equation*}
+In equilibrium, the above condition insures that the traders are indifferent between holding sequrities yielding $r(t)$ and holding a patent providing its owner a devidend yield $ \frac{\pi(\nu, t)}{V(\nu, t)}$ and loss or gain in the value of the patent.\\
+
+
+It can be shown that the wage equals $w(t)=\frac{\beta}{1-\beta} N(t)$ (not needed to derive this result). Finally, assume population is constant and consumers have log utility, so that the growth rate of consumption equals $g_{C}(t)=r(t)-\rho$.\\
+
+4. Define the BGP equilibrium of the economy.\\
+
+An equilibrium can be defined (somewhat less formally) as
+\begin{enumerate}
+\item time paths of consumption, expenditure, R\&D decisions and total number of machine varieties,$[C(t), X(t), L_R(t), N(t)]_{t=0}^{\infty}$
+\item time paths of prices and quantities of each machine,\\ $\left[p^{x}(v, t), x(v, t)\right]_{v \in N(t), t=0}^{\infty}$ 
+\item and time paths of interest rate and wages, \\$[r(t), w(t)]_{t=0}^{\infty}$, 
+\vskip 0.2cm
+such that all equilibrium conditions (resource constraint, patent value, free-entry, expressions for machine demand and price, total expenditure on machines, the wage rate, the Euler equation and the TVC) hold and markets clear.
+\vskip 0.5cm
+A balanced growth path (BGP) is an equilibrium path where consumption $C(t)$ and output $Y(t)$ grow at a constant rate. Then, $N(t)$ must also grow at a constant rate (given $Y(t)=\frac{1}{1-\beta} N(t) L_{E}(t)$ and constant labor allocation).
+\end{enumerate}
+
+5. Take as given that the defined BGP is the unique equilibrium outcome of the model and solve for the BGP $r$, $g$ (growth rate of output pc), and $L_{E}$. What makes this economy grow sustainably?\\
+
+First note from the free entry condition that using the equilibrium expression for the wage rate $w(t)=\frac{\beta}{1-\beta} N(t)$ the condition implies that the value of a patent is constant in equilibrium, i.e. $\frac{\dot{V}(v, t)}{V(\nu, t)}=0$. With the BGP interest constant at some level $r^*$ (to satisfy the constant consumption growth given by the Euler equation), the free entry condition can then be written as 
+\begin{equation*}
+\eta N(t) \frac{\beta L_{E}(t)}{r^{*}}=\frac{\beta}{1-\beta} N(t)\tag{6}
+\end{equation*}\\
+It follows that the BGP equilibrium interest rate must be 
+\begin{equation*}
+r^{*}=(1-\beta) \eta L_{E}^{*}, \tag{7} 
+\end{equation*}\\
+where $L_{E}^{*}$ must be constant given the previous condition above (alternatively, observe that with constant growth rate of $N(t)$, the labor allocation between sectors needs to be constant). \\
+Now using the Euler equation of the representative household we obtain
+\begin{equation*}
+\frac{\dot{C}(t)}{C(t)}=\frac{1}{\theta}\left((1-\beta) \eta L_{E}^{*}-\rho\right) \equiv g^{*} \quad \text { for all } t \tag{8}
+\end{equation*}
+With $\dot{N}(t) / N(t)=$ $\eta L_{R}^{*}=\eta\left(L-L_{E}^{*}\right)$ and the growth rate of consumption equal to the rate of technological progress $g^{*}=\dot{N}(t) / N(t)$, one can derive the research labor allocation as\\ 
+\begin{equation*}
+L_{E}^{*}=\frac{\theta \eta L+\rho}{(1-\beta) \eta+\theta \eta} \tag{9}
+\end{equation*}
+Using (9), one solves for $r^*$ in (7) and $g^*$ in (8).\\
+
+Given $Y(t)=\frac{1}{1-\beta} N(t) L_E(t)$, it follows that even though the aggregate production function exhibits constant returns to scale from the viewpoint of final good firms (which take $N(t)$ as given), there are increasing returns to scale for the entire economy. Increase in the variety of machines, $N(t)$, raises the productivity of labor and when $N(t)$ increases at a constant rate so does output per capita. Ideas production is the engine of sustainable growth.\\
+
+6. Assume now that the population grows at a constant rate $n$ and that you want to remove the scale effect property of the model. How would you modify the R\&D technology? What is the BGP growth rate in this economy?\\
+
+See AD Chapter 13.3.\\
+
+7. Suppose that the policy maker wants to promote the BGP growth and introduces a subsidy to R\&D cost by paying each research firm a fraction $s^R$ of the wage bill, i.e. the effective wage paid to researchers is now $w^R(t)=(1-s^R)w(t)$. Will the policy have the intended growth effect? How about the welfare effect?
+
+The governemnt now pays each research firm a part of the labor cost so the free entry condition in the economy without scale effects now reads
+\begin{equation*}
+\eta N(t)^\phi V(\nu, t)=w^R(t)=(1-s^R)w(t)=(1-s^R)\frac{\beta}{1-\beta}N(t) . \tag{10}
+\end{equation*}
+It follows that at the BGP, the patent value grows at the rate $(1-\phi)g^*$. The value function is then given by $V(\nu,t)=\frac{\beta L_E(t)}{r^*-(1-\phi)g^*}$. The free entry condition can then be written as
+\begin{equation*}
+\eta N(t)^\phi \frac{\beta L_E(t)}{r^*-(1-\phi)g^*}=(1-s^R)\frac{\beta}{1-\beta}N(t) . \tag{11}
+\end{equation*}
+Still, at BGP, the free entry implies that $\frac{\dot N(t)}{N(t)}=g^*=\frac{n}{1-\phi}$ and the policy has no effect on the BGP growth rate.\\
+
+Note that the R\&D production technology implies the BGP growth rate of $N(t)$
+\begin{equation*}
+\frac{\dot N(t)}{N(t)}=g^*=\frac{n}{1-\phi}= \eta \frac{L(t)\alpha^R}{N(t)^{1-\phi}} \tag{12},
+\end{equation*}
+where $\alpha^R$ denotes the share of labor in R\&D. The free entry can then be written as
+\begin{equation*}
+\eta \frac{\beta}{r^*-n} \frac{L(t)(1-\alpha^R)}{N(t)^{1-\phi}}=(1-s^R)\frac{\beta}{1-\beta} . \tag{13}
+\end{equation*}
+Combining (12) and (13) to eliminate $\frac{L(t)}{N(t)^{1-\phi}} $, one obtains
+\begin{equation*}
+\frac{1-\alpha^R}{\alpha^R}=\frac{(1-s^R)(1-\phi)}{n}\frac{r^*-n}{1-\beta}. \tag{14}
+\end{equation*}
+A higher subsidy $s^R$ implies a decrease in the lhs, i.e. a higher share of labor employed in research. Given the R\&D technology, the subsidy will result in a lower BGP ratio $\frac{L(t)}{N(t)^{1-\phi}}$ in (12), i.e. a higher BGP level of technology $N(t)$ and thus has a positive welfare effect.\\
+
+Applying a subsidy in the benchmark model with scale effect results in a positive BGP growth effect. 
+
+
+\end{document}

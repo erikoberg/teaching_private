@@ -1,0 +1,33 @@
+var x pi ihat u;
+parameters kappa_val beta_val phi_pi_val alpha_x_val rho_u_val std_u_val;
+varexo e;
+
+load parameters.mat
+kappa_val = kappa;
+beta_val = beta;
+phi_pi_val = phi_pi;
+alpha_x_val = alpha_x;
+rho_u_val = rho_u;
+std_u_val = std_u;
+
+
+model(linear);
+%shock process
+u = rho_u_val*u(-1) + e;
+
+%Dynamics IS
+x = - (ihat-pi(+1)) + x(+1);
+
+%Phillips
+pi = beta_val*pi(+1) + kappa_val*x + u;
+
+%optimal policy
+x = - kappa_val / alpha_x_val * pi;
+end;
+
+shocks;
+var e = std_u_val^2;
+end;
+
+steady;
+stoch_simul(order=1, nograph, irf =50);

@@ -1,0 +1,102 @@
+             \documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macroeconomics II: Problem set 5}
+\author{Erik \"{O}berg}
+
+\begin{document}
+\maketitle
+
+Send your solutions to Andrii by \bf March 13, 12.00 \normalfont at the latest.
+
+
+\section*{Exercise 1: The Social Planner problem in the vanilla RBC model}
+Consider the vanilla RBC model studied in class. Households have standard separable preferences
+\begin{eqnarray}
+U_0 = E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)-V(N_t)\right], \nonumber
+\end{eqnarray}
+where $U(\cdot)$ and $V(\cdot)$ satisfies the usual regularity conditions. The Production technology is $Y_t = A_t F(K_t, N_t)$ where $F(\cdot)$ is CRS, and the capital depreciation rate is $\delta$.
+
+\ben
+\item What is the aggregate resource constraint and what is the capital law of motion in this economy? 
+
+\item State the social planner problem.
+
+\item Set up the Lagrangian, and compute the optimaility conditions to the social planner problem.
+
+
+\item Interpret the optimality conditions in terms of \emph{marginal rate of substitutions} and \emph{marginal rate of transformations}.
+
+\item Explain how we can tell that the solution to the social planner problem coincides with the allocation in the decentralized competitive equilibrium of the economy. Explain why the two allocations will coincide.
+\een
+
+
+\section*{Exercise 2: Endogenous capacity utilization}
+Consider the vanilla RBC model studied in class augmented with endogenous capacity utilization. Assume that on top of the other choices, households now also choose an utilization level $U_t\in [0,\infty]$, and then rents out \emph{effective} capital services $K^*_t = U_t K_t$. The production function is
+\begin{eqnarray}
+Y_t &=& A_t (K^*_t)^{\alpha}N_t^{1-\alpha} \nonumber 
+\end{eqnarray}
+The cost of increasing utilization is that it comes with a higher depreciation rate $\delta = \delta (U_t)$. Specifically, we assume a quadratic cost function
+\begin{eqnarray}
+\delta (U_t) = \delta_0 + \eta_1 (U_t-1) + \frac{\eta_2}{2}(U_t-1)^2. \nonumber
+\end{eqnarray}
+Note that at $U_t=1$, the model looks the same as the vanila model.
+
+\ben
+\item Show that a higher rate of utilization will result in a larger Solow residual. 
+
+\item Set up the household and the firm problems.
+
+\item Define a competitive equilibrium.
+
+\item Let's normalize the rate of utilization such that $U_t=1$ in Steady state. Given this, propose a way to calibrate $\eta_1$.
+
+\item Given your calibrated value of $\eta_1$, compute IRFs of quantities and prices to a positive technology shock for a few different values of $\eta_2$. What changes, in terms of the responses, as we decrease $\eta_2$? Explain why.
+\een
+
+
+\section*{Exercise 3: News shocks and GHH preferences}
+Consider the vanilla RBC model studied in class, but with the following twist to the TFP process. In period $t$, household do not learn about shocks to contemporanous TFP $A_t$ but instead about future TFP $h$ quarters ahead. This means that TFP evolves according to
+\begin{eqnarray}
+\hat a_{t} = \rho \hat a_{t-1} + \epsilon_{t-h}  \nonumber
+\end{eqnarray} 
+\ben
+\item Suppose $h=4$, and use Dynare to solve for the IRFs to a positive TFP news shock, using the same parameter values as in class.
+
+\item Compare your IRFs for common macro aggregates to those produced with a contemporanous shock to TFP. What is similar and what is different? 
+
+\item Now do the same news shock experiment, but instead of having McCurdy preferences, lets assume GHH preferences on the form
+\begin{eqnarray}
+U(C_t, N_t) = \log \left(C_t- \theta\frac{N_t^{1+\varphi}}{1+\varphi}\right) \nonumber
+\end{eqnarray}
+
+\item You've likely found that hours worked respond differently in subquestion 1) and 3). Why is that?
+\een
+
+
+
+	
+\end{document}

@@ -1,0 +1,2661 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass beamer
+\begin_preamble
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usepackage{appendixnumberbeamer}
+
+\usetheme[progressbar=frametitle,block=fill]{metropolis}
+
+% margin
+\setbeamersize{text margin right=1.5cm}
+
+% colors
+\colorlet{DarkRed}{red!70!black}
+\setbeamercolor{normal text}{fg=black}
+\setbeamercolor{alerted text}{fg=DarkRed}
+\setbeamercolor{progress bar}{fg=DarkRed}
+\setbeamercolor{button}{bg=DarkRed}
+
+% width of seperators
+\makeatletter
+\setlength{\metropolis@titleseparator@linewidth}{1pt}
+\setlength{\metropolis@progressonsectionpage@linewidth}{1pt}
+\setlength{\metropolis@progressinheadfoot@linewidth}{1pt}
+\makeatother
+
+% new alert block
+\newlength\origleftmargini
+\setlength\origleftmargini\leftmargini
+\setbeamertemplate{itemize/enumerate body begin}{\setlength{\leftmargini}{4mm}}
+\let\oldalertblock\alertblock
+\let\oldendalertblock\endalertblock
+\def\alertblock{\begingroup \setbeamertemplate{itemize/enumerate body begin}{\setlength{\leftmargini}{\origleftmargini}} \oldalertblock}
+\def\endalertblock{\oldendalertblock \endgroup}
+\setbeamertemplate{mini frame}{}
+\setbeamertemplate{mini frame in current section}{}
+\setbeamertemplate{mini frame in current subsection}{}
+\setbeamercolor{section in head/foot}{fg=normal text.bg, bg=structure.fg}
+\setbeamercolor{subsection in head/foot}{fg=normal text.bg, bg=structure.fg}
+
+% footer
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{1.6ex}
+\setbeamertemplate{footline}{%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line head}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}{section in head/foot}
+      \vskip1pt\insertsectionnavigationhorizontal{\paperwidth}{}{\hskip0pt plus1filll \insertframenumber{} / \inserttotalframenumber \hskip2pt}\vskip3pt% 
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line head}
+    \end{beamercolorbox}
+}
+\makeatother
+
+% toc
+\setbeamertemplate{section in toc}{\hspace*{1em}\inserttocsectionnumber.~\inserttocsection\par}
+\setbeamertemplate{subsection in toc}{\hspace*{2em}\inserttocsectionnumber.\inserttocsubsectionnumber.~\inserttocsubsection\par}
+\end_preamble
+\options t
+\use_default_options false
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding utf8
+\fontencoding global
+\font_roman "lmodern" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures false
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 10
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation skip
+\defskip smallskip
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style danish
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+title{Macroeconomics II: Course Summary 
+\backslash
+vspace{-4mm}}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{
+\backslash
+vspace{-4mm}
+\backslash
+footnotesize
+\end_layout
+
+\begin_layout Plain Layout
+
+Erik Öberg (Uppsala University, UCLS)
+\backslash
+vspace{4mm}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+date{May 15, 2023}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setbeamertemplate{footline}{} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frame}
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+addtocounter{framenumber}{-1}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+What have we covered?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Business-cycle frameworks:
+\series default
+ 
+\emph on
+RBC, NK
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Fricitional labor markets: 
+\series default
+McCall, Burdett-Mortensen, DMP
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Incomplete asset markets: 
+\series default
+Consumption-savings dynamics in partial equilibrium, Aiyagari
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Apart from the RBC extensions, we have focused on the ``vanilla'' versions
+ of these frameworks in isolation
+\end_layout
+
+\begin_layout Itemize
+Today: attempt to summarize the course material, by means of showing how
+ these frameworks can be put together and are used for quantitative research
+\end_layout
+
+\begin_layout Itemize
+In particular, we will outline a business cycle model with sticky prices,
+ incomplete asset markets and a frictional labor market: a 
+\series bold
+HANK-SAM Model
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+HANK models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Heterogeneous Agents New Keynesian
+\series default
+ models: NK business cycle models with incomplete asset markets (and therefore
+ household heterogeneity)
+\end_layout
+
+\begin_layout Itemize
+Why interesting?
+\end_layout
+
+\begin_layout Itemize
+Consider the vanilla RANK model:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{i}_{t} & = & \phi\pi_{t}+\nu_{t}\\
+\pi_{t} & = & \beta E_{t}\pi_{t+1}+\kappa\hat{y}_{t}\\
+\hat{y}_{t} & = & -(\hat{i}_{t}-E_{t}\pi_{t+1})+E_{t}\hat{y}_{t+1}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+What is the transmission mechanism of an MP shock?
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+HANK models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Extended representation of the vanilla RANK model:
+\begin_inset Formula 
+\begin{eqnarray*}
+\hat{i}_{t} & = & \phi\pi_{t}+\nu_{t}\\
+\pi_{t} & = & \beta E_{t}\pi_{t+1}+\kappa\hat{y}_{t}\\
+\hat{c}_{t} & = & -(\hat{i}_{t}-E_{t}\pi_{t+1})+E_{t}\hat{c}_{t+1}\\
+\hat{c_{t}} & = & \hat{y_{t}}
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+What is the transmission mechanism of an MP shock to output? Roughly:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Shock: nominal rate 
+\begin_inset Formula $i_{t}$
+\end_inset
+
+ up
+\end_layout
+
+\begin_layout Enumerate
+Sticky prices: real rate 
+\begin_inset Formula $\hat{i}_{t}-E_{t}\pi_{t+1}$
+\end_inset
+
+ up
+\end_layout
+
+\begin_layout Enumerate
+Intertemporal substitution: consumption 
+\begin_inset Formula $c_{t}$
+\end_inset
+
+ down
+\end_layout
+
+\begin_layout Enumerate
+Market clearing: output 
+\begin_inset Formula $y_{t}$
+\end_inset
+
+ down
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+HANK models: motivation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Is intertemporal substitution really a reasonable theory of fluctuations
+ in aggregate demand?
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Macro evidence: no (see, e.g., Yogo, ReStat 2004; Canzoneri-Cumby-Dilba, JME
+ 2007)
+\end_layout
+
+\begin_layout Itemize
+Micro evidence: Limited, but also no (see, e.g., Best-Cloyne-Ilzetski-Kleven,
+ REStud 2020)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Even though income, financial wealth and income risk might respond to monetary
+ policy as well, this has close to no impact on the consumption decisions
+ of well-insured households
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Recall lecture 10: well-insured households behaves according to PIH
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+This is counterintuitive and at odds with what we know from the micro data
+\end_layout
+
+\begin_layout Itemize
+HANK models offer an alternative theory of aggregate demand
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+HANK models: new transsmission mechanisms
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{
+\backslash
+centering
+\end_layout
+
+\end_inset
+
+
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="1">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename figs/HANK_summary.pdf
+	width 100text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\end_inset
+
+Taken from Ben Moll's website
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+The Unemployment Risk Channel
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+One channel that has attracted much attention: 
+\series bold
+Unemployment-risk channel (URC)
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Households:
+\series default
+ Unemployment 
+\begin_inset Formula $\uparrow$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ precautionary saving 
+\begin_inset Formula $\uparrow$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ goods demand 
+\begin_inset Formula $\downarrow$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Firms:
+\series default
+ Goods demand 
+\begin_inset Formula $\downarrow$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ labor demand 
+\begin_inset Formula $\downarrow$
+\end_inset
+
+ 
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ unemployment 
+\begin_inset Formula $\uparrow$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+Generates a multiplier
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\emph on
+Inefficient 
+\emph default
+amplification & propagation
+\end_layout
+
+\begin_layout Enumerate
+May be mitigated with targeted fiscal policy
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+To evaluate the implications of this channel, we need a HANK model with
+ endogenous unemployment dynamics: 
+\series bold
+HANK-SAM models
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+HANK-SAM models
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Ravn-Sterk (JME 2017; JEEA 2021), Rendahl-Riegler-Den Haan (JEEA 2019):
+ 
+\series default
+HANK-SAM interaction is a source of amplification
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+McKay-Reis (Ecmtra 2016; REStud 2021), Kekre (REStud forthc): 
+\series default
+HANK-SAM interaction raises the value of automatic stabilizers (esp unempl.
+ insurance)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Challe (AEJmacro 2020):
+\series default
+ HANK-SAM interaction changes optimal monetary policy
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Broer-Druedahl-Harmenberg-Öberg (no paper yet): 
+\series default
+HANK-SAM predicts that commonly used fiscal policies may be powerful stabilizati
+on tools
+\end_layout
+
+\begin_layout Itemize
+To illustrate some of these points, I will employ a (slightly simplified)
+ version of the framework in BDHÖ
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+A HANK-SAM Model
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-2mm}
+\end_layout
+
+\end_inset
+
+
+\series bold
+Households:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Workers: 
+\series default
+can be 
+\emph on
+employed 
+\emph default
+or 
+\emph on
+unemployed
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Employed: Earn fixed real wage 
+\begin_inset Formula $W$
+\end_inset
+
+, pay labor income taxes
+\end_layout
+
+\begin_layout Itemize
+Unemployed: enjoy UI benefits
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Capitalists: 
+\series default
+collect all firm profits, do not work, risk neutral
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Producers:
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+
+\series bold
+Intermediate good producers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Labor 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+intermediate goods
+\end_layout
+
+\begin_layout Itemize
+Frictional labor market, CRS matching function
+\end_layout
+
+\begin_layout Itemize
+Sluggish vacancy posting due to 
+\bar under
+idiosyncratic stochastic entry cost
+\end_layout
+
+\begin_layout Itemize
+Separations due to 
+\bar under
+idiosyncratic stochastic continuation cost
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Wholesale producers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Intermediate goods 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ differentiated goods
+\end_layout
+
+\begin_layout Itemize
+Monopolistic competition + Rotemberg price adjustment costs
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+
+\series bold
+Final producers
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Differentiated goods 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ final good
+\end_layout
+
+\begin_layout Itemize
+Perfect competition
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Government:
+\series default
+ Sets the nominal interest rate, collects taxes, issues debt
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+Graphical model overview
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-2mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../../../../../research/persistent_income_risk/presentations/Amsterdam_may2023/figs/model_diagram.pdf
+	width 110line%
+	BoundingBox 0bp 0bp 656bp 190bp
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-5mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Consider an exogenous path of TFP 
+\begin_inset Formula $\boldsymbol{\boldsymbol{z}}\boldsymbol{=}[z_{0},z_{1},...]$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+To a first-order approximation, the equilibrium is summarized by
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\series bold
+A SAM-block response
+\series default
+: 
+\begin_inset Formula $\boldsymbol{u}\boldsymbol{=}M_{SAM}(\boldsymbol{p^{x}+}\boldsymbol{z})$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Formula $\mathbf{u}$
+\end_inset
+
+ is the path of unemployment 
+\emph on
+and
+\emph default
+ the labor-market flows
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\series bold
+An HA-block response
+\series default
+: 
+\series bold
+
+\begin_inset Formula $\boldsymbol{\boldsymbol{R}^{real}=}M_{HA}\boldsymbol{u}$
+\end_inset
+
+
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+<+->
+\end_layout
+
+\end_inset
+
+
+\series bold
+An NK-block response
+\series default
+: 
+\series bold
+
+\begin_inset Formula $\boldsymbol{p^{x}}\boldsymbol{=}M_{NK}\boldsymbol{R^{real}}$
+\end_inset
+
+
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{1mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+The multiplier process
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-2mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../../../../../../research/persistent_income_risk/presentations/Amsterdam_may2023/figs/model_diagram.pdf
+	width 110line%
+	BoundingBox 0bp 0bp 656bp 190bp
+	clip
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-5mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Proposition: 
+\series default
+Model solution is given by
+\begin_inset Formula 
+\[
+\boldsymbol{u}=(I-M_{\text{SAM}}M_{\text{NK}}M_{\text{HA}})^{-1}M_{SAM}\mathbf{z}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset Formula $(I-M_{\text{SAM}}M_{\text{NK}}M_{\text{HA}})^{-1}$
+\end_inset
+
+ captures a repeated 
+\series bold
+demand-driven 
+\series default
+multiplier process generating the equilibrium response to the shock
+\end_layout
+
+\begin_layout Enumerate
+The direct (first-round) response 
+\begin_inset Formula $\boldsymbol{u}=M_{SAM}\mathbf{z}$
+\end_inset
+
+ is also the response with 
+\emph on
+flexible prices
+\emph default
+ (no demand-loop)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+The multiplier process: illustration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\begin_inset Tabular
+<lyxtabular version="3" rows="4" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+TFP, 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Unemployment Risk, 
+\begin_inset Formula $URISK_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/TFP_multiplier_TFP.pdf
+	width 45text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/TFP_multiplier_urisk.pdf
+	width 45text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Intermediate goods price, 
+\begin_inset Formula $P_{t}^{x}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Unemployment, 
+\begin_inset Formula $U_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/TFP_multiplier_px.pdf
+	width 45text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/TFP_multiplier_u.pdf
+	width 45text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+Equivalence of demand and supply shocks
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Proposition: 
+\series default
+The impulse responses for labor-market variables to a shock to TFP (supply)
+ and to the discount factor of workers (demand) are equivalent up to a scaling
+ factor.
+\end_layout
+
+\begin_layout Itemize
+Interesting, because IRFs of labor market variables to TFP and MP shocks
+ look very similar in the data (at odds with vanilla NK model!)
+\end_layout
+
+\end_deeper
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+Equivalence of shocks in the model: illustration
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+\align center
+\begin_inset Graphics
+	filename figs/demand_supply_irf_set.pdf
+	width 95text%
+
+\end_inset
+
+ 
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Our calibration approach
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Calibrate HA block
+\series default
+ so consumption-saving of households match evidence on
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Fall in consumption in response to unemployment
+\end_layout
+
+\begin_layout Enumerate
+Fall in consumption in response to unemployment-benefit expiration
+\end_layout
+
+\begin_layout Enumerate
+Marginal propensity to consume (not targeted but in line with data)
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Calibrate SAM block
+\series default
+ so firing-hiring of firms match evidence on
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Relative timing of the peak for the separation rate and 
+\begin_inset Newline newline
+\end_inset
+
+the trough for the job-finding rate
+\end_layout
+
+\begin_layout Enumerate
+Contribution of separation and the job-finding rate to unemployment dynamics
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Consumption effects of unemployment
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Stylized fact #1: 
+\series default
+Consumption ~20% lower for unemployed (Chodorow-Reich-Karabarbounis, 2016)
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Stylized fact #2: 
+\series default
+Drop at UI exhaustion of ~45% of income drop (Ganong-Noel, 2019)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset Graphics
+	filename ../../../../../../research/persistent_income_risk/presentations/Amsterdam_may2023/figs/Ganong19.pdf
+	width 70line%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-3mm}
+\end_layout
+
+\end_inset
+
+
+\series bold
+\size footnotesize
+Source:
+\series default
+ Ganong-Noel (2019)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Separation rate leads job-finding rate
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Monetary policy shock
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Technology shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename ../../../../../../research/persistent_income_risk/presentations/Amsterdam_may2023/results/monetary_shock_lead_lag.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename ../../../../../../research/persistent_income_risk/presentations/Amsterdam_may2023/results/technology_shock_lead_lag.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\series bold
+\size footnotesize
+Source: 
+\series default
+CPS 1967-2020; Romer-Romer MP shock; Fernald TFP shock
+\size default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{3mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Stylized Fact #3:
+\series default
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+Separation rate leads job-finding rate by 9-16 months
+\emph default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{3mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Also true for 
+\emph on
+uncertainty shocks
+\emph default
+ (Oh-Picco, 2020)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+
+\emph on
+Separation rate explains substantial share of unemployment
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Monetary policy shock
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+TFP shock
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename ../../../../../../research/persistent_income_risk/presentations/Amsterdam_may2023/results/monetary_shock_decomposition.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename ../../../../../../research/persistent_income_risk/presentations/Amsterdam_may2023/results/technology_shock_decomposition.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+
+\end_layout
+
+\begin_layout Frame
+
+\series bold
+\size footnotesize
+Source: 
+\series default
+CPS 1967-2020; Romer-Romer MP shock; Fernald TFP shock
+\size default
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{3mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Stylized Fact #4:
+\series default
+\emph on
+
+\begin_inset Newline newline
+\end_inset
+
+Separations account for 40-60 percent of unemployment response
+\emph default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{3mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Also true for 
+\emph on
+uncertainty shocks
+\emph default
+ (Oh-Picco, 2020)
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+To explain separation rate response, our model has elastic job destruction
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Job value:
+\series default
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+V_{t}^{j} & = & P_{t}^{x}Z_{t}-W+\beta\mathbb{E}_{t}\left[(1-\delta_{t+1})(V_{t+1}^{j}-\mu_{t+1})\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+TFP: 
+\begin_inset Formula $Z_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Real output price: 
+\begin_inset Formula $P_{t}^{x}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Wage: 
+\begin_inset Formula $W$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Separation rate: 
+\begin_inset Formula $\delta_{t}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Continuation cost: 
+\begin_inset Formula $\mu_{t}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Firms draw continuation cost
+\series default
+ 
+\begin_inset Formula $\chi_{t}\sim G$
+\end_inset
+
+: mixture of point-mass and Pareto
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Implied separation rate: 
+\begin_inset Formula 
+\[
+\delta_{t}=\delta_{ss}\left(\frac{V_{t}^{j}}{V_{ss}^{j}}\right)^{-\psi}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Exogenous separation limit:
+\series default
+ 
+\begin_inset Formula $\psi\rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+To explain job-finding rate response, our model has inelastic job creation
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Vacancy value:
+\series default
+ 
+\begin_inset Formula 
+\begin{eqnarray*}
+V_{t}^{v} & = & -\kappa+\lambda_{t}^{v}V_{t}^{j}+(1-\lambda_{t}^{v})\beta\mathbb{E}_{t}\left[V_{t+1}^{v}\right]
+\end{eqnarray*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Vacancy posting cost: 
+\begin_inset Formula $\kappa$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Job-filling rate: 
+\begin_inset Formula $\lambda_{t}^{v}$
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Firms draw entry cost 
+\begin_inset Formula $c\sim H$
+\end_inset
+
+: 
+\series default
+exponential distribution
+\series bold
+ 
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Implied entry
+\begin_inset Formula 
+\[
+\iota_{t}=\iota_{ss}\left(\frac{V_{t}^{v}}{V_{ss}^{v}}\right)^{\frac{1}{\xi}}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+Free entry model: 
+\series default
+
+\begin_inset Formula $\xi\rightarrow\infty$
+\end_inset
+
+, 
+\begin_inset Formula $V_{ss}^{v}\rightarrow0$
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Standard
+(Only 
+\begin_inset Formula $\xi\rightarrow\infty$
+\end_inset
+
+: Fixed homogenous entry cost)
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status open
+
+\begin_layout Plain Layout
+Demand externality matters only with active URC
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Tabular
+<lyxtabular version="3" rows="1" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="left" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename results/decompositionmultiplier.pdf
+	width 50line%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="left" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename results/decompositionmultiplier_complete.pdf
+	width 50line%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Baseline with incomplete markets:
+\series default
+ substantial amplification with sticky prices
+\end_layout
+
+\begin_layout Itemize
+
+\series bold
+With complete markets
+\series default
+: only aggregate income path matters; sticky prices make little difference
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+Substantial amplification due to elastic firing and inelastic hiring
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unemployment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unemployment gap (com.
+ mkts)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/interaction_simple.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/interaction_gap_simple.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-5mm}
+\end_layout
+
+\end_inset
+
+
+\series bold
+Standard HANK-SAM
+\series default
+ (exo.
+ sep., free entry):
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Much smaller unemployment response
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+Interaction of elastic firing and inelastic hiring
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Tabular
+<lyxtabular version="3" rows="2" columns="2">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unemployment
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+Unemployment gap (com.
+ mkts)
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/interaction.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+\size small
+\begin_inset Graphics
+	filename results/interaction_gap.pdf
+	width 50text%
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace{-5mm}
+\end_layout
+
+\end_inset
+
+
+\series bold
+Endogenous separations
+\series default
+ always amplifies
+\end_layout
+
+\begin_layout Enumerate
+
+\series bold
+Sluggish entry
+\series default
+ 
+\emph on
+only amplifies with endogenous separations
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+With limited entry response, newly separated 
+\emph on
+deplete the current vacancy stock
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+Higher separation rate causes lower job-finding rate 
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\begin_layout Frame
+\begin_inset Argument 4
+status collapsed
+
+\begin_layout Plain Layout
+Back to the litterature
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+
+\series bold
+Ravn-Sterk (JME 2017; JEEA 2021), Rendahl-Riegler-Den Haan (JEEA 2019):
+ 
+\series default
+HANK-SAM interaction is a source of amplification
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+These models typically features a large demand-driven multiplier
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+McKay-Reis (Ecmtra 2016; REStud 2021), Kekre (REStud forthc): 
+\series default
+HANK-SAM interaction raises the value of automatic stabilizers (esp unempl.
+ insurance)
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The demand-driven multiplier stems from limited insurance to unemployment
+ risk
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Challe (AEJmacro 2020):
+\series default
+ HANK-SAM interaction changes optimal monetary policy
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+The demand-driven multiplier changes the trade-off between stabilizing inflation
+ and output
+\end_layout
+
+\end_deeper
+\begin_layout Itemize
+
+\series bold
+Broer-Druedahl-Harmenberg-Öberg (no paper yet): 
+\series default
+A unified framework to evaluate the cost-effectiveness of different fiscal
+ stabilization policies
+\end_layout
+
+\begin_deeper
+\begin_layout Itemize
+Commonly used labor-market policies (e.g.
+ retention policies, hiring subsidies) may be very effective macroeconomic
+ stabilization tools
+\end_layout
+
+\begin_layout Itemize
+Whether labor-market policies are preferable over UI (and other fiscal polciies)
+ depend very much on the elasticity of job creation and job destruction
+\end_layout
+
+\begin_layout Itemize
+We need more micro-level evidence on these elasticities
+\end_layout
+
+\end_deeper
+\end_deeper
+\begin_layout Standard
+\begin_inset Separator plain
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

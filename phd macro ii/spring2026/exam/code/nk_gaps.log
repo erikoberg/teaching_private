@@ -1,0 +1,87 @@
+Starting preprocessing of the model file ...
+Found 7 equation(s).
+Evaluating expressions...done
+Computing static model derivatives (order 1).
+Computing dynamic model derivatives (order 2).
+Processing outputs ...
+done
+Preprocessing completed.
+
+STEADY-STATE RESULTS:
+
+ytilde 		 0
+pi     		 0
+ihat   		 0
+rhat   		 0
+rnat   		 0
+nu     		 0
+a      		 0
+
+MODEL SUMMARY
+
+  Number of variables:         7
+  Number of stochastic shocks: 2
+  Number of state variables:   2
+  Number of jumpers:           2
+  Number of static variables:  3
+
+
+MATRIX OF COVARIANCE OF EXOGENOUS SHOCKS
+Variables        e_nu       e_a
+e_nu         1.000000  0.000000
+e_a          0.000000  1.000000
+
+POLICY AND TRANSITION FUNCTIONS
+                              ytilde              pi            ihat            rhat            rnat              nu               a
+nu(-1)                     -0.495098       -0.333333               0        0.166667       -0.080882        0.500000               0
+a(-1)                      -0.019235       -0.060000       -0.090000       -0.036000       -0.037924               0        0.900000
+e_nu                       -0.990196       -0.666667               0        0.333333       -0.161765        1.000000               0
+e_a                        -0.021373       -0.066667       -0.100000       -0.040000       -0.042137               0        1.000000
+
+
+THEORETICAL MOMENTS
+VARIABLE         MEAN  STD. DEV.   VARIANCE
+ytilde         0.0000     1.1444     1.3097
+pi             0.0000     0.7848     0.6160
+ihat           0.0000     0.2294     0.0526
+rhat           0.0000     0.3957     0.1566
+rnat           0.0000     0.2103     0.0442
+nu             0.0000     1.1547     1.3333
+a              0.0000     2.2942     5.2632
+
+
+
+VARIANCE DECOMPOSITION (in percent)
+            e_nu     e_a
+ytilde     99.82    0.18
+pi         96.20    3.80
+ihat        0.00  100.00
+rhat       94.62    5.38
+rnat       78.87   21.13
+nu        100.00    0.00
+a           0.00  100.00
+
+
+
+MATRIX OF CORRELATIONS
+Variables    ytilde      pi    ihat    rhat    rnat      nu       a
+ytilde       1.0000  0.9883  0.0428 -0.9619  0.9070 -0.9991 -0.0428
+pi           0.9883  1.0000  0.1949 -0.9089  0.9607 -0.9808 -0.1949
+ihat         0.0428  0.1949  1.0000  0.2319  0.4596  0.0000 -1.0000
+rhat        -0.9619 -0.9089  0.2319  1.0000 -0.7573  0.9727 -0.2319
+rnat         0.9070  0.9607  0.4596 -0.7573  1.0000 -0.8881 -0.4596
+nu          -0.9991 -0.9808  0.0000  0.9727 -0.8881  1.0000  0.0000
+a           -0.0428 -0.1949 -1.0000 -0.2319 -0.4596  0.0000  1.0000
+
+
+
+COEFFICIENTS OF AUTOCORRELATION
+Order          1       2       3       4       5
+ytilde    0.5007  0.2510  0.1261  0.0636  0.0323
+pi        0.5152  0.2713  0.1479  0.0850  0.0525
+ihat      0.9000  0.8100  0.7290  0.6561  0.5905
+rhat      0.5215  0.2801  0.1575  0.0944  0.0613
+rnat      0.5845  0.3683  0.2526  0.1879  0.1494
+nu        0.5000  0.2500  0.1250  0.0625  0.0312
+a         0.9000  0.8100  0.7290  0.6561  0.5905
+Total computing time : 0h00m00s

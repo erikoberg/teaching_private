@@ -1,0 +1,1276 @@
+\documentclass[9pt,xcolor={dvipsnames}]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+%\usepackage[dvipsnames]{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+\usepackage{tikz}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\black}{\color{black}}
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+\newcommand{\gc}{\color{ForestGreen}}
+\newcommand{\wc}{\color{white}}
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[RBC accounting, measurement, extensions]{Macroeconomics II Part II, Lecture II:\\
+	  RBC: accounting, measurement, extensions}
+\author{Erik {\"O}berg}
+\date{}
+\begin{document}
+
+\begin{frame}
+\maketitle
+\end{frame}
+
+\section{Introduction}
+
+\begin{frame}{Last time}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item We set up and learned how to solve the vanilla RBC model
+
+\item The calibrated model can seemingly explain several business cycle moments...
+
+\item .. but fails in some key aspects
+
+\item Today, we will dig deeper into understanding the RBC mechanisms and how the model can be improved
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Agenda}
+
+\ben
+\setlength\itemsep{1.5em} 
+
+\item Business cycle accounting
+
+\item Measuring technology shocks
+
+\item Two extensions to adress the the labor wedge
+\bit
+\setlength\itemsep{0.5em} 
+
+	\item Employment lotteries
+	
+	\item GHH preferences
+	
+\eit
+
+\een
+
+\end{frame}
+
+
+
+\begin{frame}{Business cycle accounting}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item The plain vanilla RBC model provides an efficient benchmark
+
+\item Other BC models can be compared to this benchmark
+\bit
+	\item A succesful model is a model that does something better than the vanilla RBC model in terms of explaining the data
+\eit
+
+\item For this purpose, it is useful to develop methods that make it more precise what the vanilla RBC model does well and what it does not so well
+
+\item One such method is called {\bc Business Cycle Accouting}
+
+\item Developed by Chari-Kehoe-McGrattan (Ecmtra, 2007), further elaborated in Brinca-Chari-Kehoe-McGrattan (HB Macro, 2016)
+
+\eit
+
+\end{frame}
+
+\begin{frame}{The idea}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Taking the parameters as given, the RBC model describes relationships between variables that we can measure in the data
+
+\item Thus, with given parameters and time series of these variables, we can see exactly which of these relationships fails and by how much
+
+\item Let's see how it works
+
+\eit
+
+\end{frame}
+
+\begin{frame}{RBC log-linear equilibrium}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Setting TFP shocks to zero $\hat a_t=0$, our log-linear system is
+\begin{eqnarray}
+\hat w_t &=& \hat c_t + \varphi n_t \nonumber \\
+\hat c_t &=& - \beta R^{r} E_t \hat r^{r}_{t+1} + E_t \hat {c}_{t+1} \nonumber \\
+\hat y_t &=& \frac{C}{Y}\hat c_t + \frac{I}{Y} \hat i_t  \nonumber \\
+\hat y_t &=& \alpha \hat k_t + (1-\alpha ) \hat n_t \nonumber \\
+\hat k_{t+1} &=& (1-\delta) \hat k_t +\delta \hat i_t \nonumber\\
+\hat r^{r}_t &=& -(1-\alpha)(\hat k_t - \hat n_t)  \nonumber \\
+\hat w_t &=& \alpha (\hat k_t-\hat n_t) \nonumber
+\end{eqnarray}
+where steady state $R^{r}, C, I, Y$ are determined by the model parameters
+
+\item Using that 
+\begin{eqnarray}
+\hat r^{r}_t &=& \hat y_t-\hat k_t, \nonumber \\
+\hat w_t &=& \hat y_t-\hat n_t, \nonumber
+\end{eqnarray}
+we can eliminate $\hat r^{r}_t, \hat w_t$ from the system
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{RBC log-linear equilibrium}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item The reduced system is
+\begin{eqnarray}
+\hat y_t &=& \hat c_t + \varphi (1+n_t) {\wc + \hat \psi^N_t} \nonumber \\
+\hat c_t &=& - \beta R^{r}  E_t (\hat y_{t+1}-\hat k_{t+1}) + E_t \hat {c}_{t+1} {\wc + \hat \psi^I_t} \nonumber \\
+\hat y_t &=& \frac{C}{Y}\hat c_t + \frac{I}{Y} \hat i_t {\wc + \hat \psi^G_t} \nonumber \\
+\hat y_t &=& \alpha \hat k_t + (1-\alpha ) \hat n_t {\wc + \hat \psi^A_t} \nonumber 
+\end{eqnarray}
+
+\item This system describes a relationship between NIPA variables $Y,C,K,I$ and hours worked $N$ - stuff we know how to measure in the data
+
+\item Q: By how much does these relationship break in the data?
+
+\item {\wc Reformulated Q: How large are the {\wc wedges}}
+\eit
+
+\end{frame}
+
+
+\begin{frame}{RBC log-linear equilibrium}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item The reduced system is
+\begin{eqnarray}
+\hat y_t &=& \hat c_t + \varphi (1+n_t) {\bc + \hat \psi^N_t} \nonumber \\
+\hat c_t &=& - \beta R E_t (\hat y_{t+1}-\hat k_{t+1}) + E_t \hat {c}_{t+1} {\bc + \hat \psi^I_t} \nonumber \\
+\hat y_t &=& \frac{C}{Y}\hat c_t + \frac{I}{Y} \hat i_t {\bc + \hat \psi^G_t} \nonumber \\
+\hat y_t &=& \alpha \hat k_t + (1-\alpha ) \hat n_t {\bc + \hat \psi^A_t} \nonumber 
+\end{eqnarray}
+
+\item This system describes a relationship between NIPA variables $Y,C,K,I$ and hours worked $N$ - stuff we know how to measure in the data
+
+\item Q: By how much does these relationship break in the data?
+
+\item {\black Reformulated Q: How large are the {\bc wedges}?}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Wedges in the data}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45]{Figures/sims_wedges.pdf}
+	\caption*{From Eric Sims' lecture notes, using detrended data from John Fernald and same parameter values as in Lecture 1}
+\end{figure}
+
+
+\end{frame}
+
+
+\begin{frame}{Wedges: interpretation}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Efficiency wedge is the same thing as the Solow residual
+\bit
+	\item We treated this as an {\bc input} to the model 
+\eit
+
+\item We need large fluctuations in the labor wedge
+\bit
+	\item $\Rightarrow$ Indicates that something is not right about the labor market equilibrium in the model
+\eit
+
+\item We do not need large fluctuations in the investment wedge
+\bit
+\setlength\itemsep{0.5em} 
+	\item This is surprising, the RBC theory of consumption/investment seems very rudimentary...
+\eit
+
+\item Large fluctuations in the government consumption wedge comes as no surprise
+\bit
+\setlength\itemsep{0.5em}
+	\item We know that both exports/imports and the government expenditure fluctuate a lot over the business cycle
+	
+	\item Should perhaps not be interpreted as a failure, we simply didn't attempt to get this right
+	
+	\item For a benchmark ``international RBC model'', see Backus-Kehoe-Kydland (JPE 1992)
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Wedges: interpretation II}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Notice that prices do not appear in this accounting method
+
+\item The labor market wedge could stem either from
+\ben
+\setlength\itemsep{0.5em} 
+\item $W_t \neq$ Marginal rate of substitution (MRS) between consumption and leisure, or
+
+\item $W_t \neq$ Marginal product of labor (MPL)
+\een
+
+\item Similarly, the investment wedge could stem either from
+\ben
+\setlength\itemsep{0.5em} 
+\item $R^{r}_t \neq$ MRS between consumption today and tomorrow, or
+
+\item $R^{r}_t \neq$ MPK
+\een
+
+\item Nothing stops us from extending the accounting method to include prices
+\bit
+\setlength\itemsep{0.5em} 
+	\item One attempt: Karabarbounis (RED 2014), finds that LM wedge is mostly due to $W_t \neq MRS$
+
+	\item However, there is more uncertainty regarding measurement of prices compared to NIPA variables
+	
+	\item Wage fluctuations could, for example, be heavily influenced by cyclical selection
+\eit
+
+\item However, without including prices, we gain little information about which economic relationship that accounts for the wedges
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Measuring technology shocks \normalfont
+\end{center}
+
+\end{frame}
+
+\begin{frame}{Are Solow residuals are reasonable measure of technology shocks?}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item We apparently need a large fluctuations in the efficiency wedge to explain the data
+
+\item Kydland-Prescott's original approach: interpret the efficiency wedge (or Solow residuals) as {\bc exogenous technology shocks}
+
+\item Reasonable that technological progress fluctuates around trend, and that Solow residuals captures some of this
+
+\item However, not reasonable that these \emph{detrended} fluctuations can be negative with $-5 \%$ or $-10 \%$ percent $\Rightarrow$ implies huge technological regress!
+\bit
+	\item Solow residuals implies that technological regress 40 \% of time in post-war US data (King-Rebelo, HBmacro 1999)
+\eit
+
+\item Technology concerns how factors of production are used for producing specific individual products (``blue-prints''); TFP is an abstract measurement concept
+\bit
+\setlength\itemsep{0.5em}
+	\item TFP can capture many things
+	
+	\item Two examples: {\bc capacity utilization} and {\bc missallocation}
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Cleaning ``Solow residuals''}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Capacity utilization: In reality, firms adjust the usage of their predetermined factors of production over the business cycle
+\bit
+\setlength\itemsep{0.5em}
+\item True for both labor and capital
+
+\item Capacity utilization often treated as a key statistic for measuring the state of the business cycle
+
+\item Low utilization $\Rightarrow$ lower TFP
+
+\item How to clean Solow residuals from utilization? Go and measure utilization!
+\bit
+\setlength\itemsep{0.5em} 
+\item Burnside-Eichenbaum-Rebelo (EER 1996) uses detrended log electricity usage $z_t$ as a measure of capital utilization, measures technology shocks as
+\begin{eqnarray}
+a_t = y_t-(1-\alpha)n_t - \alpha (z_t + k_t) \nonumber
+\end{eqnarray}
+
+\item Basu-Fernald-Kimball (AER 2006) and Fernald (2014) uses input data to adjust sectoral solow residuals from capacity utilization, then aggregate sector-level productivity to TFP
+
+\item Both find a technology series with 20-25 \% less volalility than original Solow residuals
+\eit
+
+\eit
+
+
+\item Missallocation: Suppose the some of the factors of production $N_t, K_t$ are allocated to ``under-performing'' firms
+\bit
+\setlength\itemsep{0.5em}
+\item This will also look like low TFP in the data
+
+\item If missallocation moves with the business cycle, this will ``contaminate'' Solow residuals
+
+\item Cyclical missallocation is actually a key prediction of the New-Keynesian model, introduced in Lecture III
+
+\item I've not seen it applied in the RBC literature, but general measurement framework provided in Hsieh-Klenow (QJE 2009) 
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Simulation results with 25 \% lower TFP volatility (HP-filtered)}
+
+\begin{table}[h!]
+	\centering
+	\begin{tabular}{|l|cc|cc|cc|cc|}
+		\multicolumn{1}{c}{} &\multicolumn{2}{c}{\textbf{SD}}&\multicolumn{2}{c}{\textbf{Rel. SD}}& \multicolumn{2}{c}{\textbf{Corr $Y_t$}} & \multicolumn{2}{c}{\textbf{Autocorr}}  \\
+		\hline
+		& Data &Model & Data & Model & Data & Model & Data & Model \\
+		\hline
+		$Y_t$ & 0.017 & 0.011 & 1.00 & 1.00 & 1.00 & 1.00 & \colorbox{white}{0.85} & \colorbox{white}{0.72} \\
+		\hline
+		$C_t$ & 0.009 & 0.005  & \colorbox{white}{0.53} & \colorbox{white}{0.40} & \colorbox{white}{0.76} & \colorbox{white}{0.95}  & 0.79 & 0.78 \\
+		\hline
+		$I_t$ & 0.047 & 0.031 & \colorbox{white}{2.76} & \colorbox{white}{2.73}  & \colorbox{white}{0.79} & \colorbox{white}{0.99} & 0.87 & 0.72 \\
+		\hline
+		$N_t$ & 0.019 &  0.004 & \colorbox{white}{1.12} & \colorbox{white}{0.33} & \colorbox{white}{0.88} &  \colorbox{white}{0.98} & 0.90 & 0.72 \\
+		\hline
+		$W_t$ & 0.009 & 0.008 & 0.53 & 0.66 & \colorbox{white}{0.10} & \colorbox{white}{0.996} & 0.73 & 0.74 \\
+		\hline
+		$R_t$ & 0.004 & 0.011  & \colorbox{white}{0.24} & \colorbox{white}{1.0} & \colorbox{white}{0.00} & \colorbox{white}{0.97} & \colorbox{white}{0.42} & \colorbox{white}{0.71} \\
+		\hline
+		$A_t$ & 0.012 & 0.09 & \colorbox{white}{0.71} & \colorbox{white}{0.80}  & 0.76 & 0.999 & 0.75 & 0.72 \\
+		\hline
+	\end{tabular}
+	\captionsetup{font=small}
+	\label{sim_results}
+\end{table} 
+
+\bit
+\setlength\itemsep{1em}
+
+\item Reducing TFP volatility by 25 \% does not affect any correlations, but reduces volalitility of all variables by 25 \% - why?
+
+\item Implication: the model needs to add more {\bc endogenous amplification} to fit the data
+\bit
+\item Put differently: the model cannot explain the efficiency wedge any more
+\eit
+
+\eit
+
+\end{frame}
+
+
+
+
+
+
+
+\begin{frame}{Taking stock}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A standard calibration of the vanilla RBC model with a reasonable technology shock process has quite a few problems with matching the data
+
+\item The lack of empirical fit is manifested in large fluctuations in the labor wedge and the efficiency wedge (and also government consumption wedge)
+\bit
+\setlength\itemsep{0.5em}
+	\item Relatedly, too little amplification and lack of persistence
+	
+	\item Does not produce reasonable fluctuations in hours worked
+	
+	\item $\Rightarrow$ we need more internal propagation, and part of it should come from larger response in hours worked
+\eit
+
+\item Also, recall the problems of getting the price moments right
+
+\item Lets start by adressing the labor wedge and the efficiency wedge
+\bit
+\setlength\itemsep{0.5em}
+	\item Problem set 5: endogenous capacity utilization to adress efficiency wedge
+	
+	\item Remainder of this lecture: adressing the labor wedge
+\eit
+
+
+\eit
+
+\end{frame}
+
+
+
+
+\begin{frame}
+
+\begin{center}
+	\huge Two extensions to adress the the labor wedge \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{The role of the Frish elasticity}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The vanilla RBC model needs more amplification, and it should come through hours worked
+
+\item How to increase response of hours worked? Lets zoom in on the labor market equilibrium:
+
+\item Household intratemporal first order condition describes the labor supply curve {\rc (Do diagram on whiteboard)}:
+\begin{eqnarray}
+\text{Labor supply:   }&& {\wc \hat w_t = \hat c_t + \varphi n_t} \nonumber \\
+\text{Labor demand:   }&& {\wc \hat w_t = \hat a_t + \alpha (\hat k_t-\hat n_t)} \nonumber 
+\end{eqnarray}
+
+\item {\wc When productivity increases, we get larger response in hours either with larger subsitution effect or smaller income effect}
+
+
+\eit
+
+\end{frame}
+
+\begin{frame}{The role of the Frish elasticity}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The vanilla RBC model needs more amplification, and it should come through hours worked
+
+\item How to increase response of hours worked? Lets zoom in on the labor market equilibrium:
+
+\item Household intratemporal first order condition describes the labor supply curve {\rc (Do diagram on whiteboard)}:
+\begin{eqnarray}
+\text{Labor supply:   }&& \hat w_t = \hat c_t + \varphi n_t \nonumber \\
+\text{Labor demand:   }&& \hat w_t = \hat a_t + \alpha (\hat k_t-\hat n_t) \nonumber 
+\end{eqnarray}
+
+\item When productivity increases, we get larger response in hours either with larger {\bc subsitution effect} or smaller {\bc income effect}
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{The substitution effect}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Holding the marginal utility of consumption constant, i.e. $c_t=0$, $\eta = 1/\varphi$ measures the elasticity of hours w.r.t. wages
+\bit
+\item Put differently, it measures the substitution effect of wages on labor supply
+\eit
+
+\item We call $\eta$ the {\bc Frish elasticity}
+
+\item Our baseline calibration had $\eta = 1$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Varying the Frish elasticity}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5, trim = 0 175 0 175, clip]{Figures/rbc_simulation_frish.pdf}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Is a large Frisch elasticity reasonable?}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Larger Frish elasticity $\Rightarrow$ more amplification through hours worked
+
+\item Problem: most micro-level evidence suggest $\eta \in (0.0, 0.5)$
+\bit
+\setlength\itemsep{0.5em}
+	\item Classics: MacCurdy (JPE, 1981); Ashenfelter (JME, 1984); Angrist (JE, 1991)
+
+	\item Evidence reviewed in Chetty-Guren-Manoli-Weber (NBER annual, 2013)
+	
+	\item Martinez-Saez-Siegenthaler (AER, 2020) exploit tax holiday in Austria, find $\eta = 0.02$
+
+	\item Stefanson (2019) and Sigurdsson (20222) exploit tax holiday in Iceland, find $\eta = 0.1-0.4$ 
+\eit
+
+\item Moreover, most variation in hours worked over the business cycle is along the extensive margin, our model does not speak to this
+
+\item How to resolve?
+
+\eit
+
+\end{frame}
+
+
+%\begin{frame}{US hours fluctuations driven by extensive margin}
+%
+%
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.6]{Figures/rs_2011_fig1.pdf}
+%	\caption*{\footnotesize Detrended log points. Blue solid - hours worked per person; red dashed - employment rate; green dotted - participation rate. From Rogerson-Shimer (Handbook LE 2011).}
+%\end{figure}
+%
+%
+%\end{frame}
+
+\begin{frame}{Employment lotteries}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Hansen (JME 1985)/Rogerson (JME 1988) insight: {\bc indivisible labor} disconnects the aggregate from the individual Frisch elasticity
+\bit
+	\item In fact, with indivisibility, aggregate Frish elasticity can be \emph{infinitely large}, although micro elasticities might be very small (even 0...)	
+\eit
+
+\item Model: Suppose there exist a measure $1$ of ex-ante identical households, who have the same MacCurdy preferences:
+\begin{eqnarray}
+U(C_t, N_t) = \log C_t - \theta \frac{N_t^{1+\varphi}}{1+\varphi}\nonumber 
+\end{eqnarray}
+
+\item Assume choice set $N_t = \{0, \bar N\}$, but if households could pick freely, they would actually prefer some $N^*_t \in (0, \bar N)$
+
+\item With {\bc complete markets}, these households can be made better off if they enter a lottery with other households on whether to work or not
+%\bit
+%	\item The fact that some households do not work in equilibrium can be interpreted as part of an optimal arrangement under such technological constraints
+%\eit
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Employment lotteries II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Denote the probability of working $\pi_t$
+
+\item In expectation, households work $N_t = \pi_t \bar N$ hours
+
+\item $N_t$ therefore also denotes aggregate hours worked
+
+\item Complete markets imply $U_c(C_1, 0) = U_c(C_2, \bar N)$
+
+\item With separable preferences, complete markets simply imply $C_1=C_2=C$
+
+\item With approriate choice of $\pi_t$, households maximize expected utility
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Employment lotteries III}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Household per-period utility is
+\begin{eqnarray}
+U(C_t, N_t) &=& \log C_t - \pi_t \theta \frac{\bar N^{1+\varphi}}{1+\varphi} - (1-\pi_t) \frac{\theta \times 0}{1+\varphi} \nonumber \\
+&=& \log C_t - \pi_t \theta \frac{\bar N^{1+\varphi}}{1+\varphi}\nonumber \\
+&=& \log C_t - \frac{N_t}{\bar N} \theta \frac{\bar N^{1+\varphi}}{1+\varphi} \nonumber \\
+&=& \log C_t - B N_t \nonumber
+\end{eqnarray}
+where $B = \frac{\theta}{\bar N} \frac{\bar N^{1+\varphi}}{1+\varphi}$
+
+\item $\Rightarrow$ the lottery model is thus {\bc isomorphic} to our rep-agent model
+\begin{eqnarray}
+U(C_t, N_t) = \log C_t - \theta \frac{N_t^{1+\varphi}}{1+\varphi}\nonumber 
+\end{eqnarray}
+with $\varphi = 0$ and with $B$ calibrated to match the same average hours worked
+
+\item Now we have that the aggregate Frish elasticity $= \infty$
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Employment lotteries: discussion}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Labor markets are obviously not organized through lotteries, but this is more of a technical trick to work anlytically with indivisible labor
+\bit
+\setlength\itemsep{0.5em}
+	\item Indivisible labor $\Rightarrow$ discrete choice problem $\Rightarrow$ F.O.C.s are neither sufficient nor sufficient for characterizing the optimum
+	
+	\item The lottery convexifies the choice set $\Rightarrow$ we can proceed with our F.O.C.s as usual
+\eit
+
+\item Modern approaches instead assume a fixed cost of working and deals with the non-convexity up front (using numerical methods)
+\bit
+\setlength\itemsep{0.5em}
+	\item Rogerson-Wallenius (JET 2009; AER 2013) show that the same discrepancy between micro-level and macro-level elasticities come out from quantitative life-cycle models 
+\eit
+
+\item At a more fundamental level, do we really believe the bulk of fluctuations in hours worked stem from households' labor supply choices? Isn't \emph{involuntary unemployment} the main reason we are concerned with recessions? 
+
+\item Lectures 5-7 present a theory of unemployment that can be readibly integrated into RBC and other business cycle models 
+\eit
+
+\end{frame}
+
+
+\begin{frame}{The income effect}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The income effect on labor supply is, with additively separable preferences, not separable from the elasticity of intermtemporal substiution
+
+\item Household F.O.C.s:
+\begin{eqnarray}
+\hat w_t &=& \hat c_t + \varphi n_t \nonumber \\
+\hat c_t &=& - \beta R^{r} E_t \hat r^{r}_{t+1} + E_t \hat {c}_{t+1} \nonumber 
+\end{eqnarray}
+
+\item If instead assuming CRRA consumption utility $U(C)=\frac{C^{1-\sigma}}{1-\sigma}$:
+\begin{eqnarray}
+\hat w_t &=& \sigma \hat c_t + \varphi n_t \nonumber \\
+\hat c_t &=& - \beta R^{r} \frac{1}{\sigma}E_t \hat r^{r}_{t+1} + E_t \hat {c}_{t+1} \nonumber 
+\end{eqnarray}
+
+\item Higher elasticity of intermtemporal subsitution $\frac{1}{\sigma}$ $\Leftrightarrow$ smaller income effect on labor supply 
+
+\eit
+
+\end{frame}
+
+\begin{frame}{What's the effect of having lower income effects? Introducing GHH preferences}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item To admit separation, Greenwood-Hercowitz-Huffman (1988) proposed the following preference specification
+\begin{eqnarray}
+U(C,N) = U(C-V(N)) \nonumber
+\end{eqnarray}
+
+\item With this specification, we still have $U_c(C, N) = U'(\cdot)$ but $U_n(C, N) = - U'(\cdot)V'(N)$
+
+\item The household's F.O.C. with respect to $N_t$ becomes
+\begin{eqnarray}
+-\beta^t U'(C_t-V(N_t)) V'(N) = W_t \lambda_t \nonumber
+\end{eqnarray}
+and thus
+\begin{eqnarray}
+V'(N) = W_t \nonumber
+\end{eqnarray}
+
+\item With $V(N) = \frac{N^{1+\varphi}}{1+\varphi}$, we get
+\begin{eqnarray}
+\hat w_t = \varphi n_t \nonumber
+\end{eqnarray}
+
+\item Now, the income effect is zero!
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Baseline vs. GHH}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.5, trim = 0 175 0 175, clip]{Figures/rbc_simulation_ghh.pdf}
+\end{figure}
+
+
+\end{frame}
+
+\begin{frame}{Is GHH a reasonable preference specifaction?}
+
+\bit
+\setlength\itemsep{1.5em}
+	\item Cesarini-Lindqvist-Notowidigdo-Östling (AER 2017): labor supply responses to windfall lottery gains very small
+
+	\item But if this is true, how to resolve with (almost) constant labor supply in the long run?
+	
+	\item Possible explanation: income effects are small in the short run, while still large in the long run
+	\bit
+	\setlength\itemsep{0.5em}
+		\item Jaimovich-Rebelo (JPE 2009): with habits in household preferences, you can actually achieve this
+	
+		\item Broer-Harmenberg-Krusell-Öberg (AER:insights 2023): this is what you should expect if households are subject to rigid wage contracts
+	\eit
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Rigid-wage contracts a la Broer-Harmenberg-Krusell-Öberg}
+
+\bit
+\setlength\itemsep{1em}
+	\item ``Rigid'' wages = wage contracts cannot be contingent on the shock, nor can they be renegoiated once a shock happens
+
+	\item Instead of having a competitive market for hours in exchange for fixed per-hour wages, suppose we have a competive market for rigid wage-hour contracts: $W(N)$
+	
+	\item If firms have the ``right to manage'', then conditional on a TFP shock, we get $A_t F'(N_t) = W'(N_t)$
+	\bit
+		\item Firms equate the marginal rate of transformation to the \emph{marginal wage}
+	\eit
+	
+	\item If the asset market is complete, and aggregate shocks are small relative to idiosyncratic shocks, households marginal utility of consumption is constant when writing the contract
+	\bit
+		\item Ex ante, households will agree to the contract if $W'(N_t)=-\frac{V'(N_t)}{U'(C)}$ and $\mathbb E W(N_t)$ (``base pay'') is large enough 
+	
+		\item However, if given the opportunity to rewrite the contract after seeing the shock, households recognize that their consumption has changed, and demand $W'(N_t)=-\frac{V'(N_t)}{U'(C_t)}$.
+	\eit
+	
+	\item $\Rightarrow$ as if GHH within the contract, as if KPR when rewriting the contract 
+	\bit
+		\item Frequency fo recontracting determines how short the short run is
+	\eit
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Summing up}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item Busines cycle accounting (BCA): useful diagnosis tool $\Rightarrow$ we learned that vanilla RBC is associated with large labor and efficiency wedges
+\bit
+\setlength\itemsep{0.5em} 
+	\item It is not reasonable to interpret the entire efficiency wedge as exogenous technological shocks
+
+	\item After cleaing Solow residuals from utilization, amplification problem becomes bigger
+\eit
+
+\item Motivated by BCA, we learned that model fit is improved if making labor supply more elastic and muting income effec
+\bit
+	\item Highly elastic labor supply a natural implication of indivisble labor
+	
+	\item Small short-run income effects is a natural implication of rigid wage contracts
+\eit
+
+\item The lessons from lecture II will serve as benchmarks when we introduce models of frictional labor markets
+
+\item But first: something about investment
+
+
+\eit
+
+\end{frame}
+
+
+
+
+
+
+
+%
+%
+%\begin{frame}{Incorpating adjustment costs in the RBC model}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Households solve
+%\begin{eqnarray}
+%\max_{\{C_t, N_t, I_{t}, K_{t+a}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[\log (C_t)- \theta \frac{N_t^{1+\varphi}}{1+\varphi} \right]\nonumber \\
+%\text{s.t} && C_t + I_t \leq W_t N_t + R_t K_t \nonumber \\
+%&& K_{t+1} \leq (1-\delta)K_t + I_t - \Phi\left(\frac{I_t}{K_t}\right)K_t \nonumber \\
+%&& C_t, I_t, N_t \geq 0 \nonumber 
+%\end{eqnarray}
+%
+%\item A concrete example that satisfies our conditions is
+%\begin{eqnarray}
+%\Phi\left(\frac{I_t}{K_t}\right) = \frac{\phi}{2}\left(\frac{I_t}{K_t}-\delta\right)^2 \nonumber
+%\end{eqnarray}
+%
+%\item Notice: adjustment cost is paid with capital goods, not consumption goods
+%
+%\item Nothing conceptually new with this problem, just one more term to handle in our F.O.C.s
+%
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{Household problem: the F.O.C.'s}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item Lagrangian to the household problem:
+%\begin{eqnarray}
+%\mathbf{L} = E_0 \Bigg(&& \sum_{t=0}^{\infty} \beta^t \left[\log (C_t)- \theta \frac{N_t^{1+\varphi}}{1+\varphi} \right] \nonumber \\
+% &-& \sum_{t=0}^{\infty} \lambda_t \left[ C_t + I_{t} - W_t N_t - R_tK_t \right] \nonumber \\
+% &-& \sum_{t=0}^{\infty} \mu_t \left[ K_{t+1} - (1-\delta)K_t-I_t+ \Phi\left(\frac{I_t}{K_t}\right)K_t \right]\Bigg) \nonumber
+%\end{eqnarray}
+%where I \bf have not \normalfont substituted the capital accumulation equation into the budget
+%
+%\item First order conditions
+%\begin{eqnarray}
+%&& \beta^t \frac{1}{C_t}- \lambda_t = 0 \nonumber \\
+%&& -\beta^t \theta N_t^{\varphi} + \lambda_tW_t = 0 \nonumber \\
+%&& -\lambda_t + \mu_t\left(1-\Phi'\left(\frac{I_t}{K_t}\right)\right)=0 \nonumber \\
+%&& -\mu_t   + E_t\left[\lambda_{t+1} R_{t+1}+\mu_{t+1}\left((1-\delta) + \Phi'\left(\frac{I_{t+1}}{K_{t+1}}\right) \frac{I_{t+1}}{K_{t+1}} - \Phi\left(\frac{I_{t+1}}{K_{t+1}}\right) \right)  \right] = 0 \nonumber
+%\end{eqnarray}
+%
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{Household solution characterized}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item Putting things together, the solution is characterized by
+%\begin{eqnarray}
+%\frac{1}{C_t}W_t &=& \theta N_t^{\varphi} \nonumber \\
+%q_t &=& \beta E_t\frac{C_t}{C_{t+1}} \left[ R_{t+1}+\left((1-\delta) + \Phi'\left(\frac{I_{t+1}}{K_{t+1}}\right) \frac{I_{t+1}}{K_{t+1}} - \Phi\left(\frac{I_{t+1}}{K_{t+1}}\right)  \right)  q_{t+1} \right] \nonumber \\
+%q_t &=& \frac{1}{1-\Phi'\left(\frac{I_t}{K_t}\right) } \nonumber
+%\end{eqnarray}
+%where $q_t = \frac{\mu_t}{\lambda_t}$
+%
+%\item $q_t$ is called {\bc Hayashi's q}. What is the interpretation of this variable?
+%
+%\item What does the first and second equation tell us about the behavior of investment and asset prices?
+%
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{Equilibrium characterization}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item Using the suggested functional form, the equilibrium is characterized by
+%\begin{eqnarray}
+%\frac{1}{C_t}W_t &=& \theta N_t^{\varphi} \nonumber \\
+%q_t &=& \beta E_t\frac{C_t}{C_{t+1}} \left[ R_{t+1}+\left((1-\delta) + \Phi'\left(\frac{I_{t+1}}{K_{t+1}}\right) \frac{I_{t+1}}{K_{t+1}} - \Phi\left(\frac{I_{t+1}}{K_{t+1}}\right)  \right)  q_{t+1} \right] \nonumber \\
+%q_t &=& \frac{1}{1-\phi\left(\frac{I_t}{K_t}-\delta\right) } \nonumber \\
+%C_t + I_t &=& Y_t \nonumber \\
+%Y_t &=& A_t K_t^{\alpha}N_t^{1-\alpha} \nonumber \\
+%K_{t+1} &=& (1-\delta) K_t + I_t - \Phi\left(\frac{I_t}{K_t}\right)K_t \nonumber \\
+%R_t &=& \alpha A_t \left(\frac{K_t}{N_t}\right)^{\alpha-1} \nonumber \\
+%W_t &=& (1-\alpha) A_t \left(\frac{K_t}{N_t}\right)^{\alpha} \nonumber
+%\end{eqnarray}
+%
+%\item One more equation, and more unknown: $q_t$
+%
+%\item Just to log-linearize and compute IRFs
+%
+%\eit
+%
+%\end{frame}
+%
+%
+%\begin{frame}{IRFs when varying $\phi$}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_adjcost.pdf}
+%\end{figure}
+%
+%\end{frame}
+%
+%
+%\begin{frame}{Investment adjustment cost: discussion}
+%
+%\bit
+%\setlength\itemsep{1em}
+%
+%\item ff
+%
+%\eit
+%
+%\end{frame}
+
+
+
+\end{document}
+
+\begin{frame}{RBC: what have we not covered?}
+
+\bit
+\setlength\itemsep{1.5em}
+\item Analysis of investment and financial frictions
+\bit
+\setlength\itemsep{0.5em}
+\item Very large literature
+
+\item I have lecture notes on this, let me know if you are interested
+\eit
+
+\item Other shocks
+\bit
+\setlength\itemsep{0.5em}
+\item Investment-specific shocks: see, e.g., Greenwood-Hersowitz-Krusell (EER 2000)
+
+\item Uncertainty shocks: see, e.g., Bloom (Ecmtra 2007)
+
+\item News shocks: see, e.g., Beaudry-Portier (AER 2006; Koslyk 2023)
+\eit
+
+\item International business cycle models
+\bit
+\setlength\itemsep{0.5em}
+\item see, e.g., Backus-Kehoe-Kydland (JPE 1992); Baxter (HBintecon 1995); Schmitt-Grohe-Uribe (Book 2017)
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{center}
+\huge Extension 2: Capacity Utilization \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Capacity utilization}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item We argued that volatility of our TFP shock process should be lowered due to variation in capacity utilization
+\bit
+\item As a consequence, the model has a bigger problem matching output fluctuations
+\eit
+
+\item Solution: put capacity utilization into the model!
+
+\item Reminder: this will affect the level of output holding production factors constant $\Rightarrow$ speaks directly to the effiency wedge
+\bit
+\item But will also have implications for other variables
+\eit
+
+\item In our basic RBC model, the capital stock is predetermined, but labor can be freely adjusted
+\bit
+\setlength\itemsep{0.5em}
+\item Put differently, capital is a {\bc state variable}, and labor is a {\bc jump variable}
+\eit
+
+\item We will therefore focus on adjustment of capital utilization
+\bit
+\item For an alternative model specification with {\bc labor hoarding}, see Burnside-Eichenbaum (AER 1996)
+\eit
+
+\item How to model utilization?
+\bit
+\setlength\itemsep{0.5em}
+\item Should be choice subject to some cost function
+
+\item The fact that firms do not always operate at full capacity indicates that marginal cost is increasing in utilization
+\eit
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Capacity utilization: model}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item In our setup, households own and rent out the capital stock
+
+\item We could just as well assume that firms own the capital stock, but let's stick with the current setup
+
+\item Following King-Rebelo (HB Macro, 1999), we assume
+\ben
+\setlength\itemsep{0.5em}
+
+\item Households choose utilization level $U_t\in [0,\infty]$, renting out capital services $K^*_t = U_t K_t$
+
+\item Cost of increasing $U_t$ is that depreciation increases:
+\begin{eqnarray}
+\delta = \delta (U_t) \nonumber
+\end{eqnarray}
+where $\delta (\cdot)$ is increasing and convex
+
+\item To make things concrete, we assume a quadratic function
+\begin{eqnarray}
+\delta (U_t) = \delta_0 + \eta_1 (U_t-1) + \frac{\eta_2}{2}(U_t-1)^2 \nonumber
+\end{eqnarray}
+Note: at $U_t=1$, the model looks the same as before
+\een
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Household problem}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Households solve
+\begin{eqnarray}
+\max_{\{C_t, N_t, I_{t}, U_t\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[\log (C_t)- \theta \frac{N_t^{1+\varphi}}{1+\varphi} \right]\nonumber \\
+\text{s.t} && C_t + I_t \leq W_t N_t + R^{r}_t K^*_t \nonumber \\
+&& K^*_t = U_t K_t \nonumber \\
+&& K_{t+1} = (1-\delta(U_t))K_t + I_t  \nonumber \\
+&& \delta (U_t) = \delta_0 + \eta_1 (U_t-1) + \frac{\eta_2}{2}(U_t-1)^2 \nonumber \\
+&& C_t, I_t, N_t, U_t \geq 0 \nonumber 
+\end{eqnarray}
+
+\item Nothing conceptually new, just need to take one more F.O.C.
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Household problem, F.O.C.}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item After some substitutions,
+\begin{eqnarray}
+&& E_O \sum_{t=0}^{\infty} \beta^t \left[\log (C_t)- \theta \frac{N_t^{1+\varphi}}{1+\varphi} \right]\nonumber \\
+\text{s.t} && C_t + K_{t+1} \leq W_t N_t + \left(R^{r}_t  U_t + (1-\delta (U_t) )  \right)  K_t  \nonumber 
+\end{eqnarray}
+
+\item Our two known friends from before (one in slightly new outfit)
+\begin{eqnarray}
+\frac{1}{C_t}W_t &=& \theta N_t^{\varphi} \nonumber \\
+\frac{1}{C_t}&=& \beta E_t\left[(U_{t+1}R^{r}_{t+1}+(1-\delta(U_{t+1}))) \frac{1}{C_{t+1}}\right] \nonumber 
+\end{eqnarray}
+
+\item The new F.O.C. 
+\begin{eqnarray}
+R^r_t &=& \delta'(U_t) \nonumber \\
+&=& \eta_1 + \eta_2 (U_t-1) \nonumber
+\end{eqnarray}
+
+\item When the rental rate is higher, the household is willing to increase utilization paying the higher marginal depreciation rate
+\bit
+\item With procyclical marginal productivity of capital, utilization is procyclical
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Utilization and the efficiency wedge}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item All other parts of the model are identical, except that firm production is now $F(N_t, K^*_t)$, instead of $F(N_t, K_t)$
+
+\item With Cobb-Douglas, firm production is thus
+\begin{eqnarray}
+Y_t &=& A_t (K^*_t)^{\alpha}N_t^{1-\alpha} \nonumber \\
+&=& A_t (U_t K_t)^{\alpha}N_t^{1-\alpha} \nonumber \\
+&=& A_t U_t^{\alpha} K_t^{\alpha}N_t^{1-\alpha} \nonumber
+\end{eqnarray}
+
+\item $\Rightarrow$ Fluctuations in $U_t$ shows up as fluctuations in the efficiency wedge
+\eit
+
+\end{frame}
+
+\begin{frame}{Calibration}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item We can make a calibration that normalize steady-state utilization to $1$: $U=1$
+\bit
+\setlength\itemsep{0.5em}
+\item Determines $\delta_0$, as $\delta(1)=\delta_0$
+
+\item set $\delta_0$ to the same value as before, $10$ \% yearly
+\eit
+
+\item Utilization F.O.C. in steady state implies
+\begin{eqnarray}
+R^{r} &=& \eta_1 \nonumber
+\end{eqnarray}
+which pins down $\eta_1$, given that we target $R^{r}$
+
+\item Nothing in the steady state informs us about $\eta_2$, calibration of this parameter needs to be dynamic
+
+\item $\eta_2 \to \infty$ $\Rightarrow$ model is {\bc isomorphic} to vanilla RBC
+
+\item Can target moments of, e.g., volatility in utilization rates
+
+\item Below, I just show IRFs using som different values for $\eta_2$
+
+\eit
+
+\end{frame}
+
+\begin{frame}{IRFs when varying $\eta_2$}
+
+\begin{figure}
+\centering
+\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_utilization.pdf}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Comments}
+
+\bit
+\setlength\itemsep{1.5em} 
+
+\item More variation in capacity utilization $\Rightarrow$ more amplification
+
+\item Also, smaller fluctuations in real rental rate - why?
+\bit
+\item Recall, one problem of RBC: too large fluctuations in rental/real interest rate
+\eit
+\eit
+
+\end{frame}
+
+
+
+
+Common intuition: investment is gradual, and a decreasing finite function of $R_t$
+\bit
+\item If making investment less elastic, we will presumably also increase the interal persistence of the RBC model
+\eit
+
+\item Whatever model of capital formation, Tobin (JMCB 1969) suggested an intuitive rule for firm investment behavior: If $Q$ is higher, invest more  
+\begin{eqnarray}
+Q &=& \frac{\text{Market value of firm capital}}{\text{Replacement cost of capital}} \nonumber 
+\end{eqnarray}
+
+\item Tobin formulated his rule as an {\bc average Q}, but optimizing firms should think in terms of the {\bc marginal Q}  
+
+\item This idea has guided a large empircal literature on firm investment
+
+\item In the neoclassical theory of investment, Marginal $Q=1$ always:
+\begin{eqnarray}
+\text{Marginal value of firm capital} &=& \lambda_{t+1}(R_{t+1} + (1-\delta))  \nonumber \\
+\text{Replacement cost} &=& \lambda_{t}  \nonumber
+\end{eqnarray}
+where $\lambda_{t}$ is the {\bc Shadow value of consumption}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

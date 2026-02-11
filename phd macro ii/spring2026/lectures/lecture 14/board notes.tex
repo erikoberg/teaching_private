@@ -1,0 +1,150 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+
+\title{Notes}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Aug 2022 Q3: How are two steady states possible?}
+In standard DMP, the wage curve is 
+\begin{eqnarray}
+w=(1-\gamma)b + \gamma(y+c\theta) \nonumber
+\end{eqnarray}
+With additive labor taxes, we will have
+\begin{eqnarray}
+w-\tau=(1-\gamma)b + \gamma(y-\tau+c\theta) \nonumber
+\end{eqnarray}
+or
+\begin{eqnarray}
+w=(1-\gamma)(b-\tau) + \gamma(y+c\theta) \nonumber
+\end{eqnarray}
+$\frac{dw}{d\tau}<0$ as taxes decrease match surplus
+
+To get a wage curve in $w, \theta$-space, use
+\bit
+\item Balanced budget: $\tau = \tau (u)$ with $\tau'>0$
+\item Steady state u + Beverigde: $u = u(\theta)$
+\eit
+
+Then compute the sign of $w, w', w''$ to find that $w(\theta)$ is increasing and convex, and also $\lim_{\theta \rightarrow 0} w(\theta) =\infty $ and $\lim_{\theta \rightarrow \infty} w(\theta) =\infty $.
+
+Intuition: $\theta \rightarrow 0$, then $u \to 1$, then $\tau \to \infty$
+
+Draw curve $\Rightarrow$ either 0, or two steady states 
+
+
+
+\section*{March 2022 Q2: How to use guess-and-verify?}
+With stochastic wage growth, the Bellman equation for employed is
+\begin{eqnarray}
+rW(w) = w + \sigma (U - W(w)) + \lambda_w \int_{\mathcal{E}} (W(w(1+\epsilon))-W(w)) dG(\epsilon)
+\end{eqnarray}
+Guessing $W(w) = kw + m$, we have
+\begin{eqnarray}
+(r+\sigma + \lambda_w)(kw+m) = w + \sigma U + \lambda_w \int_{\mathcal{E}} (kw(1+\epsilon)+m) dG(\epsilon)
+\end{eqnarray}	
+or
+\begin{eqnarray}
+(r+\sigma + \lambda_w)(kw+m) = w + \sigma U + \lambda_w k w \left(1+ \int_{\mathcal{E}} \epsilon dG(\epsilon)\right) + \lambda_w m
+\end{eqnarray}	
+or
+\begin{eqnarray}
+(r+\sigma + \lambda_w)(kw+m) = w + \sigma U + \lambda_w k w \left(1+ \bar e\right) + \lambda_w m
+\end{eqnarray}	
+or
+	\begin{eqnarray}
+(r+\sigma-\lambda_w \bar \epsilon)kw + (r+\sigma)m = w + \sigma U 
+\end{eqnarray}	
+and we see that $k = \frac{1}{r+\sigma-\lambda_w \bar \epsilon}$ and $m = \frac{\sigma U}{r+\sigma} $ (``method of undetermined coefficients'')
+
+
+\section*{March 2022 Q1: How to solve and sketch IRFs?}
+Here, we guess that $C_t = \alpha + \delta K_t + \gamma \epsilon_t$.
+
+Solution strategy: resource constraint will imply one equation relating $K_{t+1}$ to $K_{t}$ and $\epsilon_t$, Euler equation another.
+
+Resource constraint:
+\begin{eqnarray}
+C_t + K_{t+1} = K_t + \epsilon_t + K_t\nonumber 
+\end{eqnarray}
+With our guess
+	\begin{eqnarray}
+&& \alpha +\delta K_t + \gamma \epsilon_t + K_{t+1} = 2K_t + \epsilon_t \nonumber \\
+\Rightarrow && K_{t+1} = -\alpha + (2-\delta)K_t + (1-\gamma)\epsilon_t  \nonumber
+\end{eqnarray}
+Similar analysis of the Euler equation gives us
+	\begin{eqnarray}
+\Rightarrow && K_{t+1} = \frac{(2\beta-1)(1+2\theta \alpha)}{4\beta \theta \delta}  + \frac{1}{2\beta}K_t + \frac{\gamma(1-2\beta\rho)}{2\beta \delta} \epsilon_t \nonumber
+\end{eqnarray}
+
+For both equations to hold, the coefficients must be the same, which implies that the the parameters $\alpha, \delta, \gamma$ can only take certain values (just as in the previous question)
+
+Once you have solved for these parameters, you have found the full solution! One linear function relating $K_{t+1}$ to $K_{t}$ and $\epsilon_t$, another linear function relating $C_{t}$ to $K_{t}$ and $\epsilon_t$. 
+
+Without log-linearizing (the are already linear!), you can directly draw to path of $K_t$ and $C_t$ using these equations. 
+
+It's just a matter of investigating which coefficients are positive, and which are negative.
+	
+\section*{March 2022 Q4: How to solve for changes in aggregate welfare? }
+In previous questions, you should have found that $c_{i1}=c_1$ for all i, and $c_{i2}=c^g_w$ for all households that experience shock $1+\epsilon$
+
+Therefore
+\begin{eqnarray}
+W &=&  \int_{i=0}^1 \log(c_{i1})+\beta \log(c_{i2}) di \nonumber \\
+&=&  \log(c_{1})+\beta\left(\frac{1}{2}\log(c^g_{2})+\frac{1}{2}\log(c^b_{2})\right) \nonumber
+\end{eqnarray}
+
+We have that
+	\begin{eqnarray}
+\frac{\partial W}{\partial K} = \frac{1}{c_{1}}\frac{\partial c_{i1}}{\partial K} + \beta \frac{1}{2} \left[\frac{1}{c^g_{2}}\frac{\partial c^g_{2}}{\partial K} + \frac{1}{c^b_{2}}\frac{\partial c^b_{2}}{\partial K}\right] \nonumber
+\end{eqnarray}	
+Solving this question boils down to solving for $c_1, c^g_{2}, c^b_{2}, \frac{\partial c_{i1}}{\partial K}, \frac{\partial c^g_{2}}{\partial K}, \frac{\partial c^b_{2}}{\partial K}$ at the equilibrium allocation.
+
+For this, you use the equations that must be satisfied in equilibrium. STOP
+
+Euler equation tells you how $c_1$ relate to $c^g_{2}, c^b_{2}$
+
+Budget constraints tell you $\frac{\partial c_{i1}}{\partial K}, \frac{\partial c^g_{2}}{\partial K}, \frac{\partial c^b_{2}}{\partial K}$ given $\frac{\partial r}{\partial K}$, $\frac{\partial w}{\partial K}$
+
+Firm optimality tells you $\frac{\partial r}{\partial K}$, $\frac{\partial w}{\partial K}$
+
+
+\section*{March 2022 Q4: How to solve for the Hosios condition?}
+Private flow cost of opening a vacancy is $-c$.
+
+Private gain: $\lambda_v(\theta)*J=\lambda_v(\theta)(1-\gamma)S$
+
+Social cost: $-c$
+
+Social gain: $\frac{\partial M}{\partial v}S$
+
+	
+\end{document}

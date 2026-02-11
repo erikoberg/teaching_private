@@ -1,0 +1,1392 @@
+\documentclass[9pt]{beamer}
+\usetheme{Boadilla}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+	\leavevmode%
+	\hbox{%
+		\begin{beamercolorbox}[wd=.4\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+			\usebeamerfont{author in head/foot}\insertshortauthor
+		\end{beamercolorbox}%
+		\begin{beamercolorbox}[wd=.6\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+			\usebeamerfont{title in head/foot}\insertshorttitle\hspace*{3em}
+			\insertframenumber{} / \inserttotalframenumber\hspace*{1ex}
+	\end{beamercolorbox}}%
+	\vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+
+\usepackage{lipsum}
+\usepackage{appendixnumberbeamer}
+
+\usepackage[authoryear]{natbib}
+\usepackage[latin1]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{caption}
+\usepackage{amsmath, amssymb}
+\usepackage{epstopdf}
+\usepackage{graphicx}
+\usepackage{lmodern}
+\usepackage{xcolor}
+\usepackage{xpatch}
+\usepackage{multirow}
+
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage{dsfont}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\usepackage{subcaption}
+\setbeamertemplate{caption}{\raggedright\insertcaption\par}
+%\setbeamertemplate{footline}[frame number]
+\usepackage{csquotes}
+\usepackage{bm}
+\bibliographystyle{econometrica}
+\usepackage[normalem]{ulem}
+
+\usepackage{setspace}
+
+
+\definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+
+\newcommand{\bc}{\color{blue}}
+\newcommand{\rc}{\color{red}}
+
+
+\newcommand{\lb}{\label}
+\newcommand{\re}{\eqref}
+
+\title[Incomplete Markets in General Equilibrium]{Macroeconomics II, Lecture XIII:\\
+	Incomplete Markets in General Equilibrium}
+\author{Erik {\"O}berg}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{frame}{Recap}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Recap:
+\ben
+\setlength\itemsep{1em}
+\item With incomplete markets, ex-ante homogeneous households will be \bf ex-post heterogeneous \normalfont in terms of $\{c,a,y\}$ $\Rightarrow$ no aggregation into representative agent
+
+\item With incomplete markets, consumption dynamics influenced by a \bf precautionary savings \normalfont motive
+
+%\item With incomplete markets, \bf R has to be lower \normalfont for assets not to diverge
+\een
+
+\item Today: we will study the interplay between incomplete markets and the aggregate economy
+\bit
+	\item That is, we will set up a general-equilibrium model
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Why general equilibrium? A reminder.}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item PE enables us to explore how households consumption-saving decisions respond to income, risk, price changes, credit availability etc...
+
+\item But, since prices and income processes are endogenous objects, PE does not permit exploring how economy-wide objects respond to fiscal policy, technical change, labor market shocks etc.
+
+\item Economy-wide objects: the distribution of income and wealth, aggregate savings, aggregate demand, the equity premium etc.
+
+\item First-generation GE models focused on steady state: Bewley (1986), Imrohoro\v{g}lu (JPE 1989), Huggett (JEDC 1993) and Aiyagari (QJE 1994)
+
+\item Second generation added aggregate shocks: Krusell-Smith (JPE 1998)
+
+\item Currently, research using business-cycle models with heterogeneous agents grows exponentially
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Agenda}
+
+\ben
+\setlength\itemsep{2em}
+
+\item The static Aiyagari model
+\ben
+	\item Model setup and definition of stationary recursive equilibrium
+	\item The Aiyagari diagram
+\een
+
+\item Applications
+\ben
+	\item Can the model explain US wealth inequality?
+%	\item Is the equilibrium allocation (constrained) efficient?
+	\item Efficiency and Fiscal policy
+\een
+
+%\item Adding aggregate dynamics (briefly)
+%\ben
+%	\item Deterministic transition dynamics with unexpected schocks
+%\een
+
+%\item A dynamic application: HANK
+
+\een
+
+\end{frame}
+
+
+\begin{frame}
+
+\begin{center}
+	\huge The Aiyagari model \normalfont
+\end{center}
+
+\end{frame}
+
+
+\begin{frame}{Overview}
+
+\bit
+	\setlength\itemsep{2em}
+	\item The Aiyagari model $=$ Neoclassical growth model with continuum of households that face uninsurable idiosyncratic income risk 
+	
+	\item Three ingredients
+
+\ben
+\setlength\itemsep{1.5em}
+
+\item Households that solves an income-fluctuations problem
+\bit
+	\item Determines supply of labor and assets, demand for consumption
+\eit
+
+\item Competitive firms that maxmize production using a production function
+\bit
+	\item Determines demand for labor and assets, supply of consumption
+\eit
+
+\item Market clearing conditions
+\bit
+	\setlength\itemsep{0.5em}
+	\item Goods demand $=$ Goods supply
+	\item Labor demand $=$ Labor supply
+	\item Asset demand $=$ Asset supply
+\eit
+
+\een
+\eit
+
+
+\end{frame}
+
+
+\begin{frame}{Household prefences}
+
+\bit
+\setlength\itemsep{2em}
+
+\item A unit mass of households, indexed by $i$, who solve an income-fluctations problem
+
+\item Preferences: households seek to maximize the objective
+\begin{eqnarray}
+E_0 \sum_{t=0}^{\infty} \beta^t U(C_{it}) \nonumber
+\end{eqnarray} 
+
+\item $U(C)$ satisifies the usual regularity conditions
+
+\item Labor supply is exogenous, no disutility from labor
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Household income}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Household income: $\epsilon_{it} W_t$
+
+\item Household effective labor supply $\epsilon$ varies stochastically
+
+\item $\epsilon$ has finite support $\epsilon \in \mathcal E= \{\epsilon_0, \epsilon_1, ..., \epsilon_N\}$ and follows a \bf Markov process \normalfont with transititions governed by
+\begin{eqnarray}
+\pi(\epsilon', \epsilon) = Pr(\epsilon_{t+1}= \epsilon' | \epsilon_{t} = \epsilon) \nonumber
+\end{eqnarray}
+
+\item The transition probabilities are the same for all households
+
+\item This formulation of the income process allows for an arbitrary level of persistence (in contrast to transitory-permanent income process consider in last lecture)
+\bit
+	\item See Tauchen (EL 1986) and Tauchen-Hussey (Ecmtra 1991) for how to map any continuous AR process into a discrete-space Markov process
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Markov processes I}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Let $\mathcal E = \{0, 1\}$ (unemployed and employed)
+
+\item Collect transition probabilities in matrix $T$:
+\begin{eqnarray}
+T = \left( \begin{array}{cc}
+\pi(0,0) & \pi(0,1) \\
+\pi(1,0) & \pi(1,1)
+\end{array}\right) \nonumber
+\end{eqnarray}
+
+\item Suppose $t$ is a quarter. What is the interpretation of $\pi(1,0)$? $\pi(0,1)$?
+
+\item Let $\pi_{it}(\epsilon)$ be the probability distribution over an individual household $i$'s state in period $t$
+\bit
+	\item If we know the household i is unemployed in period $t$, then $ \pi_{it}(\epsilon) = \left( \begin{array}{c}
+	1 \\
+	0
+	\end{array}\right)$
+\eit
+
+\item $\pi_{it+s}(\epsilon)$ is given by
+\begin{eqnarray}
+\pi_{it+s}(\epsilon) = T^s \pi_{it}(\epsilon)\nonumber
+\end{eqnarray}
+\bit
+	\item If we know the household is unemployed in period $t$, then 
+\begin{eqnarray}
+\bm \pi_{it+1}(\epsilon) = T \left( \begin{array}{c}
+1 \\
+0
+\end{array}\right) = \left( \begin{array}{c}
+\pi(0,0) \\
+\pi(1,0)
+\end{array}\right) \nonumber
+\end{eqnarray}
+	
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Markov processes II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Let $\Pi_{t}(\epsilon)$ be the distribution of all households across states $\epsilon$ in period $t$. $\Pi_{t+s}(\epsilon)$ is similarly given by
+\begin{eqnarray}
+\Pi_{t+s}(\epsilon) = T^s \Pi_{t}(\epsilon)\nonumber
+\end{eqnarray}
+
+\item Stationary distribution $\Pi^*(\epsilon)$ satisfies
+\begin{eqnarray}
+\Pi^{*}(\epsilon) = T \Pi^{*}(\epsilon) \nonumber
+\end{eqnarray}
+%$\Rightarrow$ $\Pi^{*}(\epsilon)$ is the eigenvector of $T$ associated with eigenvalue $1$
+
+\item If $T$ is {\bc regular} (all entries of $T^n$ for some $n>0$ is positive), $\Pi^{*}(\epsilon)$ is given by
+\begin{eqnarray}
+\Pi^{*}(\epsilon) = \lim_{s \rightarrow \infty} T^s \Pi_{t}(\epsilon)\nonumber
+\end{eqnarray}
+for any starting distribution $\Pi_{0}$.
+
+
+\item Implication: there is a unique steady state value of aggregate labor supply, given by
+\begin{eqnarray}
+L = \sum_{\epsilon \in \mathcal E} \epsilon \Pi^{*}(\epsilon) \nonumber
+\end{eqnarray}
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Household constraints}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Households face budget constraint:
+\begin{eqnarray}
+C_{it} + A_{it+1} \leq \epsilon_{it} W_t + R_tA_{it} \nonumber
+\end{eqnarray}
+\item and credit constraint
+\begin{eqnarray}
+A_{it+1} \geq -\bar A \nonumber
+%\geq - \sum_{t=0}^{\infty} \left[\prod_{s=0}^{t} \frac{1}{(1+r_t)} \right] \epsilon_0\nonumber
+\end{eqnarray}
+%\item where the parametric restriction in the second inequality ensures that all borrowing is risk-free (see problem set)
+
+\item Notes:
+\bit
+\setlength\itemsep{0.5em}
+\item The savings instrument in this economy is capital, just as in lecture I-II
+
+\item To make the determination of the real interest rate transparent, we assume here that depreciation happens at the firm 
+
+\item $R_t$ is the real gross rate of return on savings in period $t$
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Firms}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item The representive firm rents labor and capital to produce consumption goods $Y$ using a Cobb-Douglas production function:
+\begin{eqnarray}
+Y_t = ZF(K_t, L_t) = ZK_t^{\alpha}L_t^{1-\alpha} \nonumber
+\end{eqnarray}
+
+\item Firm's problem
+\begin{eqnarray}
+&& \max_{K_t, L_t} ZF(K_t, L_t)+(1-\delta)K_t - W_t L_t - R_t K_t \nonumber \\
+=&& \max_{K_t, L_t} ZF(K_t, L_t) - W_t L_t - (R_t - (1-\delta)) K_t \nonumber \\
+=&& \max_{K_t, L_t} ZF(K_t, L_t) - W_t L_t - (r_t + \delta) K_t \nonumber
+\end{eqnarray}
+where $r_t = R_t-1$
+
+\item In the optimum:
+\begin{eqnarray}
+r_t +\delta &=&  F_K(K, L) = \alpha \left(\frac{K_t}{L_t}\right)^{\alpha-1} \nonumber \\
+W_t &=& F_L(K, L) = (1-\alpha) \left(\frac{K_t}{L_t}\right)^{\alpha} \nonumber
+\end{eqnarray}
+
+%\item Resource constraint:
+%\begin{eqnarray}
+%Y_t = C_t + K_{t+1} - (1-\delta)K_t \nonumber
+%\end{eqnarray}
+\eit
+
+\end{frame}
+
+\begin{frame}{Market clearing}
+
+\bit
+\setlength\itemsep{2em}
+
+\item The goods market clears when
+\begin{eqnarray}
+\int_{i=0}^{1}C_{it} di + K_{t+1}-(1-\delta)K_t = Y_t \nonumber
+\end{eqnarray}
+
+\item The asset market clears when
+\begin{eqnarray}
+K_t = \int_{i} A_{it} di \nonumber
+\end{eqnarray}
+
+\item The labor market clears when
+\begin{eqnarray}
+L_t = \sum_{\epsilon \in \mathcal E} \epsilon \Pi_t(\epsilon) \nonumber
+\end{eqnarray}
+
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Rational expectations with heterogenous households}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Note: $R_{t+1}$ and $W_{t+1}$, depends on aggregate savings $A_{it+1}$, which, via household decision functions, in turn depends on the joint distribution of $A_{it}, \epsilon_{it}$ 
+
+\item Denote the PDF of this distribution with $\gamma(A_{it}, \epsilon_{it})$
+
+\item To form rational expectations of $R_{t+1}, W_{t+1}$, {\bc households need to know $\gamma(A_{it}, \epsilon_{it})$} 
+
+\item \bf $\Rightarrow$ $\gamma$ is, in general, a state variable in the household problem \normalfont
+\bit
+\setlength\itemsep{0.5em}
+	\item $\gamma$ is a function, an infinite-dimensional object
+	\item Appears bothersome, recall ``curse of dimensionality''
+\eit
+
+\item In a stationary equilibrium, however, $\gamma$ is constant and $R_{t}=R$ and $W_{t}=W$ for all $t$
+
+\item \bf $\Rightarrow$ $\gamma$ is not a state variable assuming that we start and remain in steady state forever \normalfont
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Stationary recursive household problem}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Defining, computing and illustrating the equilibrium is easier with a recursive setup
+
+\item In a stationary environment, the recursive household problem is
+\begin{eqnarray}
+V(A,\epsilon) = &\max_{C, A'}& u(C) + \beta \sum_{\epsilon' \in \mathcal E} \pi(\epsilon', \epsilon) V(A',\epsilon') \nonumber \\
+&\text{s.t.} & C + A' =  W\epsilon + (1+r)A  \nonumber \\
+&&	A'\geq -\bar A  \nonumber
+\end{eqnarray}
+
+\item $r, W$ constant $\Rightarrow$ solution functions $V(A,\epsilon), C(A,\epsilon), A'(A,\epsilon)$ are time-invariant
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Stationary distribution}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A stationary equilibrium features a constant distribution $\gamma(A, \epsilon)$ with support $\bm{\mathcal A} \times \bm{\mathcal E}$
+
+\item Define the transition function $Q((A',\epsilon'), (A, \epsilon))$, Q is given by
+\begin{eqnarray}
+Q((A',\epsilon'), (A, \epsilon)) =  I_{A'=A'(A,\epsilon)} \pi(\epsilon', \epsilon) \nonumber
+\end{eqnarray}
+
+\item Importantly, {\bc $Q$ is generated by the household policy functions}
+
+\item $\gamma'$ is then given by
+\begin{eqnarray}
+\gamma'(A', \epsilon') = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} Q((A',\epsilon'), (A, \epsilon)) d\gamma \nonumber
+\end{eqnarray}
+where {\bc $d\gamma = \gamma(A, \epsilon) dA d\epsilon$}
+
+\item A stationary distribution $\gamma^*$ maps itself onto itself:
+\begin{eqnarray}
+\gamma^* = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} Q((A',\epsilon'), (A, \epsilon)) d\gamma^* \nonumber
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Stationary Recursive Competitive Equilibrium}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item A SRCE is a value function $V(A, \epsilon)$, policy functions $C(A, \epsilon), A'(A, \epsilon)$, a distribution $\gamma(A,\epsilon)$, aggregate capital and labor demand $K, L$, and prices $W,R$, s.t.
+
+\ben
+\setlength\itemsep{1.5em}
+
+\item Given $W,R$: the value function $V(A, \epsilon)$ and policy functions $C(A, \epsilon), A'(A, \epsilon)$ solves the household Bellman equation
+
+\item Given $W,R$: $K, L$ solves the firm problem
+
+\item The market for capital and labor clear:
+\begin{eqnarray}
+K &=& \int_{\bm{\mathcal A} \times \bm{\mathcal E}} A d\gamma \nonumber \\
+L &=& \int_{\bm{\mathcal A} \times \bm{\mathcal E}} \epsilon d\gamma \color{red} = \sum_{\epsilon \in E} \epsilon \Pi^{*}(\epsilon) \nonumber
+\end{eqnarray}
+
+\item $\gamma(\cdot)$ satisfies
+\begin{eqnarray}
+\gamma(A', \epsilon) = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} Q((A',\epsilon'), (A, \epsilon)) d\gamma \nonumber
+\end{eqnarray}
+where $Q$ is defined in the previous slide
+\een
+\eit
+
+\end{frame}
+
+\begin{frame}{Does an SCRE exist?}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Firm and household problem are well-defined: solutions exist and policy functions are continuous in $R$ and $W$
+
+\item Labor supply is constant: Solving for $W$ that clears the labor market is done by invoking firm optimality given a market clearing level of capital
+
+\item The question boils down to: does there exist an $R$ s.t. the asset market clears?
+
+\item Restated: does asset demand and asset supply curves cross at least once?
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Does an SCRE exist?}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item To show existence, we will draw the \bf Aiyagari diagram \normalfont in $r,K$-space {\rc (Do on whiteboard)} 
+\bit
+	\item $r = R -1$
+\eit
+
+\item Capital demand $K(r)$ is given by firm F.O.C.: $\alpha \left(\frac{K(r)}{L}\right)^{\alpha-1} = r+\delta $
+\ben
+\setlength\itemsep{0.5em}
+	\item decreasing
+	\item $r \to -\delta: K(r) \to \infty$
+	\item $r \to \infty: K(r) \to  0$
+\een
+
+\item Capital supply $A(r)$ is given by household savings: $A(r) = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} A'(A,\epsilon; r) d\gamma $
+\ben
+\setlength\itemsep{0.5em}
+\item The stationary state replicates itself forever: $A(r) = $ long-run mean level of assets  
+\item At the lower end, we have that $\lim_{r \to -1} A(r) = - \bar A$
+\item What about the upper end?
+\een
+
+\item {\color{white} Therefore: Asset supply and asset demand crosses at least once}
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Asset convergence: No income risk}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Without any income risk, $\epsilon=0$, it is straightforward to show that if
+\ben
+\setlength\itemsep{0.5em}
+\item $\beta (1+r) > 1$, consumption and savings grow indefinetly
+\item $\beta (1+r) = 1$, consumption is constant, savings is bounded
+\item $\beta (1+r) < 1$, consumption and savings decrease until borrowing constraint binds, in the limt $C=\bar Y$
+\een
+
+\item Why? If credit constraint does not bind, then the household problem is characterized by
+\begin{eqnarray}
+U_c(C) = \beta (1+r) U_c(C') \nonumber
+\end{eqnarray}
+
+\item Implication: with complete markets (or no income risk), steady state interest rate $R=\frac{1}{\beta}$
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Asset convergence: With income risk}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item With uninsurable income risk, household have a stronger savings motive
+
+\item Implication: assets and consumption grow without bound for lower levels of interest rate $R$
+
+\item For example, consider the case with $\beta R = 1$
+
+\item Optimality conditions
+\begin{eqnarray}
+U_c(C) &=&  E\left[V_a(A', \epsilon')\right] + \mu \nonumber \\
+V_a(A', \epsilon') &=& U_c(C') \nonumber
+\end{eqnarray}
+or
+\begin{eqnarray} 
+V_a(A, \epsilon) &\geq &  E\left[V_a(A', \epsilon')\right] \nonumber
+\end{eqnarray}
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Asset convergence: With income risk}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Recall: $\epsilon_N$ is the maximum of $\epsilon$
+
+\item Suppose that the solution is bounded: the maximum of $A'$ is $A_{max}$
+
+\item Evaluating optimality condition at point $A_{max}, \epsilon_N$:
+\begin{eqnarray}
+V_a(A_{max}, \epsilon_N) &\geq& E\left[V_a(A'(A_{max}, \epsilon), \epsilon')\right]\nonumber\\
+&>& E\left[V_a(A_{max}, \epsilon_N)\right]\nonumber \text{ using that } V_{aa}<0 \nonumber\\
+&=& V_a(A'_{max}, \epsilon_N) \nonumber 
+\end{eqnarray}
+which is a contradiction. Ergo $A'$ does not have an upper bound $\Rightarrow$ asset holdings diverge to infinity
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Does an SCRE exist?}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item To show existence, we will draw the \bf Aiyagari diagram \normalfont in $r,K$-space {\rc (Do on whiteboard)} 
+\bit
+\item $r = R -1$
+\eit
+
+\item Capital demand $K(r)$ is given by firm F.O.C.: $\alpha \left(\frac{K(r)}{L}\right)^{\alpha-1} = r+\delta $
+\ben
+\setlength\itemsep{0.5em}
+\item decreasing
+\item $r \to -\delta: K(r) \to \infty$
+\item $r \to \infty: K(r) \to  0$
+\een
+
+\item Capital supply $A(r)$ is given by household savings: $A(r) = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} A'(A,\epsilon; r) d\gamma $
+\ben
+\setlength\itemsep{0.5em}
+\item The stationary state replicates itself forever: $A(r) = $ long-run mean level of assets  
+\item At the lower end, we have that $\lim_{r \to -1} A(r) = - \bar A$
+\item What about the upper end?
+\een
+
+\item {\color{white} Therefore: Asset supply and asset demand crosses at least once}
+
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Does an SCRE exist?}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item To show existence, we will draw the \bf Aiyagari diagram \normalfont in $r,K$-space {\rc (Do on whiteboard)} 
+\bit
+\item $r = R -1$
+\eit
+
+\item Capital demand $K(r)$ is given by firm F.O.C.: $\alpha \left(\frac{K(r)}{L}\right)^{\alpha-1} = r+\delta $
+\ben
+\setlength\itemsep{0.5em}
+\item decreasing
+\item $r \to -\delta: K(r) \to \infty$
+\item $r \to \infty: K(r) \to  0$
+\een
+
+\item Capital supply $A(r)$ is given by household savings: $A(r) = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} A'(A,\epsilon; r) d\gamma $
+\ben
+\setlength\itemsep{0.5em}
+\item The stationary state replicates itself forever: $A(r) = $ long-run mean level of assets  
+\item At the lower end, we have that $\lim_{r \to -1} A(r) = - \bar A$
+\item {\bc At the upper end, $\lim_{r \to \frac{1}{\beta}-1} A(r) = \infty$}
+\een
+
+\item {\color{white} Therefore: Asset supply and asset demand cross at least once}
+\eit
+
+\end{frame}
+
+
+
+\begin{frame}{Does an SCRE exist?}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item To show existence, we will draw the \bf Aiyagari diagram \normalfont in $r,K$-space {\rc (Do on whiteboard)} 
+\bit
+\item $r = R -1$
+\eit
+
+\item Capital demand $K(r)$ is given by firm F.O.C.: $\alpha \left(\frac{K(r)}{L}\right)^{\alpha-1} = r+\delta $
+\ben
+\setlength\itemsep{0.5em}
+\item decreasing
+\item $r \to -\delta: K(r) \to \infty$
+\item $r \to \infty: K(r) \to  0$
+\een
+
+\item Capital supply $A(r)$ is given by household savings: $A(r) = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} A'(A,\epsilon; r) d\gamma $
+\ben
+\setlength\itemsep{0.5em}
+\item The stationary state replicates itself forever: $A(r) = $ long-run mean level of assets  
+\item At the lower end, we have that $\lim_{r \to -1} A(r) = - \bar A$
+\item {\bc At the upper end, $\lim_{r \to \frac{1}{\beta}-1} A(r) = \infty$}
+\een
+
+\item Therefore: {\bc Asset supply and asset demand cross at least once}
+\eit
+	
+\end{frame}
+
+
+
+\begin{frame}{Incomplete vs complete markets}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Consider the steady state of a representative-agent (complete-market) economy
+
+\item Euler equation implies:
+\begin{eqnarray}
+&& u'(C_t) = \beta (1+r) u'(C_{t+1}) \nonumber \\
+&\Rightarrow& r=\frac{1}{\beta}-1 \nonumber
+\end{eqnarray}
+
+\item Asset demand still given by the same firm F.O.C.: $\alpha \left(\frac{K(r)}{L}\right)^{\alpha-1} = r+\delta $
+
+\item Result: {\bc The addition of uninsurable income risk raises $K$ and depresses $r$}
+\eit
+
+\end{frame}
+
+
+%\begin{frame}{Is the SCRE unique?}
+%
+%\bit
+%\setlength\itemsep{2em}
+%
+%\item Under the assumptions made, there does not exist results on whether $E(a(r))$ is monotonically increasing
+%
+%\item Increasing $r$ has both income and substitution effects whose relative strength may depend on the level of $r$ 
+%
+%\item Uniqueness is, at this stage, not guaranteed, although I know of no examples where two stationary states have been a problem in practice
+%\bit
+%	\item Ben Moll has recently teamed up with some mathematicians and made some progress on uniqueness, see Achdou et al (2017)
+%\eit
+%
+%\eit
+%
+%\end{frame}
+
+
+\begin{frame}{Stationary state: computational algorithm}
+
+\ben
+\setlength\itemsep{1.5em}
+
+\item Set initial $r_0$ which satisfies $-\delta<r_0<\frac{1}{\beta}-1$
+
+\item Solve for $K$ and then $W$ from firm F.O.C.
+
+\item Solve household problem given $\{r_0,W\}$, e.g., by value function iteration
+\bit
+	\item This gives you $A'(A, \epsilon; r_0)$
+\eit
+
+\item Solve for $\gamma_{T}$ for some large $T$ using the law of motion
+\begin{eqnarray}
+\gamma_{t+1} = \int_{\bm{\mathcal A} \times \bm{\mathcal E}} Q((A',\epsilon'), (A, \epsilon)) d\gamma_t \nonumber
+\end{eqnarray}
+\bit
+	\item Note: this involves picking initial distribution $\gamma_0$ and then simulating using the computed policy functions
+\eit
+
+\item Compute $A_{agg}=\int_{\bm{\mathcal A} \times \bm{\mathcal E}} A'(a,\epsilon; r) d\gamma_T$
+
+\item If $A_{agg}>K$, set $r_1<r_0$ and repeat. If $A_{agg}<K$, set $r_1>r_0$ and repeat until $A_{agg}$ is sufficiently close to $K$
+
+\een
+
+\end{frame}
+
+%\begin{frame}{Computational algorithm: comment}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item The algorithm builds on the assumption that the economy converges to a stationary state
+%
+%\item We have not prooved this here, but practical experience suggest that this is usually the case
+%
+%\eit
+%
+%\end{frame}
+
+
+\begin{frame}{A note: Aiyagari vs Huggett}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item An incomplete-markets model without physical capital is sometimes referred to as a Huggett model, after Huggett (JEDC 1993)
+
+\item Example production function:
+\begin{eqnarray}
+Y_t = F(L_t) = Z L_t^{1-\alpha} \nonumber
+\end{eqnarray}
+
+\item In the case of zero net asset suppy (e.g., no government debt, money, foreign borrowing etc), asset market clearing is simply
+\begin{eqnarray}
+\int_{\bm{\mathcal A} \times \bm{\mathcal E}} A d\gamma \nonumber = 0 \nonumber
+\end{eqnarray}
+\bit
+	\item Zero net asset supply: households can borrow and save in partial equilibrium, but in net, aggregate savings are zero 
+\eit
+
+\item Aiyagari diagram the same, except that aggregate demand curve is vertical at zero
+\bit
+	\item See your problem set
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}
+
+\begin{center}
+	\huge Applications \normalfont
+\end{center}
+
+\end{frame}
+
+\begin{frame}{The Aiyagari model put to work}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Now we have an incomplete markets stationary equilibrium, lets put it to work
+
+\item Questions:
+\bit
+\setlength\itemsep{0.5em}
+
+	\item Does the equilibrium wealth distribution match the data?
+	
+	\item Can fiscal policy be welfare-improving? Redistributive taxation? Public debt management?
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Wealth inequality}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Taken a realistic income process as given, can the model explain the observed wealth inequality?
+
+\item This is theory of wealth inequality entirely based on luck
+
+\item Some agents will experience lucky income draws and accumulate assets to insure against bad draws in the future
+
+\item Some agents will experience not so lucky income draws and deaccumulate assets/borrow to smooth consumption
+
+\item Some agents will experience very unlucky income draws and hit the borrowing constraint
+
+\eit
+
+\end{frame}
+
+\begin{frame}{US wealth inequality}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{figures/dgr_tab1.pdf}
+	\caption*{\footnotesize Numbers measured in \$$*10^3$. From \{Diaz-Giminez\}-Glover-\{Rios-Rull\} (FED Minneapolis 2011). Data from SCF.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.4]{figures/dgr_tab2.pdf}
+	\caption*{\footnotesize From \{Diaz-Giminez\}-Glover-\{Rios-Rull\} (FED Minneapolis 2011). Data from SCF.}
+\end{figure}
+
+\bit
+	\item Main take-away: wealth distribution a lot more concentrated than income distribution
+\eit
+
+\end{frame}
+
+%\begin{frame}{US top income share using tax data}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.4]{figures/piketty_inc_ineq.pdf}
+%\end{figure}
+%
+%
+%\end{frame}
+%
+%\begin{frame}{US top wealth share using tax data}
+%
+%\begin{figure}
+%	\centering
+%	\includegraphics[scale=0.4]{figures/piketty_w_ineq.pdf}
+%\end{figure}
+%
+%\end{frame}
+
+\begin{frame}{A (standard) parameterization}
+
+\bit
+\setlength\itemsep{2em}
+
+	\item $\underbar A=0$ or $\underbar A=$ natural borrowing constraint
+	
+	\item Income process: 
+	\ben
+	\item Run Mincer regression
+	\begin{eqnarray}
+	\log y_{it} = \alpha + \beta X_{it} + \nu_{it}  \nonumber
+	\end{eqnarray}
+	where $X$ controls for changes in earnings that are predetermined
+	
+	\item Find a process $\mathcal E = \{\epsilon_0, ..., \epsilon_1\}$, $\pi(\epsilon, \epsilon')$ that matches autocorrelation and variance of $\nu_{it}$ 
+	\een
+
+\item $\sigma \in [1,5]$, consistent with experimental evidence on risk aversion
+\bit
+	\item $\sigma=1$ $\Leftrightarrow$ log utility
+\eit
+
+\item Calibrated parameters:
+\bit
+\item $\alpha$ to match labor share $\frac{WL}{Y}$
+\item $\beta$ to match risk-free interest rate $r$
+\item $\delta$ to match outside estimates
+\eit
+
+\eit
+
+\end{frame}
+
+\begin{frame}{Results}
+
+\bit
+\setlength\itemsep{2em}
+
+\item Calibrated model typically has wealth Gini coefficient around 0.4
+\bit
+	\item US wealth Gini coefficient is 0.8
+\eit
+
+\item Suggests that precautionary savings can explain some, but not all, of US wealth inequality
+\bit
+	\item would be very surprising if it could explain everything...
+\eit
+
+\item Failure due to problems at both ends of wealth distribution:
+\ben
+\setlength\itemsep{0.5em}
+\item Very few households close to borrowing constraint
+\bit
+	\item The welfare loss of not being able ot smooth at all is large
+\eit
+\item Very few households with savings several multiples of income at top of distribution
+\bit
+	\item Only rational if you face substantial risk loosing all your income for a long time
+\eit
+\een
+
+\eit
+
+\end{frame}
+
+\begin{frame}{What is the model missing?}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Suggestions 
+\bit
+\setlength\itemsep{1em}
+\item Adding means-tested social insurance eliminates saving motive among income-poor (Skinner-Hubbard-Zeldes, JPE 1995)
+
+\item Adding bequest savings as a luxury good generates additional savings among the income-rich (De Nardi, ReStud 2004) 
+
+\item $\beta$-heterogeneity: given some $r$, households with low $\beta$ deaccumulate, households with high $\beta$ accumulate $\rightarrow$ more wealth heterogeneity within income groups (Krusell-Smith, MD 1997; JPE 1998)
+
+\item $r-$heterogeneity:
+\bit
+	\setlength\itemsep{0.5em}
+	\item Similar logic to $\beta$-heterogeneity
+	
+	\item In the data, large fraction of top wealth is held by entreprenuers. Quadrini (RED 2000) and Cagetti-De Nardi (JPE 2006) model entreprenuers as households with access to high-return investments
+	
+	\item See also Krusell-Hubmer-Smith (NBERannual 2020); Paulie-Ridder-Westergren (2021)
+	
+\eit
+
+\item Non-zero probability of very rich people to loose it all (\{Diaz-Giminez\}-Glover-\{Rios-Rull\}, JPE 2003)
+\bit
+	\item Authors argue that we miss this in standard calibrations due to top coding in survey income data 
+\eit
+
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Return heterogeneity in Norway}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.75]{figures/fgmp_1.pdf}
+	\caption*{\footnotesize From Fagereng-Guiso-Malacrino-Pistaferri (Ecmtra 2020). Norwegian registry data.}
+\end{figure}
+
+\end{frame}
+
+\begin{frame}{Return heterogeneity in Norway}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.6]{figures/fgmp_2.pdf}
+	\caption*{\footnotesize From Fagereng-Guiso-Malacrino-Pistaferri (Ecmtra 2020). Norwegian registry data.}
+\end{figure}
+
+\end{frame}
+
+
+\begin{frame}{Efficiency and policy I}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Recap: the incomplete-markets equilibrium features a lower $r$ and higher $K$ (and higher $Y$) than the corresponding complete markets equilibrium in which $\beta (1+r) = 1$
+
+\item Unsurprisingly, this reflects that the market allocation is \bf inefficient \normalfont
+
+\item An unconstained social planner would insure all households against idiosyncratic income risk $\Rightarrow$ Constant consumption for all households in the stationary state $\Rightarrow$ $\beta (1+r) =1$
+\bit
+	\item An unconstained social planner effectively reintroduce the missing market for a complete set of Arrow securities  
+\eit
+
+\item Is the stationary equilibrium allocation \bf constrained efficient\normalfont?
+\bit
+	\setlength\itemsep{0.5em}
+	\item Constrained efficiency: Would a social planner, who can use the same savings instruments as the households, choose different policy functions $A'(A, \epsilon), C(A, \epsilon)$ than households choose in the decentralized equilibrium?
+	
+	\item Davila-Hong-Krusell-\{Ríos-Rull\} (Ecmtra 2012): The Aiyagari model is not constrained efficient, the planner wants to instruct well-off households to save more, so to raise the wage of the poor households
+	
+	\item $\Rightarrow$ K(constrained efficient equilibrium) > K(decentralized equilibrium) > K(efficient equilibrium)
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Efficiency and policy II}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Lack of efficiency opens many doors for welfare-improving policy
+
+\item Flodén-Linde (RED 2001) studies redistributive taxation
+\bit
+	\setlength\itemsep{0.5em}
+	\item A flat labor tax $\tau$ to finance lump sum payments $T$ (``basic income''), provides insurance and so raises welfare
+	
+	\item At the same time, it depresses incentives to work (labor supply decision easily added to the model)
+	
+	\item Floden and Linde adds labor supply decision to Aiyagari model and finds optimal level of labor taxes $\tau \approx 0.27$ for US calibration  
+\eit
+
+\item A progressive income tax schedule is a even more effective insurance device
+\bit
+	\setlength\itemsep{0.5em}
+	\item Optimal progressivity studied by Bénabou (Ecmtra 2002); Conesa-Krueger (RED 2006); Krueger-Ludwig (AER 2013); Heathcote-Storesletten-Violante (QJE 2017)
+\eit
+
+
+\item Aiyagari-McGrattan (JME 1998) studies government debt management
+\bit
+	\setlength\itemsep{0.5em}
+	\item A higher level of debt $B$ increases the set of liquid assets $\rightarrow$ enables more insurance
+	
+	\item Higher $B$ crowds out savings in the capital stock $K$ $\rightarrow$ reduces output and consumption
+	
+	\item Aiyagari and McGrattan find that these effects largely offset eachother, and the welfare effects from varying the overall debt level is small
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{What about dynamics?}
+\bit
+\setlength\itemsep{1.5em}
+
+\item So far, our analysis has been static: no aggregate shocks
+
+
+\item Generally, analyzing dynamics requires computational techniques which we do not practice in this course (covered in first second-year course)
+
+
+\item Central problem: the entire wealth distribution is a state-variable, infinite-dimensional object
+
+\item Useful to know: two computational approaches:
+\ben
+\setlength\itemsep{1em}
+
+\item Approximate equilibrium (Krusell-Smith JPE, 1998): exploit that knowing just a few moments of the wealth distribution is sufficient to make very good forecast of prices
+
+\item Linearization (Boppart-Krusell-Mitman, JEDC 2018; Auclert-Bardoczy-Rognlie-Straub, Ecmtra 2021): transition dynamics (IRFs) to one-time unexpected shock is a sufficient statistic for solving a first-order approximation, just like in rep-agent RBC
+\bit
+	\item Computing transition dynamics to one-time unexpected shock is bigger system of equations, byt conceptually the same as computing the steady state 
+	
+\eit
+
+\een
+
+\eit
+
+\end{frame}
+
+%
+%\begin{frame}{Transition dynamics to an MIT schock}
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Consider our Ayaigari model which rests in steady state at period $-1$, but where TFP $Z_t$ is unexpectedly hit by a shock $\xi$ in period 0 and then evolves auto-regressively:
+%\begin{eqnarray*}
+%	\log Z_t = \left\{\begin{array}{cc}
+%		0 & \text{if } t<0 \\
+%		\xi & \text{if } t=0 \\
+%		\rho \log(Z_{t-1}) & \text{if } t > 0
+%	\end{array} \right.
+%\end{eqnarray*}
+%
+%\item Suppose we want to know the welfare effect of this shock
+%
+%\item In the long run, welfare is unaffected
+%
+%\item But what about the short-run dynamics?
+%	
+%\item To evaluate welfare effect of reform, we need to calculate the entire transition path
+%
+%\eit
+%
+%\end{frame}
+%
+%%\begin{frame}{Transition dynamics to MIT schock}
+%%\bit
+%%\setlength\itemsep{1.5em}
+%%
+%%\item Consider our Ayaigari model, but where we add a tax-and-transfer sytem
+%%\bit
+%%\item Labor income tax $\tau_t$
+%%\item Lump sum transfer $T_t$
+%%\item Balanced-budget government constraint: $\tau_tw_tL_t = T_t$
+%%\eit
+%%
+%%\item Assume economy rests in steady state associated with tax level $\tau$, but there is an unexpected tax reform in period $0$:
+%%\begin{eqnarray*}
+%%	\tau_t = \left\{ \begin{array}{cc}
+%%		\tau & \text{if } t<0 \\
+%%		\tau' & \text{if } t \geq 0
+%%	\end{array} \right.
+%%\end{eqnarray*}
+%%
+%%\item How does economy respond to the shock?
+%%\bit
+%%\item Transition from old steady state $K(\tau)$ to new steady state $K(\tau')$
+%%\eit
+%%
+%%\item To evaluate welfare effect of reform, we need to calculate the entire transition path
+%%
+%%\eit
+%%
+%%\end{frame}
+%
+%\begin{frame}{Dynamic household problem}
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item Recursive household problem:
+%\begin{eqnarray}
+%V_t(A,\epsilon) = &\max_{C, A'}& U(C) + \beta \sum_{\epsilon' \in \mathcal E} \pi(\epsilon', \epsilon) V_{t+1}(A',\epsilon') \nonumber \\
+%&\text{s.t.} & C + A' =  W_t\epsilon + R_t A  \nonumber \\
+%&&	a'\geq - \bar A  \nonumber
+%\end{eqnarray}
+%\item Solution no longer time-invariant
+%
+%\item Important: aggregate state is not stochastic, so time $t$ is a sufficient state variable for aggregate state (not true when we have aggregate risk as opposed to a deterministic shock)
+%
+%\eit
+%
+%\end{frame}
+%
+%
+%\begin{frame}{Recursive Competitive Equilibrium}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%
+%\item A RCE is a \emph{sequence} of value functions $\{V_t(A, \epsilon)\}_{t=0}^{\infty}$, policy functions $\{C_t(A, \epsilon), A_{t+1}(A, \epsilon)\}_{t=0}^{\infty}$, distributions $\{\gamma_t(A,\epsilon)\}_{t=0}^{\infty}$, aggregate capital and labor demand $\{K_t, L_t\}_{t=0}^{\infty}$ and prices $\{W_t,R_t\}_{t=0}^{\infty}$ s.t.
+%
+%\ben
+%\setlength\itemsep{0.5em}
+%
+%\item Given $\{W_t,R_t\}_{t=0}^{\infty}$: the value function $V_t(A, \epsilon)$ and policy functions $C_t(A, \epsilon), A_{t+1}(A, \epsilon)$ solve the household Bellman equation
+%
+%\item Given $\{W_t,R_t\}_{t=0}^{\infty}$: $K_t, L_t$ solve the firm problem
+%
+%\item The market for capital and labor clear:
+%\begin{eqnarray}
+%K_{t+1} &=& \int_{\bm{\mathcal A} \times \bm{\mathcal E}} A_{t+1}(A, \epsilon) d\gamma_t(A,\epsilon) \nonumber \\
+%L_t &=&  \int_{\bm{\mathcal A} \times \bm{\mathcal E}} \epsilon d\gamma_t = \sum_{\epsilon \in \bm{\mathcal E}} \epsilon \Pi^{*}(\epsilon) = L \nonumber
+%\end{eqnarray}
+%
+%\item $\gamma_t(A,\epsilon)$ satisfies
+%\begin{eqnarray}
+%\gamma_{t+1} =  \int_{\bm{\mathcal A} \times \bm{\mathcal E}} Q_t((A',\epsilon'), (A, \epsilon)) d\gamma_t \nonumber
+%\end{eqnarray}
+%where $Q_t$ is defined as 
+%\begin{eqnarray}
+%Q_t((A',\epsilon'), (A, \epsilon)) =  I_{A'=A_{t+1}(a,\epsilon)} \pi(\epsilon', \epsilon) \nonumber
+%\end{eqnarray}
+%\een
+%\eit
+%
+%\end{frame}
+%
+%\begin{frame}{Computational algorithm}
+%
+%\ben
+%\setlength\itemsep{0.5em}
+%
+%\item Calculate the steady state following previous recipe
+%
+%\item Fix $T$ (e.g., $T=t+200$) and assume that the economy has converged back to the steady state after $T$ periods
+%
+%\item Guess a sequence of capital $\{\hat K_s\}_{s=t}^{T}$ (e.g., take the solution from corresponding representative agent economy) and calculate $\{\hat W_s, \hat R_s\}_{t=t}^{T}$ from firm F.O.C. 
+%
+%\item Solve household problem by backwards induction. Solve for period $T-1$ given $T$:
+%\begin{eqnarray}
+%\hat V_{T-1}(A,\epsilon) = &\max_{C, A'}& U(C) + \beta \sum_{\epsilon' \in \bm{\mathcal E}} \pi(\epsilon', \epsilon) \hat V_{T}(A',\epsilon') \nonumber \\
+%&\text{s.t.} & C + A' =  \hat W_t\epsilon + \hat R_t A \nonumber \\
+%&&	A'\geq - \bar A  \nonumber
+%\end{eqnarray}
+%and similarly for period $T-2$ and so on...
+%
+%\item Solve for $\gamma_{t}$ using the law of motion
+%\begin{eqnarray}
+%\hat \gamma_{t+1} =  \int_{\bm{\mathcal A} \times \bm{\mathcal E}} \hat Q_t((A',\epsilon'), (A, \epsilon)) d \hat \gamma_t \nonumber
+%\end{eqnarray}
+%
+%\item Compute $\hat A_{agg, t+1}=\int_{\mathcal A \times \mathcal E} A_{t+1}(A_t,\epsilon; R_t) d\gamma_t$
+%
+%\item Calculate $\max_{0<t<T} |\hat A_{agg, t+1}-\hat K_{t+1}|$. If sufficently small, stop. If not sufficiently small, repeat with new guess $\hat K_{t+1, new} = \frac{1}{2} (\hat K_{t+1} + \hat A_{agg, t+1})$
+%
+%\een
+%
+%\end{frame}
+%
+%
+%\begin{frame}{Transition dynamics: Comments}
+%
+%\bit
+%\setlength\itemsep{2em}
+%
+%\item Main point: computing transition dynamics to one-time MIT shock is conceptually the same as computing the steady state 
+%
+%\item We used the TFP shock as an  example, can be applied to any other shock
+%
+%
+%\eit
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}{From transition dynamics to economy with aggregate risk I}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%\item Having computed deterministic transition dynamics, computing the first-order approximation of an economy with aggregate shock process is straightforward (Boppart-Krusell-Mitman, JEDC 2018)
+%
+%
+%\item Consider a shock $\xi_t$ to TFP $z_t$:
+%\begin{eqnarray}
+%\log(z_t) = \rho \log(z_{t-1}) + \xi_t \nonumber
+%\end{eqnarray}
+%
+%\item Transition dynamics gives you the time path of aggregate consumption in response to a particular shock: $C_{t+s}(\xi_t)$ for $s\geq 0$
+%
+%\item In the first-order approximation, the aggregate evolution of $C_t$ is just the sum of the deterministic responses to the sequence of past shocks $C_t = \sum_{k=0}^{t} C_{t}(\xi_{t-k})$
+%
+%\item This is exactly like the simulation of the stochastic evolution of our rep-agent economies in Lectures I-IV
+%
+%\item Auclert-Bardoczy-Rognlie-Straub (Ecmtra 2021) generalize this insight
+%
+%\eit
+%
+%\end{frame}
+%
+%
+%\begin{frame}{From transition dynamics to economy with aggregate risk II}
+%
+%\bit
+%\setlength\itemsep{1.5em}
+%\item Although your model might have a lot of non-linearities at the micro level, aggregate variables might still be close to linear in response to aggregate shocks, making first-order approximation a valid approach
+%
+%\item As indicated, linearization methods are a quite recent phenonomon (quite surprisingly)
+%
+%\item ``Traditional'' method: Krusell-Smith (JPE, 1998), which also allows computing non-linear solutions
+%\bit
+%\setlength\itemsep{0.5em}
+%	\item Key insight: although the whole wealth-income distribution is relevant, knowing a few moments might be enough to make a very accurate forecast of future prices
+%\eit
+%\eit
+%
+%\end{frame}
+
+
+\begin{frame}{Summary}
+\bit
+\setlength\itemsep{2em}
+
+\item Ayiagari model = Neoclassical growth model with uninurable earnings risk
+
+\item Key prediction: equilibrium real interest rate lower, due to precautionary savings motive
+
+\item Due to incomplete markets, equilibrium is neither efficient nor constrained efficient
+
+\item Very general framework for exploring  the joint distribution of earnings, consumption and wealth, and their interaction with macroeconomic dynamics
+\bit
+\setlength\itemsep{0.5em}
+	\item The literature using incomplete-market models for investigating macroeconomic dynamics has exploded
+
+	\item To conclude the course, I will briefly talk in next class about one area of rapidly evolving research: Heterogeneous-Agent New-Keynesian (HANK) models
+	\bit
+		\item In particular, we will look at a HANK model that also has a frictional labor market, integrating all elements from this course
+	\eit
+\eit
+
+\eit
+
+\end{frame}
+
+
+\end{document}
+
+
+
+
+
+

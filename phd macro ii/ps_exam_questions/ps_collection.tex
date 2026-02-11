@@ -1,0 +1,438 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Problem set collection for Macro II: Part 2}
+
+\begin{document}
+\maketitle
+	
+\section*{McCall: Short questions}
+\ben
+	\item Consider the McCall model studied in class. Everything else equal, if the job-finding rate is reduced, then the wage dispersion is reduced in the model? T/F?
+	
+	\item When reasonably calibrated, the McCall model can explain most of the residual wage dispersion seen in the data. T/F?
+	
+	\item In thew basic McCall model, rasing unemployment benefits $b$ increases observed match quality. T/F?
+	
+	\item In the basic McCall model, rasing the unemployment rate without raising average unemployment duration is not possible. T/F?
+	
+	\item Consider the basic McCall model with an ednogenous offer distribution. We assume that indetical firms post wages to maximize profits $p-w$, where $p$ is the productivity of the worker. In equilibrium, the offer distribution is degenerate. T/F?
+	
+	\item Explain the Daimond paradox.
+\een
+
+
+\section*{McCall: Reservation wages and wage dispersion}
+You are now to investigate how an increase in wage dispersion affects reservation wages. Consider the McCall model stuided in class, with the reservation wage given by
+\begin{eqnarray}
+w_R  -b = \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
+\end{eqnarray} 
+
+\ben
+	\item Show that the reservation wage equation can be rewritten as
+	\begin{eqnarray}
+	w_R  -b = \frac{\lambda_u }{r+\sigma} \left[(Ew-w_r) - \int_{w <w_R} (w-w_R) dF(w) \right]\nonumber
+	\end{eqnarray} 
+	where $Ew = \int_{0}^{\infty} w dF(w) $	is the expected wage of the next offer.
+
+	\item Using integration by parts, show that the previous equation can be rewritten
+	\begin{eqnarray}
+	w_R  -b = \frac{\lambda_u }{r+\sigma} \left[(Ew-w_r) + \int_{w <w_R} F(w)dw \right]\nonumber
+	\end{eqnarray} 	
+	
+	\item Using the last equation, what happens to $w_r$ if there is a mean-preserving spread in the offer distribution $F$?
+	
+	\item What is the economic intuition behind your answer in the previous question? 
+\een
+
+
+\section*{McCall: Reservation wages and minimum wages}
+Consider the McCall model studied in class, with the addition that there is a mandated minimum wage $\underbar w$, such that workers are not allowed to accept offers with $w< \underbar w$. Assume that model is parameterized such that the elasticity of the unemployment rate w.r.t. the benefit level $b$ is $\epsilon>0$. What is the elasticity of the unemployment rate w.r.t. the minimum wage $\underbar w$?
+
+\section*{DMP: Short questions}
+\bit
+	\item Assume the aggregate matching function is Cobb-Douglas. Describe the data requirements and a method to estimate the parameters of the matching function.
+	
+	\item Consider the basic DMP model with productivity $y$. Suppose the wage level is set fixed to $w=y$. What is the unemployment rate in this model?
+	
+	\item Consider the basic DMP model studied in class. Increasing the unemployed utility flow $b$ raises the unemployment rate $u$ through rasing the reservation wage $w_r$. T/F?
+	
+	\item Consider the basic DMP model studied in class. Increasing the workers' bargaining power reduces the unemployment rate. T/F?
+	
+	\item Describe the difference between an efficient and a constrained efficient allocation.
+	
+	\item Consider the basic DMP model. Describe the two externalities from a firm creating an additional vacancy.
+	
+	\item Consider the basic DMP model. Under what condition is the equilibrium efficient?
+	
+	\item Briefly describe the Shimer puzzle.
+	
+	\item Consider the basic DMP model. Why is the steady state elasticity of tightness w.r.t. productivity informative about the model's capability to match unemployment fluctations in the data?
+	
+	\item Consider the basic DMP model. Replacing Nash Bargaining with a fixed wage resolves the Shimer puzzle, no matter if the fixed wage is high or low. T/F? 
+	
+	\item Briefly describe how Hagedorn and Manovskii's alternative calibration of the DMP model resolves the Shimer puzzle.
+\eit
+
+\section*{DMP: Segmented markets for high and low-skilled}
+Consider the continuous-time DMP model studied in class but where a fraction $\phi$ of the workers are high-skilled, and a fraction $1-\phi$ are low-skilled. The difference between the two worker types is that when matched with a firm, the high-skilled workers produce $y_h$, whereas the low-skilled produce $y_l$, with $y_h>y_l$. We will study the determination of wages and unemployment under two different market structures.
+\bit
+	\item Market structure A: Unemployed workers cannot signal their productivity to potential employers. Accordingly, firms cannot direct their search and the probability that a worker match with an employer is $p(\theta)$, where $\theta=\frac{v}{u}$, $u=\alpha u_h +(1-\alpha)u_l$ and $\alpha$ is the share of high-skilled workers among all unemployed workers. The corresponding probability that an employer match with a worker is $q(\theta)$. The worker type is revealed to the employer upon a match, so this is known to both parties when entering Nash bargaining over wages.
+	
+	\item Market structure B: Unemployed workers can signal their productivity to potential employers. Accordingly, Firms can direct their search and the probability that a worker of type $i$ match with an employer who search for workers of type $i$ is $p(\theta_i)$, where $\theta_i=\frac{v_i}{u_i}$. The corresponding probability that an employer search for type $i$ meets a worker of type $i$ is $q(\theta_i)$.
+\eit 
+
+Consider first the market structure $A$.
+\ben
+	\item Show that in steady state, $\alpha = \phi$.
+	
+	\item Write down all the relevant value functions.
+	
+	\item Solve for the equilibrium unemployment rate and wages for the two different worker types. Which worker type has the higher wage? Which has the higher unemployment rate? Comment on your results.
+\een
+
+Consider now the market structure $B$.
+\ben
+\setItemnumber{4}
+\item Write down all the relevant value functions.
+
+\item Solve for the equilibrium unemployment rate and wages for the two different worker types. Which worker type has the higher wage? Which has the higher unemployment rate? Compare with your results in subquestion 3.
+\een
+
+\section*{DMP: Endogenous separations}
+Consider the DMP model with Cobb-Douglas matching function studied in class but instead of Nash bargaining, simply assume that all wages are set equal to the outside option: $w=b<y$, and instead of assuming that matches are separated at constant rate $\sigma$, assume the following: when a firm is matched with a worker, the production is initially $y$.
+From that moment and onwards, at every instant there is probability $\sigma_{\epsilon}$ that firms are hit with an i.i.d. productivity shock $\epsilon$ drawn from the distribution $F$ with support $[\underline \epsilon, \bar \epsilon]$ and expected value $E(\epsilon)=1$. Given productivity $\epsilon$, firm production is $y\epsilon$. After the shock is realized, the firm decides whether to keep with the going match, or to desolve the match and open a new vacancy instead. The firm value functions are therefore
+\begin{eqnarray}
+rV &=& -c + q(\theta)(J(1)-V) \nonumber \\
+rJ(\epsilon) &=& \epsilon y-b + \sigma_{\epsilon} \left[\int_{\underline \epsilon}^{\bar \epsilon} \max\{J(x), V\} dF(x) -J(\epsilon)\right] \nonumber
+\end{eqnarray}  
+
+\ben
+	\item Argue that firms follow a reservation productivity strategy, in which all jobs with productivity $\epsilon<\epsilon_r$ are desolved. (Hint: Show that $\frac{\partial J(\epsilon)}{\partial \epsilon}>0$) 
+	
+	\item What is $J(\epsilon_r)$?
+	
+	\item Solve for $J(\epsilon)$ in closed form as function of $\epsilon_r$. 
+	
+	\item Show that that the reservation productivity $\epsilon_r$ satisifies
+	\begin{eqnarray}
+	\epsilon_r = \frac{b(r+\sigma_{\epsilon})}{y r} - \frac{(r+\sigma_{\epsilon})}{r} \left[1+\int_{x<\epsilon_r} F(x) dx \right] \nonumber
+	\end{eqnarray}
+	(Hint: use integration by parts)
+	
+	\item How does a mean-preserving spread of the productivity distribution $F$ affect $\epsilon_r$?
+	
+	\item Solve for the steady state unemployment rate as a function of $\epsilon_r$ and $\theta$ and draw the Beveridge curve. What happens to Beveridge curve if there is a mean-preserving spread of the productivity distribution $F$? 	
+	
+	\item How does $\theta$ respond to the mean-preserving spread? What happens to the equilibrium unemployment rate?
+\een
+
+\section*{DMP: balanced-budget taxation}
+Consider the basic continuous-time DMP model studied in class. There is a conintuum of workers with mass $1$, and large mass of firm who decides whether to post a vacancy or not. Posting a vacancy cost $c$ at every instant. The job-finding and job-filing rates are given by the aggregate matching function, which is $m(u,v)=Au^{\alpha}v^{1-\alpha}$. Jobs desolve at exogenous rate $\sigma$. The discount rate is $r$. Upon a match between a worker and firm they produce $y$. The wage level is determined by Nash bargaining, in which the worker bargaining power is $\gamma$. 
+
+The unemployed workers retrieve utility $b$. We interpret $b$ as an unemployment benefit provided by the government with $b$ exogenously fixed. This benefit is financed by taxing all employed workers with a fixed tax $\tau$, which is allowed to vary to keep the government's budget is balanced. A balanced budget means that the total pax income equals the total benefint payments at every instant.
+
+\ben
+	\item Write the government's budget constraint and show that $\tau$ is increasing in $u$.
+
+	\item Derive a relation between $v$ and $u$ in steady state (a Beveridge curve).
+	
+	\item Write down the value functions of a firm with an open vacancy and of a form with a filled job.
+	
+	\item What is the value of an open vacancy in equilibrium? Using this and the firm value functions, derive the job-creation curve in $\{w.\theta\}$-space.
+	
+	\item Write down the value functions of an unemployed and employed worker
+	
+	\item Use the value functions and the solution to the Nash bargaining game to derive the wage curve. Is the wage level increasing or decreasing in $\tau$? What is the intuition?
+	
+	\item Use the government's budget constraint and the beveridge curve to write the wage curve in terms of $\theta, w$ and exogenous parameters.
+	
+	\item Describe the shape of the wage curve and plot it in a graph together with the job-creation curve. How many equilibria does the model have? Do your answer depend on the parameters of the model? Discuss the intuition behind your answer.
+	
+	\item What is the effect of increasing $b$ on the wage curve? Is it clear what happens to equilibrium unemployment rate $u$?
+\een
+
+
+\section*{BM: Short questions}
+\bit
+	\item Augmenting the McCall model with on-the-job-search can resolve the Daimond Paradox. T/F?
+	
+	\item Consider the basic Burdett-Mortensen model. Why most the equilibrium wage distribution be continuous?  
+	
+	\item Why does the basic Burdett-Mortensen model generate more wage dispersion than the basic McCall model?
+
+	\item Consider the basic Burdett-Mortensen model. How is it possible that although all firms face an identical optimization problem, the equilibrium wage distribution is non-degenerate?
+	
+	\item The basic Burdett-Mortensen model predicts that tenure is negatively correlated with wage. T/F?
+	
+	\item The basic Burdett-Mortensen model predicts that firm size is positvely correlated with wage. T/F?
+	
+	\item The basic Burdett-Mortensen model predicts that firm size is negatively correlated with quit rate. T/F?
+	
+	\item Consider the model of Postel-Vinay and Robin (Econmetrica, 2002). In this model, workers may accept a job offer where the wage is lower than their current job. T/F?
+	
+	\item Consider the model of Postel-Vinay and Robin (Econmetrica, 2002). Name the two sources of \emph{within-firm} wage dispersion in the model.
+\eit
+
+
+\section*{BM: Long questions}
+Consider the basic Burdett-Mortensen model. 
+\ben
+	\item State the worker value function equations
+	
+	\item Argue that the optmial acceptance rule of employed workers implies that their value function equation can be written
+	\begin{eqnarray}
+	rW(w)  &=&  w + \lambda_e  \int_{w' \geq w} (W(w') - W(w)) dF(w') + \sigma(U-W(w)) \nonumber
+	\end{eqnarray}
+	\item Argue that the optmial acceptance rule of unemployed workers implies that their value function equation can be written
+	\begin{eqnarray}
+	rU  &=&  b + \lambda_u  \int_{w\geq w_R} (W(w)-U) dF(w) \nonumber
+	\end{eqnarray}
+	
+	\item Show that the reservation equation satisfies
+	\begin{eqnarray}
+	w_R-b &=& (\lambda_u-\lambda_e) \int_{w \geq w_R}\frac{1-F(w)}{r+\sigma + \lambda_e(1-F(w))} dw \nonumber
+	\end{eqnarray}
+
+	\item Show that, using the facts that the equilibrium offer distribution satisfies $F(w_R)=0$ and is continuous and differentiable, that 
+	\begin{eqnarray}
+	\frac{\partial w_R}{\partial b} &=& \frac{r+\sigma + \lambda_e}{r+\sigma + \lambda_u} \nonumber
+	\end{eqnarray}
+	\item Why is $\frac{\partial w_R}{\partial b}$ decreasing in $\lambda_u$ and increasing in $\lambda_e$? Provide some intuition.
+\een
+
+\section*{ICM in PE: Short questions}
+\ben
+	\item What are the two sources of a precuationary savings motive in the standard incomplete-markets model?
+
+	\item Under what condition on the household's utility function does her preference exhibit prudence?
+	
+	\item Why cannot precuationary savings arise in a two-period model with quadratic preferences? 
+	
+	\item Consider an infinetly lived household with standard preferences that earns deterministic income stream $\{y_t\}^{\infty}_{0}$, who can borrow/save in a risk-free bond $a_{t+1}$ at interest rate $r_t$ subject to the borrowing constraint $a_{t+1}\geq 0$. Suppose $\beta R > 1$. The the solution of the household problem entails $c_{t+1}>c_t$ for all $t$. T/F?
+	
+	\item Consider an infinetly lived household with standard preferences that earns deterministic income stream $\{y_t\}^{\infty}_{0}$, who can borrow/save in a risk-free bond $a_{t+1}$ at interest rate $r_t$ subject to the borrowing constraint $a_{t+1}\geq 0$. Suppose $\beta R < 1$. Then, the solution of the household problem entails $c_{t+1}<c_t$ for all $t$. T/F?
+	
+	\item Consider an infinetly lived household with prudent preferences that earns stochastic income stream $\{y_t\}^{\infty}_{0}$, who can borrow/save in a risk-free bond $a_{t+1}$ at interest rate $r_t$ subject to the natural borrowing constraint. Suppose $\beta R = 1 $. Then, the optimal asset sequence $\{a_{t+1}, a_{t+2},...\}$ is bounded from above. T/F?
+	
+	\item Consider an infinetly lived household with prudent preferences that earns deterministic income stream $\{y_t\}^{\infty}_{0}$, who can borrow/save in a risk-free bond $a_{t+1}$ at interest rate $r_t$ subject to the natural borrowing constraint. Suppose $\beta R = 1 $. Then, the optimal asset sequence $\{a_{t+1}, a_{t+2},...\}$ is unbounded. T/F?
+\een
+
+\section*{The natural borrowing limit}
+What is the maxmimum amount of debt that a household can purchase without risking default? Consider an infinetly lived household that earns income stream $\{y_t\}^{\infty}_{0}$, retrieves utility from consumption, which is not allowed to be negative, and who can, in each period $t$, borrow/save in a risk-free bond $a_{t+1}$ that pays of $(1+r)a_{t+1}$ in period $t+1$.
+\ben
+\item Write the budget constraint of the household.
+
+\item Suppose that the income stream $\{y_t\}^{\infty}_{0}$ is deterministic. Show that the household can repay its debt $a_{t+1} $if and only if:
+\begin{eqnarray}
+a_{t+1} \geq - \sum_{k=0}^{\infty} \frac{y_{t+k+1}}{(1+r)^{k+1}} \nonumber
+\end{eqnarray}
+
+\item What is economic interpretation of the right-hand side of this equation?
+
+\item Suppose $\{y_t\}^{\infty}_{0}$ is stochastic: $y_t \sim F$ where $F$ has support $[y_{min}, y_{max}]$. What is the maximum amount of debt that the household can repay?
+
+\item Suppose $y_{min}=0$. What is the maximum amount of debt that the household can repay?
+
+\item Suppose a household faces the borrowing constraint derived in question 4. Under what (standard) condition on the household's utility function $u$ does the borrowing constraint never bind in the solution to the household's problem?
+\een
+
+\section*{ICM in PE: CARA utility (partly from Werning)}
+In this problem, we will closely study the nature of precautionary savings when households have CARA utility. Consider an infinetly lived household that solves
+\begin{eqnarray}
+\max_{a_{t+1}, c_t} && E_0 \sum_{t=0}^{\infty} \beta^t u(c_t) \nonumber \\
+\text{s.t.} && c_t + \frac{1}{1+r}a_{t+1} = y_t + a_t \nonumber
+\end{eqnarray}
+and a No-Ponzi constraint. We assume $y_t = \bar y + \epsilon_t$ where $\epsilon_t$ is i.i.d. and $E_t \epsilon_{t+1} =0$. 
+
+\subsection*{Part 1}
+\ben
+	\item Assume households have quadratic utility: $u(c)=\bar c - c^2$. Do these preferences exhibit prudence?
+	
+	\item Construct the Lagrangian, take the F.O.C.s and show us the Euler equation.
+	
+	\item By iterating on the budget constraint, show that
+	\begin{eqnarray}
+	\sum_{k=0}^{\infty} \frac{1}{(1+r)^k} c_{t+k} = \sum_{k=0}^{\infty} \frac{1}{(1+r)^k} y_{t+k} + a_t \nonumber
+	\end{eqnarray}
+	
+	\item By taking expectations over the previous equation and invoking the Euler equation, show that if $\beta(1+r)=1$, then
+	\begin{eqnarray}
+	c_t = \frac{r}{1+r}(y_t+a_t + \frac{1}{r} \bar y) \nonumber
+	\end{eqnarray}
+	
+	\item Interpret this equation
+	
+	\item Again assuming $\beta(1+r)=1$, show that
+	\begin{eqnarray}
+	\Delta c_t = \frac{r}{1+r}(y_t - \bar y) \nonumber
+	\end{eqnarray}
+	
+	\item Interpret this equation
+\een
+
+\subsection*{Part 2}
+\ben
+\item Assume households have CARA utility: $u(c)=-\frac{1}{\gamma}e^{-\gamma c}$. Do these preferences exhibit prudence?
+
+\item Show that, if the consumption function is
+	\begin{eqnarray}
+		c_t = \frac{r}{1+r}(y_t+a_t + \frac{1}{r} \bar y)  - \pi \nonumber
+	\end{eqnarray}
+where $\pi$ is some constant that depend on the parameters of the household problem ($\{\beta, \gamma, r\}$ and the dsitribution of $\epsilon$), then
+	\begin{eqnarray}
+		\Delta c_t = \frac{r}{1+r}(y_t - \bar y) + r\pi \nonumber
+	\end{eqnarray}
+
+
+\item Use the previous result to show that the postulated consumption function is optimal for a particular value of $\pi$. (Hint: Construct the Euler equation, and show that it is satisfied with the postulated consumption function for a particular value of $\pi$)
+
+\item Assume, for this particular subquestion, that $\epsilon \sim N(0,\sigma)$ (which allows you to compute $E_te^{-\epsilon_{t+1}}$). Is $c$ decreasing or increasing in $\sigma$? 
+
+\item Show that if $\beta(1+r)=1$, then $\pi>0$. Compare the consumption function to that with quadratic utility. Explain the underlying reason for the difference in the two types of consumption behaviour.
+
+\item Now assume that there is an economy populated by ontinuum (measure 1) of households solving the same problem. Argue that for the aggregate levels of consumption and assets to be constant, the interest rate must be such that $\pi=0$. Is this interest rate higher or lower than $\frac{1}{\beta}-1$?
+
+\item Denote the long-run aggregate level of assets by $A(r)$. Is $A(r)$ continuous in the vicinity of $r^*$ implicitly defined by $\pi(r^*)=0$? 
+\een
+
+\section*{ICM in GE: Short questions}
+\ben
+	\item Consider two Ayiagari economies of the sort studied in class: one with low idiosyncratic income risk and one with high idiosyncratic income risk. In all other aspects, they are identical. Which economy has a higher capital stock?
+	
+	\item Consider an Ayigari economy in which households have quadratic preferences. The equilibrium level of capital in this economy is the same as in a corresponding representative agent economy. T/F?
+	
+	\item The equilibrium level of capital in an Huggett economy is always higher than in an Ayiagari economy. T/F?
+	
+	\item Name three amendments to the standard Aiyagari model that has been proposed to improve its fit of the US wealth distribution.
+	
+	\item The first-best allocation in a standard Ayiagari model is equivalent to the market outcome in the same model without idiosyncratic income risk. T/F?
+	
+	\item The equilibrium level of output in the standard Ayiagari model is always lower than in the unconstrained Planner's solution. T/F?
+	
+	\item The equilibrium level of output in the standard Ayiagari model is always higher than in the constrained Planner's solution. T/F?
+	
+	\item Consider a standard Ayiagari model with exogenous labor supply, as studied in class. Adding a progressive income tax raises welfare. T/F?
+	
+	\item In general, solving the Ayiagari model exactly with aggregate shocks requires keeping track of the infinite-dimensional distribution of households' assets and income. T/F?
+	
+	\item In general, solving the Ayiagari model exactly with aggregate shocks is difficult due to the assumption of rational expectations. T/F?
+\een
+
+\section*{ICM in GE: The real interest rate in a Huggett economy with a tight borrowing constraint}
+Consider an infinite-horizon economy with a continuum (measure 1) of ex-ante identical households each having efficiency units of labor $\epsilon_{it}$, drawn from distribution $F$ with finite support $[\epsilon_{min}, \epsilon_{max}]$ and mean $1$, i.i.d. across households and time. Consumers can trade a non-contingent bond but cannot borrow. Each household $i$ solves
+\begin{eqnarray}
+\max_{a_{it+1}, c_{it}} && E_0 \sum_{t=0}^{\infty} \beta^t u(c_{it}) \nonumber \\
+\text{s.t.} && c_{it} + a_{it+1} \leq \epsilon_{it} w_t + (1+r_t) a_{it} \nonumber \\
+&& a_{it+1} \geq 0 \nonumber
+\end{eqnarray}
+where $u$ satisfies standard conditions. A representative firm employs production function $Y_t=L_t$, where $L_t$ is the aggregate labor endowment. There is no goverment and assets are in zero net supply. 
+\ben
+	\item Define a competitive equilibrium
+	
+	\item Set up the Lagrangian to the household problem and compute the First order conditions
+	
+	\item From the first order condtions, retrieve the Euler equation
+	\begin{eqnarray}
+	u_c(c_{it}) \geq \beta (1+r_t) E_t u_c(c_{it+1}) \nonumber
+	\end{eqnarray}
+	
+	\item Argue that the equilibrium allocation coincides with autarky, i.e., that $c_{it} = \epsilon_{it} w_t$ for all $i,t$.
+	
+	\item Argue that the equilibrium real interest rate satisfies
+	\begin{eqnarray}
+	1+r_t \leq \frac{1}{\beta} \frac{u_c(\epsilon_{max})}{E_t u_c(\epsilon_{it+1})} \nonumber
+	\end{eqnarray}	 
+	
+	\item In particular, verify that there is an equilibrium in which the interest rate satisfies
+	\begin{eqnarray}
+	1+r_t = \frac{1}{\beta} \frac{u_c(\epsilon_{max})}{E_t u_c(\epsilon_{it+1})} \nonumber
+	\end{eqnarray}
+	
+	\item Why does the curvature of the utility function affect the equilibrium real interest rate, but the not equilibrium allocation, in this economy?
+	
+	\item Is the equilibrium allocation efficient?
+	
+	\item Is the equilibrium allocation constrained efficient?	 
+\een
+
+%
+%\section*{ICM in GE: Capital in partial and general equilibrium (From Perri)}
+%Consider an economy with a continuum (measure 1) of ex-ante identical
+%consumers, indexed by $i$, each living for two periods. The consumers have utility given by
+%\begin{eqnarray}
+%log(c_{i1}) + \beta \log(c_{i2})
+%\end{eqnarray}
+%In period 1, each agent is endowed with $y$ units of output which can be either consumed, $c_{i1}$, or invested, $k_{i}$, subject to non-negativity constraints. In period two, consumers receive income from the capital they saved in period 1 and from inelastically supplying their labor endowment to the market. The labor endowment of any given individual is random and it is independent across agents. Period 2 labor endowments can be either $1-\epsilon$ or $1+\epsilon$, with $0<\epsilon<1$; the probability that any agent’s labor endowment is $1-\epsilon$ is 1/2. In the second period, output is produced by perfectly competitive firms which operate a standard Cobb-Douglas production function: they sell the output to consumers and rent the capital and the labor services from the same consumers at rates $r$ and $w$, respectively.
+%\ben
+%	\item Write down the households' problem.
+%	
+%	\item Define a competitive equilibrium.
+%	
+%	\item Assume $\epsilon=0$. Compute the equilibrium. 
+%	
+%	\item For the case $\epsilon>0$ define the consumption risk faced by consumers as the ratio between equilibrium consumption in the high endowment state and equilibrium consumption in the low endowment state. Show that a) in partial equilibrium, consumption risk is lower if households choose a higher $k_i$ and b) in general equilibrium, consumption risk is independent of the household's choice of $k_i$. Explain why this the case. 
+%\een
+
+\section*{ICM in GE: Constant savings rate I (From Perri)}
+Consider an economy with a continuum (measure 1) of ex-ante identical consumers each having efficiency units of labor $\epsilon_{it}$ which is i.i.d. over time and across agents, has non-negative support and mean $1$. Consumers can trade a non contingent bond but cannot borrow ($a_{it+1}\geq 0$). Let's ignore micro-foundations and simply assume that the households save their labor income at constant rate $\gamma$:
+\begin{eqnarray}
+a_{it+1} = (1+r)a_{it} + \gamma \epsilon_{it} w_t, \nonumber
+\end{eqnarray}
+where $r_t,w_t$ are the equilibrium interest and wage rates. Firms employ a Cobb-Douglas productions function, $Y_t = Z_tK_t^{\alpha}L_t^{1-\alpha}$, renting capital and labor at prices $r_t,w_t$ and capital depreciates at geometric rate $\delta$.
+
+\ben
+	\item Show that a stationary asset distribution cannot exist if $r\geq0$
+	
+	\item For $r<0$, solve for the aggregate supply of assets $A(r)$ in the stationary distribution and the demand for assets, $K(r)$. Draw the two functions in a graph.
+	
+	\item Solve for $r_t$ and $w_t$ in the stationary equilibrium
+	
+	\item Show and discuss what happens to long-run values of production $Y_t$, interest rate $r_t$ and wages $w_t$ if the savings rate $\gamma$ increases or productivity $Z_t$ decreases permanently. 
+\een
+
+\section*{ICM in GE: Constant savings rate II}
+Consider an economy with a continuum (measure 1) of ex-ante identical consumers each having efficiency units of labor $\epsilon_{it}$ which is i.i.d. over time and across agents, has non-negative support and mean $1$. Consumers can trade a non contingent bond but cannot borrow ($a_{it+1}\geq 0$). Firms employ a Cobb-Douglas productions function, $Y_t = Z_tK_t^{\alpha}L_t^{1-\alpha}$, renting capital and labor at prices $r_t,w_t$ and capital depreciates at geometric rate $\delta$.
+
+\ben
+\item Let's ignore micro-foundations and simply assume that the households save their labor income at constant rate $\gamma$:
+\begin{eqnarray}
+a_{it+1} = (1+r)a_{it} + \gamma \epsilon_{it} w_t. \nonumber
+\end{eqnarray}
+Show that a stationary asset distribution cannot exist if $r\geq0$
+
+\item Now assume that the households save their total available resources at constant rate $\gamma$:
+\begin{eqnarray}
+a_{it+1} = \gamma \left[(1+r)a_{it} + \epsilon_{it} w_t\right]. \nonumber
+\end{eqnarray}
+Show that a stationary asset distribution cannot exist if $r\geq \frac{1}{\gamma}-1$
+
+\item In each of the two cases, solve for the aggregate supply of assets $A(r)$ in the stationary distribution. Draw the two supply functions in a graph together with the demand for assets, $K(r)$. Under which savings behavior does the equilibrium entail a higher level of capital?
+
+\een
+
+	
+\end{document}

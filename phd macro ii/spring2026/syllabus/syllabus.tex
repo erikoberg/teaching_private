@@ -1,0 +1,403 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\newcommand{\bit}{\begin{itemize}}
+\newcommand{\eit}{\end{itemize}}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+\title{Preliminary Detalied Syllabus for Macro II Part II, Spring 2025}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Overview}
+
+\begin{itemize}
+	\item The course introduces workhorse models used in the i) business cycle, ii) frictional labor market and iii) incomplete markets literatures. 
+	Emphasis will be put on developing analytical techniques for actively working with these models as well as understanding their core implications. 
+	We will also repeatedly explore the usage of micro data to inform macroeconomic models. 
+	
+	\item 14 lectures: 
+	\bit
+		\item 6 lectures (20 hours) on business cycle models
+		\item 4 lectures (13 hours) on frictional labor markets
+		\item 3 lectures (7 hours) on incomplete asset markets
+		\item 1 summing-up/Q\&A session
+	
+	\eit
+	
+	\item 7 TA sessions: 1 tutorial session on using Dynare / 6 sessions on graded problem sets
+	
+	\item Basic proficiency with Matlab is assumed; there are a lot of tutorials you can check online. 
+	
+%	\item Examination
+%	\bit
+%		\item Each graded problem set is worth 6 points
+%		
+%		\item The exam is worth 76 points
+%		
+%		\item To pass the course, you need 50 points in total, with at least 30 points from the exam
+%		
+%		\item The exam is closed book
+%	\eit
+	
+	\item The Ph.D. Macro Book is our main textbook. Core readings are marked with a *. The other listed readings are highly recommended. In addition to this material, we will discuss some additional papers in class. These readings are for the interested.
+\end{itemize}
+
+
+\section*{Lecture 1 - RBC: Business Cycle Facts and the baseline RBC model (3 hours)}
+\begin{enumerate}
+\item Business cycle facts
+
+\item Math preliminaries
+
+\item The Real Business Cycle model: Setup and solution
+
+\item The Real Business Cycle model: Analysis
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Ph.D. Macro Book, Chapter 13.
+	\item Eric Sims's lecture notes entitled ``Preliminaries'', ``Log-lineariziation'', ``Using Dynare'', ``RBC (qualitative)'' and ``RBC (quantitative)''
+	\item \bibentry{King1999}
+	\item \bibentry{Kydland1982}
+	\item \bibentry{King1984}
+\end{itemize}
+
+
+\section*{Lecture 2 -  RBC: accounting, measurement, extensions}
+\begin{enumerate}
+\item Business cycle accounting
+
+\item Measuring technology shocks
+
+\item Labor market extensions
+\bit
+\setlength\itemsep{0.5em} 
+
+\item Employment lotteries
+
+\item GHH preferences
+
+\eit
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Ph.D. Macro Book, Chapter 13.
+	\item *\bibentry{Chari2007}
+	\item \bibentry{King1999}
+	\item \bibentry{Basu2006}
+	\item \bibentry{Hansen1985}
+	\item \bibentry{Rogerson1988}
+	\item \bibentry{greenwood1988investment}
+\end{itemize}
+
+
+\section*{Lecture 3 - RBC: investment Dynamics}
+\begin{enumerate}	
+	\item RBC setup with firm ownership of capital
+	
+	\item Neoclassical theory vs. Q theory of investment
+	\bit
+	\item Investment adjustment costs in the RBC model
+	\eit
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Ph.D. Macro Book, Chapter 13.
+	\item *\bibentry{Hayashi1982}
+	\item Eric Sims's lecture notes entitled ``RBC extensions''
+\end{itemize}
+
+\section*{Lecture 4 - The New-Keynesian model: basics (3 hours)}
+\begin{enumerate}
+	\item Evidence concering the effects of monetary policy
+	
+	\item The vanilla NK model: setup and equilibrium
+	
+	\item Determinacy and Taylor rules
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Ph.D. Macro Book, Chapter 17.
+	\item *\bibentry{Ramey2016}
+	\item \bibentry{Cochrane2011}
+	\item \bibentry{Clarida1999} 
+\end{itemize}
+
+
+\section*{Lecture 5 - The New-Keynesian model: mechanics}
+\begin{enumerate}
+	\item Monetary policy shocks
+	
+	\item TFP shocks
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Ph.D. Macro Book, Chapter 17.
+	\item \bibentry{Clarida1999}
+	\item \bibentry{Christiano2005}
+	\item \bibentry{Smets2007}
+\end{itemize}
+
+\section*{Lecture 6 - The New-Keynesian model: policy}
+\begin{enumerate}	
+	\item Sources of ineffiency 
+	
+	\item Optimal monetary policy
+	
+	\item Quantitative NK models: A helicopter view
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Ph.D. Macro Book, Chapter 17.
+	\item \bibentry{Clarida1999}
+	\item \bibentry{Christiano2005}
+	\item \bibentry{Smets2007}
+\end{itemize}
+
+
+
+
+\section*{Lecture 7 - Frictional labor markets: basics (3 hours)}
+\begin{enumerate}
+	\item Labor markets facts: stocks, flows and prices
+	
+	\item Mathematical preliminaries
+	
+	\item Search in partial equilibrium (the McCall model)
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *\bibentry{Rogerson2005}
+	\item *\bibentry{Hornstein2011}
+	\item \bibentry{Rogerson2011}
+	\item \bibentry{Elsby2013}
+\end{itemize}
+
+
+\section*{Lecture 8 - Job ladders and wage dispersion}
+\begin{enumerate}
+	\item The AKM regression
+	\item The Burdett-Mortensen model
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *\bibentry{Rogerson2005}
+	\item *\bibentry{Burdett1998}
+	\item *\bibentry{Hornstein2011}
+	\item \bibentry{Abowd1999}
+\end{itemize}
+
+\section*{Lecture 9 - Unemployment: statics}
+\begin{enumerate}
+	\item The matching function
+	\item Diamond-Mortensen-Pissarides: setup and solution 
+	\item Diamond-Mortensen-Pissarides: static analysis
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *\bibentry{Rogerson2005}
+	\item *Ph.D. Macro Book, Chapter 19
+\end{itemize}
+
+
+\section*{Lecture 10 - Unemployment: efficiency and dynamics}
+\begin{enumerate}
+	\item Diamond-Mortensen-Pissarides: Efficiency
+	
+	\item Diamond-Mortensen-Pissarides: dynamic analysis
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Ph.D. Macro Book, Chapter 19
+	\item *\bibentry{Rogerson2005}
+	\item *\bibentry{Shimer2005}
+	\item *\bibentry{Hagedorn2008}
+	\item \bibentry{Hosios1990}
+\end{itemize}
+
+%\section*{Lecture 4: Unemployment and welfare}
+%\begin{enumerate}
+%	\item Efficiency in the DMP model
+%	
+%	\item Moen's directed search model
+%	
+%	\item Efficiency in the directed search model
+%	
+%	\item Menzio-Shi's directed search model (briefly)
+%\end{enumerate}
+%
+%\bf Core readings \normalfont
+%\begin{itemize}
+%	\item \bibentry{Rogerson2005}
+%	\item \bibentry{Hosios1990}
+%	\item \bibentry{Moen1997}
+%	\item \bibentry{Menzio2011}
+%\end{itemize}
+
+
+\section*{Lecture 11 - Incomplete markets: Basics}
+\begin{enumerate}
+	\item Basic facts about the distribution of income, wealth and consumption
+	\item Aggregation with complete and incomplete markets
+	\item Consumption-savings dynamics with incomplete markets
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Chapter 4-5 in \bibentry{Krueger2016c}
+	\item *Lectures 1-3 by Gianluca Violante
+	\item \bibentry{Heathcote2010}
+	\item \bibentry{Guvenen2014}
+	\item \bibentry{Guvenen2016}
+	\item \bibentry{Kuhn2020}
+\end{itemize}
+
+
+\section*{Lecture 12 - Incomplete markets: Buffer-stock savings (3 hours)}
+\begin{enumerate}
+	\item The buffer-stock savings model
+	\bit
+	\item Setup, computation and calibration
+	\item The consumption function
+	\eit	
+	\item Applying the Buffer-Stock Savings Model
+	\bit
+	\item Gourinchas-Parker: life-cycle savings dynamics
+	\item Blundell-Pistaferri-Preston: consumption and Income inequality
+	\item Kaplan-Violante: illiquid assets and the marginal propensity to consume
+	\eit
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *\bibentry{Carroll1997}
+	\item *\bibentry{Gourinchas2002}
+	\item *\bibentry{blundell2008}
+	\item *\bibentry{Kaplan2014}
+	\item \bibentry{Deaton1991}
+\end{itemize}
+
+\section*{Lecture 13 - Incomplete markets: General equilibrium}
+\begin{enumerate}
+	\item The Ayiagari model
+	\bit
+	\item Recursive competitive equilibrium
+	\item Asset convergence
+	\item The Ayiagari diagram
+	\eit
+	\item Applications
+	\bit
+		\item Explaining wealth inequality
+		
+		\item Taxation
+	\eit
+\end{enumerate}
+
+\bf Readings \normalfont
+\begin{itemize}
+	\item *Chapter 7 in \bibentry{Krueger2016c}
+	\item *Lectures 4-9, 11 by Gianluca Violante
+	\item *\bibentry{Aiyagari1994}
+	\item \bibentry{Huggett1993}
+\end{itemize}
+
+
+\section*{Lecture 14 - Course summary and pre-exam Q\&A}
+\begin{enumerate}
+	\item Putting it all together: An Incomplete-Markets New Keynesian model with a Frictional Labor Market
+	
+	\item Pre-exam Q\&A session
+\end{enumerate}
+
+
+%\section*{Non-required readings cited in class (roughly in order of appearance)}
+%\begin{itemize}
+%	\item \bibentry{Shimer2012}
+%	\item \bibentry{Acemoglu2002}
+%	\item \bibentry{Mortensen2003}
+%	\item \bibentry{Mccall1970}
+%	\item \bibentry{Rothschild1973}
+%	\item \bibentry{Diamond1971}
+%	\item \bibentry{Krueger2016}
+%	\item \bibentry{Krueger2002}
+%	\item \bibentry{Carling2001}
+%	\item \bibentry{Chetty2008}
+%	\item \bibentry{Card2015}	
+%	\item \bibentry{Kolsrud2015}
+%	\item \bibentry{Lalive2007}
+%	\item \bibentry{VanOurs2008}	
+%	\item \bibentry{Schmieder2016}
+%	\item \bibentry{Nekoei2017}
+%	\item \bibentry{Ljungqvist1998}	
+%	
+%	\item \bibentry{Diamond1981}
+%	\item \bibentry{Diamond1982}
+%	\item \bibentry{Diamond1982a}
+%	\item \bibentry{Mortensen1982}
+%	\item \bibentry{Mortensen1982a}
+%	\item \bibentry{Pissarides1984}
+%	\item \bibentry{Pissarides1985}
+%	\item \bibentry{Petrongolo2001}
+%	\item \bibentry{Gavazza2016}
+%	\item \bibentry{Nash1950}
+%	\item \bibentry{Hagedorn2016}
+%	\item \bibentry{Chodorow-Riech2017}	
+%	\item \bibentry{Hosios1990}
+%	\item \bibentry{Hall2008}
+%	\item \bibentry{Pissarides2009}
+%	\item \bibentry{Haefke2013}
+%	\item \bibentry{Kudlyak2014}
+%	\item \bibentry{Merz1995}
+%	\item \bibentry{Ravenna2011}
+%	\item \bibentry{Mortensen1994}
+%	\item \bibentry{Moen1997}
+%	\item \bibentry{Menzio2011}
+%	\item \bibentry{Sahin2014}
+%
+%	\item \bibentry{Jolivet2006}
+%	\item \bibentry{Bontemps2000}
+%	\item \bibentry{Mortensen2003}
+%	\item \bibentry{Barlevy2008}
+%	\item \bibentry{Engbom2017}
+%	\item \bibentry{Sorkin2017}
+%	\item \bibentry{Stevens2004}
+%	\item \bibentry{Burdett2003}
+%	\item \bibentry{Papp2013}
+%	\item \bibentry{Williamson2010}
+%	\item \bibentry{Lagos2009}
+%	\item \bibentry{Shimer2000}
+%\end{itemize}
+%
+%\bibliographystyle{apalike}
+%\bibliography{bibtex}
+
+\end{document}

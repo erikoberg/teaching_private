@@ -1,0 +1,100 @@
+\documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Exam practice questions for Macro II: Part 2}
+
+\begin{document}
+\maketitle
+	
+\section*{Short questions}
+Answer the question and, when applicable, provide a short explanation, emphasizing intuition.
+\ben
+	\item Explain the Diamond paradox.
+	
+	\item Consider the DMP model. Is it true that Replacing Nash bargaining with any fixed wage $w\in[b,y]$, where $b$ is the unemployment utility flow and $y$ is the production flow from a match, resolves the Shimer puzzle?
+%	
+%	\bf Suggested answer: \normalfont \emph{False. The muted response of vacancies to productivity shocks stems from two problems in the standard calibration of the DMP model: 1) the response of wages absorbs most of the productivity increase and 2) the steady state level of profits is too high. Fixing the wage level at any level takes care of the first problem but only solves the latter if it is set to a sufficiently high level.} 
+	
+	
+	\item Is it true that the Burdett-Mortensen model predicts that firm size is positively correlated with quit rate?
+	
+%	\bf Suggested answer: \normalfont \emph{False. The Burdett-Mortensen model predicts that firm size is positively correlated with paid wages, as employed workers only accept offers with a higher wage than what they currently earn and higher-paying firms therefore attract more workers than lower-paying firms. The model also predicts that wages are negatively correlated with quit rates, as the probability of accepting a new offer is lower when a worker's current wage is higher. It follows that firm size is negatively correlated with quit rates.}
+	
+	\item Is it true that precuationary savings cannot arise in a two-period consumption-savings problem where households have quadratic preferences?
+	
+	\item Is it true that, in general, solving the Ayiagari model augmented with aggregate shocks exactly is impossible due to the assumption of rational expectations?
+	
+%	\bf Suggested answer: \normalfont \emph{True. With rational expectations, the joint distribution of income and wealth becomes an aggregate state variable in the household problem, since it is needed to forecast future prices. This distribution is infinitely-dimensional and we can only solve household problems with a (small) finite set of state variables.}
+\een
+
+
+%\section*{Long questions}
+%
+%\subsection*{The effect of changing unemployment benefits in the Burdett-Mortensen model}
+%Consider the basic Burdett-Mortensen model. 
+%\ben
+%	\item State the worker value function equations
+%	
+%	\item Argue that the optmial acceptance rule of employed workers implies that their value function equation can be written
+%	\begin{eqnarray}
+%	rW(w)  &=&  w + \lambda_e  \int_{w' \geq w} (W(w') - W(w)) dF(w') + \sigma(U-W(w)) \nonumber
+%	\end{eqnarray}
+%	\item Argue that the optmial acceptance rule of unemployed workers implies that their value function equation can be written
+%	\begin{eqnarray}
+%	rU  &=&  b + \lambda_u  \int_{w\geq w_R} (W(w)-U) dF(w) \nonumber
+%	\end{eqnarray}
+%	
+%	\item Show that the reservation equation satisfies
+%	\begin{eqnarray}
+%	w_R-b &=& (\lambda_u-\lambda_e) \int_{w \geq w_R}\frac{1-F(w)}{r+\sigma + \lambda_e(1-F(w))} dw \nonumber
+%	\end{eqnarray}
+%
+%	\item Show that, using the facts that the equilibrium offer distribution satisfies $F(w_R)=0$ and is continuous and differentiable, that 
+%	\begin{eqnarray}
+%	\frac{\partial w_R}{\partial b} &=& \frac{r+\sigma + \lambda_e}{r+\sigma + \lambda_u} \nonumber
+%	\end{eqnarray}
+%	\item Why is $\frac{\partial w_R}{\partial b}$ decreasing in $\lambda_u$ and increasing in $\lambda_e$? Provide some intuition.
+%\een
+%
+%\section*{ICM in GE: Constant savings rate I (From Perri)}
+%Consider an economy with a continuum (measure 1) of ex-ante identical consumers each having efficiency units of labor $\epsilon_{it}$ which is i.i.d. over time and across agents, has non-negative support and mean $1$. Consumers can trade a non contingent bond but cannot borrow ($a_{it+1}\geq 0$). Let's ignore micro-foundations and simply assume that the households save their labor income at constant rate $\gamma$:
+%\begin{eqnarray}
+%a_{it+1} = (1+r)a_{it} + \gamma \epsilon_{it} w_t, \nonumber
+%\end{eqnarray}
+%where $r_t,w_t$ are the equilibrium interest and wage rates. Firms employ a Cobb-Douglas productions function, $Y_t = Z_tK_t^{\alpha}L_t^{1-\alpha}$, renting capital and labor at prices $r_t,w_t$ and capital depreciates at geometric rate $\delta$.
+%
+%\ben
+%	\item Show that a stationary asset distribution cannot exist if $r\geq0$
+%	
+%	\item For $r<0$, solve for the aggregate supply of assets $A(r)$ in the stationary distribution and the demand for assets, $K(r)$. Draw the two functions in a graph.
+%	
+%	\item Solve for $r_t$ and $w_t$ in the stationary equilibrium
+%	
+%	\item Show and discuss what happens to long-run values of production $Y_t$, interest rate $r_t$ and wages $w_t$ if the savings rate $\gamma$ increases or productivity $Z_t$ decreases permanently. 
+%\een
+
+	
+\end{document}

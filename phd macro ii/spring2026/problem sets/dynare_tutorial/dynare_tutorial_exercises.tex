@@ -1,0 +1,97 @@
+             \documentclass{article}[11pt]
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{bibentry}
+\nobibliography*
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Macroeconomics II: Dynare Tutorial Exercise}
+\author{Erik \"{O}berg}
+\date{}
+
+\begin{document}
+\maketitle
+
+Consider the vanilla RBC model discussed in Lecture 1. Its equilibrium and log-linear equilibrium are characterized by 
+\begin{eqnarray}
+\frac{1}{C_t}W_t = \theta N_t^{\varphi} &\Rightarrow& \hat w_t = \hat c_t + \varphi n_t \nonumber \\
+\frac{1}{C_t} = \beta E_t\left[(R^{r}_{t+1}+(1-\delta)) \frac{1}{C_{t+1}} \right] &\Rightarrow& \hat c_t = - \beta R^{r} E_t \hat r^{r}_{t+1} + E_t \hat {c}_{t+1} \nonumber \\
+C_t + I_t = Y_t &\Rightarrow& \frac{C}{Y}\hat c_t + \frac{I}{Y} \hat i_t = \hat y_t \nonumber \\
+Y_t = A_t K_t^{\alpha}N_t^{1-\alpha} &\Rightarrow& \hat y_t = \hat a_t + \alpha \hat k_t + (1-\alpha ) \hat n_t \nonumber \\
+K_{t+1} = (1-\delta) K_t + I_t &\Rightarrow& \nonumber \hat k_{t+1} = (1-\delta) \hat k_t +\delta \hat i_t \nonumber\\
+R^{r}_t = \alpha A_t \left(\frac{K_t}{N_t}\right)^{\alpha-1}  &\Rightarrow& \hat r^{r}_t = \hat a_t -(1-\alpha)(\hat k_t - \hat n_t)  \nonumber \\
+W_t = (1-\alpha) A_t \left(\frac{K_t}{N_t}\right)^{\alpha} &\Rightarrow& \hat w_t = \hat a_t + \alpha (\hat k_t-\hat n_t) \nonumber \\
+A_t = A_{t-1}^{\rho_a}exp(\epsilon_t) &\Rightarrow& \hat a_t = \rho_a \hat a_{t-1} + \epsilon_{t} \nonumber
+\end{eqnarray}
+and its steady state is given by
+\begin{eqnarray}
+R^{r} &=& \frac{1}{\beta}-(1-\delta) \nonumber \\
+W &=& (1-\alpha)\left(\frac{R^{r}}{\alpha}\right)^{-\frac{\alpha}{1-\alpha}} \nonumber \\
+N &=& \left[\frac{1}{\theta} \frac{W}{\frac{R^{r}}{\alpha}-\delta}\left(\frac{R^{r}}{\alpha
+}\right)^{\frac{1}{1-\alpha}}   \right]^{\frac{1}{1+\varphi}} \nonumber \\
+K &=& \left(\frac{R^{r}}{\alpha
+}\right)^{-\frac{1}{1-\alpha}}N \nonumber \\
+Y &=& \frac{R^{r}K}{\alpha} \nonumber \\
+I &=& \delta K \nonumber \\
+C &=& (\frac{R^{r}}{\alpha}-\delta) K \nonumber
+\end{eqnarray}
+
+\section*{Exercise 1: Calibration}
+Calibrate the model on a \emph{quarterly frequency}. Set $\varphi=1$, and
+\bit
+	\item Pick $\delta$ to match NIPA estimates of average \emph{yearly} capital depreciation rate $\sim 10 \%$
+	\item Pick $\beta$ to match a \emph{yearly} real return on capital of $4$ percent, net of depreciation
+	\item Pick $\alpha$ to match long-run labor share $\sim 2/3$
+	\item Pick $\theta$ to match average hours worked $\sim 0.7$
+\eit
+With these parameter values, what are the values of $\frac{C}{Y}$ and $\frac{I}{Y}$?
+
+\section*{Exercise 2: Simulation using Dynare}
+Going forward to analyze dynamics, let's set $\rho_a=0.973$ and $\sigma_{\epsilon}=0.009$.
+\ben
+	\item Plug in the log-linear system into Dynare and simulate a first-order pertubation
+	
+	\item Compare your estimated IRFs with those we retreived in class, are they the same?
+	
+	\item Look at the simulation moments, are they the same as those we looked at in class?
+	
+	\item Set the HP-filter parameter to 1600 (standard for quarterly data), do the moments change? Are they the same as in class?
+\een
+
+\section*{Exercise 3: Making you own graphs using the IRFs}
+\ben
+\item Construct a figure of the IRFs of output and TFP in the same graph
+
+\item Construct a figure of the IRFs of Investment and consumption in the same graph
+\een
+
+\section*{Exercise 4: From IRFs to simulation plots}
+\ben
+	\item Generate a sequence of $T=200$ random draws of the shocks
+	
+	\item Produce a time series of output, consumption and investment based on these draws and your estimated IRFs, similar to the graph in Lecture 1
+\een
+
+
+
+	
+\end{document}
