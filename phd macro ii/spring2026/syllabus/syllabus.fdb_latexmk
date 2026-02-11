@@ -1,13 +1,13 @@
 # Fdb version 4
-["bibtex syllabus"] 1770800321.47871 "syllabus.aux" "syllabus.bbl" "syllabus" 1770800363.95292 0
+["bibtex syllabus"] 1770800321.47871 "syllabus.aux" "syllabus.bbl" "syllabus" 1770800580.53877 0
   "./bibtex.bib" 1770799793 138840 1909d1be6aa18d23255e42013fcb6f49 ""
   "C:/Program Files/MikTeX 24.1/bibtex/bst/bibtex/apalike.bst" 1291972791 24635 604dafcc79f521a11ea73e506e1fbd98 ""
-  "syllabus.aux" 1770800363 2929 c2cd84dc8e87a6a7da635abf32a8c14b "pdflatex"
+  "syllabus.aux" 1770800580 2929 c2cd84dc8e87a6a7da635abf32a8c14b "pdflatex"
   (generated)
   "syllabus.bbl"
   "syllabus.blg"
   (rewritten before read)
-["pdflatex"] 1770800362.94419 "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/syllabus/syllabus.tex" "syllabus.pdf" "syllabus" 1770800363.9533 0
+["pdflatex"] 1770800579.50068 "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/syllabus/syllabus.tex" "syllabus.pdf" "syllabus" 1770800580.53916 0
   "C:/Program Files/MikTeX 24.1/fonts/tfm/jknappen/ec/tcrm1095.tfm" 993062508 1460 8005ce585ff351dff78998923504da5e ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -192,10 +192,10 @@
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/natbib/natbib.sty" 1292249081 46712 1c8843383c0bd05870c45fa0ebea6cc2 ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/placeins/placeins.sty" 1113865200 4087 636308456f60d2b31cbf97867db5708d ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/preprint/fullpage.sty" 1369148873 2867 05b418f78b224ec872f5b11081138605 ""
-  "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/syllabus/syllabus.tex" 1770800362 10313 c3cd67803e02628bace2336c5f5105e1 ""
-  "syllabus.aux" 1770800363 2929 c2cd84dc8e87a6a7da635abf32a8c14b "pdflatex"
+  "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/syllabus/syllabus.tex" 1770800579 10446 8a95aa31449aa351b2abc5aab3300e50 ""
+  "syllabus.aux" 1770800580 2929 c2cd84dc8e87a6a7da635abf32a8c14b "pdflatex"
   "syllabus.bbl" 1770800321 7428 87b5a1b3f425eeeda4acb72f1487f21c "bibtex syllabus"
-  "syllabus.tex" 1770800362 10313 c3cd67803e02628bace2336c5f5105e1 ""
+  "syllabus.tex" 1770800579 10446 8a95aa31449aa351b2abc5aab3300e50 ""
   (generated)
   "syllabus.aux"
   "syllabus.log"
