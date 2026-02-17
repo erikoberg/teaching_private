@@ -23,7 +23,7 @@
 \usepackage{appendixnumberbeamer}
 
 \usepackage[authoryear]{natbib}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{caption}
 \usepackage{amsmath, amssymb}
@@ -35,7 +35,11 @@
 \usepackage{multirow}
 \usepackage{tikz}
 
+% Make PDF metadata/bookmarks handle accents (e.g., \"O)
+\hypersetup{unicode=true}
+
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
@@ -105,7 +109,7 @@
 
 \item Measuring technology shocks
 
-\item Two extensions to adress the the labor wedge
+\item Two extensions to address the labor wedge
 \bit
 \setlength\itemsep{0.5em} 
 
@@ -307,11 +311,10 @@ we can eliminate $\hat r^{r}_t, \hat w_t$ from the system
 \item Nothing stops us from extending the accounting method to include prices
 \bit
 \setlength\itemsep{0.5em} 
-	\item One attempt: Karabarbounis (RED 2014), finds that LM wedge is mostly due to $W_t \neq MRS$
-
 	\item However, there is more uncertainty regarding measurement of prices compared to NIPA variables
 	
 	\item Wage fluctuations could, for example, be heavily influenced by cyclical selection
+	\item Karabarbounis (RED 2014) shows you can sidestep this issue if assuming a Cobb-Douglas production function, finds that LM wedge is mostly due to $W_t \neq MRS$
 \eit
 
 \item However, without including prices, we gain little information about which economic relationship that accounts for the wedges
@@ -329,20 +332,20 @@ we can eliminate $\hat r^{r}_t, \hat w_t$ from the system
 
 \end{frame}
 
-\begin{frame}{Are Solow residuals are reasonable measure of technology shocks?}
+\begin{frame}{Are Solow residuals a reasonable measure of technology shocks?}
 
 \bit
 \setlength\itemsep{1.5em} 
 
-\item We apparently need a large fluctuations in the efficiency wedge to explain the data
+\item We apparently need large fluctuations in the efficiency wedge to explain the data
 
 \item Kydland-Prescott's original approach: interpret the efficiency wedge (or Solow residuals) as {\bc exogenous technology shocks}
 
-\item Reasonable that technological progress fluctuates around trend, and that Solow residuals captures some of this
+\item Reasonable that technological progress fluctuates around trend, and that Solow residuals capture some of this
 
-\item However, not reasonable that these \emph{detrended} fluctuations can be negative with $-5 \%$ or $-10 \%$ percent $\Rightarrow$ implies huge technological regress!
+\item However, not reasonable that these \emph{detrended} fluctuations can be negative with $-5 \%$ or $-10 \%$ $\Rightarrow$ implies huge technological regress!
 \bit
-	\item Solow residuals implies that technological regress 40 \% of time in post-war US data (King-Rebelo, HBmacro 1999)
+	\item Solow residuals imply technological regress 40\% of the time in post-war US data (King-Rebelo, HBmacro 1999)
 \eit
 
 \item Technology concerns how factors of production are used for producing specific individual products (``blue-prints''); TFP is an abstract measurement concept
@@ -357,14 +360,13 @@ we can eliminate $\hat r^{r}_t, \hat w_t$ from the system
 
 \end{frame}
 
-\begin{frame}{Cleaning ``Solow residuals''}
+\begin{frame}{Cleaning ``Solow residuals'' (I): Utilization}
 
 \bit
-\setlength\itemsep{1.5em} 
+\setlength\itemsep{1em} 
 
-\item Capacity utilization: In reality, firms adjust the usage of their predetermined factors of production over the business cycle
-\bit
-\setlength\itemsep{0.5em}
+\item Firms adjust the usage of their predetermined factors of production over the business cycle
+
 \item True for both labor and capital
 
 \item Capacity utilization often treated as a key statistic for measuring the state of the business cycle
@@ -379,17 +381,23 @@ we can eliminate $\hat r^{r}_t, \hat w_t$ from the system
 a_t = y_t-(1-\alpha)n_t - \alpha (z_t + k_t) \nonumber
 \end{eqnarray}
 
-\item Basu-Fernald-Kimball (AER 2006) and Fernald (2014) uses input data to adjust sectoral solow residuals from capacity utilization, then aggregate sector-level productivity to TFP
+\item Basu-Fernald-Kimball (AER 2006) and Fernald (2014) uses input data to adjust sectoral Solow residuals from capacity utilization, then aggregate sector-level productivity to TFP
 
-\item Both find a technology series with 20-25 \% less volalility than original Solow residuals
+\item Both find a technology series with 20-25 \% less volatility than original Solow residuals
 \eit
 
 \eit
 
+\end{frame}
 
-\item Missallocation: Suppose the some of the factors of production $N_t, K_t$ are allocated to ``under-performing'' firms
+\begin{frame}{Cleaning ``Solow residuals'' (II): Misallocation}
+
 \bit
-\setlength\itemsep{0.5em}
+\setlength\itemsep{1em} 
+
+
+\item Suppose some of the factors of production $N_t, K_t$ are allocated to ``under-performing'' firms
+
 \item This will also look like low TFP in the data
 
 \item If missallocation moves with the business cycle, this will ``contaminate'' Solow residuals
@@ -397,7 +405,6 @@ a_t = y_t-(1-\alpha)n_t - \alpha (z_t + k_t) \nonumber
 \item Cyclical missallocation is actually a key prediction of the New-Keynesian model, introduced in Lecture III
 
 \item I've not seen it applied in the RBC literature, but general measurement framework provided in Hsieh-Klenow (QJE 2009) 
-\eit
 
 \eit
 
@@ -472,12 +479,12 @@ a_t = y_t-(1-\alpha)n_t - \alpha (z_t + k_t) \nonumber
 
 \item Also, recall the problems of getting the price moments right
 
-\item Lets start by adressing the labor wedge and the efficiency wedge
+\item Let's start by addressing the labor wedge and the efficiency wedge
 \bit
 \setlength\itemsep{0.5em}
-	\item Problem set 5: endogenous capacity utilization to adress efficiency wedge
+	\item Problem set 5: endogenous capacity utilization to address the efficiency wedge
 	
-	\item Remainder of this lecture: adressing the labor wedge
+\item Remainder of this lecture: addressing the labor wedge
 \eit
 
 
@@ -491,7 +498,7 @@ a_t = y_t-(1-\alpha)n_t - \alpha (z_t + k_t) \nonumber
 \begin{frame}
 
 \begin{center}
-	\huge Two extensions to adress the the labor wedge \normalfont
+	\huge Two extensions to address the labor wedge \normalfont
 \end{center}
 
 \end{frame}
@@ -784,11 +791,11 @@ V'(N) = W_t \nonumber
 
 \end{frame}
 
-\begin{frame}{Is GHH a reasonable preference specifaction?}
+\begin{frame}{Is GHH a reasonable preference specification?}
 
 \bit
 \setlength\itemsep{1.5em}
-	\item Cesarini-Lindqvist-Notowidigdo-Östling (AER 2017): labor supply responses to windfall lottery gains very small
+	\item Cesarini-Lindqvist-Notowidigdo-{\"O}stling (AER 2017): labor supply responses to windfall lottery gains very small
 
 	\item But if this is true, how to resolve with (almost) constant labor supply in the long run?
 	
@@ -797,20 +804,20 @@ V'(N) = W_t \nonumber
 	\setlength\itemsep{0.5em}
 		\item Jaimovich-Rebelo (JPE 2009): with habits in household preferences, you can actually achieve this
 	
-		\item Broer-Harmenberg-Krusell-Öberg (AER:insights 2023): this is what you should expect if households are subject to rigid wage contracts
+		\item Broer-Harmenberg-Krusell-{\"O}berg (AER:insights 2023): this is what you should expect if households are subject to rigid wage contracts
 	\eit
 \eit
 
 \end{frame}
 
 
-\begin{frame}{Rigid-wage contracts a la Broer-Harmenberg-Krusell-Öberg}
+\begin{frame}{Rigid-wage contracts a la Broer-Harmenberg-Krusell-{\"O}berg}
 
 \bit
 \setlength\itemsep{1em}
-	\item ``Rigid'' wages = wage contracts cannot be contingent on the shock, nor can they be renegoiated once a shock happens
+	\item ``Rigid'' wages = wage contracts cannot be contingent on the shock, nor can they be renegotiated once a shock happens
 
-	\item Instead of having a competitive market for hours in exchange for fixed per-hour wages, suppose we have a competive market for rigid wage-hour contracts: $W(N)$
+	\item Instead of having a competitive market for hours in exchange for fixed per-hour wages, suppose we have a competitive market for rigid wage-hour contracts: $W(N)$
 	
 	\item If firms have the ``right to manage'', then conditional on a TFP shock, we get $A_t F'(N_t) = W'(N_t)$
 	\bit
@@ -826,7 +833,7 @@ V'(N) = W_t \nonumber
 	
 	\item $\Rightarrow$ as if GHH within the contract, as if KPR when rewriting the contract 
 	\bit
-		\item Frequency fo recontracting determines how short the short run is
+		\item Frequency of recontracting determines how short the short run is
 	\eit
 \eit
 
@@ -838,17 +845,17 @@ V'(N) = W_t \nonumber
 \bit
 \setlength\itemsep{1.5em} 
 
-\item Busines cycle accounting (BCA): useful diagnosis tool $\Rightarrow$ we learned that vanilla RBC is associated with large labor and efficiency wedges
+\item Business cycle accounting (BCA): useful diagnosis tool $\Rightarrow$ we learned that vanilla RBC is associated with large labor and efficiency wedges
 \bit
 \setlength\itemsep{0.5em} 
 	\item It is not reasonable to interpret the entire efficiency wedge as exogenous technological shocks
 
-	\item After cleaing Solow residuals from utilization, amplification problem becomes bigger
+\item After cleaning Solow residuals from utilization, amplification problem becomes bigger
 \eit
 
-\item Motivated by BCA, we learned that model fit is improved if making labor supply more elastic and muting income effec
+\item Motivated by BCA, we learned that model fit is improved if making labor supply more elastic and muting income effects
 \bit
-	\item Highly elastic labor supply a natural implication of indivisble labor
+	\item Highly elastic labor supply a natural implication of indivisible labor
 	
 	\item Small short-run income effects is a natural implication of rigid wage contracts
 \eit
