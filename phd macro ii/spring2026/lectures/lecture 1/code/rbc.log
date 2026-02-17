@@ -1,15 +1,24 @@
-Starting Dynare (version 4.5.1).
-Starting preprocessing of the model file ...
-Found 8 equation(s).
-Evaluating expressions...done
-Computing static model derivatives:
- - order 1
-Computing dynamic model derivatives:
- - order 1
- - order 2
-Processing outputs ...
-done
-Preprocessing completed.
+Starting Dynare (version 6.5).
+Calling Dynare with arguments: none
+Starting preprocessing of the model file ... 
+Found 8 equation(s). 
+Evaluating expressions... 
+Computing static model derivatives (order 1). 
+Normalizing the static model... 
+Finding the optimal block decomposition of the static model... 
+2 block(s) found: 
+  1 recursive block(s) and 1 simultaneous block(s). 
+  the largest simultaneous block has 7 equation(s) 
+                                 and 7 feedback variable(s). 
+Computing dynamic model derivatives (order 2). 
+Normalizing the dynamic model... 
+Finding the optimal block decomposition of the dynamic model... 
+2 block(s) found: 
+  1 recursive block(s) and 1 simultaneous block(s). 
+  the largest simultaneous block has 7 equation(s) 
+                                 and 5 feedback variable(s). 
+Preprocessing completed. 
+Preprocessing time: 0h00m00s.
 
 STEADY-STATE RESULTS:
 
@@ -37,43 +46,46 @@ e            0.000081
 
 POLICY AND TRANSITION FUNCTIONS
                                 ahat            yhat            nhat            khat            chat            ihat            what            rhat
-khat(-1)                           0               0               0        0.974004               0      -36.493078               0       -0.974004
-ihat(-1)                           0               0               0        0.025996               0       -0.974004               0       -0.025996
-e                           1.000000        1.000000               0               0        1.000000     1163.622067        1.000000        1.000000
+ahat(-1)                    0.979000        1.224830        0.368745               0        0.487341        3.321365        0.856085        1.224830
+khat(-1)                           0        0.218188       -0.159720        0.974004        0.537628       -0.689917        0.377908       -0.755816
+ihat(-1)                           0        0.005823       -0.004263        0.025996        0.014349       -0.018414        0.010086       -0.020173
+e                           1.000000        1.251103        0.376654               0        0.497794        3.392610        0.874449        1.251103
 
 
 THEORETICAL MOMENTS (HP filter, lambda = 1600)
 VARIABLE         MEAN  STD. DEV.   VARIANCE
-ahat           0.0000     0.0087     0.0001
-yhat           0.0000     0.0087     0.0001
-nhat           0.0000     0.0000     0.0000
-khat           0.0000     0.2625     0.0689
-chat           0.0000     0.0087     0.0001
-ihat           0.0000    14.6102   213.4571
-what           0.0000     0.0087     0.0001
-rhat           0.0000     0.2633     0.0693
+ahat           0.0000     0.0117     0.0001
+yhat           0.0000     0.0147     0.0002
+nhat           0.0000     0.0044     0.0000
+khat           0.0000     0.0037     0.0000
+chat           0.0000     0.0062     0.0000
+ihat           0.0000     0.0398     0.0016
+what           0.0000     0.0104     0.0001
+rhat           0.0000     0.0149     0.0002
 
 
 
 MATRIX OF CORRELATIONS (HP filter, lambda = 1600)
-Variables      ahat    yhat    khat    chat    ihat    what    rhat
-ahat         1.0000  1.0000 -0.0742  1.0000  0.7411  1.0000  0.1069
-yhat         1.0000  1.0000 -0.0742  1.0000  0.7411  1.0000  0.1069
-khat        -0.0742 -0.0742  1.0000 -0.0742 -0.7245 -0.0742 -0.9995
-chat         1.0000  1.0000 -0.0742  1.0000  0.7411  1.0000  0.1069
-ihat         0.7411  0.7411 -0.7245  0.7411  1.0000  0.7411  0.7468
-what         1.0000  1.0000 -0.0742  1.0000  0.7411  1.0000  0.1069
-rhat         0.1069  0.1069 -0.9995  0.1069  0.7468  0.1069  1.0000
+Variables       ahat     yhat     nhat     khat     chat     ihat     what     rhat
+ahat          1.0000   0.9984   0.9905   0.0191   0.9437   0.9978   0.9902   0.9809
+yhat          0.9984   1.0000   0.9811   0.0759   0.9610   0.9924   0.9966   0.9683
+nhat          0.9905   0.9811   1.0000  -0.1187   0.8892   0.9974   0.9616   0.9983
+khat          0.0191   0.0759  -0.1187   1.0000   0.3488  -0.0473   0.1584  -0.1756
+chat          0.9437   0.9610   0.8892   0.3488   1.0000   0.9196   0.9806   0.8614
+ihat          0.9978   0.9924   0.9974  -0.0473   0.9196   1.0000   0.9788   0.9917
+what          0.9902   0.9966   0.9616   0.1584   0.9806   0.9788   1.0000   0.9442
+rhat          0.9809   0.9683   0.9983  -0.1756   0.8614   0.9917   0.9442   1.0000
 
 
 
 COEFFICIENTS OF AUTOCORRELATION (HP filter, lambda = 1600)
-Order         1       2       3       4       5
-ahat    -0.0742 -0.0709 -0.0661 -0.0604 -0.0541
-yhat    -0.0742 -0.0709 -0.0661 -0.0604 -0.0541
-khat    -0.0742 -0.0709 -0.0661 -0.0604 -0.0541
-chat    -0.0742 -0.0709 -0.0661 -0.0604 -0.0541
-ihat    -0.5014 -0.0007 -0.0005 -0.0003 -0.0001
-what    -0.0742 -0.0709 -0.0661 -0.0604 -0.0541
-rhat    -0.1043 -0.0659 -0.0615 -0.0562 -0.0503
-Total computing time : 0h00m09s
+Order           1        2        3        4        5
+ahat       0.7199   0.4816   0.2834   0.1223  -0.0048
+yhat       0.7251   0.4900   0.2932   0.1323   0.0044
+nhat       0.7136   0.4717   0.2717   0.1104  -0.0158
+khat       0.9609   0.8659   0.7341   0.5810   0.4194
+chat       0.7708   0.5628   0.3786   0.2192   0.0848
+ihat       0.7157   0.4750   0.2756   0.1144  -0.0122
+what       0.7355   0.5065   0.3125   0.1520   0.0226
+rhat       0.7138   0.4720   0.2721   0.1108  -0.0154
+Total computing time : 0h00m00s

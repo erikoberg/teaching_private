@@ -14,7 +14,7 @@ gross_return_ss = (1+0.04+(1-dep_factor_yearly_ss))^(1/4)-1;
 hours_worked_ss = 0.7;
 Frish_elasticity = 1;
 SR_std = 0.009;
-SR_persistence = 0.974;
+SR_persistence = 0.979;
 
 %%%%%Parameter values%%%%%
 %Directly identified
@@ -68,51 +68,51 @@ C=2;
 T=40;
 
 subplot(R,C,1)
-plot(1:T, 100.*ahat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.ahat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}TFP'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,2)
-plot(1:T, 100.*yhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.yhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Output'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,3)
-plot(1:T, 100.*chat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.chat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Consumption'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,4)
-plot(1:T, 100.*ihat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.ihat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Investment'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,5)
-plot(1:T, 100.*khat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.khat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Capital stock'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 
 subplot(R,C,6)
-plot(1:T, 100.*nhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.nhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Hours worked'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,7)
-plot(1:T, 100.*what_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.what_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Real wages'}); grid on
 ylabel('Percent')
 xlabel('Quarters')
 %axis([1 T 0 1])
 
 subplot(R,C,8)
-plot(1:T, 100.*rhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.rhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Real return on capital'}); grid on
 ylabel('Percent')
 xlabel('Quarters')
@@ -130,51 +130,51 @@ C=2;
 T=40;
 
 subplot(R,C,1)
-plot(1:T, 100.*ahat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.ahat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}TFP'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,2)
-plot(1:T, 100.*yhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.yhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Output'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,3)
-plot(1:T, 100.*chat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.chat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Consumption'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,4)
-plot(1:T, 100.*ihat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.ihat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Investment'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,5)
-plot(1:T, 100.*khat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.khat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Capital stock'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 
 subplot(R,C,6)
-plot(1:T, 100.*nhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.nhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Hours worked'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,7)
-plot(1:T, 100.*what_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.what_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Real wages'}); grid on
 ylabel('Percent')
 xlabel('Quarters')
 %axis([1 T 0 1])
 
 subplot(R,C,8)
-plot(1:T, 100.*rhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.rhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Real return on capital'}); grid on
 ylabel('Percent')
 xlabel('Quarters')
@@ -192,31 +192,31 @@ C=2;
 T=40;
 
 subplot(R,C,1)
-plot(1:T, 100.*ahat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.ahat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}TFP'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,2)
-plot(1:T, 100.*yhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.yhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Output'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,3)
-plot(1:T, 100.*chat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.chat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Consumption'}); grid on
 ylabel('Percent')
 %axis([1 T 0 1])
 
 subplot(R,C,4)
-plot(1:T, 100.*nhat_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.nhat_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Hours worked'}); grid on
 ylabel('Percent')
 axis([1 T 0 1])
 
 subplot(R,C,5)
-plot(1:T, 100.*what_e(1:T), '-', 'Linewidth', 2); hold on;
+plot(1:T, 100.*oo_.irfs.what_e(1:T), '-', 'Linewidth', 2); hold on;
 title({'\fontsize{12}Real wages'}); grid on
 ylabel('Percent')
 xlabel('Quarters')
@@ -247,14 +247,14 @@ rhat_sim = zeros(1,T);
 for t=1:T
     for s=1:t
         if s<100
-            ahat_sim(t) = ahat_sim(t) + epsilon_vec(t-(s-1))*ahat_e(s);
-            yhat_sim(t) = yhat_sim(t) + epsilon_vec(t-(s-1))*yhat_e(s);
-            ihat_sim(t) = ihat_sim(t) + epsilon_vec(t-(s-1))*ihat_e(s);
-            nhat_sim(t) = nhat_sim(t) + epsilon_vec(t-(s-1))*nhat_e(s);
-            khat_sim(t) = khat_sim(t) + epsilon_vec(t-(s-1))*khat_e(s);
-            chat_sim(t) = chat_sim(t) + epsilon_vec(t-(s-1))*chat_e(s);
-            what_sim(t) = what_sim(t) + epsilon_vec(t-(s-1))*what_e(s);
-            rhat_sim(t) = rhat_sim(t) + epsilon_vec(t-(s-1))*rhat_e(s);
+            ahat_sim(t) = ahat_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.ahat_e(s);
+            yhat_sim(t) = yhat_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.yhat_e(s);
+            ihat_sim(t) = ihat_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.ihat_e(s);
+            nhat_sim(t) = nhat_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.nhat_e(s);
+            khat_sim(t) = khat_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.khat_e(s);
+            chat_sim(t) = chat_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.chat_e(s);
+            what_sim(t) = what_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.what_e(s);
+            rhat_sim(t) = rhat_sim(t) + epsilon_vec(t-(s-1))*oo_.irfs.rhat_e(s);
         end
     end
 end

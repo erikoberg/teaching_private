@@ -1,3 +1,4 @@
+\pdfminorversion=6 % allow inclusion of newer-than-1.5 figures without warnings (must be before \documentclass)
 \documentclass[9pt,xcolor={dvipsnames}]{beamer}
 \usetheme{Boadilla}
 
@@ -36,6 +37,7 @@
 \usepackage{tikz}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
@@ -50,6 +52,14 @@
 
 
 \definecolor{gray(x11gray)}{rgb}{0.75, 0.75, 0.75}
+
+% Softer highlight boxes for simulation tables/callouts
+\definecolor{goodbg}{RGB}{220,245,232}
+\definecolor{badbg}{RGB}{252,225,225}
+\newcommand{\goodcell}[1]{\begingroup\setlength{\fboxsep}{1.2pt}\colorbox{goodbg}{\strut #1}\endgroup}
+\newcommand{\badcell}[1]{\begingroup\setlength{\fboxsep}{1.2pt}\colorbox{badbg}{\strut #1}\endgroup}
+\newcommand{\goodcallout}[1]{\begingroup\setlength{\fboxsep}{1.6pt}\colorbox{goodbg}{\textbf{#1}}\endgroup}
+\newcommand{\badcallout}[1]{\begingroup\setlength{\fboxsep}{1.6pt}\colorbox{badbg}{\textbf{#1}}\endgroup}
 
 
 \newcommand{\bit}{\begin{itemize}}
@@ -78,10 +88,10 @@
 \section{Introduction}
 
 
-\begin{frame}{This course}
+\begin{frame}{This course part}
 
 \bit
-\setlength\itemsep{1.5em}
+\setlength\itemsep{1em}
 
 \item Business cycle models
 \bit
@@ -95,7 +105,7 @@
 \bit
 \setlength\itemsep{0.5em}
 	\item 4 lectures
-	\item Digging deepering into the determinants of household income
+	\item Digging deeper into the determinants of household income
 \eit
 
 \item Incomplete asset markets 
@@ -107,7 +117,12 @@
 
 \item 1 Dynare tutorial session; 6 problem sets
 
-\item Each of my problem sets are worth 4 points (Dora's are worth 2). The exam is worth 70 points. To pass the course, you need 50 points in total, with at least 30 points from the exam. 75 points for a Distinction.
+\item Grading: 
+\bit
+\item Problem sets 30\%, Exam 70\%
+\item Part I: 25\%, Part II: 75\%
+\item To pass, you need 50\% of the points, with at least 30\% from the exam
+\eit
 
 \eit
 
@@ -273,7 +288,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_raw_trend.pdf}
+	\includegraphics[width=0.95\linewidth,height=0.52\textheight,keepaspectratio]{Figures/gdp_raw_trend.pdf}
 	\caption*{Own calculations using FRED data}
 \end{figure}
 
@@ -287,7 +302,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_cycle.pdf}
+	\includegraphics[width=0.95\linewidth,height=0.52\textheight,keepaspectratio]{Figures/gdp_cycle.pdf}
 	\caption*{Own calculations using FRED data}
 \end{figure}
 
@@ -302,7 +317,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_na_cycle.pdf}
+	\includegraphics[width=0.95\linewidth,height=0.52\textheight,keepaspectratio]{Figures/gdp_na_cycle.pdf}
 	\caption*{Own calculations using FRED data}
 \end{figure}
 
@@ -317,7 +332,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_na_cycle.pdf}
+	\includegraphics[width=0.95\linewidth,height=0.52\textheight,keepaspectratio]{Figures/gdp_na_cycle.pdf}
 	\caption*{Own calculations using FRED data}
 \end{figure}
 
@@ -331,7 +346,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_ci_cycle.pdf}
+	\includegraphics[width=0.95\linewidth,height=0.52\textheight,keepaspectratio]{Figures/gdp_ci_cycle.pdf}
 	\caption*{Own calculations using FRED data}
 \end{figure}
 
@@ -346,7 +361,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/gdp_ci_cycle.pdf}
+	\includegraphics[width=0.95\linewidth,height=0.52\textheight,keepaspectratio]{Figures/gdp_ci_cycle.pdf}
 	\caption*{Own calculations using FRED data}
 \end{figure}
 
@@ -360,7 +375,7 @@
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.35,trim= 0 50 0 50, clip]{Figures/c_components_cycle.pdf}
+	\includegraphics[width=0.95\linewidth,height=0.52\textheight,keepaspectratio]{Figures/c_components_cycle.pdf}
 	\caption*{Own calculations using FRED data}
 \end{figure}
 
@@ -373,14 +388,31 @@
 
 \begin{frame}{Summary of US business cycle moments}
 
-\begin{figure}
+\begin{table}
 	\centering
-	\includegraphics[scale=0.6]{Figures/sims_bc_table.pdf}
-	\caption*{From Eric Sims. Based on quarterly HP-filtered data 1948Q1-2010Q3}
-\end{figure}
+	\scriptsize
+	\setlength{\tabcolsep}{5pt}
+	\renewcommand{\arraystretch}{1.20}
+	\begin{tabular}{|l|c|c|c|c|c|c|}
+		\hline
+		\textbf{Series} & \textbf{SD} & \textbf{Rel. SD} & \textbf{Corr $Y_t$} & \textbf{Autocorr} & \textbf{Corr $Y_{t-4}$} & \textbf{Corr $Y_{t+4}$} \\
+		\hline
+		$Y_t$ (Output) & 0.017 & 1.00 & 1.00 & 0.79 & 0.08 & 0.08 \\
+		$C_t$ (Consumption) & 0.011 & 0.66 & 0.76 & 0.67 & 0.15 & 0.02 \\
+		$I_t$ (Investment) & 0.044 & 2.67 & 0.76 & 0.86 & -0.05 & 0.23 \\
+		$N_t$ (Hours) & 0.021 & 1.27 & 0.87 & 0.82 & 0.28 & -0.06 \\
+		$A_t$ (TFP) & 0.013 & 0.76 & 0.78 & 0.76 & -0.30 & 0.31 \\
+		$W_t$ (Wage) & 0.012 & 0.69 & -0.01 & 0.71 & -0.11 & 0.17 \\
+		$R_t$ (Real rate) & 0.004 & 0.26 & 0.00 & 0.47 & 0.27 & -0.28 \\
+		$P_t$ (Price level) & 0.010 & 0.58 & -0.08 & 0.91 & 0.14 & -0.44 \\
+		\hline
+	\end{tabular}
+	\caption*{Eric Sims, RBC notes (Spring 2024), Table 1. Quarterly HP-filtered data 1947Q1--2022Q3 (\(\lambda=1600\)).}
+\end{table}
 
 On top of the facts already discussed, we see that 
 \bit
+\setlength\itemsep{0.5em}
 \item All series display and considerable degree of persistence
 
 \item Wages and interest rates are not very correlated with output (especially not contempouraneously correlated)
@@ -753,7 +785,7 @@ x_t = \epsilon_t + \nu_t, \hspace{2mm} \nu_t \sim F \text{ with } E_t \nu_t = 0 
 \setlength\itemsep{0.5em}
 	\item Important prior developments: Rational expectations paradigm (Lucas, JET 1972); structural econometrics (Sargent, JPE 1976)
 	
-	\item These models and methods completely transformed economic research 
+	\item These models and methods completely transformed economic research (not only macro!)
 \eit
 
 \eit
@@ -826,7 +858,7 @@ with $U(C_t), V(N^s_t)$ satisfying the usual regularity conditions
 	
 	\item However, $E_t \left[R^{r}_{t+1}+(1-\delta)\right]$ intimately related to $R_t$
 		\bit
-			\item In a first-order approximation, they are, in fact, the same
+			\item In a first-order approximation, they are, in fact, the same (more on this in Lecture III)
 		\eit
 \eit
 
@@ -973,7 +1005,7 @@ C_t + I_t = A_t F(K_t, N_t) \hspace{2mm} \text{for all } t \nonumber
 \item Two ways to solve the for the equilibrium:
 \ben
 \setlength\itemsep{0.5em}
-\item Global solution: solve for global policy functions, using, e.g., value function iteration
+\item Global solution: solve for global policy functions, using, e.g., value function iteration (or a neural net)
 
 \item Log-linear approximation: Do a local approximation of the policy functions around some point of the equilibrium
 \een
@@ -984,7 +1016,7 @@ C_t + I_t = A_t F(K_t, N_t) \hspace{2mm} \text{for all } t \nonumber
 \bit
 \setlength\itemsep{0.5em}
 
-\item Becuase we know how to handle linear difference equations
+\item Because we know how to handle linear difference equations
 
 \item Because log-differences have an appealing interpretation (percent growth)
 
@@ -1547,7 +1579,7 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 		\begin{eqnarray}
 		a_t = \rho_a a_{t-1} + \epsilon_{t} \nonumber
 		\end{eqnarray}	
-	Sims (Mitman) reports $\rho_a=0.973$ ($0.95$) and $\sigma_{\epsilon}=0.009$ ($0.007$)
+	Sims (Mitman) reports $\rho_a=0.979$ ($0.95$) and $\sigma_{\epsilon}=0.009$ ($0.007$)
 	\eit
 
 \eit
@@ -1559,7 +1591,7 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.43,trim= 0 150 0 150, clip]{Figures/rbc_simulation.pdf}
+	\includegraphics[width=0.98\linewidth,height=0.86\textheight,keepaspectratio,trim=55 135 55 140,clip]{Figures/rbc_simulation.pdf}
 \end{figure}
 
 
@@ -1575,19 +1607,19 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 		\hline
 		& Data &Model & Data & Model & Data & Model & Data & Model \\
 		\hline
-		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & \colorbox{white}{0.85} & \colorbox{white}{0.72} \\
+		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & 0.79 & 0.72 \\
 		\hline
-		$C_t$ & 0.009 & 0.006  & \colorbox{white}{0.53} & \colorbox{white}{0.40} & \colorbox{white}{0.76} & \colorbox{white}{0.95}  & 0.79 & 0.78 \\
+		$C_t$ & 0.011 & 0.006  & 0.66 & 0.40 & 0.76 & 0.95  & 0.67 & 0.78 \\
 		\hline
-		$I_t$ & 0.047 & 0.041 & \colorbox{white}{2.76} & \colorbox{white}{2.73}  & \colorbox{white}{0.79} & \colorbox{white}{0.99} & 0.87 & 0.72 \\
+		$I_t$ & 0.044 & 0.041 & 2.67 & 2.73  & 0.76 & 0.99 & 0.86 & 0.72 \\
 		\hline
-		$N_t$ & 0.019 &  0.005 & \colorbox{white}{1.12} & \colorbox{white}{0.33} & \colorbox{white}{0.88} &  \colorbox{white}{0.98} & 0.90 & 0.72 \\
+		$N_t$ & 0.021 &  0.005 & 1.27 & 0.33 & 0.87 &  0.98 & 0.82 & 0.72 \\
 		\hline
-		$W_t$ & 0.009 & 0.010 & 0.53 & 0.66 & \colorbox{white}{0.10} & \colorbox{white}{0.996} & 0.73 & 0.74 \\
+		$W_t$ & 0.012 & 0.010 & 0.69 & 0.66 & -0.01 & 1.00 & 0.71 & 0.74 \\
 		\hline
-		$R_t$ & 0.004 & 0.015  & \colorbox{white}{0.24} & \colorbox{white}{1.0} & \colorbox{white}{0.00} & \colorbox{white}{0.97} & \colorbox{white}{0.42} & \colorbox{white}{0.71} \\
+		$R_t$ & 0.004 & 0.015  & 0.26 & 1.00 & 0.00 & 0.97 & 0.47 & 0.71 \\
 		\hline
-		$A_t$ & 0.012 & 0.012 & \colorbox{white}{0.71} & \colorbox{white}{0.80}  & 0.76 & 0.999 & 0.75 & 0.72 \\
+		$A_t$ & 0.013 & 0.012 & 0.76 & 0.80  & 0.78 & 1.00 & 0.76 & 0.72 \\
 		\hline
 	\end{tabular}
 	\captionsetup{font=small}
@@ -1608,7 +1640,7 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 \bit
 \item {\color{white} too little amplification}
 \item {\color{white} no persistence beyond that inherited by TFP process}
-\item {\color{white} way to little volatility in hours worked}
+\item {\color{white} way too little volatility in hours worked}
 \item {\color{white} inconsistent behavior of prices}
 \eit
 
@@ -1626,29 +1658,28 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 		\hline
 		& Data &Model & Data & Model & Data & Model & Data & Model \\
 		\hline
-		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & \colorbox{white}{0.85} & \colorbox{white}{0.72} \\
+		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & 0.79 & 0.72 \\
 		\hline
-		$C_t$ & 0.009 & 0.006  & \colorbox{ForestGreen}{0.53} & \colorbox{ForestGreen}{0.40} & \colorbox{ForestGreen}{0.76} & \colorbox{ForestGreen}{0.95}  & 0.79 & 0.78 \\
+		$C_t$ & 0.011 & 0.006  & \goodcell{0.66} & \goodcell{0.40} & \goodcell{0.76} & \goodcell{0.95}  & 0.67 & 0.78 \\
 		\hline
-		$I_t$ & 0.047 & 0.041 & \colorbox{ForestGreen}{2.76} & \colorbox{ForestGreen}{2.73}  & \colorbox{ForestGreen}{0.79} & \colorbox{ForestGreen}{0.99} & 0.87 & 0.72 \\
+		$I_t$ & 0.044 & 0.041 & \goodcell{2.67} & \goodcell{2.73}  & \goodcell{0.76} & \goodcell{0.99} & 0.86 & 0.72 \\
 		\hline
-		$N_t$ & 0.019 &  0.005 & \colorbox{white}{1.12} & \colorbox{white}{0.33} & \colorbox{ForestGreen}{0.88} &  \colorbox{ForestGreen}{0.98} & 0.90 & 0.72 \\
+		$N_t$ & 0.021 &  0.005 & 1.27 & 0.33 & \goodcell{0.87} &  \goodcell{0.98} & 0.82 & 0.72 \\
 		\hline
-		$W_t$ & 0.009 & 0.010 & 0.53 & 0.66 & \colorbox{white}{0.10} & \colorbox{white}{0.996} & 0.73 & 0.74 \\
+		$W_t$ & 0.012 & 0.010 & 0.69 & 0.66 & -0.01 & 1.00 & 0.71 & 0.74 \\
 		\hline
-		$R_t$ & 0.004 & 0.015  & \colorbox{white}{0.24} & \colorbox{white}{1.0} & \colorbox{white}{0.00} & \colorbox{white}{0.97} & \colorbox{white}{0.42} & \colorbox{white}{0.71} \\
+		$R_t$ & 0.004 & 0.015  & 0.26 & 1.00 & 0.00 & 0.97 & 0.47 & 0.71 \\
 		\hline
-		$A_t$ & 0.012 & 0.012 & \colorbox{white}{0.71} & \colorbox{white}{0.80}  & 0.76 & 0.999 & 0.75 & 0.72 \\
+		$A_t$ & 0.013 & 0.012 & 0.76 & 0.80  & 0.78 & 1.00 & 0.76 & 0.72 \\
 		\hline
 	\end{tabular}
 	\captionsetup{font=small}
-	\label{sim_results}
 \end{table} 
 
 
 \bit
 \setlength\itemsep{1em}
-\item \colorbox{ForestGreen}{{\color{black}Consistent with the data, the RBC model has}}
+\item \goodcallout{Consistent with the data, the RBC model has}
 \bit
 \item {\color{black} positive comovement of all GDP components}
 \item {\color{black} big swings in investment and small swings in consumption}
@@ -1659,7 +1690,7 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 \bit
 \item {\color{white} too little amplification}
 \item {\color{white} no persistence beyond that inherited by TFP process}
-\item {\color{white} way to little volatility in hours worked}
+\item {\color{white} way too little volatility in hours worked}
 \item {\color{white} too much volatility in prices}
 \eit
 
@@ -1677,36 +1708,35 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 		\hline
 		& Data &Model & Data & Model & Data & Model & Data & Model \\
 		\hline
-		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & \colorbox{red}{0.85} & \colorbox{red}{0.72} \\
+		$Y_t$ & 0.017 & 0.015 & 1.00 & 1.00 & 1.00 & 1.00 & \badcell{0.79} & \badcell{0.72} \\
 		\hline
-		$C_t$ & 0.009 & 0.006  & \colorbox{ForestGreen}{0.53} & \colorbox{ForestGreen}{0.40} & \colorbox{ForestGreen}{0.76} & \colorbox{ForestGreen}{0.95}  & 0.79 & 0.78 \\
+		$C_t$ & 0.011 & 0.006  & \goodcell{0.66} & \goodcell{0.40} & \goodcell{0.76} & \goodcell{0.95}  & 0.67 & 0.78 \\
 		\hline
-		$I_t$ & 0.047 & 0.041 & \colorbox{ForestGreen}{2.76} & \colorbox{ForestGreen}{2.73}  & \colorbox{ForestGreen}{0.79} & \colorbox{ForestGreen}{0.99} & 0.87 & 0.72 \\
+		$I_t$ & 0.044 & 0.041 & \goodcell{2.67} & \goodcell{2.73}  & \goodcell{0.76} & \goodcell{0.99} & 0.86 & 0.72 \\
 		\hline
-		$N_t$ & 0.019 &  0.005 & \colorbox{red}{1.12} & \colorbox{red}{0.33} & \colorbox{ForestGreen}{0.88} &  \colorbox{ForestGreen}{0.98} & 0.90 & 0.72 \\
+		$N_t$ & 0.021 &  0.005 & \badcell{1.27} & \badcell{0.33} & \goodcell{0.87} &  \goodcell{0.98} & 0.82 & 0.72 \\
 		\hline
-		$W_t$ & 0.009 & 0.010 & 0.53 & 0.66 & \colorbox{red}{0.10} & \colorbox{red}{0.996} & 0.73 & 0.74 \\
+		$W_t$ & 0.012 & 0.010 & 0.69 & 0.66 & \badcell{-0.01} & \badcell{1.00} & 0.71 & 0.74 \\
 		\hline
-		$R_t$ & 0.004 & 0.015  & \colorbox{red}{0.24} & \colorbox{red}{1.0} & \colorbox{red}{0.00} & \colorbox{red}{0.97} & \colorbox{red}{0.42} & \colorbox{red}{0.71} \\
+		$R_t$ & 0.004 & 0.015  & \badcell{0.26} & \badcell{1.00} & \badcell{0.00} & \badcell{0.97} & \badcell{0.47} & \badcell{0.71} \\
 		\hline
-		$A_t$ & 0.012 & 0.012 & \colorbox{red}{0.71} & \colorbox{red}{0.80}  & 0.76 & 0.999 & 0.75 & 0.72 \\
+		$A_t$ & 0.013 & 0.012 & \badcell{0.76} & \badcell{0.80}  & 0.78 & 1.00 & 0.76 & 0.72 \\
 		\hline
 	\end{tabular}
 	\captionsetup{font=small}
-	\label{sim_results}
 \end{table}
 
 \bit
 \setlength\itemsep{1em} 
 
-\item \colorbox{ForestGreen}{{\color{black}Consistent with the data, the RBC model has}}
+\item \goodcallout{Consistent with the data, the RBC model has}
 \bit
 \item {\color{black} positive comovement of all GDP components}
 \item {\color{black} big swings in investment and small swings in consumption}
 \eit
 
 
-\item \colorbox{red}{{\color{black}In contrast to the data, the model has}}
+\item \badcallout{In contrast to the data, the model has}
 \bit
 \item {\color{black} too little amplification}
 \item {\color{black} no persistence beyond that inherited by TFP process}
@@ -1724,7 +1754,7 @@ where $\mathbf A = \mathbf A_1^{-1} \mathbf A_2$,  and $\mathbf B = \mathbf A_1^
 %\bit
 %\setlength\itemsep{1em} 
 %
-%\item We comptued moments from a set of time series of our endogenous variables $\mathbf{x}_{t}$
+%\item We computed moments from a set of time series of our endogenous variables $\mathbf{x}_{t}$
 %
 %\item These time series are the solution to the system
 %\begin{eqnarray}
@@ -1823,7 +1853,7 @@ F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_standardshock.pdf}
+	\includegraphics[width=0.99\linewidth,height=0.80\textheight,keepaspectratio,trim=49 105 58 99,clip]{Figures/rbc_irf_standardshock.pdf}
 \end{figure}
 
 \end{frame}
@@ -1854,7 +1884,7 @@ F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_blipshock_nocapital.pdf}
+	\includegraphics[width=0.99\linewidth,height=0.80\textheight,keepaspectratio,trim=52 102 58 96,clip]{Figures/rbc_irf_blipshock_nocapital.pdf}
 \end{figure}
 
 \end{frame}
@@ -1891,7 +1921,7 @@ F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_blipshock.pdf}
+	\includegraphics[width=0.99\linewidth,height=0.80\textheight,keepaspectratio,trim=49 105 58 99,clip]{Figures/rbc_irf_blipshock.pdf}
 \end{figure}
 
 \end{frame}
@@ -1901,7 +1931,7 @@ F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
 \bit
 \setlength\itemsep{1em} 
 
-\item With capital, hosuehold can now smooth consumption
+\item With capital, household can now smooth consumption
 \begin{eqnarray}
 \hat c_t = - \beta R^{r} E_t \hat r^{r}_{t+1} + E_t \hat {c}_{t+1} \nonumber
 \end{eqnarray}
@@ -1921,7 +1951,7 @@ F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
 
 \item Moreover, higher capital stock means that wages (rental rate) will be persistently higher (lower)
 
-\item Now, becuase of lower consumption response, hours worked increases 
+\item Now, because of lower consumption response, hours worked increases 
 \begin{eqnarray}
 \hat w_t = \hat c_t + \varphi \hat n_t \nonumber
 \end{eqnarray}
@@ -1937,7 +1967,7 @@ F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.40,trim= 0 120 0 120, clip]{Figures/rbc_irf_standardshock.pdf}
+	\includegraphics[width=0.99\linewidth,height=0.80\textheight,keepaspectratio,trim=49 105 58 99,clip]{Figures/rbc_irf_standardshock.pdf}
 \end{figure}
 
 \end{frame}
@@ -1949,7 +1979,7 @@ F(\epsilon) &=& [a_0 \epsilon, a_1 \epsilon, a_2 \epsilon,...] \nonumber \\
 
 \item With a persistent shock, all responses become more persistent
 
-\item Some, in particular household consumpion, even hump-shaped
+\item Some, in particular household consumption, even hump-shaped
 
 \item Now there is an additional motive for investing besides consumption smoothing: future capital is unusually productive
 
