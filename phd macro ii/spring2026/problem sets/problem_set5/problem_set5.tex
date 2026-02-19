@@ -1,16 +1,13 @@
-             \documentclass{article}[11pt]
+\documentclass[11pt]{article}
 \linespread{1.5}
 \usepackage{fullpage}
-\usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
-\usepackage[semicolon,authoryear]{natbib}
+\usepackage{amsmath,amssymb,amsthm,graphicx,pgfplots,tabularx,placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{csquotes}
 \usepackage{epstopdf}
-
 \usepackage[semicolon,authoryear]{natbib}
-\usepackage{bibentry}
-\nobibliography*
 
 \newcommand{\lb}{\label}
 \newtheorem{thm}{Theorem}
@@ -30,13 +27,13 @@
 \begin{document}
 \maketitle
 
-Send your solutions to Andrii by \bf March 13, 12.00 \normalfont at the latest.
+Send your solutions to Andrii by \textbf{March 12, 12.00} at the latest.
 
 
 \section*{Exercise 1: The Social Planner problem in the vanilla RBC model}
 Consider the vanilla RBC model studied in class. Households have standard separable preferences
 \begin{eqnarray}
-U_0 = E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)-V(N_t)\right], \nonumber
+U_0 = E_0 \sum_{t=0}^{\infty} \beta^t \left[U(C_t)-V(N_t)\right], \nonumber
 \end{eqnarray}
 where $U(\cdot)$ and $V(\cdot)$ satisfies the usual regularity conditions. The Production technology is $Y_t = A_t F(K_t, N_t)$ where $F(\cdot)$ is CRS, and the capital depreciation rate is $\delta$.
 
