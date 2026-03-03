@@ -1,7 +1,7 @@
 \documentclass[9pt,xcolor={dvipsnames}]{beamer}
 \usetheme{Boadilla}
 
-\makeatother
+\makeatletter
 \setbeamertemplate{footline}
 {
 	\leavevmode%
@@ -15,7 +15,7 @@
 	\end{beamercolorbox}}%
 	\vskip0pt%
 }
-\makeatletter
+\makeatother
 \setbeamertemplate{navigation symbols}{}
 
 
@@ -36,6 +36,7 @@
 \usepackage{tikz}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
@@ -284,7 +285,7 @@ M_{t,t+s}\equiv \beta^s\frac{U'(C_{t+s}) }{U'(C_{t})} \nonumber
 
 \item In asset market equilibrium, $M_{t,t+s}$ prices assets that pays off in a particular state in period $t+s$
 
-\item $\mathbb E M_{t,t+s}$ prices risk-free assets that pays off in period $t+s$
+\item $\mathbb E M_{t,t+s}$ prices \emph{risk-free} assets that pays off in period $t+s$
 
 \item $M_{t,t+s}$ is the key object of interest in much of {\bc macro finance}
 
@@ -328,7 +329,7 @@ is the value of the firm in period 0
 
 \bit
 \setlength\itemsep{1.5em} 
-\item Set up the Lagrangian, take the F.O.C. to find: {\rc (Do on whiteboard)}
+\item Set up the Lagrangian with mulitplier $q_t$, take the F.O.C. to find: {\rc (Do on whiteboard)}
 \begin{eqnarray}
 W_t &=& A_t F_N(K_t, N_t)  \\
 q_t &=& 1  \\
@@ -343,7 +344,7 @@ U'(C_t) &=& \beta E_t(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \nonumber
 \end{eqnarray}
 where $R^{r}_{t+1}= A_{t+1}F_K(K_{t+1}, N_{t+1})$ - which we recognize!
 
-\item Note: Equation (4) is satisfied whenever households' are optimizing, what does this mean? {\wc Miller-Modgliani (AER 1963): the capital structure of the firm is irrelevant if the household can trade in the same assets as the firm}
+\item Note: Equation (4) is also an optimality condition for the household. Suppose households are optimizing, what does this mean for the choice of $B_{t+1}$ of the firm {\bc Miller-Modgliani (AER 1963): the capital structure of the firm is irrelevant if the household can trade in the same assets as the firm}
 
 \eit
 
@@ -356,10 +357,10 @@ where $R^{r}_{t+1}= A_{t+1}F_K(K_{t+1}, N_{t+1})$ - which we recognize!
 \item Set up the Lagrangian, take the F.O.C. to find: {\rc (Do on whiteboard)}
 \begin{eqnarray}
 \setcounter{equation}{1}
-W_t &=& A_t F_N(K_t, N_t)  \\
-q_t &=& 1  \\
-q_t &=&  \mathbb E_t \left[M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta)q_{t+1} \right] \right]  \\
-Q_t &=& \mathbb E_t M_{t,t+1} 
+N_t: \hspace{3mm} W_t &=& A_t F_N(K_t, N_t)  \\
+I_{t}: \hspace{3mm} q_t &=& 1  \\
+K_{t+1}: \hspace{3mm} q_t &=&  \mathbb E_t \left[M_{t,t+1}\left[A_{t+1}F_K(K_{t+1}, N_{t+1}) + (1-\delta)q_{t+1} \right] \right]  \\
+B_{t+1}: \hspace{3mm} Q_t &=& \mathbb E_t M_{t,t+1} 
 \end{eqnarray}
 where $q_t$ is the Lagrange multiplier on the firm constraint
 
@@ -369,7 +370,7 @@ U'(C_t) &=& \beta E_t(R^{r}_{t+1}+(1-\delta)) U'(C_{t+1}) \nonumber
 \end{eqnarray}
 where $R^{r}_{t+1}= A_{t+1}F_K(K_{t+1}, N_{t+1})$ - which we recognize!
 
-\item Note: Equation (4) is satisfied whenever households' are optimizing, what does this mean? {\bc Miller-Modgliani (AER 1963): the capital structure of the firm is irrelevant if the household can trade in the same assets as the firm}
+\item Note: Equation (4) is also an optimality condition for the household. Suppose households are optimizing, what does this mean for the choice of $B_{t+1}$ of the firm {\bc Miller-Modgliani (AER 1963): the capital structure of the firm is irrelevant if the household can trade in the same assets as the firm}
 
 \eit
 
@@ -422,14 +423,12 @@ Q_t &=& \mathbb E_t M_{t,t+1} \nonumber
 \bit
 \setlength\itemsep{0.5em} 
 	\item Lagrange multiplier $=$ shadow value of relaxing constraint $=$ shadow value of having one more unit of installed capital $K_{t+1}$
+
+	\item Along the optimal path, we therefore have $q_t = \frac{\partial V_t}{\partial K_{t+1}}$ (recall {\bc envelope theorem})
 	
 	\item Supposed the firm has optimized and then, out of the sky, it gains some extra $\partial K_{t+1}$ - what will it do?
 	
 	\item Optimal choice of $K_{t+1}$ has not changed, so it just lowers investment by $\partial K_{t+1}$ and uses proceeds to increase current profits 
-	
-	\item Along the optimal path, we therefore have $q_t = \frac{\partial V_t}{\partial K_{t+1}}$ (recall {\bc envelope theorem})
-	
-%	\item This argument is an application of the {\bc envelope theorem}
 	
 	\item Implication 1:  $q_t$ is the price of capital in terms of goods - why?
 	
@@ -531,8 +530,6 @@ r_{t}=R_{t}-1=\frac{1}{Q_t}-1 \nonumber
 
 \item Leaving the first-order approximation, the user cost also reflects investment risk (measured in terms of the covariance between the payoff and the discount factor)
 
-\item Very intuitive, but this hinges on that the real price of capital goods is always $1$
-
 \eit
 
 \end{frame}
@@ -592,23 +589,33 @@ r_{t}=R_{t}-1=\frac{1}{Q_t}-1 \nonumber
 \begin{eqnarray}
 \frac{\text{Market value of firm capital}}{\text{Replacement cost of capital}} >1\nonumber 
 \end{eqnarray}
-\bit
-\setlength\itemsep{0.5em}
-	\item Th left-hand side ratio is called {\bc Tobin's Q}
 
-	\item This idea has guided much empirical research on investment
-\eit
+\item Th left-hand side ratio is called {\bc Tobin's Q}
 
-\item Note, in the notation of our firm problem:
-\begin{eqnarray}
-\text{Tobin's Q} = \frac{V}{k} \hspace{2mm} \text{while} \hspace{2mm} q_t = \frac{\partial V_t}{\partial k_{t+1}} \nonumber
-\end{eqnarray}
+\item This idea has guided much empirical research on investment
 
-\item Refining Tobin's intuition: what ought to matter for an optimizing firm is the \emph{marginal value of firm capital}, i.e, $q_t$
+
 
 \eit
 
 \end{frame}
+
+
+
+\begin{frame}{How to incorporate the Q theory of investment in our model?}
+
+	\bit
+	\setlength\itemsep{1em}	
+	\item Note, in the notation of our firm problem:
+	\begin{eqnarray}
+	\text{Tobin's Q} = \frac{V}{k} \hspace{2mm} \text{while} \hspace{2mm} q_t = \frac{\partial V_t}{\partial k_{t+1}} \nonumber
+	\end{eqnarray}
+	
+	\item Refining Tobin's intuition: what ought to matter for an optimizing firm is the \emph{marginal value of firm capital}, i.e, $q_t$
+	
+	\eit
+	
+	\end{frame}
 
 
 \begin{frame}{Operationalizing the Q theory of investment}
@@ -1007,7 +1014,10 @@ I_t &=& \xi q_t K_{t} \hspace{2mm} \text{iff } \mu>0 \nonumber
 
 \item Uncertainty shocks: see, e.g., Bloom (Ecmtra 2007)
 
-\item News shocks: see, e.g., Beaudry-Portier (AER 2006; Koslyk 2023)
+\item News shocks: see, e.g., Beaudry-Portier (AER 2006; Koslyk 2025)
+\bit
+	\item See your problem set
+\eit
 \eit
 
 \item International business cycle models
