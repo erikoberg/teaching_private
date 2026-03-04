@@ -23,13 +23,19 @@
 \usepackage{appendixnumberbeamer}
 
 \usepackage[authoryear]{natbib}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+\fi
 \usepackage{caption}
 \usepackage{amsmath, amssymb}
 \usepackage{epstopdf}
 \usepackage{graphicx}
-\usepackage{lmodern}
 %\usepackage[dvipsnames]{xcolor}
 \usepackage{xpatch}
 \usepackage{multirow}

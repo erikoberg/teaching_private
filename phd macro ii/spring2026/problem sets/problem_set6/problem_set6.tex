@@ -1,16 +1,15 @@
-             \documentclass{article}[11pt]
+\documentclass[11pt]{article}
 \linespread{1.5}
 \usepackage{fullpage}
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage[semicolon,authoryear]{natbib}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{csquotes}
 \usepackage{epstopdf}
 
-\usepackage[semicolon,authoryear]{natbib}
-\usepackage{bibentry}
-\nobibliography*
+% (No bibliography in this problem set; avoid triggering BibTeX via bibentry.)
 
 \newcommand{\lb}{\label}
 \newtheorem{thm}{Theorem}
@@ -37,7 +36,7 @@ Send your solutions to Andrii by \bf March 27, 12.00 \normalfont at the latest.
 \section*{Exercise 1: Unconstrained versus constrained investment}
 Consider the RBC model in lecture 3, where the firm faces a potentially binding collateral constraint. Specifically, we assume that the representative firm can borrow up within-period debt up to $\xi q_t K_{t} $, at 0 interest rate, such that
 \begin{eqnarray}
-\max_{N_t, I_t, K_{t+1}} && E_O \sum_{t=0}^{\infty} M_{0, t} \left(A_t F(K_t, N_t) - W_t N_t - I_t - C(I_t, K_t) \right) \nonumber \\
+\max_{N_t, I_t, K_{t+1}} && E_0 \sum_{t=0}^{\infty} M_{0, t} \left(A_t F(K_t, N_t) - W_t N_t - I_t - C(I_t, K_t) \right) \nonumber \\
 \text{s.t.} && K_{t+1} \leq I_t + (1-\delta) K_t \nonumber \\
 && I_t \leq \xi q_t K_{t} \nonumber
 \end{eqnarray}

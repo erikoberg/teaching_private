@@ -1,12 +1,13 @@
-PWD C:\Users\eriob421\Documents\GitHub\teaching_private
+PWD c:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\problem sets\problem_set6
 INPUT C:\Users\eriob421\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT phd macro ii\spring2026\syllabus\syllabus.tex
-OUTPUT syllabus.log
+INPUT c:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\problem sets\problem_set6\problem_set6.tex
+OUTPUT problem_set6.log
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\article.cls
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\article.cls
-INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\size10.clo
-INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\size10.clo
-INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\size10.clo
+INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\size11.clo
+INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\size11.clo
+INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\size11.clo
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmr10.tfm
 INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\preprint\fullpage.sty
 INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\preprint\fullpage.sty
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\amsmath\amsmath.sty
@@ -251,14 +252,12 @@ INPUT C:\Program Files\MikTeX 24.1\tex\latex\epstopdf-pkg\epstopdf-base.sty
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\00miktex\epstopdf-sys.cfg
-INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\natbib\bibentry.sty
-INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\natbib\bibentry.sty
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\syllabus.aux
-INPUT .\syllabus.aux
-INPUT syllabus.aux
-OUTPUT syllabus.aux
+INPUT .\problem_set6.aux
+INPUT .\problem_set6.aux
+INPUT problem_set6.aux
+OUTPUT problem_set6.aux
 INPUT C:\Program Files\MikTeX 24.1\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MikTeX 24.1\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MikTeX 24.1\tex\context\base\mkii\supp-pdf.mkii
@@ -287,22 +286,40 @@ INPUT C:\Program Files\MikTeX 24.1\tex\latex\amsfonts\umsb.fd
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmbx12.tfm
-INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\jknappen\ec\tcrm1000.tfm
-INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmbx10.tfm
-OUTPUT syllabus.pdf
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmmi10.tfm
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmsy10.tfm
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmex10.tfm
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msam10.tfm
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+OUTPUT problem_set6.pdf
 INPUT C:\Users\eriob421\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT syllabus.aux
-INPUT C:\Users\eriob421\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
-INPUT C:\Users\eriob421\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT problem_set6.aux
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmbx12.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmex10.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmmi10.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmmi8.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr10.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr12.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr17.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr17.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr6.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr6.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmr8.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmsy8.pfb
+INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmsy8.pfb

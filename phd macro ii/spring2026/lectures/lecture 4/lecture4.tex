@@ -1,3 +1,4 @@
+\pdfminorversion=6 % allow inclusion of newer-than-1.5 figures without warnings (must be before \documentclass)
 \documentclass[9pt,xcolor={dvipsnames}]{beamer}
 \usetheme{Boadilla}
 
@@ -23,19 +24,32 @@
 \usepackage{appendixnumberbeamer}
 
 \usepackage[authoryear]{natbib}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+\fi
 \usepackage{caption}
 \usepackage{amsmath, amssymb}
 \usepackage{epstopdf}
 \usepackage{graphicx}
-\usepackage{lmodern}
 %\usepackage[dvipsnames]{xcolor}
 \usepackage{xpatch}
 \usepackage{multirow}
 \usepackage{tikz}
 
+\newcommand{\includefigureorplaceholder}[2][]{%
+  \IfFileExists{#2}{\includegraphics[#1]{#2}}{%
+    \fbox{\footnotesize Missing figure: \texttt{\detokenize{#2}}}%
+  }%
+}
+
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
@@ -104,7 +118,7 @@
 \ben
 \setlength\itemsep{1.5em} 
 
-\item Evidence concering the effects of monetary policy
+\item Evidence concerning the effects of monetary policy
 
 \item The vanilla NK model: Setup and equilibrium
 
@@ -118,7 +132,7 @@
 \begin{frame}
 
 \begin{center}
-	\huge Evidence concering the effects of monetary policy \normalfont
+	\huge Evidence concerning the effects of monetary policy \normalfont
 \end{center}
 
 \end{frame}
@@ -143,7 +157,7 @@
 			
 			\item Hyperinflations (e.g. Sargent-Velde, JPE 1995)
 			
-			\item Sweden's experiment with using monetary policy for counteracting household debt (Coglianese-Olsson-Patterson, R\&R AER 2024)
+			\item Sweden's experiment with using monetary policy for counteracting household debt (Coglianese-Olsson-Patterson, AER 2026)
 		\eit
 		
 	
@@ -224,7 +238,7 @@ where, e.g., $X_t = [y_t, \pi_t, i_t]$ and $\eta_t$ is vector of {\bc reduced-fo
 \end{eqnarray}
 where $\epsilon_t$ is vector of {\bc structural shocks}
 
-\item $\mathbf{A}_0$ captures the contemporanous causal relationships between the endogenous variables 
+\item $\mathbf{A}_0$ captures the contemporaneous causal relationships between the endogenous variables 
 
 \item The structural system can be written
 \begin{eqnarray}
@@ -255,7 +269,7 @@ X_t &=& \mathbf{A}_0^{-1} \mathbf{A}_1 X_{t-1} + \mathbf{A}_0^{-1}\epsilon_{t}  
 \setlength\itemsep{0.5em} 
 \item Idea: Monetary policy can react to output/inflation within the same quarter, but output/inflation can only react to monetary policy with a lag 
 
-\item $\Rightarrow$ the contemporanous causal effect of MP on output/inflation is zero; justifies placing restrictions on $A_0$
+\item $\Rightarrow$ the contemporaneous causal effect of MP on output/inflation is zero; justifies placing restrictions on $A_0$
 
 \eit
 
@@ -271,10 +285,10 @@ X_t &=& \mathbf{A}_0^{-1} \mathbf{A}_1 X_{t-1} + \mathbf{A}_0^{-1}\epsilon_{t}  
 \eit
 
 
-\item High-frequency identification (Kuttner, JME 2001; Nakamura-Steinson QJE 2018)
+\item High-frequency identification (Kuttner, JME 2001; Nakamura-Steinsson QJE 2018)
 \bit
 \setlength\itemsep{0.5em} 
-\item Idea: discontinuous jumps in price of interest-rate forward contracts around policy announcement reflect unexpected policy change
+\item Idea: discontinuous jumps in price of interest-rate forward contracts around policy announcement reflect an unexpected policy change
 
 \item Can be used as instrument for OLS residuals in VAR system; justifies placing restrictions on $A_0$
 \eit
@@ -289,7 +303,7 @@ X_t &=& \mathbf{A}_0^{-1} \mathbf{A}_1 X_{t-1} + \mathbf{A}_0^{-1}\epsilon_{t}  
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.9]{Figures/Ramey_fig1a.pdf}
+	\includefigureorplaceholder[scale=0.9]{Figures/Ramey_fig1a.pdf}
 	\caption*{US monthly data, from Ramey (HB Macro 2016)}
 \end{figure}
 
@@ -300,7 +314,7 @@ X_t &=& \mathbf{A}_0^{-1} \mathbf{A}_1 X_{t-1} + \mathbf{A}_0^{-1}\epsilon_{t}  
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.9]{Figures/Ramey_fig2c.pdf}
+	\includefigureorplaceholder[scale=0.9]{Figures/Ramey_fig2c.pdf}
 	\caption*{US monthly data, from Ramey (HB Macro 2016)}
 \end{figure}
 
@@ -311,7 +325,7 @@ X_t &=& \mathbf{A}_0^{-1} \mathbf{A}_1 X_{t-1} + \mathbf{A}_0^{-1}\epsilon_{t}  
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.9]{Figures/Ramey_fig3a.pdf}
+	\includefigureorplaceholder[scale=0.9]{Figures/Ramey_fig3a.pdf}
 	\caption*{US monthly data, from Ramey (HB Macro 2016)}
 \end{figure}
 
@@ -457,7 +471,7 @@ where
 
 \item Program of the representative household 
 \begin{eqnarray}
-\max_{\{C_t, N_t, B_{t+1}\}} && E_O \sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]\nonumber \\
+\max_{\{C_t, N_t, B_{t+1}\}} && E_0 \sum_{t=0}^{\infty} \beta^t \left[U(C_t)- V(N_t) \right]\nonumber \\
 \text{s.t} && P_t C_t + Q_t B_{t+1} \leq W_t N_t + B_{t} + T_t \nonumber \\
 && C_t, N_t, B_{t+1}  \geq 0 \nonumber
 \end{eqnarray}
@@ -484,7 +498,7 @@ with $U(C_t), V(N_t)$ satisfying the usual regularity conditions
 
 \end{frame}
 
-\begin{frame}{Household problem optimality condtions}
+\begin{frame}{Household problem optimality conditions}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -513,7 +527,7 @@ U'(C_t) &=& E_t \left[\beta \frac{1}{Q_t \Pi_{t+1}} U'(C_{t+1})   \right] \nonum
 
 \end{frame}
 
-\begin{frame}{Log-linearizing household optimaility conditions}
+\begin{frame}{Log-linearizing household optimality conditions}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -521,7 +535,7 @@ U'(C_t) &=& E_t \left[\beta \frac{1}{Q_t \Pi_{t+1}} U'(C_{t+1})   \right] \nonum
 \item Using our standard utility functions, $U(C)=\log C$ and $V(N) = \theta \frac{N^{1+\varphi}}{1+\varphi}$:
 \begin{eqnarray}
 \frac{W_t}{P_t} &=& C_t \theta N_t^{\varphi} \nonumber \\
-C_t^{-1} &=& E_t \left[\beta \frac{1}{Q_t \Pi_{t+1}} C^{-1}_{t+1})   \right] \nonumber
+C_t^{-1} &=& E_t \left[\beta \frac{1}{Q_t \Pi_{t+1}} C^{-1}_{t+1}   \right] \nonumber
 \end{eqnarray}
 
 \item Taking logs:
@@ -531,13 +545,13 @@ c_t &=& - (i_t-E_t \pi_{t+1}-\xi) + E_t c_{t+1} \nonumber
 \end{eqnarray}
 where $i_t = \log \left(\frac{1}{Q_t}\right)$ is the net nominal interest rate and $\xi = -\log \beta$
 
-\item Substracting steady state:
+\item Subtracting steady state:
 \begin{eqnarray}
 \hat w_t - \hat p_t &=& \hat c_t + \varphi \hat n_t \nonumber \\
 \hat c_t &=& - (\hat i_t-E_t \pi_{t+1}) + E_t \hat c_{t+1} \nonumber
 \end{eqnarray}
 
-\item Note: $\log$ utility implies that the elasticity of current consumption w.r.t. to the real interest rate is $-1$
+\item Note: $\log$ utility implies that the elasticity of current consumption w.r.t. the real interest rate is $-1$
 
 \eit
 
@@ -830,6 +844,7 @@ p^*_t-p_{t-1}= (1-\beta \theta) \sum_{s=0}^{\infty} (\beta \theta)^s E_t \left((
 
 
 \begin{frame}{Optimality condition has a recursive structure}
+\small
 
 \bit
 \setlength\itemsep{1em}
@@ -919,7 +934,7 @@ where $S(t) \in [0,1]$ is the set of non-resetters, and where we've used the {\b
 
 \item Nakamura-Steinsson (QJE 2008) exploit the CPI and PPI research database
 
-\item Carlsson-Nordström Skans (AER 2013) exploit Swedish administrative data
+\item Carlsson-Nordstr{\"o}m Skans (AER 2013) exploit Swedish administrative data
 \bit
 	\item Great advantage: with Swedish data, you can also estimate real costs of production
 \eit
@@ -951,12 +966,12 @@ where
 
 \item We interpret $\epsilon_{t}$ as a monetary policy shock
 
-\item This is a so called {\bc Taylor rule}
+\item This is a so-called {\bc Taylor rule}
 \bit
 	\item Following Taylor (JME, 1993), rules of this sort (also with some weight on output) have proven to provide very good approximations of how monetary policy has been practiced in many countries since the 80's/90's
 \eit
 
-\item Log linearizing:
+\item Log-linearizing:
 \begin{eqnarray}
 \hat i_t = \phi \pi_t + \nu_t \nonumber
 \end{eqnarray}
@@ -1370,9 +1385,9 @@ with $E_t \delta_{it+1} = 0$ is a bounded solution
 \setlength\itemsep{0.5em}
 \item Household optimality implies {\bc Fisher equation}: $i_t = r + E_t \pi_{t+1}$
 
-\item If inflation happens to be ``too large'' $\Rightarrow$ central bank raises interest rate $\Rightarrow$ inflation tomorrow rise
+\item If inflation happens to be ``too large'' $\Rightarrow$ central bank raises interest rate $\Rightarrow$ inflation tomorrow rises
 
-\item Put differently, the central bank ``threats'' with explosive dynamics
+\item Put differently, the central bank ``threatens'' explosive dynamics
 \eit
 
 
@@ -1423,17 +1438,17 @@ with $E_t \delta_{it+1} = 0$ is a bounded solution
 
 \bit
 \setlength\itemsep{1em}
-\item Back in the days: Quantity theory
+\item Back in the day: Quantity theory
 \bit
 \setlength\itemsep{0.5em}
-\item See, e.g., Mitlon Friedman's AEA presidential address (AER 1968)
+\item See, e.g., Milton Friedman's AEA presidential address (AER 1968)
 
 \item Central assertion: velocity $v$ semi-exogenous in the formula
 \begin{eqnarray}
 Y P = vM \nonumber
 \end{eqnarray}
 
-\item Problem: $v$ is highly endogenous to the interest rate (at $i=0$, bonds are perfect subsitutes to money) and $M$ is not controllable anymore
+\item Problem: $v$ is highly endogenous to the interest rate (at $i=0$, bonds are perfect substitutes to money) and $M$ is not controllable anymore
 \eit
 
 \item Main competitor today: Fiscal Theory of the Price Level
@@ -1461,7 +1476,7 @@ where $S_{t+s}$ is the real government surplus stream
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.5]{barro_bianchi_2024_figure.pdf}
+\includefigureorplaceholder[scale=0.5]{barro_bianchi_2024_figure.pdf}
 \end{figure}
 
 \bit
@@ -1509,7 +1524,7 @@ where $S_{t+s}$ is the real government surplus stream
 \bit
 \setlength\itemsep{0.5em}
 
-\item $\theta=2/3$ to match average price duruation of three quarters (Gal\'{i}-Lop\'{e}z-Salido EER 2001)
+\item $\theta=2/3$ to match average price duration of three quarters (Gal\'{i}-Lop\'{e}z-Salido EER 2001)
 
 \item $\epsilon=6$ to match average markup of $20 \%$
 
@@ -1527,7 +1542,7 @@ where $S_{t+s}$ is the real government surplus stream
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_4variables.pdf}
+\includefigureorplaceholder[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_4variables.pdf}
 \end{figure}
 
 
@@ -1578,7 +1593,7 @@ where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_9variables.pdf}
+\includefigureorplaceholder[scale=0.5,trim= 0 200 0 200, clip]{figures/nk_monshock_9variables.pdf}
 \end{figure}
 
 
@@ -1722,9 +1737,9 @@ or
 %\item Central predictions:
 %\ben
 %\setlength\itemsep{0.5em}
-%\item Monetary factors does not affect the natural real interest
+%\item Monetary factors do not affect the natural real interest
 %
-%\item Inefficienct fluctuations are caused by deviations in the real interest rate from the natural real interest rate
+%\item Inefficient fluctuations are caused by deviations in the real interest rate from the natural real interest rate
 %\een
 
 \item Next class: TFP shocks, a deeper investigation of monetary policy, quantitative NK models 
