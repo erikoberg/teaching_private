@@ -43,6 +43,7 @@
 \usepackage{subfig}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
@@ -73,8 +74,8 @@
 \newcommand{\lb}{\label}
 \newcommand{\re}{\eqref}
 
-\title[NK: Shocks \& Propagataion]{Macroeconomics II Part II, Lecture V:\\
-	  The New-Keynesian Model: Shocks \& Propagataion}
+\title[NK: Shocks \& Propagation]{Macroeconomics II Part II, Lecture V:\\
+	  The New-Keynesian Model: Shocks \& Propagation}
 \author{Erik {\"O}berg}
 \date{}
 
@@ -107,7 +108,7 @@
 \ben
 \setlength\itemsep{1.5em} 
 
-\item Monetary Policy shocks
+\item Monetary policy shocks
 
 \item TFP shocks
 
@@ -120,7 +121,7 @@
 \begin{frame}
 
 \begin{center}
-	\huge Monetary Policy shocks \normalfont
+	\huge Monetary policy shocks \normalfont
 \end{center}
 
 \end{frame}
@@ -155,7 +156,7 @@
 \setlength\itemsep{1.5em}
 \item Quarterly frequency
 
-\item For the recurrent parameters, let's stick with we used for our RBC model
+\item For the recurrent parameters, let's stick with what we used for our RBC model
 \bit
 \setlength\itemsep{0.5em}
 \item $\beta = 0.99$
@@ -167,25 +168,25 @@
 \bit
 \setlength\itemsep{0.5em}
 
-\item $\theta=2/3$ to match average price duruation of three quarters (Gal\'{i}-Lop\'{e}z-Salido EER 2001)
+\item $\theta=2/3$ to match an average price duration of three quarters (Gal\'{i}-Lop\'{e}z-Salido EER 2001)
 
 \item $\epsilon=6$ to match average markup of $20 \%$
 
-\item $\phi = 1.5$ to match Fed reaction function during Greenspan era
+\item $\phi = 1.5$ to match the Fed reaction function during the Greenspan era
 \eit
 
 \item The shock process:
 \begin{eqnarray}
 \nu_t = \rho_{\nu} \nu_{t-1} + \epsilon_t \nonumber
 \end{eqnarray}
-with $\rho_{\nu} = 0.5$ to generate a ``moderately'' persistent shocks, as we saw in the empirical IRFs
+with $\rho_{\nu} = 0.5$ to generate a ``moderately'' persistent shock, as we saw in the empirical IRFs
 
 \eit
 
 \end{frame}
 
 
-\begin{frame}{IRFs to monetary policy shock}
+\begin{frame}{IRFs to a monetary policy shock}
 
 \begin{figure}
 \centering
@@ -202,7 +203,7 @@ with $\rho_{\nu} = 0.5$ to generate a ``moderately'' persistent shocks, as we sa
 \setlength\itemsep{1em}
 \item In contrast to the vanilla RBC model, there are no humps and bumps here
 
-\item This is the because the model has no state variable - dynamics are completely forward-looking:
+\item This is because the model has no state variable, so dynamics are completely forward-looking:
 \begin{eqnarray}
 \text{DIS curve:} && \hat y_t = - (\hat i_t-E_t \pi_{t+1}) + E_t \hat y_{t+1} \nonumber \\
 \text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \hat y_t \nonumber \\
@@ -231,9 +232,9 @@ x_t = a^x_0 \nu_t. \nonumber
 \setlength\itemsep{1.5em}
 \item Basic NK model qualitatively matches the evidence: a surprise increase in the policy rate leads to a fall in $y$
 
-\item Quantitatively, it is way off, we'll get back to this in Lecture VI
+\item Quantitatively, it is far off; we will get back to this in Lecture VI
 
-\item To understand the mechanism, let's go back to the full 8-equation system, where we have more clean interpretations of the equilibrium equations
+\item To understand the mechanism, let's go back to the full 8-equation system, where we have cleaner interpretations of the equilibrium equations
 \eit
 
 \end{frame}
@@ -253,14 +254,14 @@ x_t = a^x_0 \nu_t. \nonumber
 \text{Labor clearing:} && \hat y_t = \hat n_t \nonumber \\
 \text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
 \end{eqnarray}
-where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+where $\hat \omega_t = \hat w_t-p_t$ denotes log deviations in the real wage
 
 \item Note: Real interest rate given by $\hat r_t =  \hat i_t - E_t \pi_{t+1}$
 \eit
 
 \end{frame}
 
-\begin{frame}{IRFs to monetary policy shock: full system}
+\begin{frame}{IRFs to a monetary policy shock: full system}
 
 \begin{figure}
 \centering
@@ -270,7 +271,7 @@ where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
 
 \end{frame}
 
-\begin{frame}{IRFs to monetary policy shock: mechanism}
+\begin{frame}{IRFs to a monetary policy shock: mechanism}
 
 \bit
 \setlength\itemsep{1em}
@@ -286,7 +287,7 @@ where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
 \end{frame}
 
 
-\begin{frame}{IRFs to monetary policy shock under flexible prices}
+\begin{frame}{IRFs to a monetary policy shock under flexible prices}
 
 \begin{figure}
 	\centering
@@ -307,16 +308,16 @@ where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
 \text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
 \end{eqnarray}
 
-\item 0 response of all real variables, i.e., {\bc monetary neutraility}
+\item Zero response of all real variables, i.e., {\bc monetary neutrality}
 
 \item We also showed that the unique solution has
 \begin{eqnarray}
 \pi_t = -\sum_{s=0}^{\infty} \frac{1}{\phi^{s+1}} \nu_{t+s}  \nonumber
 \end{eqnarray}
 
-\item Inflation falling in response to ``contractionary'' monetary policy shock has nothing to do with sticky prices or other frictions, simply a consequence of a Taylor and rational expectations
+\item Inflation falling in response to a ``contractionary'' monetary policy shock has nothing to do with sticky prices or other frictions; it is simply a consequence of a Taylor rule and rational expectations
 
-\item Inflation response so strong that interest rate falls in response to positive shock! 
+\item The inflation response is so strong that the interest rate falls in response to a positive shock!
 
 
 \eit
@@ -340,7 +341,7 @@ where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
 
 \bit
 \setlength\itemsep{1em}
-\item Sticky price $\rightarrow$ smaller inflation response
+\item Sticky prices $\rightarrow$ smaller inflation response
 
 \item With smaller inflation response, nominal interest rate actually increases
 
@@ -349,7 +350,7 @@ where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
 \hat r_t = \hat i_t - E_t \pi_{t+1} \nonumber
 \end{eqnarray}
 
-\item {\bc Monetary non-neutraility!}
+\item {\bc Monetary non-neutrality!}
 
 \item Given that the real interest rate increases, we can back out the response of all other variables
 
@@ -394,7 +395,7 @@ implies $\Delta E_t c_{t+1}$ is positive
 
 \item Market clearing $\hat c_t = \hat y_t = \hat n_t < 0$
 \bit
-\item $\Rightarrow$ we may think of the output drop as being caused by drop in {\bc aggregate demand}
+\item $\Rightarrow$ we may think of the output drop as being caused by a drop in {\bc aggregate demand}
 \eit
 
 \item How is this consistent with optimal labor supply? Intratemporal optimality condition:
@@ -424,7 +425,7 @@ implies $\Delta E_t c_{t+1}$ is positive
 
 
 
-\begin{frame}{Monetary policy shock equivalent to demand shock}
+\begin{frame}{A monetary policy shock is equivalent to a demand shock}
 
 \bit
 \setlength\itemsep{1em}
@@ -476,7 +477,7 @@ or
 \setlength\itemsep{1em}
 \item So far: focus on monetary policy shocks
 
-\item Naturally, we are interested in how sticky prices and the behavior of monetary policy affect response to non-policy shocks
+\item Naturally, we are interested in how sticky prices and the behavior of monetary policy affect the response to non-policy shocks
 
 \item Let's consider TFP shocks
 
@@ -508,7 +509,7 @@ a_t = \rho_a a_{t-1} + \epsilon^a_t \nonumber
 \setlength\itemsep{1em}
 \item So far: focus on monetary policy shocks
 
-\item Naturally, we are interested in how sticky prices and the behavior of monetary policy affect response to non-policy shocks
+\item Naturally, we are interested in how sticky prices and the behavior of monetary policy affect the response to non-policy shocks
 
 \item Let's consider TFP shocks
 
@@ -570,7 +571,7 @@ N_t = \frac{Y_{t}}{A_t} D_t \hspace{2mm} \Rightarrow \hat n_t = \hat y_t - a_t \
 \text{Labor clearing:} && \hat y_t = \hat n_t + a_t \nonumber \\
 \text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
 \end{eqnarray}
-where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+where $\hat \omega_t = \hat w_t-p_t$ denotes log deviations in the real wage
 
 \item Also, the law of motion for exogenous shocks:
 \begin{eqnarray}
@@ -609,7 +610,7 @@ a_t &=& \rho_a a_{t-1} + \epsilon^a_t \nonumber
 	\item Gal\'{i} (AER 1999) and Basu-Fernald-Kimball (AER 2006) argue this is consistent with the data
 \eit
 
-\item What role does sticky prices and monetary policy play for this response?
+\item What role do sticky prices and monetary policy play for this response?
 
 \item Again, let's go back to flexible prices (which is just the RBC model with no capital (and monopolistic competition))
 
@@ -638,7 +639,7 @@ P_{it} &=& M \psi_t \nonumber \\
 \text{Labor clearing:} && \hat y_t = \hat n_t + a_t \nonumber \\
 \text{Policy:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
 \end{eqnarray}
-where $\hat \omega_t = \hat w_t-p_t$ is log deivations in the real wage
+where $\hat \omega_t = \hat w_t-p_t$ denotes log deviations in the real wage
 
 \item Also, the law of motion for exogenous shocks:
 \begin{eqnarray}
@@ -692,7 +693,7 @@ a_t &=& \rho_a a_{t-1} + \epsilon^a_t \nonumber
 
 \item We linearized the equilibrium around the steady state $\hat x = x_t - x_{ss}$, for any $x$
 
-\item Let's instead consider a linearization around the {\bc flexible-price equilibrium} or, using another terminology, the {\bc natural equlibrium}
+\item Let's instead consider a linearization around the {\bc flexible-price equilibrium} or, using another terminology, the {\bc natural equilibrium}
 
 \item We'll go directly at the 3-equation system
 
@@ -761,9 +762,9 @@ a_t &=& \rho_a a_{t-1} + \epsilon^a_t \nonumber
 \item Model captures two central assertions of the prevailing {\bc Neo-Wicksellian} view of business cycles
 \ben
 \setlength\itemsep{0.5em}
-\item Monetary factors does not affect the natural real interest
+\item Monetary factors do not affect the natural real interest rate
 
-\item Inefficient fluctuations are linked by deviations in the real interest rate from the natural real interest rate
+\item Inefficient fluctuations are linked to deviations of the real interest rate from the natural real interest rate
 \een
 
 \eit
@@ -776,27 +777,29 @@ a_t &=& \rho_a a_{t-1} + \epsilon^a_t \nonumber
 
 \begin{figure}
 	\centering
-		\begin{subfigure}{\textwidth}
+	\begin{minipage}{0.48\textwidth}
 		\centering
-		\includegraphics[width=.4\linewidth]{figures/wicksell_bok.jpg}
-	\end{subfigure}%
-	\begin{subfigure}{\textwidth}
+		\includegraphics[width=.9\linewidth]{figures/wicksell_bok.jpg}
+	\end{minipage}\hfill
+	\begin{minipage}{0.48\textwidth}
 		\centering
-		\includegraphics[width=.4\linewidth]{figures/wicksell.jpg}
-	\end{subfigure}
+		\includegraphics[width=.9\linewidth]{figures/wicksell.jpg}
+	\end{minipage}
 \end{figure}
 
 \end{frame}
 
 
-\begin{frame}{Intermezzo: is the natural-rate hypothesis correct?}
+\begin{frame}{Intermezzo: Is the natural-rate hypothesis correct?}
 
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.45]{figures/Hillenbrand_figure.pdf}
 \end{figure}
 
-From Hillenbrand (2023)
+\begin{center}
+\footnotesize Source: Hillenbrand (RFS 2024)
+\end{center}
 
 \end{frame}
 
@@ -815,11 +818,11 @@ From Hillenbrand (2023)
 
 \bit
 \setlength\itemsep{1.5em}
-\item A positive TFP shocks leads to ``gap'' recession
+\item A positive TFP shock leads to a ``gap'' recession
 
 \item This reflects that monetary policy is not doing a good job
 
-\item Mehcanism: TFP $\uparrow$ $\Rightarrow$ Marginal cost $\downarrow$ $\Rightarrow$ inflation $\downarrow$ $\Rightarrow$ Interest rate $\downarrow$
+\item Mechanism: TFP $\uparrow$ $\Rightarrow$ marginal cost $\downarrow$ $\Rightarrow$ inflation $\downarrow$ $\Rightarrow$ interest rate $\downarrow$
 \bit
 \setlength\itemsep{0.5em}
 
@@ -832,7 +835,7 @@ From Hillenbrand (2023)
 	\item Therefore, hours decline in the observed equilibrium
 \eit
 
-\item Ineffiency not surprising: the policy rule was specified in a completely ad hoc manner
+\item This inefficiency is not surprising: the policy rule was specified in a completely ad hoc manner
 
 \eit
 
@@ -851,15 +854,15 @@ From Hillenbrand (2023)
 
 \bit
 \setlength\itemsep{1.5em}
-\item TFP shocks is an example of a \emph{supply shock}
+\item TFP shocks are an example of a \emph{supply shock}
 
 \item Due to sticky prices, TFP shocks create a wedge (``deviations'') between the {\bc natural equilibrium} and the actual equilibrium
 
-\item Because the fluctuations in the natural equilibrium are efficient, the policy problem tends be organized around how to undo the effect of price stickiness 
+\item Because fluctuations in the natural equilibrium are efficient, the policy problem tends to be organized around how to undo the effect of price stickiness
 
-\item Another class of supply shocks creates a wedge between the {\bc natural equilibrium} and the {\bc efficient equilibrium}, so called {\bc cost-push shocks}
+\item Another class of supply shocks creates a wedge between the {\bc natural equilibrium} and the {\bc efficient equilibrium}, the so-called {\bc cost-push shocks}
 
-\item Examples: shocks to firm's desired markup (greedflation?), shocks to distorionary taxes
+\item Examples: shocks to firms' desired markups (greedflation?), shocks to distortionary taxes
 \eit
 
 \end{frame}
@@ -876,7 +879,7 @@ From Hillenbrand (2023)
 \text{Policy rule:} && \hat i_t = \phi \pi_t + \nu_t \nonumber 
 \end{eqnarray}
 
-\item Define $x_t = y_t-y^e_t$, where $y^e_t$ is the efficient equibrium path. 
+\item Define $x_t = y_t-y^e_t$, where $y^e_t$ is the efficient equilibrium path.
 
 \item We have that  $\tilde y_t = x_t + (y^e_t-y^n_t)$
 
@@ -895,7 +898,7 @@ where $u_t = \kappa (y^e_t-y^n_t)$ and $\hat r^e_t = E_t \Delta y^e_{t+1}$
 \end{frame}
 
 
-\begin{frame}{IRFs to a cost-push shocks}
+\begin{frame}{IRFs to a cost-push shock}
 
 \begin{figure}
 	\centering
@@ -918,7 +921,7 @@ where $u_t = \kappa (y^e_t-y^n_t)$ and $\hat r^e_t = E_t \Delta y^e_{t+1}$
 
 \item Contrast with a positive TFP shock: inefficient recession, but lowers inflation 
 \bit
-	\item Here, a monetary authority can seemingly adress two problems simoultaneously by stimulating the economy
+	\item Here, a monetary authority can seemingly address two problems simultaneously by stimulating the economy
 \eit
 
 \item It seems like we need to think more systematically about the policy problem...
@@ -933,7 +936,7 @@ where $u_t = \kappa (y^e_t-y^n_t)$ and $\hat r^e_t = E_t \Delta y^e_{t+1}$
 \setlength\itemsep{1.5em}
 \item Basic NK model = RBC model + monopolistic competition and sticky prices
 
-\item In contrast to RBC, NK predicts inefficient fluctations, and a role for monetary policy
+\item In contrast to RBC, NK predicts inefficient fluctuations and a role for monetary policy
 
 \item In response to a positive shock, the NK model predicts that
 \vspace{5mm}
@@ -955,7 +958,7 @@ where $u_t = \kappa (y^e_t-y^n_t)$ and $\hat r^e_t = E_t \Delta y^e_{t+1}$
 
 \item In line with the evidence on monetary policy (qualitatively, but not quantitatively)
 
-\item Next lecture, optimal policy in the NK model
+\item Next lecture: optimal policy in the NK model
 
 
 \eit

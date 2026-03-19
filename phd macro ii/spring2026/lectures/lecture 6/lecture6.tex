@@ -43,6 +43,7 @@
 \usepackage{subfig}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
@@ -94,9 +95,9 @@
 
 \item Basic NK model = RBC model + monopolistic competition and sticky prices
 
-\item In contrast to RBC, NK predicts inefficient fluctations, and a role for monetary policy to affect the equilibrium
+\item In contrast to RBC, NK predicts inefficient fluctuations, and a role for monetary policy in affecting the equilibrium
 
-\item Today: when and how should be monetary policy be used to adress fluctuations in the NK model?
+\item Today: when and how should monetary policy be used to address fluctuations in the NK model?
 \eit
 
 \end{frame}
@@ -107,18 +108,18 @@
 \ben
 \setlength\itemsep{1.5em} 
 
-\item Ineffiencies in the NK model
+\item Inefficiencies in the NK model
 
 \item Optimal monetary policy with TFP shocks
 
-\item Optimal monetary policy with Cost-push shocks
+\item Optimal monetary policy with cost-push shocks
 \bit
 	\item Discretion
 	
 	\item Commitment
 \eit
 
-\item Quantitative NK models: A helicopter view (time permitting)
+\item Quantitative NK models: a helicopter view (time permitting)
 \een
 
 \end{frame}
@@ -129,13 +130,13 @@
 
 
 \begin{center}
-	\huge Ineffiencies in the NK model \normalfont
+	\huge Inefficiencies in the NK model \normalfont
 \end{center}
 
 \end{frame}
 
 
-\begin{frame}{Ineffiencies in the NK model}
+\begin{frame}{Inefficiencies in the NK model}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -155,7 +156,7 @@
 \ben
 	\item time-varying labor wedge due to time-varying markups
 	
-	\item time varying efficiency wedge due to time-varying price dispersion
+	\item time-varying efficiency wedge due to time-varying price dispersion
 \een
 \eit
 
@@ -165,7 +166,7 @@
 
 \bit
 \setlength\itemsep{1.5em}
-\item The Planner maximizes utility subject to resource constraints
+\item The planner maximizes utility subject to resource constraints
 
 \item No capital $\Rightarrow$ completely static problem
 \begin{eqnarray}
@@ -174,7 +175,7 @@
 && N_t = \int_{0}^{1} N_{it} di \nonumber
 \end{eqnarray}
 
-\item Set up Lagrangian and take F.O.C.'s - you'll find:
+\item Set up the Lagrangian and take the F.O.C.s; you will find:
 \begin{eqnarray}
 \frac{\theta N^{\varphi}}{C^{-1}} &=& A_t \nonumber \hspace{5mm} \left(\text{i.e., } MRS=-\frac{V'(N)}{U'(C)}=MRT=F'(N)  \right) \\
 N_{it} &=& N_t \nonumber \\
@@ -186,7 +187,7 @@ C_{t} &=& A_t N_t \nonumber
 \end{frame}
 
 
-\begin{frame}{Inefficiences with flexible prices}
+\begin{frame}{Inefficiencies with flexible prices}
 
 \bit
 \setlength\itemsep{1em}
@@ -205,9 +206,9 @@ P_t &=& M \frac{W_t}{A_t} \nonumber
 
 \item Higher markup $\Rightarrow$ lower real wages $\Rightarrow$ lower production
 
-\item This is a \emph{static} distorition, has nothing to do with the dynamic response to shocks
+\item This is a \emph{static} distortion; it has nothing to do with the dynamic response to shocks
 
-\item Going forward, we eliminate the static distortion with lump-sum financed firm subsidy $(1-\tau)$, implying firm F.O.C.
+\item Going forward, we eliminate the static distortion with a lump-sum-financed firm subsidy $(1-\tau)$, implying the firm F.O.C.
 \begin{eqnarray}
 (1-\tau)P_t &=& M \frac{W_t}{A_t} \nonumber 
 \end{eqnarray}
@@ -237,7 +238,7 @@ implying that
 \frac{\theta N^{\varphi}}{C^{-1}} &=& \frac{M_t}{M}A_t \nonumber 
 \end{eqnarray}
 
-\item Calvo pricing implies some firms cannot update prices, and the one that do update do not set $P_{it} = M * MC^{nom}_t$ $\Rightarrow$ fluctuations in $M_t$
+\item Calvo pricing implies some firms cannot update prices, and the ones that do update do not set $P_{it} = M \cdot MC^{nom}_t$ $\Rightarrow$ fluctuations in $M_t$
 \bit
 	\item These fluctuations are inefficient, even if average markup is zero (as with the firm subsidy)
 	
@@ -267,7 +268,7 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 		\item $D_t$ lower, as $(\cdot)^{-\epsilon}$ is a convex function (Jensen's inequality)
 	\eit
 	
-\item Price dispersion generates an ineffiency due to {\bc missallocation}
+\item Price dispersion generates an inefficiency due to {\bc misallocation}
 
 \item Note: missallocation induces an efficiency wedge
 
@@ -297,13 +298,13 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 
 \item Suppose optimal $P^*_t = P_{-1}$ for all resetters in $t=0,1,2,...$
 
-\item Then, no price disperion, and no time-varying markup $\Rightarrow$ first-best attained
+\item Then there is no price dispersion and no time-varying markup $\Rightarrow$ the first best is attained
 
-\item $\Rightarrow$ the socially optimal allocation is achieved if all price setters stay with the initial price
+\item $\Rightarrow$ the socially optimal allocation is achieved if all price setters keep the initial price
 
-\item Could (in theory) be implemented with time-varying subsidy to resetters
+\item Could (in theory) be implemented with a time-varying subsidy to resetters
 
-\item Could also (in theory) be implemented by time-varying taxes of household financial decisions $\Rightarrow$ ineffiency can be conceptaulized as arising from an {\bc aggregate-demand externality} (Farhi-Werning, Ectmra 2016; see also Correia-Farhi-Nicolini-Teles, AER 2013)
+\item Could also (in theory) be implemented by time-varying taxes on household financial decisions $\Rightarrow$ inefficiency can be conceptualized as arising from an {\bc aggregate-demand externality} (Farhi-Werning, Econometrica 2016; see also Correia-Farhi-Nicolini-Teles, AER 2013)
 
 \item Could it be implemented with a suitable choice of $\hat i_t$?
 \eit
@@ -325,7 +326,7 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 \item We know that the efficient solution has $\pi_t = 0$ and $\tilde y_t = 0$
 \bit
 \setlength\itemsep{0.5em}
-\item Zero inflation - not for it's own sake, but because it eliminates markup fluctuations and price dispersion
+\item Zero inflation, not for its own sake, but because it eliminates markup fluctuations and price dispersion
 
 \item Output fluctuates due to TFP, but output gap is eliminated
 \eit
@@ -336,7 +337,7 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 
 \end{frame}
 
-\begin{frame}{How can monetary policy implement first best? part I}
+\begin{frame}{How can monetary policy implement the first best? Part I}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -355,12 +356,12 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 
 \item But, both eigenvalues are not inside unit circle (check this at home!) $\Rightarrow$ indeterminacy
 
-\item Ergo, this rule does not garantuee that the first best is achieved
+\item Ergo, this rule does not guarantee that the first best is achieved
 \eit
 
 \end{frame}
 
-\begin{frame}{How can monetary policy implement first best? part II}
+\begin{frame}{How can monetary policy implement the first best? Part II}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -375,7 +376,7 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 \text{Phillips curve:} && \pi_t = \beta E_t \pi_{t+1} + \kappa \tilde y_t \nonumber 
 \end{eqnarray}
 
-\item Same determinacy condition as before: $\phi>1$ acheives determinacy: $\pi_t = 0$, $\tilde y_t=0$ is the unique bounded solution
+\item Same determinacy condition as before: $\phi>1$ achieves determinacy, so $\pi_t = 0$, $\tilde y_t=0$ is the unique bounded solution
 
 \item With TFP shocks, sound monetary policy in the NK model boils down to tracking the natural real interest rate, and making credible threats to exclude other equilibria
 \eit
@@ -390,17 +391,17 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 \item In practice: secular movements in $r^n_t$ can perhaps be computed, but $\hat r^n_t$ is unobserved
 \bit
 \setlength\itemsep{0.5em}
-	\item However, in theory: simple policy rules, e.g., $\hat i_t = \phi \pi_t$ effectively mitigates welfare losses if $\phi$ is sufficiently high
+	\item However, in theory, simple policy rules, e.g., $\hat i_t = \phi \pi_t$, effectively mitigate welfare losses if $\phi$ is sufficiently high
 \eit
 
-\item TFP shocks does not generate a trade-off for monetary policy decisions
+\item TFP shocks do not generate a trade-off for monetary policy decisions
 \bit
 \setlength\itemsep{0.5em}
-\item If you stabilize inflation, you also stablize the output gap
+\item If you stabilize inflation, you also stabilize the output gap
 
-\item Sometimes called the {\bc divine coincide}
+\item Sometimes called the {\bc divine coincidence}
 
-\item No rationale for a dual mandade
+\item No rationale for a dual mandate
 \eit
 
 \item Other shocks do...
@@ -428,9 +429,9 @@ D_t = \int_{0}^{1} \left(\frac{P_{it}}{P_t} \right)^{-\epsilon}di \nonumber
 
 \item Cost-push shocks create an interesting trade-off, and also a time inconsistency problem
 
-\item With cost-push shocks, we need some more technique to get at optimal policy
+\item With cost-push shocks, we need a bit more machinery to get at optimal policy
 
-\item In general, the policy problem is to set a sequence $\{\hat i_t \}$ such to maximize some social objective function, subject to that the allocation is an equilibrium:
+\item In general, the policy problem is to set a sequence $\{\hat i_t \}$ to maximize some social objective function, subject to the allocation being an equilibrium:
 \begin{eqnarray}
 \max_{\hat i_t} && \text{Objective function} \nonumber \\
 \text{s.t. } &&  x_t = - (\hat i_t-E_t \pi_{t+1}-\hat r^e_t) + E_t x_{t+1} \text{  } \forall t \nonumber \\
@@ -450,7 +451,7 @@ where $x_t = y_t - y^e_t$
 \setlength\itemsep{1em}
 \item If the policy maker has the same preferences as the social planner, the objective function is the welfare of the representative household: $E_0 \sum U (C_t, N_t)$
 
-\item To put the welfare function on par with the equilibrium expressed in terms of a log-linear appoximation around steady state, we need to approximate it
+\item To put the welfare function on par with the equilibrium expressed in terms of a log-linear approximation around steady state, we need to approximate it
 
 \item A linear approximation does not work - why?
 
@@ -485,7 +486,7 @@ with $\alpha_x = \frac{\kappa}{\epsilon}$
 && \pi_t = \beta E_t \pi_{t+1} + \kappa x_t + u_t \text{  } \forall t \nonumber 
 \end{eqnarray}
 
-\item There is clearly a trade-off in setting the interest rate path here
+\item There is clearly a trade-off in setting the interest-rate path here
 
 \item We can split the policy problem in two
 \ben
@@ -529,7 +530,7 @@ resulting in some path $\{x^*_{t+s}, \pi^*_{t+s}\}_{s=1}^{\infty}$
 \text{s.t. } &&  \pi_t = \beta E_t \pi^*_{t+1} + \kappa x_t + u_t \nonumber 
 \end{eqnarray}
 
-\item Note: this result stems from that the equilibrium has no state variable
+\item Note: this result stems from the fact that the equilibrium has no state variable
 
 \eit
 
@@ -557,7 +558,7 @@ x_t: && 2 \alpha_x x_t - \lambda \kappa = 0 \nonumber
 x_t = - \frac{\kappa}{\alpha_x} \pi_t \nonumber
 \end{eqnarray}
 
-\item Higher inflation $\Rightarrow$ optimal policy features engineering an ``inefficient'' recession 
+\item Optimal policy features a choice between an ``inefficient'' recession and higher inflation
 
 
 
@@ -612,7 +613,7 @@ x_0 &=& - \frac{\kappa}{\alpha_x} \pi_0 \nonumber \\
 x_t &=& x_{t-1} - \frac{\kappa}{\alpha_x} \pi_t \nonumber
 \end{eqnarray}
 
-\item Still qualitatively similar tradeoff between output and inflation, but now optimal policy features some degree of smoothing: A high $x_{t-1}$ implies a high value of $x_t$
+\item The trade-off between output and inflation is still qualitatively similar, but now optimal policy features some degree of smoothing: a high $x_{t-1}$ implies a high value of $x_t$
 
 
 \eit
@@ -636,11 +637,61 @@ x_t &=& x_{t-1} - \frac{\kappa}{\alpha_x} \pi_t \nonumber
 \end{frame}
 
 
+\begin{frame}{Discretion vs. commitment, a surprising result}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Under both discretion and commitment, the central bank is benevolent and has social welfare in mind
+
+\item The difference between the two policies is {\bc not} information or intentions, but {\bc credibility}
+\bit
+\setlength\itemsep{0.5em}
+\item Under discretion, the central bank re-optimizes every period and takes future behavior as given
+
+\item Under commitment, it can shape private-sector expectations by promising future actions that may be ex post unattractive, but ex ante welfare improving
+\eit
+
+\item This is the core time-inconsistency insight: even a well-intentioned policymaker may want institutions or rules that tie its own hands
+\bit
+\setlength\itemsep{0.5em}
+	\item See Kydland-Prescott (JPE 1977) 
+\eit
+
+\eit
+
+\end{frame}
+
+
+\begin{frame}{Intermezzo: From time inconsistency to political economy}
+
+\bit
+\setlength\itemsep{1.5em}
+
+\item Kydland-Prescott changed how economists think about policy: from an optimal-control problem to a {\bc strategic interaction} between policymakers and private agents
+
+\item Once credibility becomes central, institutions become central too: rules, delegation, reputation, and central-bank independence
+\bit
+	\item Kydland-Prescott (JPE 1977) was important for the establishment of central-bank independence
+\eit
+
+\item The time-inconsistency insight was central to birth of modern {\bc political economy}
+\bit
+\setlength\itemsep{0.5em}
+\item policy is shaped not only by technology and preferences, but also by incentives, commitment problems, and political institutions
+
+\item See Tabellini (SJE 2005) for a beautiful celebration of the Kydland-Prescott insight
+\eit
+\eit
+
+\end{frame}
+
+
 
 \begin{frame}
 
 \begin{center}
-	\huge Quantitative NK models: A helicopter view \normalfont
+	\huge Quantitative NK models: a helicopter view \normalfont
 \end{center}
 
 \end{frame}
@@ -659,9 +710,9 @@ x_t &=& x_{t-1} - \frac{\kappa}{\alpha_x} \pi_t \nonumber
 	\item Which data moments should we target?
 \eit
 
-\item Resarch program initiated by Christiano-Eichenbaum-Evans (JPE 2005) and Smets-Wouters (JEDC 2003; AER 2007)
+\item Research program initiated by Christiano-Eichenbaum-Evans (JPE 2005) and Smets-Wouters (JEDC 2003; AER 2007)
 
-\item Quantitative NK models are used by many central banks to make forecast and analyze policy interventions
+\item Quantitative NK models are used by many central banks to make forecasts and analyze policy interventions
 \bit
 	\item Sveriges Riksbank's model: RAMSES II
 \eit
@@ -671,7 +722,7 @@ x_t &=& x_{t-1} - \frac{\kappa}{\alpha_x} \pi_t \nonumber
 
 \end{frame}
 
-\begin{frame}{Quantitative NK models:ingredients}
+\begin{frame}{Quantitative NK models: ingredients}
 \bit
 \setlength\itemsep{1.5em}
 
@@ -724,11 +775,11 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 \setlength\itemsep{0.5em}
 	\item Some form of consumption habit formation seems plausible
 	
-	\item Helps explaining some asset pricing puzzles (See, e.g., Campbell-Cochrane, JPE 1999)
+	\item Helps explain some asset-pricing puzzles (see, e.g., Campbell-Cochrane, JPE 1999)
 	
 	\item Hard to square with micro evidence on consumption response to transitory income shocks (Carroll-Crawley-Slacalek-Tokuoka-White, AEJmacro 2020; Auclert-Rognlie-Straub, 2020)
 	
-	\item Alternative: sticky expecations (Mankiw-Reis, QJE 2002)
+	\item Alternative: sticky expectations (Mankiw-Reis, QJE 2002)
 \eit
 \eit
 
@@ -784,15 +835,15 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 
 \bit
 \setlength\itemsep{1.5em}
-\item Data indicative of wage rigidities
+\item The data are indicative of wage rigidities
 \bit
 \setlength\itemsep{0.5em}
-\item Average wage rate not very volatile, although hours worked and productivity is
+\item The average wage rate is not very volatile, although hours worked and productivity are
 
-\item Micro data suggest: some of low aggregate volatility is due to selection, some due to rigidness
+\item Micro data suggest that some of the low aggregate volatility is due to selection, and some is due to rigidity
 \eit
 
-\item Wage rigidity can be modelled analogously to Calvo-style price rigidity (Erceg-Henderson-Levin, JME 2000)
+\item Wage rigidity can be modeled analogously to Calvo-style price rigidity (Erceg-Henderson-Levin, JME 2000)
 \bit
 \setlength\itemsep{0.5em}
 \item Assumption 1: each household provides a differentiated labor service $\Rightarrow$ workers have monopoly power and set their wages accordingly
@@ -808,9 +859,9 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 \end{eqnarray}
 %where ${\bc \mu_t =  - (c_t + \varphi n_t)}$
 
-\item A good starting point, but not very compelling assumptions
+\item A good starting point, but based on assumptions that are not entirely compelling
 
-\item Broer-Harmenberg-Krusell-\"{O}berg (AER:insights 2023) offer another framework for modelling wage rigidity maintaining competitive markets
+\item Broer-Harmenberg-Krusell-\"{O}berg (AER: Insights 2023), Harmenberg-\"{O}berg-Olsson (2026): frameworks for modeling wage rigidity consistent with competitive/monoposonistic labor markets
 \eit
 
 \end{frame}
@@ -819,7 +870,7 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 
 \bit
 \setlength\itemsep{1.5em}
-\item Cristiano-Eichenbaum-Evans: Set parameters values to minimize distance of model IRF to data IRF to monetary policy shocks
+\item Christiano-Eichenbaum-Evans: set parameter values to minimize the distance between the model IRF and the data IRF for monetary policy shocks
 \ben
 \setlength\itemsep{0.5em}
 	\item Pick some parameter values
@@ -836,7 +887,7 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 \setlength\itemsep{0.5em}
 	\item Often done with {\bc Bayesian estimation techniques}
 	
-	\item This means specifying a prior distribution of parameter values, and then update according to Bayes law when model is confronted with data
+	\item This means specifying a prior distribution of parameter values, and then updating according to Bayes' law when the model is confronted with data
 \eit
 
 \item Contrast this approach with RBC-style calibration
@@ -861,7 +912,7 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 \setlength\itemsep{1.5em}
 \item Empirical IRFs estimated using recursive ordering
 
-\item CEE show that rigid wages is the key friction needed to match these moments
+\item CEE show that rigid wages are the key friction needed to match these moments
 \eit
 
 
@@ -876,11 +927,11 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 
 \item Inefficient business cycles due to time-varying markups and price dispersion
 
-\item When flex price equilibrium is optimal: policy can mitigate efficiency loss, both in terms of inflation and output, by implementing natural real interest rate
+\item When the flexible-price equilibrium is optimal, policy can mitigate efficiency losses, in terms of both inflation and output, by implementing the natural real interest rate
 
-\item When shocks distort flex-price equilibrium: policy trade-off in terms of stabilizing inflation and output, and also a time-inconsistency problem
+\item When shocks distort the flexible-price equilibrium, policy faces a trade-off between stabilizing inflation and output, as well as a time-inconsistency problem
 
-\item With a reasonable set of model extensions, NK model can match empirical IRFs to monetary policy shocks in quite some detail
+\item With a reasonable set of model extensions, the NK model can match empirical IRFs to monetary policy shocks in quite some detail
 
 \eit
 
@@ -900,7 +951,7 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 
 \item 40-60s: ``Neoclassical synthesis'', i.e., Keynesian equilibrium models (e.g. IS-LM) 
 \bit
-	\item Hicks, Samuelson, Mogiliani, Tobin etc.
+	\item Hicks, Samuelson, Modigliani, Tobin, etc.
 \eit
 
 \item \bf Patinkin (1956): Money, Interest and Prices \normalfont
@@ -910,7 +961,7 @@ $\Rightarrow$ adjust Euler equation and intratemporal optimality condition accor
 	\item Taylor (JPE 1980): staggered price-setting; Calvo (JME 1983): random price-setting
 \eit
 
-\item 1980's: theoretical insights regarding interplay of ``aggregate demand'', price stickiness and monopoly power
+\item 1980s: theoretical insights regarding the interplay of ``aggregate demand'', price stickiness, and monopoly power
 \bit
 \setlength\itemsep{0.5em} 
 \item Akerlof-Yellen (QJE 1985); Mankiw (QJE (1985); Blanchard-Kiyotaki (AER 1987); Ball-Romer (ReStud 1990)

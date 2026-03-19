@@ -1,5 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1773045268.38076 "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/problem sets/problem_set6/problem_set6.tex" "problem_set6.pdf" "problem_set6" 1773045270.85309 0
+["pdflatex"] 1773915761.4899 "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/problem sets/problem_set7/problem_set7.tex" "problem_set7.pdf" "problem_set7" 1773915762.25699 0
+  "C:/Program Files/MikTeX 24.1/fonts/tfm/jknappen/ec/tcrm1095.tfm" 993062508 1460 8005ce585ff351dff78998923504da5e ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -21,6 +22,7 @@
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/cm/cmsy10.tfm" 1136765053 1124 6c73e740cf17375f03eec0ee63599741 ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/cm/cmsy6.tfm" 1136765053 1116 933a60c408fc0a863a92debe84b2d294 ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/cm/cmsy8.tfm" 1136765053 1120 8b7d695260f3cff42e636090a8002094 ""
+  "C:/Program Files/MikTeX 24.1/fonts/tfm/public/cm/cmti10.tfm" 1136765053 1480 aa8e34af0eb6a2941b776984cf1dfdc4 ""
   "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmbx10.pfb" 1247596666 34811 78b52f49e893bcba91bd7581cdc144c0 ""
   "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1247596666 32080 340ef9bf63678554ee606688e7b5339d ""
   "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmex10.pfb" 1247596667 30251 6afa5cb1d0204815a708a080681d4674 ""
@@ -33,7 +35,9 @@
   "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmr6.pfb" 1247596667 32734 69e00a6b65cedb993666e42eedb3d48f ""
   "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmr8.pfb" 1247596667 32726 39f0f9e62e84beb801509898a605dbd5 ""
   "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmsy10.pfb" 1247596667 32569 5e5ddc8df908dea60932f3c484a54c0d ""
+  "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmsy6.pfb" 1247596667 32587 65067f817f408bc71a7312f3d9828a9b ""
   "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmsy8.pfb" 1247596667 32626 5abc8bb2f28aa647d4c70f8ea38cc0d3 ""
+  "C:/Program Files/MikTeX 24.1/fonts/type1/public/amsfonts/cm/cmti10.pfb" 1247596667 37944 359e864bd06cde3b1cf57bb20757fb06 ""
   "C:/Program Files/MikTeX 24.1/tex/context/base/mkii/supp-pdf.mkii" 1580390158 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Program Files/MikTeX 24.1/tex/generic/iftex/iftex.sty" 1734114575 7984 7dbb9280f03c0a315425f1b4f35d43ee ""
   "C:/Program Files/MikTeX 24.1/tex/generic/pdftexcmds/pdftexcmds.sty" 1623005277 20089 80423eac55aa175305d35b49e04fe23b ""
@@ -172,6 +176,7 @@
   "C:/Program Files/MikTeX 24.1/tex/latex/tools/thp.sty" 1761901070 1908 8892e0e2406a99a1f872525174baef2e ""
   "C:/Program Files/MikTeX 24.1/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/eriob421/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1772524932 1577892 273b031f6fd94deeedfea8e107ce03b3 ""
+  "C:/Users/eriob421/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1770800252 12668 2b9f69a90223d3769abe622135255980 ""
   "C:/Users/eriob421/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1770982871 13325834 14ae7f033ee0c3a4b9b98d7a64cd9714 ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/generic/infwarerr/infwarerr.sty" 1575399508 8356 7bbb2c2373aa810be568c29e333da8ed ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/generic/kvdefinekeys/kvdefinekeys.sty" 1576763304 5412 d5a2436094cd7be85769db90f29250a6 ""
@@ -188,11 +193,12 @@
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/natbib/natbib.sty" 1292249081 46712 1c8843383c0bd05870c45fa0ebea6cc2 ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/placeins/placeins.sty" 1113865200 4087 636308456f60d2b31cbf97867db5708d ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/preprint/fullpage.sty" 1369148873 2867 05b418f78b224ec872f5b11081138605 ""
-  "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/problem sets/problem_set6/problem_set6.tex" 1773045266 15369 4146e267752784b7adb79f1814fcc74a ""
-  "problem_set6.aux" 1773045270 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
-  "problem_set6.tex" 1773045266 15369 4146e267752784b7adb79f1814fcc74a ""
+  "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/problem sets/problem_set7/problem_set7.tex" 1773915761 12641 b9f0a1e89f1c5f014e93da3935404c65 ""
+  "phillips.jpeg" 1770799793 110873 30db92ea697c61e6e3129550cc04ae31 ""
+  "problem_set7.aux" 1773915762 183 2d341ca502beafa200066c86cf8f1a2c "pdflatex"
+  "problem_set7.tex" 1773915761 12641 b9f0a1e89f1c5f014e93da3935404c65 ""
   (generated)
-  "problem_set6.aux"
-  "problem_set6.log"
-  "problem_set6.pdf"
+  "problem_set7.aux"
+  "problem_set7.log"
+  "problem_set7.pdf"
   (rewritten before read)
