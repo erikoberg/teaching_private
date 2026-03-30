@@ -1,5 +1,55 @@
+\pdfminorversion=6
 \documentclass[9pt]{beamer}
 \usetheme{Boadilla}
+
+\definecolor{brandblue}{RGB}{35,74,132}
+\definecolor{brandbluedark}{RGB}{24,49,91}
+\definecolor{brandgray}{RGB}{68,68,68}
+\definecolor{softgray}{RGB}{245,247,250}
+\definecolor{accentgray}{RGB}{226,232,240}
+
+\setbeamercolor{normal text}{fg=brandgray,bg=white}
+\setbeamercolor{structure}{fg=brandblue}
+\setbeamercolor{title}{fg=brandbluedark}
+\setbeamercolor{frametitle}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{section divider}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{caption name}{fg=brandbluedark}
+\setbeamercolor{author in head/foot}{fg=white,bg=brandbluedark}
+\setbeamercolor{title in head/foot}{fg=brandbluedark,bg=accentgray}
+\setbeamercolor{block title}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{block body}{fg=brandgray,bg=white}
+
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{section title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamersize{text margin left=0.9em,text margin right=0.9em}
+
+\setbeamertemplate{title page}
+{
+	\vspace*{0.15\paperheight}
+	\begin{beamercolorbox}[wd=\textwidth,sep=1.1em,left]{title}
+		{\usebeamerfont{title}\inserttitle\par}
+		\vspace{0.8em}
+		{\usebeamerfont{author}\insertauthor\par}
+	\end{beamercolorbox}
+	\vfill
+}
+
+\newcommand{\sectiondivider}[1]{
+	\begin{frame}[plain]
+		\vfill
+		\begin{beamercolorbox}[wd=.84\textwidth,sep=1.1em,center,rounded=true]{section divider}
+			{\usebeamerfont{section title} #1}
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
 
 \makeatother
 \setbeamertemplate{footline}
@@ -36,11 +86,13 @@
 \usepackage{tikz}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
 %\usepackage{subcaption}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\captionsetup{font=scriptsize,labelfont=bf}
 %\setbeamertemplate{footline}[frame number]
 \usepackage{csquotes}
 \usepackage{bm}
@@ -72,8 +124,8 @@
 
 \begin{document}
 
-\begin{frame}
-\maketitle
+\begin{frame}[plain]
+\titlepage
 \end{frame}
 
 \section{Introduction}
@@ -86,19 +138,19 @@
 
 \item Lectures I-VI: frameworks for business cycle analysis
 
-\item We learned a lot, but the models we considered had several problems, and are obviuously to stylized to understand to speak to many macroeconomic phenomena
+\item We learned a lot, but the models we considered had several problems and are obviously too stylized to speak to many macroeconomic phenomena
 
-\item In particular, two assumptions seemed very unrealistic while also important for understanding macro dynamics 
+\item In particular, two assumptions seem very unrealistic while also being important for understanding macro dynamics
 \ben
 \setlength\itemsep{0.5em}
 	\item Labor markets are frictionless
 	
-	\item Household have access to complete asset markets (and can therefore be summarized by a representative agent)
+	\item Households have access to complete asset markets (and can therefore be summarized by a representative agent)
 \een 
 
 \item Remainder of the course introduces a set of models that relax these assumptions
 
-\item Besides developing a deeper theory of business cycle dynamics, these models will allows us to explore an additional set of questions in macro research:
+\item Besides developing a deeper theory of business cycle dynamics, these models will allow us to explore an additional set of questions in macro research:
 \bit
 \item How do macroeconomic conditions affect inequality? And how does inequality affect macroeconomic conditions?
 \eit 
@@ -118,7 +170,7 @@
 \setlength\itemsep{0.5em}
 \item 4 lectures
 
-\item Digging deepering into the determinants of household income
+\item Digging deeper into the determinants of household income
 \eit
 
 \item Lectures XI-XIII: Incomplete asset markets 
@@ -129,7 +181,7 @@
 \item Digging deeper into the determinants of consumption-savings dynamics, taking the income process as given
 \eit
 
-\item To get us started with frictional labor market, we'll first look at a few key facts
+\item To get us started with frictional labor markets, we'll first look at a few key facts
 
 \eit
 
@@ -152,13 +204,7 @@
 
 \end{frame}
 
-\begin{frame}
-
-\begin{center}
-	\huge Labor market facts \normalfont
-\end{center}
-
-\end{frame}
+\sectiondivider{Labor market facts}
 
 
 
@@ -180,7 +226,7 @@
 
 \item We will look at some basic facts relating to each of these categories
 
-\item Main focus is US, but also quick glance at other OECD countries
+\item Main focus is the US, but we will also take a quick glance at other OECD countries
 
 \item Main data source: labor force surveys (US: CPS; Sweden: AKU)
 
@@ -224,7 +270,7 @@
 
 \bit
 \item Fact 1: SD of cyclical fluctuations $\sim$ 1.5-2 percent for the US
-\item Fact 2: considerable heterogeneity in fluctations across countries
+\item Fact 2: considerable heterogeneity in fluctuations across countries
 \eit
 
 \end{frame}
@@ -280,7 +326,7 @@ h^c_t &=& \frac{H_t}{N_t} \nonumber \\
 \bit
 \setlength\itemsep{1.5em}
 
-\item Even more defintions
+\item Even more definitions
 \bit
 	\setlength\itemsep{0.5em}
 	\item Participation rate $p = \frac{P}{N}$
@@ -341,7 +387,7 @@ h^c_t &=& \frac{H_t}{E_t} \times \frac{E_t}{N_t} \nonumber \\
 \item Graphical representation:
 \begin{figure}[h]
 	\begin{center}
-		\begin{tikzpicture}[scale=0.45]		
+		\begin{tikzpicture}[scale=0.42]		
 		\draw (14,8) node{$u_t$};
 		\draw (4,8) node{$e_t$};
 		
@@ -365,12 +411,12 @@ h^c_t &=& \frac{H_t}{E_t} \times \frac{E_t}{N_t} \nonumber \\
 
 \item Assume $\Delta t = 1$ month
 
-\item With data on unemployment levels by duration, we estimate the probability $F_t$ for an unemployed worker for finding a job within a month:
+\item Using data on unemployment levels by duration, we estimate the probability $F_t$ that an unemployed worker finds a job within a month:
 \begin{eqnarray}
 1-F_t = \frac{\text{\#Unemployed with duration>1 in month t+1}}{\text{\#Unemployed in month t}} \nonumber
 \end{eqnarray}
 
-\item Similary, the monthly job-separation probability can be estimated from
+\item Similarly, the monthly job-separation probability can be estimated from
 \begin{eqnarray}
 S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed in month t}} \nonumber
 \end{eqnarray}
@@ -425,7 +471,7 @@ S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed i
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.6]{figures/ehs_2013_fig1.pdf}
-	\caption*{\footnotesize From Elsby-Hobjin-Sahin (ReStat 2013).}
+	\caption*{\footnotesize From Elsby-Hobijn-Sahin (ReStat 2013).}
 \end{figure}
 
 \bit
@@ -446,7 +492,7 @@ S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed i
 \setlength\itemsep{2em}
 \item The allocation of labor is coordinated via the labor price system, that is, the wage distribution
 
-\item How large are fluctations in wages?
+\item How large are fluctuations in wages?
 
 \item Are different workers paid different wages? 
 
@@ -474,7 +520,7 @@ S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed i
 
 
 
-\begin{frame}{US wage dispersion}
+\begin{frame}{US wage dispersion in CPS data}
 
 \begin{figure}
 	\centering
@@ -483,9 +529,23 @@ S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed i
 \end{figure}
 
 \bit
-\item Fact: rising wage inequality since mid-seventies
+\item Fact: rising wage inequality 1975-2000
 \eit
 
+
+\end{frame}
+
+\begin{frame}{US wage dispersion: update through 2024 (using Cursor and GPT)}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.44]{figures/acemoglu_2002_fig2_update_2024.pdf}
+	\caption*{\footnotesize Own CPS ASEC calculations for white male full-time full-year workers aged 18-65, earnings years 2000-2024.}
+\end{figure}
+
+\bit
+\item (tentative) fact: Little action since 2000
+\eit
 
 \end{frame}
 
@@ -493,15 +553,15 @@ S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed i
 
 \bit
 \setlength\itemsep{1.5em}
-\item How much of the observed wage dispersion is due to the differences in observables?
+\item How much of the observed wage dispersion is due to differences in observable characteristics?
 
-\item Cross-sectional household survey data (e.g. PSID, CPS)
+\item Cross-sectional household survey data (e.g. CPS, PSID)
 
 \item Mincer regression
 \begin{eqnarray}
 \log y_{it} = \mu_y + \beta \mathbf{X}_{it} + \epsilon_{it} \nonumber
 \end{eqnarray}
-where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes the age, occupation, industry, tenure, education etc.
+where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes age, occupation, industry, tenure, education, etc.
 
 \item Typically, $R^2<0.3$ (Mortensen, Book 2003)
 
@@ -517,7 +577,7 @@ where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes the age, occupation, i
 
 
 
-\begin{frame}{US residual wage dispersion}
+\begin{frame}{US residual wage dispersion in CPS data)}
 
 \begin{figure}
 	\centering
@@ -526,23 +586,30 @@ where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes the age, occupation, i
 \end{figure}
 
 \bit
+	\item Fact: Rising residual wage inequality 1975-2000
 	\item In 1995, median is $\sim e^{0.6} \approx 1.8$ times 10th percentile
 	\item In 1995, 90th percentile is $\sim e^{2*0.6} \approx 3.3$ times 10th percentile
-	\item $\Rightarrow$ Fact: high and rising residual wage inequality
 \eit
 
 
 \end{frame}
 
+\begin{frame}{US residual wage dispersion: update through 2024 (using Cursor and GPT)}
 
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.45]{figures/acemoglu_2002_fig3_update_2024.pdf}
+	\caption*{\footnotesize Y-axis: log points. Own CPS ASEC calculations for white male full-time full-year workers aged 18-65, earnings years 2000-2024.}
+\end{figure}
 
-\begin{frame}
-
-\begin{center}
-	\huge Search models: overview \normalfont
-\end{center}
+\bit
+\item (tentative) fact: Little action since 2000
+\eit
 
 \end{frame}
+
+
+\sectiondivider{Search models: overview}
 
 
 \begin{frame}{Search models}
@@ -552,11 +619,11 @@ where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes the age, occupation, i
 
 \item Search models provide a theory of the labor market that links stock, flows and the distribution of wages together
 
-\item Search markets: markets in which buyers (employers) and sellers (workers) spend time/resources searching for each other and where there is some element of randomness in when and/or for whom a match happens 
+\item Search markets: markets in which buyers (employers) and sellers (workers) spend time/resources searching for each other, and where there is some element of randomness in when and/or with whom a match happens
 
-\item Because searching takes time, some workers will experience periods without work: {\color{blue}fricitional unemployment}
+\item Because searching takes time, some workers will experience periods without work: {\color{blue}frictional unemployment}
 
-\item Because matching has an element of randomness, some workers will be more lucky than others in finding good jobs: {\color{blue}fricitional wage dispersion}
+\item Because matching has an element of randomness, some workers will be luckier than others in finding good jobs: {\color{blue}frictional wage dispersion}
 
 
 \item Contrast to Walrasian markets (e.g. standard RBC and NK models)
@@ -577,7 +644,7 @@ where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes the age, occupation, i
 \bit
 \setlength\itemsep{1.5em}
 
-\item The search approach to labor markets were developed in the 60's, first largely focused on partial equilibrium search behavior, later built into general equilibrium frameworks	
+\item The search approach to labor markets was developed in the 60's, first largely focused on partial-equilibrium search behavior and later built into general-equilibrium frameworks
 
 \item We will cover
 \bit
@@ -591,25 +658,19 @@ where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes the age, occupation, i
 \end{frame}
 
 
-\begin{frame}
-
-\begin{center}
-	\huge Mathematical Preliminaries \normalfont
-\end{center}
-
-\end{frame}
+\sectiondivider{Mathematical Preliminaries}
 
 \begin{frame}{Math preliminaries I: Expected value}
 
 \bit
 \setlength\itemsep{1.5em}
 
-\item For a non-negative random variable $x$ with cdf $F(x)$ on support $[x_1, x_2]$, we can define expected value as 
+\item For a non-negative random variable $x$ with cdf $F(x)$ on support $[x_1, x_2]$, we can define the expected value as 
 \begin{eqnarray}
 Ex = \int_{x_1}^{x_2} x d F(x) \nonumber
 \end{eqnarray}
 
-\item Contrast with ``standard'' defintion
+\item Contrast with the ``standard'' definition
 \begin{eqnarray}
 Ex = \int_{x_1}^{x_2} x f(x)dx \nonumber
 \end{eqnarray}
@@ -622,7 +683,7 @@ Ex = \int_{x_1}^{x_2} x f(x)dx \nonumber
 \item This includes the usual suspects: Uniform, Normal, Frechet, Pareto, etc... 
 \eit
 
-\item However, when $F$ has mass points, the expected value does not exist according to latter definition {\rc (Draw example on whiteboard)}
+\item However, when $F$ has mass points, the expected value is not well defined under the latter definition {\rc (Draw example on whiteboard)}
 
 \item Hence, we will employ the former definition
 
@@ -635,14 +696,14 @@ Ex = \int_{x_1}^{x_2} x f(x)dx \nonumber
 \bit
 \setlength\itemsep{2em}
 
-\item Consider our definition or expected value
+\item Consider our definition of expected value
 \begin{eqnarray}
 Ex = \int_{x_1}^{x_2} x d F(x) \nonumber
 \end{eqnarray}
 
 \item When the integrator is a function rather than a variable, we call it a {\bc Riemann-Stieltjes integral}
 
-\item Properties or RS integrals:
+\item Properties of RS integrals:
 \ben
 \setlength\itemsep{1em}
 \item If $F$ is differentiable: $\int G(x) dF(x) = \int G(x) f(x) dx$
@@ -685,13 +746,7 @@ is differentiable and
 
 
 
-\begin{frame}
-
-\begin{center}
-	\huge The McCall model \normalfont
-\end{center}
-
-\end{frame}
+\sectiondivider{The McCall model}
 
 
 \begin{frame}{The McCall (QJE 1970) model}
@@ -701,7 +756,7 @@ is differentiable and
 	
 	\item Framework for thinking about optimal search behavior
 	
-	\item Identical households, who search for employment opportunities
+	\item Identical households who search for employment opportunities
 	
 	\item Partial equilibrium: we take prices (and firm behavior) as given
 \eit
@@ -741,19 +796,19 @@ is differentiable and
 \bit
 \setlength\itemsep{1.5em}
 
-\item An economy populated by a measure $P$ of ex ante identical, infinitely lived agents with linear utility function and discount factor $\beta$
+\item An economy populated by a measure $P$ of ex ante identical, infinitely lived agents with a linear utility function and discount factor $\beta$
 
 \item Households can either be {\bc employed} or {\rc unemployed}
 
-\item An {\rc unemployed} household recieves benefits {\rc $b$}, an {\bc employed}  household recieves wage {\bc$w$}
+\item An {\rc unemployed} household receives benefits {\rc $b$}, while an {\bc employed} household receives wage income {\bc$w$}
 
 \item No savings technology, agents consume hand-to-mouth
 
-\item Unemployed household recieve job offer with probability $\Lambda_{u}$ in each period, with wages $w$ drawn from i.i.d. $F(w)$ with finite support $\mathds{W}=[ w_{min}, w_{max}]$   
+\item Unemployed households receive a job offer with probability $\Lambda_{u}$ in each period, with wages $w$ drawn from i.i.d. $F(w)$ with finite support $\mathds{W}=[ w_{min}, w_{max}]$   
 
 \item Employed households separate from jobs at exogenous probability $S$
 
-\item Household problem: if unemployed and recieve job offer, accept or wait 
+\item Household problem: if unemployed and receiving a job offer, accept it or wait
 \eit
 
 \end{frame}
@@ -764,7 +819,7 @@ is differentiable and
 \bit
 \setlength\itemsep{2em}
 
-\item Search models: generally easier to work with {\bc recursive formulation}
+\item Search models are generally easier to work with in {\bc recursive formulation}
 
 \item Value (i.e. Present-Discounted Value) of employed agent:
 \begin{eqnarray}
@@ -837,7 +892,7 @@ W(w) = w \Delta t + e^{-r \Delta t} \left[(1-\sigma  \Delta t )W(w) + \sigma  \D
 r W(w) = w + \sigma (U-W(w)) \nonumber
 \end{eqnarray}
 
-\item flow value $rW$ $=$ flow benefit $+$ flow probability of shock $\times$ change in value
+\item flow value $rW$ $=$ flow benefit $+$ flow probability of a shock $\times$ change in value
 
 \eit
 
@@ -878,7 +933,7 @@ rU  &=&  b + \lambda_u  \int_{\mathds{W}} \max\{W(w)-U, 0\} dF(w) \nonumber
 \end{eqnarray}
 \item That's it
 
-\item Now we 1) solve this problem and 2) study the implications of the solutions
+\item Now we 1) solve this problem and 2) study the implications of the solution
 
 \eit
 \end{frame}
@@ -900,7 +955,7 @@ rU  &=& b + \lambda_u  \int_{\mathds{W}} \max\{\frac{w+\sigma U}{r+\sigma}-U, 0\
 &=& b + \lambda_u  \int_{\mathds{W}} \max\{\frac{w-r U}{r+\sigma}, 0\} dF(w)  \nonumber
 \end{eqnarray}
 
-\item $\frac{w-r U}{r+\sigma}$ increasing, $0$ is a constant {\bc(Draw graph on whiteboard)}
+\item $\frac{w-r U}{r+\sigma}$ increasing, $0$ is a constant {\rc(Draw graph on whiteboard)}
 
 \item Ergo, the wage acceptance rule is a reservation wage strategy: accept all wages $w \geq w_R$
 
@@ -916,7 +971,7 @@ rU  &=& b + \lambda_u  \int_{\mathds{W}} \max\{\frac{w+\sigma U}{r+\sigma}-U, 0\
 \bit
 \setlength\itemsep{1.5em}
 
-\item Because of reservation strategy, unemployed value can be rewritten
+\item Because of the reservation strategy, the unemployed value can be rewritten
 \begin{eqnarray}
 rU  &=& b + \lambda_u  \int_{w< w_R} 0 dF(w) + \lambda_u  \int_{w\geq w_R} \left(\frac{w-r U}{r+\sigma} \right) dF(w) \nonumber\\
 &=& b + \frac{\lambda_u}{r+\sigma}  \int_{w\geq w_R} (w-r U) dF(w) \nonumber 
@@ -926,7 +981,7 @@ rU  &=& b + \lambda_u  \int_{w< w_R} 0 dF(w) + \lambda_u  \int_{w\geq w_R} \left
 \begin{eqnarray}
 w_R  -b = \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
 \end{eqnarray}
-\item We name this the {\bc reservation wage equation }
+\item We call this the {\bc reservation wage equation}
 \bit
 \setlength\itemsep{0.5em}
 	\item LHS $=$ marginal cost of waiting
@@ -971,7 +1026,7 @@ w_R  -b = \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
 \bit
 \setlength\itemsep{1.5em}
 
-\item Reminder: The problem was to find the acceptance rule, which we have shown to be cutoff strategy with reservation wage $w_R$
+\item Reminder: the problem was to find the acceptance rule, which we have shown to be a cutoff strategy with reservation wage $w_R$
 
 \item This is all there is to it
 
@@ -992,9 +1047,10 @@ w_R  -b = \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
 
 
 \begin{frame}{Comparative statics I}
+\small
 
 \bit
-\setlength\itemsep{1em}
+\setlength\itemsep{0.25em}
 
 \item How does $w_R$ vary with $b$? Our solution satisfies
 \begin{eqnarray}
@@ -1010,12 +1066,13 @@ w_R  -b = T(w_R) \equiv \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(
 \end{eqnarray}
 \item Apply Leibniz's rule:
 \begin{eqnarray}
-T'(w_R) &=& \frac{\lambda_u }{r+\sigma}\left[(w_{max}-w_R)\frac{\partial F(w_{max})}{\partial w_R} - (w_{R}-w_R)\frac{\partial F(w_{R})}{\partial w_R} + \int_{w \geq w_R} -1 dF(w)        \right] \nonumber \\
+T'(w_R) &=& \frac{\lambda_u }{r+\sigma}\left[(w_{max}-w_R)\frac{\partial F(w_{max})}{\partial w_R}\right. \nonumber \\
+&& \left.- (w_{R}-w_R)\frac{\partial F(w_{R})}{\partial w_R} + \int_{w \geq w_R} -1 dF(w)\right] \nonumber \\
 &=& -\frac{\lambda_u }{r+\sigma}\int_{w \geq w_R} dF(w) \nonumber \\
 &<& 0 \nonumber
 \end{eqnarray}
 
-\item Ergo, {\bc reservation wages increases with unemployment benefits}
+\item Ergo, {\bc the reservation wage increases with unemployment benefits}
 \eit
 
 
@@ -1094,7 +1151,7 @@ T'(w_R) &=& \frac{\lambda_u }{r+\sigma}\left[(w_{max}-w_R)\frac{\partial F(w_{ma
 
 \item An increase in $w_R$ implies that observed wages are higher
 
-\item More precisely: if $w^1_R>w^2_R$, then $G_1(w; w^1_R)$ first order stochastically dominates $G_2(w; w^2_R)$
+\item More precisely: if $w^1_R>w^2_R$, then $G_1(w; w^1_R)$ first-order stochastically dominates $G_2(w; w^2_R)$
 \bit
 	\item The only difference between $G_1(w; w^1_R)$ and $G_1(w; w^2_R)$ is that lower wage offers are discarded in $G_1(w; w^1_R)$
 \eit
@@ -1115,7 +1172,7 @@ T'(w_R) &=& \frac{\lambda_u }{r+\sigma}\left[(w_{max}-w_R)\frac{\partial F(w_{ma
 \bit
 \setlength\itemsep{1em}
 
-\item The economy is populated with $P$ workers 
+\item The economy is populated by $P$ workers
 
 \item In a time period $\Delta t$, a fraction $\sigma \Delta t$ of employed workers $E_t = P-U_t$ separate and a fraction $\lambda\Delta t$ of unemployed workers  $U_t$ find a job
 \bit
@@ -1160,7 +1217,7 @@ u_{t+\Delta t} = u_t + \sigma \Delta t (1-u_t) - \lambda \Delta t u_t \nonumber
 \dot u_t = \sigma (1-u_t) -\lambda u_t \nonumber
 \end{eqnarray}
 
-\item Given $\sigma, \lambda$, this {\bc ordinary differential equation} has a unqiue solution converging to steady state value $u$.
+\item Given $\sigma, \lambda$, this {\bc ordinary differential equation} has a unique solution converging to the steady-state value $u$.
 
 \item Steady state $u$ defined by $\dot{u}_t = 0$:
 \begin{eqnarray}
@@ -1183,21 +1240,21 @@ u = \frac{\sigma}{\sigma + \lambda} \nonumber
 \bit
 \setlength\itemsep{1.5em}
 
-\item Following these insights, large empirical literature have used micro data to investigate the effect of unemployment benefits on unemployment incidence, unemployment duration and match quality
+\item Following these insights, a large empirical literature has used micro data to investigate the effect of unemployment benefits on unemployment incidence, unemployment duration, and match quality
 
 \item Reservation wages and job-search behavior
 \bit
 	\setlength\itemsep{0.5em}
-	\item A Krueger-Mueller (AEJep 2016) use interview data to document self-percieved reservation wages
-	\item Marinescu-Skandalis (QJE 2020) use online application data to document how job-search behavior change with benefit duration
+	\item Krueger-Mueller (AEJep 2016) use interview data to document self-perceived reservation wages
+	\item Marinescu-Skandalis (QJE 2020) use online application data to document how job-search behavior changes with benefit duration
 \eit
 
 \item Unemployment duration and benefit generosity:
 \bit
 	\setlength\itemsep{0.5em}
-	\item Older literature summarized in A Kreuger and Meyer (Handbook PE 2002)
+	\item Older literature summarized in Krueger and Meyer (Handbook PE 2002)
 	
-	\item Card-Lee-Pei-Weber (Ecmtra, 2015) exploit kinks in Austrian UI
+	\item Card-Lee-Pei-Weber (Econometrica, 2015) exploit kinks in Austrian UI
 	
 	\item Kolsrud-Landais-Nilsson-Spinnewijn (AER 2017) exploit kinks in Swedish UI
 	
@@ -1225,16 +1282,16 @@ u = \frac{\sigma}{\sigma + \lambda} \nonumber
 	\setlength\itemsep{0.5em}
 	\item van Ours-Vodopivec (JLE 2006); Lalive (AER 2007); Card-Chetty-Weber (QJE 2007); Schmieder-von Wachter-Bender (AER 2016): zero effect
 
-	\item Nekoei-Weber (AER 2017) uses austrian micro data and RD design: positive effect
+	\item Nekoei-Weber (AER 2017) use Austrian micro data and an RD design: positive effect
 \eit
 
-\item Lesson that appears in many of these papers: duration dependence matter
+\item Lesson that appears in many of these papers: duration dependence matters
 \bit
 \setlength\itemsep{0.5em}
 \item Reservation wage falls as unemployment benefit period is ending; human capital depreciates while unemployed
 \eit
 
-\item Ljungqvist-Sargent (JPE 1998) argue that duration dependence is key for understanding difference in unemployment dynamics in Europe vs. US
+\item Ljungqvist-Sargent (JPE 1998) argue that duration dependence is key for understanding differences in unemployment dynamics in Europe vs. the US
 %\bit
 %\setlength\itemsep{0.5em}
 %\item EU labor markets characterized by more generous replacement rates than US
@@ -1272,18 +1329,18 @@ u = \frac{\sigma}{\sigma + \lambda} \nonumber
 \item Hypothesis: human capital depreciates over unemployment spell
 \bit
 \setlength\itemsep{0.5em}
-	\item Consistent with studies on mass layoffs: earnings losses after unemployment are very persistent (Lalonde-Jacobsen-Sullivan, AER 1993; Davis-von Wachter BPEA 2012)
+	\item Consistent with studies on mass layoffs: earnings losses after unemployment are very persistent (Lalonde-Jacobsen-Sullivan, AER 1993; Davis-von Wachter, BPEA 2012)
 
-	\item Evidence based on mass layoffs might confound partial and general equilibrium effects (Cederlöf 2019) - see lecture 3 on DMP model
+	\item Evidence based on mass layoffs might confound partial- and general-equilibrium effects (Cederl\"of 2019); see Lecture III on the DMP model
 \eit
 
-\item In 70-80's: European countries had generous replacement rates tied to previous wage with close-to unlimited duration
+\item In the 70s and 80s, European countries had generous replacement rates tied to previous wages, with close-to-unlimited duration
 
 \item Human capital depreciation + unlimited duration may result in $w_R>w_{offered}$ $\Rightarrow$ long-term unemployment
 
 \item Makes little difference when macroeconomic volatility is low
 
-\item In late 70's/80's: macroeconomic volatility increased (oil price shocks) $\Rightarrow$ difference in UI institutions can explain why Europe but not US got stuck in high (long-term) unemployment equilibrium 
+\item In the late 70s and 80s, macroeconomic volatility increased (oil price shocks) $\Rightarrow$ differences in UI institutions can explain why Europe, but not the US, got stuck in a high-unemployment equilibrium with substantial long-term unemployment
 \eit
 
 \end{frame}
@@ -1296,9 +1353,9 @@ u = \frac{\sigma}{\sigma + \lambda} \nonumber
 
 \item Because of the randomness of wage offers, models of this sort generate {\bc frictional wage dispersion}
 
-\item Hypothesis: some of the empirical wage dispersion that cannot be accounted for by observed hetereogeneity is due to this kind of randomness
+\item Hypothesis: some of the empirical wage dispersion that cannot be accounted for by observed heterogeneity is due to this kind of randomness
 
-\item Remember: Mincer regression typically produce $R^2 < 0.3$ (Mortensen, Book 2003) and substantial residual dispersion: Acemoglu (JLE 2002) reports 90/10-ratio $\approx 3.3$ and 50/10-ratio $\approx 1.8$
+\item Remember: Mincer regressions typically produce $R^2 < 0.3$ (Mortensen, Book 2003) and substantial residual dispersion: Acemoglu (JLE 2002) reports a 90/10 ratio $\approx 3.3$ and a 50/10 ratio $\approx 1.8$
 
 \item Can our model account for these numbers?
 
@@ -1307,12 +1364,12 @@ u = \frac{\sigma}{\sigma + \lambda} \nonumber
 
 \end{frame}
 
-\begin{frame}{Frictional wage dispersion: how to the test the model?}
+\begin{frame}{Frictional wage dispersion: how to test the model?}
 
 \bit
 \setlength\itemsep{2em}
 
-\item To answer this question, the obviuous approach seems to be
+\item To answer this question, the obvious approach seems to be
 \ben
 \setlength\itemsep{0.5em}
 	\item match the model parameters $\{r, \lambda_u, F(w), b\}$ to the data
@@ -1374,13 +1431,13 @@ w_R  - b = \frac{\lambda}{r+\sigma} (\bar w - w_R)\nonumber
 Mm = \frac{\bar w}{w_R} = \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho \nonumber}
 \end{eqnarray}
 
-\item Mm is a measure of wage dispersion and \bf the formula does not have $F$ in it! \normalfont
+\item Mm is a measure of wage dispersion and \bf the formula does not contain $F$! \normalfont
 
 \item Can the model match the data?
 \bit
 \setlength\itemsep{0.5em}
 \item All parameters in our formula are observed in the data!
-\item Plug in parameter values and compare Mm ratio in model to data
+\item Plug in parameter values and compare the model-implied Mm ratio with the data
 \eit
 
 
@@ -1433,7 +1490,7 @@ Mm =  \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho} =  \frac{
 
 \item Reminder: 50/10-ratio in data $\approx 1.8$
 
-\item \bf The model comes now way near the data! \normalfont
+\item \bf The model comes nowhere near the data! \normalfont
 
 \item Intuition: high empirical $\lambda$ puts tight constraint on the value of expected wage offer
 \bit
@@ -1442,9 +1499,9 @@ Mm =  \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho} =  \frac{
 	\item $\Rightarrow$ expected wage from a new offer $\bar w$ cannot be much higher than outside option $\rho \bar w$
 \eit
 
-\item Only ingredient is optimal search behavior of households $\rightarrow$ very robust result
+\item The only ingredient is optimal household search behavior $\rightarrow$ a very robust result
 
-\item However, we shall see that one interesting avenue to think about fricitional wage dispersion is models in which households also perform on-the-job search
+\item However, we shall see that one interesting avenue for thinking about frictional wage dispersion is models in which households also perform on-the-job search
 
 \eit
 \end{frame}
@@ -1458,9 +1515,9 @@ Mm =  \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho} =  \frac{
 
 \item Generates predictions on unemployment rate, unemployment duration, match quality, wage dispersion
 
-\item Motivated by these predictions, large empirical literature has emerged
+\item Motivated by these predictions, a large empirical literature has emerged
 
-\item But the question that begs to be answered: where did the offer distribution $F$ and contact rate $\lambda_u$ come from?
+\item But the natural question is: where did the offer distribution $F$ and contact rate $\lambda_u$ come from?
 \bit
 	\item Presumably vacancy/wage posting by firms?
 \eit
@@ -1473,7 +1530,7 @@ Mm =  \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho} =  \frac{
 \eit
 \end{frame}
 
-\begin{frame}{General equilibrium? The Rothshild (JPE 1973) critique}
+\begin{frame}{General equilibrium? The Rothschild (JPE 1973) critique}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -1519,10 +1576,10 @@ w_R  -b &=& \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
 \end{frame}
 
 
-\begin{frame}{Bonus material: mapping data probabilties to model flow rates}
+\begin{frame}{Bonus material: mapping data probabilities to model flow rates}
 
 \bit
-\setlength\itemsep{1.4em}
+\setlength\itemsep{1em}
 \item How to retrieve continuous-time transition rates from discrete-time transition probabilities (which are measurable in the data)?
 
 \item Our model says that in an interval $\delta t \rightarrow 0$
@@ -1533,11 +1590,13 @@ w_R  -b &=& \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
 
 \item Suppose we allowed workers to accept $>1$ jobs within some empirically measurable time period $\Delta t$ and that the arrival rate of job offers is independent of time
 \bit
-\item This does not change anything in our continuous-time model, as the probability of finding $>1$ jobs in any given instant is neglible
+\setlength\itemsep{0.3em}
+\item This does not change anything in our continuous-time model, as the probability of finding $>1$ jobs in any given instant is negligible
 \eit
 
 \item Then, the probability of finding $k$ jobs in period $\Delta t$ is $P(k | \Delta t)$, where $P$ is given by the Poisson distribution with arrival rate $\lambda$
 \bit
+\setlength\itemsep{0.3em}
 	\item Hence, $P(k | \Delta t) = \frac{(\lambda \Delta t)^k}{k!} e^{-\lambda \Delta t}$
 \eit
 
@@ -1553,7 +1612,7 @@ F_t(\Delta t) = 1- P(0 | \Delta t) = 1- e^{-\lambda \Delta t} \nonumber
 
 \end{frame}
 
-\begin{frame}{Bonus material: mapping data probabilties to model flow rates}
+\begin{frame}{Bonus material: mapping data probabilities to model flow rates}
 
 
 

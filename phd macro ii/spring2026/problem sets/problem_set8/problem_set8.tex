@@ -1,16 +1,13 @@
-\documentclass{article}[11pt]
+\documentclass[11pt]{article}
 \linespread{1.5}
 \usepackage{fullpage}
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage[semicolon,authoryear]{natbib}
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{csquotes}
 \usepackage{epstopdf}
-
-\usepackage[semicolon,authoryear]{natbib}
-\usepackage{bibentry}
-\nobibliography*
 
 \newcommand{\lb}{\label}
 \newtheorem{thm}{Theorem}
@@ -31,11 +28,11 @@
 \begin{document}
 \maketitle
 
-Send your solutions to Andrii by \bf April 29, 12.00 \normalfont at the latest.
+Send your solutions to Andrii by \textbf{April 28 at 12:00} at the latest.
 
 
-\section{Reservation wages and wage dispersion}
-Consider the McCall model stuided in class, with the reservation wage given by
+\section*{Exercise 1: Reservation wages and wage dispersion}
+Consider the McCall model studied in class, with the reservation wage given by
 \begin{eqnarray}
 w_R  -b = \frac{\lambda_u }{r+\sigma} \int_{w\geq w_R} (w-w_R) dF(w) \nonumber
 \end{eqnarray} 
@@ -59,8 +56,8 @@ w_R  -b = \frac{\lambda_u }{r+\sigma} \left[(Ew-w_R) + \int_{w <w_R} F(w)dw \rig
 \een
 
 
-\section{McCall with stochastic wage growth}
-Consider the following version of the McCall model stuided in class. Time is continuous. Workers' utility is linear and the discount rate is $r$. Workers can be employed or unemployed. Unemployed workers recieve flow utility $b$ and get job offers at rate $\lambda_u$. When recieving a job offer, the wage of that offer is drawn from a distribution with cdf $F(w)$ with finite support $\mathcal{W} = [w_{min}, w_{max}]$, and the unemployed household decides whether to accept or reject. While employed, workers experience wage changes at rate $\lambda_w>0$. When the shock is realized, an employed worker with current wage $w$ draws an $\epsilon$ from a distribution with cdf $G(\epsilon)$ with finite support $\mathcal{E} = [0, \epsilon_{max}]$ and mean value $\bar \epsilon$. The new wage $w'$ is then $w'=w(1+\epsilon)$. The workers separatate at the exogenous rate $\sigma$.
+\section*{Exercise 2: McCall with stochastic wage growth}
+Consider the following version of the McCall model studied in class. Time is continuous. Workers' utility is linear and the discount rate is $r$. Workers can be employed or unemployed. Unemployed workers receive flow utility $b$ and get job offers at rate $\lambda_u$. When receiving a job offer, the wage of that offer is drawn from a distribution with cdf $F(w)$ with finite support $\mathcal{W} = [w_{min}, w_{max}]$, and the unemployed household decides whether to accept or reject. While employed, workers experience wage changes at rate $\lambda_w>0$. When the shock is realized, an employed worker with current wage $w$ draws an $\epsilon$ from a distribution with cdf $G(\epsilon)$ with finite support $\mathcal{E} = [0, \epsilon_{max}]$ and mean value $\bar \epsilon$. The new wage $w'$ is then $w'=w(1+\epsilon)$. Workers separate at the exogenous rate $\sigma$.
 
 \ben
 \item Denote the employment value with $W(w)$. Write the Bellman equation for an employed worker.
@@ -71,7 +68,7 @@ Consider the following version of the McCall model stuided in class. Time is con
 
 \item Find the reservation wage equation. Is the reservation wage in this model higher or lower compared to the model without stochastic wage growth?
 
-\item In the standard model without stochatic wage growth, the mean-min ratio of observed wages is given by
+\item In the standard model without stochastic wage growth, the mean-min ratio of observed wages is given by
 \begin{eqnarray}
 Mm = \frac{\frac{\lambda}{r+\sigma}+1}{\frac{\lambda}{r+\sigma}+\rho} \nonumber
 \end{eqnarray}
@@ -79,8 +76,8 @@ where $\lambda$ is the job-finding rate and $\rho$ is the average replacement ra
 \een
 
 
-\section{Burdett-Mortensen with endogenous search intensitiy}
-Christensen-Lentz-Mortensen-Neumann-Werwatz (JOLE 2005) estimate a Burdett-Mortensen model with endogenous search intensitiy using Danish micro data. The central problem is how to infer the level of search intensity from data on wages and worker flows. In this question, you are asked to solve this problem.
+\section*{Exercise 3: Burdett-Mortensen with endogenous search intensity}
+Christensen, Lentz, Mortensen, Neumann, and Werwatz (JOLE 2005) estimate a Burdett-Mortensen model with endogenous search intensity using Danish micro data. The central problem is how to infer the level of search intensity from data on wages and worker flows. In this question, you are asked to solve this problem.
 
 CLMNW's model assumes that an employed worker can exert search effort $s$ at flow cost $c(s)$ in return for an arrival rate of new offers of $s$. The Bellman equation for an employed worker is
 \begin{eqnarray}
@@ -91,9 +88,9 @@ where $\sigma$ is the exogenous separation rate. The implied job-finding rate at
 \ben
 	\item Differentiate the Bellman equation and invoke the envelope theorem (at the optimal choice of $s^*(w)$, the value $W(w)$ is independent of small changes in $s$) to find an expression for $W'(w)$.
 	
-	\item Assume $c(s) = \frac{s^{1-\gamma} }{1-\gamma}$. Derive an equation that implictily solves for $s(w)$ in terms of the wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$ and $\gamma$.
+	\item Assume $c(s) = \frac{s^{1-\gamma} }{1-\gamma}$. Derive an equation that implicitly solves for $s(w)$ in terms of the wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$, and $\gamma$.
 	
-	\item What is the intuition? Why can we learn about the level of search intensity (and, by implication, the job finding rate) from just knowing wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$ and $\gamma$?
+	\item What is the intuition? Why can we learn about the level of search intensity (and, by implication, the job-finding rate) from just knowing the wage distribution $F(w)$, the separation rate $\sigma$, the discount rate $r$, and $\gamma$?
 \een
 
  
