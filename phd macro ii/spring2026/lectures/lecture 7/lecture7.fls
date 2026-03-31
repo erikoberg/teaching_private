@@ -1,6 +1,6 @@
-PWD c:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\lectures\lecture 7
+PWD C:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\lectures\lecture 7
 INPUT C:\Users\eriob421\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\lectures\lecture 7\lecture7.tex
+INPUT lecture7.tex
 OUTPUT lecture7.log
 INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\beamer\beamer.cls
 INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\beamer\beamer.cls
@@ -637,6 +637,12 @@ INPUT .\figures\acemoglu_2002_fig2_update_2024.pdf
 INPUT .\figures\acemoglu_2002_fig2_update_2024.pdf
 INPUT .\figures\acemoglu_2002_fig2_update_2024.pdf
 INPUT .\figures\acemoglu_2002_fig2_update_2024.pdf
+INPUT .\figures\acemoglu_2002_fig2_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig2_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig2_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig2_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig2_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig2_morg_2024.pdf
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\lm\ec-lmssbx10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\lm\ec-lmssbx10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\lm\ec-lmssbx10.tfm
@@ -652,6 +658,12 @@ INPUT .\figures\acemoglu_2002_fig3_update_2024.pdf
 INPUT .\figures\acemoglu_2002_fig3_update_2024.pdf
 INPUT .\figures\acemoglu_2002_fig3_update_2024.pdf
 INPUT .\figures\acemoglu_2002_fig3_update_2024.pdf
+INPUT .\figures\acemoglu_2002_fig3_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig3_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig3_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig3_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig3_morg_2024.pdf
+INPUT .\figures\acemoglu_2002_fig3_morg_2024.pdf
 INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\doublestroke\udsrom.fd
 INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\doublestroke\udsrom.fd
 INPUT C:\Users\eriob421\AppData\Roaming\MiKTeX\tex\latex\doublestroke\udsrom.fd

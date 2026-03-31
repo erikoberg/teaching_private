@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1774878972.8877 "lecture 8.tex" "lecture 8.pdf" "lecture 8" 1774878974.64122 0
+["pdflatex"] 1774962433.31495 "lecture 8.tex" "lecture 8.pdf" "lecture 8" 1774962435.04453 0
   "C:/Program Files/MikTeX 24.1/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
   "C:/Program Files/MikTeX 24.1/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "C:/Program Files/MikTeX 24.1/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -329,10 +329,10 @@
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
   "code/bm_density.pdf" 1770799792 10491 72c5b37f5709175a9881020b7a6b541d ""
   "figures/em_fig1.pdf" 1770799792 25312 2ab7eb351ceecaeb529792ec07009938 ""
-  "lecture 8.aux" 1774878974 7830 564a806a25503f384c180a883d22a009 "pdflatex"
-  "lecture 8.nav" 1774878974 4309 8ac50140fd6848c4cac2e46240ecc067 "pdflatex"
-  "lecture 8.out" 1774878974 426 2f15d753c7824f2ba73bc54d8c51c7b5 "pdflatex"
-  "lecture 8.tex" 1774878965 40143 007692ae701af3533e8890bb64bbcd3d ""
+  "lecture 8.aux" 1774962434 7830 564a806a25503f384c180a883d22a009 "pdflatex"
+  "lecture 8.nav" 1774962434 4309 8ac50140fd6848c4cac2e46240ecc067 "pdflatex"
+  "lecture 8.out" 1774962434 426 2f15d753c7824f2ba73bc54d8c51c7b5 "pdflatex"
+  "lecture 8.tex" 1774962421 40146 b010034e222cf29a9386c1db138f3a5f ""
   (generated)
   "lecture 8.aux"
   "lecture 8.log"

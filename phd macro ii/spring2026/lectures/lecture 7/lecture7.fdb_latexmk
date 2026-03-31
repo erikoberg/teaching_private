@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1774879656.21369 "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/lectures/lecture 7/lecture7.tex" "lecture7.pdf" "lecture7" 1774879658.16847 0
+["pdflatex"] 1774963596.37302 "lecture7.tex" "lecture7.pdf" "lecture7" 1774963598.50946 0
   "C:/Program Files/MikTeX 24.1/fonts/enc/dvips/lm/lm-ec.enc" 1256929440 2375 baa924870cfb487815765f9094cf3728 ""
   "C:/Program Files/MikTeX 24.1/fonts/enc/dvips/lm/lm-mathex.enc" 1256929440 3486 c7eadf5dcc57b3b2d11736679f6636ba ""
   "C:/Program Files/MikTeX 24.1/fonts/enc/dvips/lm/lm-mathit.enc" 1256929440 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -322,10 +322,11 @@
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/translator/translator.sty" 1622471510 8765 56d370785f0143111ff9898b5adfe08e ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/ulem/ulem.sty" 1578651445 15682 94f55b803e160cf7fb6e4d77d07cfe1d ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/xpatch/xpatch.sty" 1585221260 8510 7803f78066c4f9d008405191a4b43073 ""
-  "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/lectures/lecture 7/lecture7.tex" 1774879655 47779 bb97d2425bb96f7f2a98df475a5313a7 ""
   "figures/acemoglu_2002_fig2.pdf" 1770799792 30803 fda3d2db975b9015f027d8bec96a5c03 ""
+  "figures/acemoglu_2002_fig2_morg_2024.pdf" 1774960652 19029 c2d8ff136d9f457eee484cb6fe48059f ""
   "figures/acemoglu_2002_fig2_update_2024.pdf" 1774879038 15439 9764a7d238a83107b89545acf2b67a1e ""
   "figures/acemoglu_2002_fig3.pdf" 1770799792 30609 c391fdfdb58ccbcd4b4b06c8353c15a5 ""
+  "figures/acemoglu_2002_fig3_morg_2024.pdf" 1774960652 18351 907a49ae20450e2c61a45a8693858eb4 ""
   "figures/acemoglu_2002_fig3_update_2024.pdf" 1774879038 16333 dd3d957d60f2598bf9e6d247d5cc8f87 ""
   "figures/ehs_2013_fig1.pdf" 1770799792 22221 4877f738913b174cc001b356cf40ddab ""
   "figures/ljungqvist_fig1.pdf" 1770799792 15959 55e5a225631a1773baf5eef5e620a7ca ""
@@ -335,10 +336,10 @@
   "figures/rs_2011_fig6a.pdf" 1770799792 64638 d3875f7b601b8a8c81d7ead844773ee3 ""
   "figures/rs_2011_fig6b.pdf" 1770799792 64824 af16c2d1a53247b3814c67efb2722963 ""
   "figures/wages_prod.pdf" 1770799792 15930 2ff1242a227a89686117089679a19b23 ""
-  "lecture7.aux" 1774879657 8858 fa18a8d8081677fe442559a386c74887 "pdflatex"
-  "lecture7.nav" 1774879657 6193 6e0bf263672c2a2c0f576a112e8d703e "pdflatex"
-  "lecture7.out" 1774879657 103 47949ac7c3dcedddeefe3cd50587dda1 "pdflatex"
-  "lecture7.tex" 1774879655 47779 bb97d2425bb96f7f2a98df475a5313a7 ""
+  "lecture7.aux" 1774963598 9116 322e3377dbfc11deeff072afd371b219 "pdflatex"
+  "lecture7.nav" 1774963598 6379 330ad43866fe1b76cb27b74e26e2e3ae "pdflatex"
+  "lecture7.out" 1774963598 103 47949ac7c3dcedddeefe3cd50587dda1 "pdflatex"
+  "lecture7.tex" 1774963583 47256 c878cbace0cd5631e3c25edbe617d281 ""
   (generated)
   "lecture7.aux"
   "lecture7.log"

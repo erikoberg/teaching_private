@@ -535,7 +535,7 @@ S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed i
 
 \end{frame}
 
-\begin{frame}{US wage dispersion: update through 2024 (using Cursor and GPT)}
+\begin{frame}{US wage dispersion: update through 2024 (CPS ASEC)}
 
 \begin{figure}
 	\centering
@@ -544,7 +544,23 @@ S_t = \frac{\text{\#Unemployed with duration<1 in month t+1}}{\text{\#Employed i
 \end{figure}
 
 \bit
-\item (tentative) fact: Little action since 2000
+\item Earlier CPS ASEC-based update (shorter post-2000 window)
+\item Useful benchmark alongside ORG/MORG results
+\eit
+
+\end{frame}
+
+\begin{frame}{US wage dispersion: update through 2024 (ORG/MORG)}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.44]{figures/acemoglu_2002_fig2_morg_2024.pdf}
+	\caption*{\footnotesize Own CPS ORG/MORG calculations for white male full-time wage and salary workers aged 18-65, 1979-2024; hourly wage = weekly earnings/usual hours.}
+\end{figure}
+
+\bit
+\item Fact: upper-tail inequality keeps rising through 2024
+\item The lower tail recovers late in the sample, but much less than the 90th percentile
 \eit
 
 \end{frame}
@@ -594,16 +610,32 @@ where $y_{it}$ is earnings and $\mathbf{X}_{it}$ includes age, occupation, indus
 
 \end{frame}
 
-\begin{frame}{US residual wage dispersion: update through 2024 (using Cursor and GPT)}
+\begin{frame}{US residual wage dispersion: update through 2024 (CPS ASEC)}
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.45]{figures/acemoglu_2002_fig3_update_2024.pdf}
+	\includegraphics[scale=0.43]{figures/acemoglu_2002_fig3_update_2024.pdf}
 	\caption*{\footnotesize Y-axis: log points. Own CPS ASEC calculations for white male full-time full-year workers aged 18-65, earnings years 2000-2024.}
 \end{figure}
 
 \bit
-\item (tentative) fact: Little action since 2000
+\item Earlier CPS ASEC-based residual series for comparison
+\item ORG/MORG provides the longer historical perspective
+\eit
+
+\end{frame}
+
+\begin{frame}{US residual wage dispersion: update through 2024 (ORG/MORG)}
+
+\begin{figure}
+	\centering
+	\includegraphics[scale=0.43]{figures/acemoglu_2002_fig3_morg_2024.pdf}
+	\caption*{\footnotesize Y-axis: log points. Own CPS ORG/MORG calculations, white male full-time wage and salary workers, 1979-2024.}
+\end{figure}
+
+\bit
+\item Fact: residual inequality remains high well after 2000
+\item Recent widening mainly comes from the upper half of the residual wage distribution
 \eit
 
 \end{frame}
@@ -908,7 +940,6 @@ r W(w) = w + \sigma (U-W(w)) \nonumber
 U &=& b \Delta t + e^{-r \Delta t} \left[(1-\lambda_u \Delta t ) U + \lambda_u \Delta t \int_{\mathds{W}} \max\{W(w), U\} dF(w)\right] \nonumber \\
 &=& b \Delta t + e^{-r \Delta t} \left[U + \lambda_u \Delta t \int_{\mathds{W}} \max\{W(w)-U, 0\} dF(w)\right] \nonumber
 \end{eqnarray}
-
 \item Rearrange
 \begin{eqnarray}
 \frac{1-e^{-r \Delta t}}{\Delta t}U = b  + e^{-r \Delta t} \lambda_u  \int_{\mathds{W}} \max\{W(w)-U, 0\} dF(w) \nonumber
