@@ -1,5 +1,55 @@
+\pdfminorversion=6
 \documentclass[9pt]{beamer}
 \usetheme{Boadilla}
+
+\definecolor{brandblue}{RGB}{35,74,132}
+\definecolor{brandbluedark}{RGB}{24,49,91}
+\definecolor{brandgray}{RGB}{68,68,68}
+\definecolor{softgray}{RGB}{245,247,250}
+\definecolor{accentgray}{RGB}{226,232,240}
+
+\setbeamercolor{normal text}{fg=brandgray,bg=white}
+\setbeamercolor{structure}{fg=brandblue}
+\setbeamercolor{title}{fg=brandbluedark}
+\setbeamercolor{frametitle}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{section divider}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{caption name}{fg=brandbluedark}
+\setbeamercolor{author in head/foot}{fg=white,bg=brandbluedark}
+\setbeamercolor{title in head/foot}{fg=brandbluedark,bg=accentgray}
+\setbeamercolor{block title}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{block body}{fg=brandgray,bg=white}
+
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{section title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamersize{text margin left=0.9em,text margin right=0.9em}
+
+\setbeamertemplate{title page}
+{
+	\vspace*{0.15\paperheight}
+	\begin{beamercolorbox}[wd=\textwidth,sep=1.1em,left]{title}
+		{\usebeamerfont{title}\inserttitle\par}
+		\vspace{0.8em}
+		{\usebeamerfont{author}\insertauthor\par}
+	\end{beamercolorbox}
+	\vfill
+}
+
+\newcommand{\sectiondivider}[1]{
+	\begin{frame}[plain]
+		\vfill
+		\begin{beamercolorbox}[wd=.84\textwidth,sep=1.1em,center,rounded=true]{section divider}
+			{\usebeamerfont{section title} #1}
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
 
 \makeatother
 \setbeamertemplate{footline}
@@ -23,23 +73,31 @@
 \usepackage{appendixnumberbeamer}
 
 \usepackage[authoryear]{natbib}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+\fi
 \usepackage{caption}
 \usepackage{amsmath, amssymb}
 \usepackage{epstopdf}
 \usepackage{graphicx}
-\usepackage{lmodern}
 \usepackage{xcolor}
 \usepackage{xpatch}
 \usepackage{multirow}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
 %\usepackage{subcaption}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\captionsetup{font=scriptsize,labelfont=bf}
 %\setbeamertemplate{footline}[frame number]
 \usepackage{csquotes}
 \usepackage{bm}
@@ -64,15 +122,15 @@
 \newcommand{\bc}{\color{blue}}
 \newcommand{\rc}{\color{red}}
 
-\title{Macroeconomics II, Lecture X: \\
+\title[DMP dynamics]{Macroeconomics II, Lecture X:\\
 	Diamond-Mortensen-Pissarides: Efficiency and Dynamics}
 \author{Erik {\"O}berg}
 \date{}
 
 \begin{document}
 	
-	\begin{frame}
-	\maketitle
+\begin{frame}[plain]
+\titlepage
 \end{frame}
 
 \section{Introduction}
@@ -83,25 +141,25 @@
 \bit
 \setlength\itemsep{2em}
 
-\item DMP: A GE theory of unemployment
+\item DMP: a GE theory of unemployment
 \bit
 \item emphasizes vacancy creation and job destruction as key mechanisms
 \eit
 
-\item Defining elements: Matching function + Wage-setting rule + Free-entry condition
+\item Defining elements: matching function + wage-setting rule + free-entry condition
 
-\item Last lecutre: steady state equilibrium and comparative statics
+\item Last lecture: steady-state equilibrium and comparative statics
 
 \item Today: welfare and dynamics
 
-\item We'll focus on the vanilla DMP model with exogenous separations, but all results, if not highlighted, extends to the endogenous-separation model
+\item We will focus on the vanilla DMP model with exogenous separations, but unless noted otherwise, all results extend to the endogenous-separation model
 
 \eit
 
 \end{frame}
 
 
-\begin{frame}{Recap: equilibrium charachterization with exogenous separations}
+\begin{frame}{Recap: equilibrium characterization with exogenous separations}
 
 \bit
 \setlength\itemsep{1em}
@@ -114,7 +172,7 @@
 \text{TD:} && v = \theta u \nonumber
 \end{eqnarray}
 
-\item Note: the system is \emph{block recursive}, we can solve for $\theta$ through combining the first 2 equations
+\item Note: the system is \emph{block recursive}: we can solve for $\theta$ by combining the first two equations
 \begin{eqnarray}
 \frac{c}{\lambda_v(\theta)} = \frac{(1-\gamma)(y-b)}{r + \sigma + \lambda_u(\theta) \gamma} \nonumber
 \end{eqnarray} 
@@ -158,13 +216,7 @@
 \end{frame}
 
 
-\begin{frame}
-
-\begin{center}
-	\huge Efficiency \normalfont
-\end{center}
-
-\end{frame}
+\sectiondivider{Efficiency}
 
 
 
@@ -175,20 +227,20 @@
 
 \item Is the DMP equilibrium efficient? 
 \bit
-\item Clearly not (in the usual sense) 
-\item An unconstrained social planner would ignore the search frictions and allocate all workers to a firm at all points in time
+\item Clearly not, in the usual sense
+\item An unconstrained social planner would ignore the search frictions and allocate all workers to firms at all points in time
 \eit
 
-\item Is the DMP equilibrium \bf constrained efficient\normalfont? 
+\item Is the DMP equilibrium \bf constrained efficient\normalfont?
 \bit
-\item Constrained efficiency: would a social planner, who can pick the choices of all agents but still face the same frictions, make different choices than the agents in the decentralized equilibrium?
+\item Constrained efficiency: would a social planner who can choose the actions of all agents, but still faces the same frictions, choose differently from agents in the decentralized equilibrium?
 \eit
 
-\item Remember: the only choice in DMP is whether to post a vacany or not
+\item Remember: the only choice in DMP is whether to post a vacancy
 
 \item Reformulated question: would the creation of more vacancies increase or decrease welfare?
 
-\item In general, there are two externalities from a firm creating an additional vacancy
+\item In general, two externalities arise when a firm creates an additional vacancy
 \bit
 \item Positive \emph{thick market externality}: workers will find jobs faster
 \item Negative \emph{congestion externality}: other firms will find workers slower
@@ -204,7 +256,7 @@
 \bit
 \setlength\itemsep{1.5em}
 
-\item To find out, we need to compare the social planner solution to the decentralized solution
+\item To find out, we need to compare the social planner's solution to the decentralized solution
 
 \item Social planner problem (with equal Pareto weights):
 \begin{eqnarray}
@@ -239,7 +291,7 @@ with $u$ as the state variable and $\theta$ as the control
 H(u, \theta, \mu, t) = e^{-rt}\left[ (y(1-u) +bu - \theta u c ) + \mu (\sigma (1-u) - \lambda_u(\theta)u)  \right] \nonumber
 \end{eqnarray}
 
-\item From Pontryagin', we have the optimaility conditions:
+\item From Pontryagin's principle, we have the optimality conditions:
 \begin{eqnarray}
 \frac{d H}{d u} &=& -\dot \mu \nonumber \\
 \frac{d H}{d \theta} &=& 0 \nonumber
@@ -250,7 +302,7 @@ and thus
 -c - \mu \lambda_u'(\theta) &=& 0 \nonumber 
 \end{eqnarray}
 
-\item $\mu = $ the value of having one more unemployed. $-\mu = $ equals the expected cost of matching that unemployed with a new vacancy:
+\item $\mu = $ the value of having one more unemployed worker. $-\mu = $ the expected cost of matching that unemployed worker with a new vacancy:
 \begin{eqnarray}
 -\mu = \frac{c}{\lambda_u'(\theta)} \nonumber
 \end{eqnarray}
@@ -288,40 +340,36 @@ where
 \bit
 \setlength\itemsep{2em}
 
-\item Hosios (REstud 1990): the decentralized equilibrium is efficient iff $\gamma = \epsilon_{m,u}(\theta)$!
+\item Hosios (REStud 1990): the decentralized equilibrium is efficient iff $\gamma = \epsilon_{m,u}(\theta)$!
 
-\item If $\epsilon_{m,u}<\gamma$, worker get too large share of the surplus leading to too little vacancy creation (thick market externality dominates and unemployment is too high)
+\item If $\epsilon_{m,u}<\gamma$, workers receive too large a share of the surplus, leading to too little vacancy creation (the thick market externality dominates and unemployment is too high)
 
-\item If $\epsilon_{m,u}>\gamma$, firms get too large share of the surplus and spend too much costly resources on creating vacancies (the congestion externality dominates and unemployment is too low)
+\item If $\epsilon_{m,u}>\gamma$, firms receive too large a share of the surplus and spend too many costly resources on creating vacancies (the congestion externality dominates and unemployment is too low)
 
-\item If $\epsilon_{m,u} = \gamma$, the social value of creating an additional vacancy equals the private gain to firm
+\item If $\epsilon_{m,u} = \gamma$, the social value of creating an additional vacancy equals the private gain to the firm
 
 
 \eit
 \end{frame}
 
 
-\begin{frame}{Effiency: a comment}
+\begin{frame}{Efficiency: a comment}
 
 \bit
 \setlength\itemsep{1.5em}
 
 \item In this model, there is no reason why we should expect $\epsilon_{m,u} = \gamma$
 
-\item Random matching implies generically inefficient equilibria, opening the room for welfare-improving government interventions
+\item Random matching implies generically inefficient equilibria, leaving room for welfare-improving government interventions
 
-\item Primary motivation for models with {\bc directed search}: introduces competitive force that ensures an efficient benchmark (Moen, JPE 1997; Menzio and Shi, JPE 2011)  
+\item Primary motivation for models with {\bc directed search}: they introduce competitive forces that ensure an efficient benchmark (Moen, JPE 1997; Menzio and Shi, JPE 2011)
+
+\item See also NÃ©vo (2025)
 
 \eit
 \end{frame}
 
-\begin{frame}
-
-\begin{center}
-	\huge Dynamics \normalfont
-\end{center}
-
-\end{frame}
+\sectiondivider{Dynamics}
 
 
 
@@ -335,7 +383,7 @@ where
 
 \item \bf Can DMP explain the cyclicality of unemployment? \normalfont
 
-\item This question refers to a dynamic response of unemployment rate to some underlying shock
+\item This question refers to the dynamic response of the unemployment rate to an underlying shock
 
 \item A natural candidate: shocks to {\bc productivity $y$}
 
@@ -349,14 +397,14 @@ where
 \bit
 \setlength\itemsep{1.5em}
 
-\item Strategy: Calibrate model primitives to match log-run moments, feed in shocks that fit detrended processes of TFP and separation rates, evalutate unemployment dynamics 
+\item Strategy: calibrate model primitives to match long-run moments, feed in shocks that fit the detrended processes of TFP and separation rates, and evaluate unemployment dynamics
 \bit
-\item Just as you would evaluate an RBC or a New-Keynesian model of business cycle dynamics in output
+\item Just as you would evaluate an RBC or New Keynesian model of business-cycle dynamics in output
 \eit
 
 \item A ``proper'' evaluation requires us to
 \ben
-\item specify a process of the aggregate (productivty) shock, e.g, they hit with an arrival rate $z$
+\item specify a process for the aggregate productivity shock, e.g., shocks arrive at rate $z$
 \item describe how the value functions change with the aggregate state, e.g., 
 \begin{eqnarray}
 r U_{y} =  b  +  \lambda_u(\theta_{y}) \left( W_{y} - U_{y} \right) + z E_{y'|y} (U_{y'}- U_{y})  \nonumber
@@ -371,7 +419,7 @@ r U_{y} =  b  +  \lambda_u(\theta_{y}) \left( W_{y} - U_{y} \right) + z E_{y'|y}
 
 \item However, insights about the dynamics of DMP can be gained by simple comparative statics
 
-\item This is because the dynamics in DMP (and the data) is fast: with realistical job-finding rates, the model converges almost instantaneously to steady state
+\item This is because the dynamics in DMP (and in the data) are fast: with realistic job-finding rates, the model converges almost instantaneously to steady state
 
 \eit
 \end{frame}
@@ -382,12 +430,12 @@ r U_{y} =  b  +  \lambda_u(\theta_{y}) \left( W_{y} - U_{y} \right) + z E_{y'|y}
 \bit
 \setlength\itemsep{1.5em}
 
-\item Consider the formula for steady state unemployment:
+\item Consider the formula for steady-state unemployment:
 \begin{eqnarray}
 u_{ss} = \frac{\sigma}{\sigma + \lambda_{u,t}} \nonumber 
 \end{eqnarray}
 
-\item At any given $t$, there exist a steady state unemployment rate $s_{ss,t}$ associated with the current flow rates
+\item At any given $t$, there exists a steady-state unemployment rate $u_{ss,t}$ associated with the current flow rates
 \begin{eqnarray}
 u_{ss, t} = \frac{\sigma_t}{\sigma_t + \lambda_{u,t}} \nonumber 
 \end{eqnarray}
@@ -404,7 +452,7 @@ u_{ss, t} = \frac{\sigma_t}{\sigma_t + \lambda_{u,t}} \nonumber
 \begin{figure}
 	\centering
 	\includegraphics[scale=0.45]{figures/urate_ss.pdf}
-	\caption*{\footnotesize Own calculcations based on quarterly data. Unemployment data: FRED. Transition rate data: Shimer's webiste}
+\caption*{\footnotesize Own calculations based on quarterly data. Unemployment data: FRED. Transition rate data: Shimer's website}
 \end{figure}
 
 \end{frame}
@@ -421,7 +469,7 @@ u_{ss, t} = \frac{\sigma_t}{\sigma_t + \lambda_{u,t}} \nonumber
 \begin{eqnarray}
 \dot u = \sigma (1-u_t)-\lambda_u(\theta)u_t \nonumber
 \end{eqnarray}
-\item This is a {\bc first order linear ordinary differential equation}
+\item This is a {\bc first-order linear ordinary differential equation}
 
 \item General solution:
 \begin{eqnarray}
@@ -433,7 +481,7 @@ for some constant $C$
 
 \item Larger $\sigma, \lambda_u$ $\rightarrow$ faster convergence
 
-\item What is the half-life of \bf out-of-steady-state unemployment \normalfont? i.e., which $T$ solves the following equation? 
+\item What is the half-life of \bf out-of-steady-state unemployment \normalfont? That is, which $T$ solves the following equation?
 \begin{eqnarray}
 \frac{u_T-u_{ss}}{u_0-u_{ss}}=\frac{1}{2} \nonumber
 \end{eqnarray}
@@ -452,7 +500,7 @@ u_{ss} = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber
 \end{eqnarray}
 
 
-\item Half life given by
+\item Half-life given by
 \begin{eqnarray}
 \frac{u_T-u_{ss}}{u_0-u_{ss}} &=& \frac{1}{2} \nonumber  \\
 \frac{C e^{-(\sigma + \lambda_u(\theta))T}+\frac{\sigma}{\sigma + \lambda_u(\theta)}-\frac{\sigma}{\sigma + \lambda_u(\theta)}}{C e^{-(\sigma + \lambda_u(\theta))*0}+\frac{\sigma}{\sigma + \lambda_u(\theta)}-\frac{\sigma}{\sigma + \lambda_u(\theta)}}  &=& \frac{1}{2} \nonumber \\
@@ -461,7 +509,7 @@ e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
 
 \item That is, $T = - \frac{1}{\sigma + \lambda_u} \log \frac{1}{2}$
 
-\item US monthly transitition rates $\sigma \approx 0.03 , \lambda_u \approx 0.6$ $\Rightarrow$  $T=1.1$ months
+\item US monthly transition rates $\sigma \approx 0.03 , \lambda_u \approx 0.6$ $\Rightarrow$  $T=1.1$ months
 
 \item Since convergence is so fast: $u_{ss}(\sigma_t, \lambda_{ut}) \approx u_t$
 
@@ -481,11 +529,11 @@ e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
 
 \item Implication: Given that DMP is calibrated to match these high transition rates, the DMP equilibrium converges to steady state very fast
 
-\item Consider a dynamic DMP model in which a simulated sequence of productivty $\{y_0, y_1, y_2,...\}$ maps into a sequence of unemployment $\{u_0, u_1, u_2,...\}$
+\item Consider a dynamic DMP model in which a simulated sequence of productivity $\{y_0, y_1, y_2,...\}$ maps into a sequence of unemployment $\{u_0, u_1, u_2,...\}$
 
 \item Since convergence to steady state is almost immediate, we can approximate the unemployment sequence with $\{u_{ss}(y_0), u_{ss}(y_1), u_{ss}(y_2),...\}$
 
-\item That is, we can simply do comparative statics of steady state unemployment $u$ w.r.t. to $y$!
+\item That is, we can simply do comparative statics of steady-state unemployment $u$ with respect to $y$!
 
 
 \eit
@@ -496,13 +544,13 @@ e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
 \bit
 \setlength\itemsep{2em}
 
-\item Recall: the steady state equilibrium is given by
+\item Recall: the steady-state equilibrium is given by
 \begin{eqnarray}
 && \frac{c}{\lambda_v(\theta)} = \frac{(1-\gamma)(y-b)}{r + \sigma + \lambda_u(\theta) \gamma} \nonumber \\
 && u = \frac{\sigma}{\sigma + \lambda_u(\theta)} \nonumber
 \end{eqnarray} 
 
-\item Given that the matching function is (approximately) correct, the model response of $u$ to $y$ shock matches the data if the elasticity of $\theta$ w.r.t. $y$ matches the data 
+\item Given that the matching function is (approximately) correct, the model response of $u$ to a $y$ shock matches the data if the elasticity of $\theta$ with respect to $y$ matches the data
 
 \eit
 \end{frame}
@@ -512,8 +560,8 @@ e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.45]{figures/prod_tight.pdf}
-\caption*{\footnotesize Own calculations using detrended quarterly data using hp-filter. OECD Labor productivity measure downloaded from FRED. Tightness constructed using BLS unemployment from FRED and vacancy data (Help-wanted index) from Regis Barnichon's website.}
+\includegraphics[scale=0.42]{figures/prod_tight.pdf}
+\caption*{\footnotesize Own calculations using HP-filtered quarterly data. OECD labor productivity measure downloaded from FRED. Tightness constructed using BLS unemployment from FRED and vacancy data (Help-Wanted Index) from Regis Barnichon's website.}
 \end{figure}
 
 \end{frame}
@@ -522,8 +570,8 @@ e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.45]{figures/prod_tight_adj.pdf}
-\caption*{\footnotesize Own calculations using detrended quarterly data using hp-filter. OECD Labor productivity measure downloaded from FRED. Tightness constructed using BLS unemployment from FRED and vacancy data (Help-wanted index) from Regis Barnichon's website.}
+\includegraphics[scale=0.42]{figures/prod_tight_adj.pdf}
+\caption*{\footnotesize Own calculations using HP-filtered quarterly data. OECD labor productivity measure downloaded from FRED. Tightness constructed using BLS unemployment from FRED and vacancy data (Help-Wanted Index) from Regis Barnichon's website.}
 \end{figure}
 
 \end{frame}
@@ -535,7 +583,7 @@ e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
 
 \item Empirical elasticity $\epsilon_{\theta, y} \approx 20$
 
-\item DMP elasiticty $\epsilon_{\theta, y}$?
+\item DMP elasticity $\epsilon_{\theta, y}$?
 
 \item Job creation curve in $\{y, \theta\}$-space (using $\lambda_u(\theta)=\theta \lambda_v(\theta)$):
 \begin{eqnarray}
@@ -546,7 +594,7 @@ e^{-(\sigma + \lambda_u(\theta))T} &=& \frac{1}{2} \nonumber
 \begin{eqnarray}
 \epsilon_{\theta, y} \equiv \frac{y}{\theta} \frac{\partial \theta}{\partial y} \nonumber = \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} \nonumber
 \end{eqnarray}
-where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambda_u'(\theta)$ is the elasticity of $\lambda_u(\theta)$ w.r.t. $\theta$
+where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambda_u'(\theta)$ is the elasticity of $\lambda_u(\theta)$ with respect to $\theta$
 
 
 
@@ -569,7 +617,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 \bit
 \item Normalize $y=1$
 \item Take outside estimates $\sigma = 0.1, r = 0.012, b=0.4$
-\item Estimate cobb-Douglass matching function with $A=1.34, \alpha = 0.72$, $\epsilon_{\lambda_u,\theta} = 1-\alpha$
+\item Estimate a Cobb-Douglas matching function with $A=1.34, \alpha = 0.72$, $\epsilon_{\lambda_u,\theta} = 1-\alpha$
 \item Set $c = 0.2$	to match steady state tightness $\theta$
 \eit
 
@@ -585,7 +633,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 \end{eqnarray}
 
 
-\item The model comes no way near the data
+\item The model comes nowhere near the data
 
 \eit
 \end{frame}
@@ -595,7 +643,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 \bit
 \setlength\itemsep{2em}
 
-\item Why does DMP fail in generating unemployment volatility?
+\item Why does DMP fail to generate unemployment volatility?
 
 \item Shimer suggests intuition:
 \bit
@@ -613,7 +661,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 
 \eit
 
-\item Summarizing: The equilibrium response of wages via Nash bargaining inhibits firms' incentive to create vacancies
+\item Summarizing: the equilibrium wage response through Nash bargaining inhibits firms' incentive to create vacancies
 
 %\item So rigid wage setting, a plausible assumption in the context of business-cycle dynamics, should do the trick?
 \eit
@@ -640,7 +688,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 	\item $\Rightarrow$ positive correlation between vacancies and unemployment!
 \eit
 
-\item This is not quite correct, as we will see soon
+\item However, this result relies heavily on the free-entry condition, as we will see below
 
 \eit
 
@@ -658,7 +706,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 
 \item Hall (AER 2017): discount factor shocks
 
-\item Coles-Kelishomi (AEJmacro 2018): sluggish vacancy creation
+\item Coles-Kelishomi (AEJ Macro 2018): sluggish vacancy creation
 
 \eit
 
@@ -676,7 +724,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 
 \item Hall (AER 2017): discount factor shocks
 
-\item \bf Coles-Kelishomi (AEJmacro 2018): separation shocks and sluggish vacancy creation \normalfont
+\item \bf Coles-Kelishomi (AEJ Macro 2018): separation shocks and sluggish vacancy creation \normalfont
 
 \eit
 
@@ -688,14 +736,14 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 \bit
 \setlength\itemsep{2em}
 
-\item Hagedorn and Manovskii argue: the previous literature have calibrated the DMP model wrongly; if you do it right, there is no puzzle
+\item Hagedorn and Manovskii argue: the previous literature calibrated the DMP model incorrectly; if you do it right, there is no puzzle
 
 \item Again, tightness-productivity elasticity with Nash bargaining:
 \begin{eqnarray}
 \epsilon_{\theta, y} &=& \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} \nonumber
 \end{eqnarray}
 
-\item If $b$ is high relative to $y$, the model can generate substantial unemployment fluctations
+\item If $b$ is high relative to $y$, the model can generate substantial unemployment fluctuations
 
 \item Why is $b$ the key parameter? Let's investigate
 
@@ -713,13 +761,13 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 \setlength\itemsep{0.5em}
 \item The productivity increase must not be fully absorbed by an increase in wages 
 
-\item The initial level of profits need to be small 
+\item The initial level of profits needs to be small
 \een
 
 \item Why does the initial level of profits matter?
 \bit
 \setlength\itemsep{0.5em}
-\item The elasticity of vacancy creation w.r.t. to productivity creation depends on the elasticity of profits w.r.t. productivity
+\item The elasticity of vacancy creation with respect to productivity depends on the elasticity of profits with respect to productivity
 
 \item Suppose wages are fixed and study a 1 percent productivity increase; $y_0=1 \rightarrow y_1 = 1.01$
 \item Suppose $w=0.99$:
@@ -732,7 +780,7 @@ where $\epsilon_{\lambda_u,\theta} \equiv \frac{\theta}{\lambda_u(\theta)}\lambd
 \end{eqnarray}	
 \eit
 
-%\item Remember: Hall had not only a rigid wage setting, but also a high intitial wage level
+%\item Remember: Hall had not only rigid wage setting, but also a high initial wage level
 
 \eit
 \end{frame}
@@ -751,12 +799,12 @@ w &=& (1-\gamma)b + \gamma (y +c \theta) \nonumber \\
 \end{eqnarray}
 Either $\gamma$ or $b$ must be high
 
-\item Why then was it only $b$ that seemed to have a large impact on tightness-productivity elastcity?
+\item Why then was it only $b$ that seemed to have a large impact on the tightness-productivity elasticity?
 \begin{eqnarray}
 \epsilon_{\theta, y} &=& \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} \nonumber
 \end{eqnarray}
 
-\item High $\gamma$ also implies volatile wages w.r.t to $y$ $\rightarrow$ level and volatility effect on vacancy elasticity approximately cancel each other out
+\item High $\gamma$ also implies volatile wages with respect to $y$ $\rightarrow$ the level and volatility effects on vacancy elasticity approximately cancel each other out
 
 
 \eit
@@ -768,20 +816,20 @@ Either $\gamma$ or $b$ must be high
 \bit
 \setlength\itemsep{1.5em}
 
-\item Main question: is data supportive of high $b$?
+\item Main question: do the data support a high $b$?
 
-\item Shimer did not set his parameters to be consistent with the cyclicality of wages? Instead, he just set $b=0.4$, $\gamma = \alpha$, and adjust the vacancy posting cost to match steady state tightness
+\item Shimer did not set his parameters to be consistent with the cyclicality of wages. Instead, he set $b=0.4$, $\gamma = \alpha$, and adjusted the vacancy posting cost to match steady-state tightness
 
-\item H\&M stresses:
+\item H\&M stress:
 \bit
 	\item In the data, wages are moderately procyclical, $\epsilon_{w, y} = 0.45$
 	
 	\item taking both labor and capital cost of vacancy posting into account, $c \approx 0.6$
 \eit
 
-\item For a given $b$ and vacancy post cost $c$, $\epsilon_{w, y}$ pins down $\gamma$
+\item For a given $b$ and vacancy posting cost $c$, $\epsilon_{w, y}$ pins down $\gamma$
 
-\item H\&M matches this moment, and find a much lower $\gamma = 0.05$
+\item H\&M match this moment and find a much lower $\gamma = 0.05$
 
 \item With lower $\gamma$, $b$ must be higher to match the same steady state tightness $\theta$
 
@@ -796,20 +844,20 @@ Either $\gamma$ or $b$ must be high
 \bit
 \setlength\itemsep{1.5em}
 
-\item With these numbers, the tightness-productvity elasticity becomes:
+\item With these numbers, the tightness-productivity elasticity becomes:
 \begin{eqnarray}
 \epsilon_{\theta, y} &=& \frac{y}{y-b} \frac{r+ \sigma + \gamma \lambda_u(\theta)}{(r + \sigma)(1-\epsilon_{\lambda_u,\theta}) + \gamma \lambda_u(\theta)} = 20.6 \nonumber
 \end{eqnarray}
 
 \item Does this make economic sense? H\&M: yes!
 
-\item $b$ is really the total utility flow of being unemployed:  unemployment benefit value, leisure value, home production value etc.
+\item $b$ is really the total utility flow of being unemployed: unemployment benefits, leisure value, home production value, etc.
 
-\item A larger model of household labor decisions will equate the marginal value of search for job with the marginal cost of giving up time for nonmarket activities.
+\item A larger model of household labor decisions will equate the marginal value of search for a job with the marginal cost of giving up time for nonmarket activities.
 
-\item If the value of unemployment is not close to that of being employed, it is difficult to explain why unemployed people don't search harder for jobs
+\item If the value of unemployment is not close to that of being employed, it is difficult to explain why unemployed people do not search harder for jobs
 
-\item This is a controversial argument, if the welfare loss of being unemployed is so small, why do we seemingly care so much about it?
+\item This is a controversial argument: if the welfare loss of being unemployed is so small, why do we seemingly care so much about it?
 
 \eit
 \end{frame}
@@ -820,28 +868,28 @@ Either $\gamma$ or $b$ must be high
 \bit
 \setlength\itemsep{1.5em}
 
-\item Shimer's intuition was the failure to match unemployment volatility reflected the flexibility of wages in the model
+\item Shimer's intuition was that the failure to match unemployment volatility reflected the flexibility of wages in the model
 
 \item H\&M showed that this intuition is partly wrong, or at least, incomplete
 \bit
 \setlength\itemsep{0.5em}
 	\item Yes, the productivity increase must not be fully absorbed by an increase in wages in response to the shock
 	
-	\item but, given that it is not fully absorbed, the important thing is whether the steady state level of profits/wages is high or small relative to productivity
+\item but, given that it is not fully absorbed, the important thing is whether the steady-state level of profits/wages is high or low relative to productivity
 
-	\item Eloborated in Ljungqvist-Sargent (AER 2017) 
+\item Elaborated in Ljungqvist-Sargent (AER 2017)
 \eit
 
 \item Nevertheless, much of the literature has focused on wage rigidity
 \bit
 \setlength\itemsep{0.5em}
-\item Hall (AER 2005): DMP with an ad hoc fully rigid wage, shows that model matches unemployment cyclicality if steady state wage is high enough
+\item Hall (AER 2005): DMP with an ad hoc fully rigid wage shows that the model matches unemployment cyclicality if the steady-state wage is high enough
 
-\item Pissarides (Ecmtra 2009): it is only the wage of new hires that is allocative in the model, wage rigidity among imcumbents unimportant
+\item Pissarides (Ecmtra 2009): it is only the wage of new hires that is allocative in the model; wage rigidity among incumbents is unimportant
 
 \item Mixed evidence on the extent of wage rigidity for new hires in the literature, see e.g., Kudlyak (JME 2014), Grigsby-Hurst-Yildirmaz (AER 2021), Hazell-Taska (AER 2024)
 
-\item Carlsson-Westermark (AEJmacro 2022): with endogeneous separations, rigidity among incumbents also matters
+\item Carlsson-Westermark (AEJ Macro 2022): with endogenous separations, rigidity among incumbents also matters
 \eit
 
 \eit
@@ -853,9 +901,9 @@ Either $\gamma$ or $b$ must be high
 \bit
 \setlength\itemsep{1.5em}
 
-\item CKs argument: Unemployment variability can be explained with separation shocks if relaxing free entry
+\item CK's argument: unemployment variability can be explained with separation shocks if we relax free entry
 
-\item Free entry is a reasonable in the long run, but in the short run, there are all kinds of barriers
+\item Free entry is reasonable in the long run, but in the short run there are all kinds of barriers
 
 \item Extend the vanilla DMP model with stochastic entry costs $\kappa$
 \begin{eqnarray}
@@ -864,7 +912,7 @@ Either $\gamma$ or $b$ must be high
 
 \item $\Rightarrow$ all firms drawing $\kappa<V_t$ create a vacancy. Vacancy creation rate: $\iota_t = H(V_t)$
 
-\item With $H(x) = x^{\xi}$, vacancy creation $\iota_t$ has a constant elasticity w.r.t. vacancy values:
+\item With $H(x) = x^{\xi}$, vacancy creation $\iota_t$ has a constant elasticity with respect to vacancy values:
 \begin{eqnarray}
 \iota_t = V_t^{\xi} \nonumber
 \end{eqnarray} 
@@ -900,16 +948,14 @@ Either $\gamma$ or $b$ must be high
 	\item Same logic with endogenous separations and productivity shocks
 \eit
 
-\item Growing literature on implications, microfoundations and empirics:
+\item Growing literature on implications, microfoundations, and empirics:
 \bit
 \setlength\itemsep{0.5em}
-	\item Schoefer-Mercan-Sedlacek (AEJmacro 2023): sluggish entry due to imperfect substitability
+\item Schoefer-Mercan-Sedlacek (AEJ Macro 2023): sluggish entry due to imperfect substitutability
 
-	\item Engbom (2021): sluggish entry due to compositional effect over the cycle
+\item Engbom (2021): sluggish entry due to compositional effects over the cycle
 	
-	\item Broer-Druedahl-Harmenberg-Öberg (2025): implications for unemployment-risk dynamics
-
-	\item Cederlöf-Engbom-Nybom-Öberg-Tuominen (in progress): evidence from local Swedish labor markets
+\item Broer-Druedahl-Harmenberg-{\"O}berg (IER 2025): implications for unemployment-risk dynamics
 \eit
 
 \eit
@@ -923,12 +969,12 @@ Either $\gamma$ or $b$ must be high
 \bit
 \setlength\itemsep{1.5em}
 
-\item DMP: A GE theory of unemployment levels and dynamics
+\item DMP: a GE theory of unemployment levels and dynamics
 \bit
 \item emphasizes vacancy creation as the key economic mechanism
 \eit
 
-\item Defining elements: Matching function + Wage-setting rule + Free-entry condition
+\item Defining elements: matching function + wage-setting rule + free-entry condition
 
 \item Generates reasonable predictions, explored by growing empirical literature
 
@@ -949,17 +995,17 @@ Either $\gamma$ or $b$ must be high
 \item The theory of money
 \bit
 \setlength\itemsep{0.5em}
-\item Goods markets are charachterized by the absence of \emph{double coincidence of wants}
+\item Goods markets are characterized by the absence of \emph{double coincidence of wants}
 \item Search process without mediating transaction technology is very costly
-\item Useless assets, such as fiat money, can have positive value beacuse it mediates trade
+\item Useless assets, such as fiat money, can have positive value because they mediate trade
 \item See Williamson and Wright (Handbook ME 2010)
 \eit
 
 \item Liquidity in financial markets
 \bit
 \setlength\itemsep{0.5em}
-\item Some finanical markets are close to the Walrasian ideal. Others, such as the market for mortage-backed securities, operate with \emph{over-the-counter} trading
-\item Search theory charachterize volume of trading, bid-ask spreads, how the supply of buyers might collapse during crises
+\item Some financial markets are close to the Walrasian ideal. Others, such as the market for mortgage-backed securities, operate with \emph{over-the-counter} trading
+\item Search theory characterizes trading volume, bid-ask spreads, and how the supply of buyers might collapse during crises
 \item See Lagos and Rocheteau (Ecmtra 2009)
 \eit
 
@@ -976,7 +1022,7 @@ Either $\gamma$ or $b$ must be high
 \end{frame}
 
 
-\begin{frame}{Search models: what we have not covered: Epidemilogy}
+\begin{frame}{Search models: what we have not covered: Epidemiology}
 
 \bit
 \setlength\itemsep{1em}
@@ -985,7 +1031,7 @@ Either $\gamma$ or $b$ must be high
 
 \item Given a number of Susceptibles $S$ and a number of infected $I$, assume that the number of newly infected is given by matching function $M = \beta S I$
 
-\item Law of motions
+\item Laws of motion
 \begin{eqnarray}
 \dot{S} &=& - \beta S I \nonumber \\
 \dot{I} &=& \beta S I - \gamma I \nonumber \\
@@ -995,14 +1041,14 @@ where $R$ is the number of dead/recovered
 
 \item SIR offers a way to forecast disease spread and study lockdown policies 
 
-\item In epi literature, there is little treatment of optimizing behaviour and incentives
+\item In the epidemiology literature, there is little treatment of optimizing behavior and incentives
 \bit
-\item In other words, $\beta$ is taken as a parameter and not an endogeneous variable
+\item In other words, $\beta$ is taken as a parameter and not an endogenous variable
 \eit
 
 \item Eichenbaum-Rebelo-Trabant (RFS 2021): $\beta = \beta (C_t, H_t)$, integrate SIR with standard RBC economy
 \bit
-\item A lot of papers currently extendning this analysis in many interesting ways
+\item Many papers are currently extending this analysis in interesting ways
 \eit
 
 
