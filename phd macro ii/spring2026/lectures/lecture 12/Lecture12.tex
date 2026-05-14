@@ -1,5 +1,55 @@
+\pdfminorversion=6
 \documentclass[9pt]{beamer}
-\usetheme{metropolis}
+\usetheme{Boadilla}
+
+\definecolor{brandblue}{RGB}{35,74,132}
+\definecolor{brandbluedark}{RGB}{24,49,91}
+\definecolor{brandgray}{RGB}{68,68,68}
+\definecolor{softgray}{RGB}{245,247,250}
+\definecolor{accentgray}{RGB}{226,232,240}
+
+\setbeamercolor{normal text}{fg=brandgray,bg=white}
+\setbeamercolor{structure}{fg=brandblue}
+\setbeamercolor{title}{fg=brandbluedark}
+\setbeamercolor{frametitle}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{section divider}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{caption name}{fg=brandbluedark}
+\setbeamercolor{author in head/foot}{fg=white,bg=brandbluedark}
+\setbeamercolor{title in head/foot}{fg=brandbluedark,bg=accentgray}
+\setbeamercolor{block title}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{block body}{fg=brandgray,bg=white}
+
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{section title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamersize{text margin left=0.9em,text margin right=0.9em}
+
+\setbeamertemplate{title page}
+{
+	\vspace*{0.15\paperheight}
+	\begin{beamercolorbox}[wd=\textwidth,sep=1.1em,left]{title}
+		{\usebeamerfont{title}\inserttitle\par}
+		\vspace{0.8em}
+		{\usebeamerfont{author}\insertauthor\par}
+	\end{beamercolorbox}
+	\vfill
+}
+
+\newcommand{\sectiondivider}[1]{
+	\begin{frame}[plain]
+		\vfill
+		\begin{beamercolorbox}[wd=.84\textwidth,sep=1.1em,center,rounded=true]{section divider}
+			{\usebeamerfont{section title} #1}
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
 
 \makeatother
 \setbeamertemplate{footline}
@@ -43,10 +93,12 @@
 \usepackage{multirow}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\captionsetup{font=scriptsize,labelfont=bf}
 %\setbeamertemplate{footline}[frame number]
 \usepackage{csquotes}
 \usepackage{bm}
@@ -99,7 +151,7 @@
 \item Today: using incomplete-markets consumption-savings theory for quantitative empirical analysis
 \bit
 \setlength\itemsep{0.3em}
-	\item Research program pioneered by Deaton, Zeldes and Carroll 
+	\item Research program pioneered by Deaton, Zeldes, and Carroll 
 	
 	\item Builds on foundational work by Friedman, Modigliani, Hall and others
 \eit
@@ -129,14 +181,14 @@
 	\item Consumption-savings dynamics with income risk
 \eit
 
-\item Three famous applications
+\item Three influential applications
 \ben
 \setlength\itemsep{0.5em}
-	\item Gourinchas-Parker (Ecmtra 2002): Consumption over the Life Cycle
+	\item Gourinchas-Parker (Econometrica 2002): Consumption over the Life Cycle
 
 	\item Blundell-Pistaferri-Preston (AER 2008): Consumption Inequality and Partial Insurance
 
-	\item Kaplan-Violante (Ecmtra 2014): A Model of the Consumption Response to Fiscal Stimulus Payments
+	\item Kaplan-Violante (Econometrica 2014): A Model of the Consumption Response to Fiscal Stimulus Payments
 \een
 
 \een
@@ -148,9 +200,9 @@
 \bit
 \setlength\itemsep{1em}
 
-\item Buffer-stock savings model $=$ income-fluctuations problem with persistent shocks
+\item The buffer-stock savings model $=$ income-fluctuations problem with persistent shocks
 \bit
-	\item Key papers: Zeldes (JPE 1989; QJE 1989), Deaton (Ecmta 1991, Book 1992), Carroll (QJE 1997)
+	\item Key papers: Zeldes (JPE 1989; QJE 1989), Deaton (Econometrica 1991, book 1992), Carroll (QJE 1997)
 \eit
 
 \item Household problem:
@@ -204,17 +256,12 @@
 \setlength\itemsep{0.5em}
 \item In the data, we see that some changes to residualized income are very persistent, whereas others are very short-lived
 
-\item Permanent-transitory formulation provides a parsimonious parameterization of household income process that captures these features
-
-\item For some applications, estimating the persistence of income shocks can be important
-\bit
-	\item E.g., business-cycle applications (typically quarterly models) with unemployment shocks
-\eit
+\item The permanent-transitory formulation provides a parsimonious parameterization of the household income process that captures these features
 \eit
 
-\item CRRA utility: reasonable baseline + big tractability gains
+\item CRRA utility: a reasonable baseline with large tractability gains
 \bit
-\item allows us to normalize the problem with respect to permanent income
+\item Allows us to normalize the problem with respect to permanent income
 \eit
 
 \eit
@@ -278,7 +325,7 @@ V({\color{black}M, P}) &=& \max_{C, A'} U(C) + \beta E V({\color{black}M', P'}) 
 
 \end{frame}
 
-\begin{frame}{Normalization w.r.t. permanent income}
+\begin{frame}{Normalization with respect to permanent income}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -302,7 +349,7 @@ V({\color{black}M, P}) &=& \max_{C, A'} U(C) + \beta E V({\color{black}M', P'}) 
 
 \end{frame}
 
-\begin{frame}{Normalization w.r.t. permanent income II}
+\begin{frame}{Normalization with respect to permanent income II}
 
 \bit
 \setlength\itemsep{1.5em}
@@ -321,7 +368,7 @@ V(M, P) &=& \max_{C, A'} \frac{C^{1-\sigma}}{1-\sigma} + \beta E V(M', P') \nonu
 
 \end{frame}
 
-\begin{frame}{Normalization w.r.t. permanent income II}
+\begin{frame}{Normalization with respect to permanent income II}
 
 \bit
 \setlength\itemsep{1em}
@@ -340,7 +387,7 @@ P^{1-\sigma}v(M, P) &=& \max_{c, a'} \frac{(cP)^{1-\sigma}}{1-\sigma} + \beta E 
 
 \end{frame}
 
-\begin{frame}{Normalization w.r.t. permanent income III}
+\begin{frame}{Normalization with respect to permanent income III}
 
 \bit
 \setlength\itemsep{0.5em}
@@ -359,7 +406,7 @@ v(M, P) &=& \max_{c, a'} \frac{c^{1-\sigma}}{1-\sigma} + \beta E \left(\frac{P'}
 
 \end{frame}
 
-\begin{frame}{Normalization w.r.t. permanent income III}
+\begin{frame}{Normalization with respect to permanent income III}
 
 \bit
 \setlength\itemsep{1em}
@@ -430,9 +477,9 @@ v({\color{black}m}) &=& \max_{c, a'} \frac{c^{1-\sigma}}{1-\sigma} + \beta E_t \
 \setlength\itemsep{0.5em}
 	\item Decision functions in normalized problem: $c=c(m), a'=a'(m)$
 	
-	\item Un-normalized decision functions $C=Pc(m)$, $A'=Pa'(m)$
+	\item Unnormalized decision functions $C=Pc(m)$, $A'=Pa'(m)$
 	
-\item Implication: a permanent-income rich household will consume the same amount of an increase in normalized cash-on-hand as a permanent-income poor household
+	\item Implication: a permanent-income rich household will consume the same fraction of an increase in normalized cash-on-hand as a permanent-income poor household
 \eit
 
 
@@ -472,9 +519,9 @@ c^{-\sigma} = \beta R E \left(\left(Ge^{\nu'}c'\right)^{-\sigma}\right)
 %\item Two parametric restrictions in order to have a well-defined problem
 %\bit
 %\setlength\itemsep{0.5em}
-%	\item Impatience condition: sufficiently low $\beta R$ to ensure that assets converge assymptotically (remember last lecture...)
+%	\item Impatience condition: sufficiently low $\beta R$ to ensure that assets converge asymptotically (remember last lecture...)
 %	\bit
-%		\item Sufficient condition: $\beta R E\left[(Ge^{\nu})^{-\sigma}\right]<1$ (Deaton, Ecmtra 1991)
+%		\item Sufficient condition: $\beta R E\left[(Ge^{\nu})^{-\sigma}\right]<1$ (Deaton, Econometrica 1991)
 %	\eit
 %	
 %	\item $R>G$ to ensure that NPV of human wealth is finite
@@ -562,37 +609,21 @@ using a standard numerical maximization method (e.g. Newton-Raphson)
 
 \item $G$ and $R$ can be directly observed in the data
 
-\item Data at hand: panels of income and consumption
-\bit
-\setlength\itemsep{0.5em}
-\item Survey data, e.g., PSID (US)
-\item Register data, e.g., Swedish income and wealth registers
-\eit
-
 \item The distribution of $\epsilon', \nu'$ can be estimated using panel data on household income
-
-
-\eit
-
-\end{frame}
-
-\begin{frame}{Parameterization: method of moments}
-
-\bit
-\setlength\itemsep{1em}
-
-\item Calibration of $\beta, \sigma, \underbar a$ is typically done by method of moments
 \bit
 \setlength\itemsep{0.5em}
-\item Given preferences, our model defines a mapping from an income process to an allocation of assets and consumption at the household level
+\item Survey data, e.g., CPS, PSID (US)
+\item Register data, e.g., Swedish income registers
+\eit
 
-\item Populate an economy with, say 1000 households, and simulate the economy using the stochastic shock processes and the decision functions retrieved from solving the household problem
-
-\item Set parameters so implied model moments fit data moments
+\item Calibration of $\beta, \sigma, \underbar a$ is typically done by method of moments using data on household income and consumption
 \bit
-\item Example moments: mean asset holdings, share with negative assets, consumption-income profiles...
+\setlength\itemsep{0.5em}
+	\item Survey data, e.g., PSID-CEX (US)
+	\item Register data, e.g., Swedish income and wealth registers
 \eit
-\eit
+
+
 \eit
 
 \end{frame}
@@ -601,8 +632,6 @@ using a standard numerical maximization method (e.g. Newton-Raphson)
 
 \bit
 \setlength\itemsep{0.5em}
-
-\item Standard practice: parametric assumption + method of moments
 
 \item In logs ($\tilde x = \log X$), our process is
 \begin{eqnarray}
@@ -617,32 +646,23 @@ which gives us
 which means that
 \begin{eqnarray}
 Var(\Delta y_{t}) = Var(\nu_t) + 2Var(\epsilon_{t}) \nonumber \\
-CoV(\Delta y_{t}, \Delta \tilde y_{t-1}) = -Var(\epsilon_{t}) \nonumber 
+Cov(\Delta y_{t}, \Delta y_{t-1}) = -Var(\epsilon_{t}) \nonumber 
 \end{eqnarray}
 
 \item Typically, we apply this estimator to income growth residuals in household panel data
 
-\eit
-
-\end{frame}
-
-\begin{frame}{Income process estimation: recent extensions}
-
+\item This method can be generalized in several dimensions, and recent administrative data have taught us a lot:
 \bit
-\setlength\itemsep{1em}
-
-\item This method can be generalized in several dimensions (and recent admin data has taught us a lot!):
-\bit
-	\item Guvenen-Karahan-Ozkan-Song (Ecmtra 2021): income growth residuals exhibit fat tails and significant skewness (normality is a bad assumption)
+	\item Guvenen-Karahan-Ozkan-Song (Econometrica 2021): income growth residuals exhibit fat tails and significant skewness (normality is a bad assumption)
 
 	\item Carter Braxton-Herkenhoff-Rothbaum-Schmidt (AER 2025): permanent earnings risk has evolved differently across the skill distribution over time
-	
-	\item Harmenberg-Lizarraga (2025): a generalized square root process captures earnings dynamics at the top of the distribution very well
 \eit
 
 \eit
 
 \end{frame}
+
+
 %
 %
 %\begin{frame}{Calibration}
@@ -657,11 +677,11 @@ CoV(\Delta y_{t}, \Delta \tilde y_{t-1}) = -Var(\epsilon_{t}) \nonumber
 %	\setlength\itemsep{0.5em}
 %	\item Given preferences, our model defines a mapping from an income process to an allocation of assets and consumption at the household level
 %
-%	\item Populate an economy with, say 1000 households, and simulate the economy using the stochastic shock processes and the decision functions retrieved from solving the household problem
+%	\item Populate an economy with, say, 1000 households, and simulate the economy using the stochastic shock processes and the decision functions obtained by solving the household problem
 %	
 %	\item Set parameters so implied model moments fit data moments
 %		\bit
-%			\item Example moments: mean asset holdings, share with negative assets, consumption-income profiles...
+%			\item Example moments: mean asset holdings, share with negative assets, consumption-income profiles, ...
 %		\eit
 %\eit
 %
@@ -714,8 +734,8 @@ CoV(\Delta y_{t}, \Delta \tilde y_{t-1}) = -Var(\epsilon_{t}) \nonumber
 \item Set $\epsilon=\nu=0$ and $\underbar a = \underbar a^{nbl}$, where $\underbar a^{nbl}$ is the natural borrowing limit
 %\bit
 %\setlength\itemsep{0.5em}
-%\item $\underbar a^{nlb}$ ensures that all borrowing is risk-free 
-%\item $\underbar a^{nlb}$ determined by the condition where the household needs to set $c=0$ for all future periods to pay off its debt
+%\item $\underbar a^{nbl}$ ensures that all borrowing is risk-free 
+%\item $\underbar a^{nbl}$ is determined by the condition where the household needs to set $c=0$ for all future periods to pay off its debt
 %\item Therefore, the credit constraint will never bind in the solution to the household problem
 %\item See problem set
 %\eit
@@ -725,7 +745,7 @@ CoV(\Delta y_{t}, \Delta \tilde y_{t-1}) = -Var(\epsilon_{t}) \nonumber
 v({\color{black}m}) &=& \max_{c, a'} \frac{c^{1-\sigma}}{1-\sigma} + \beta G^{1-\sigma} v({\color{black}m'}) \nonumber \\
 &\text{s.t.}& a' = m - c \nonumber \\
 && m' = 1 + \frac{Ra'}{G} \nonumber \\
-&& a' \geq -\underbar a^{nlb} \nonumber \\
+&& a' \geq -\underbar a^{nbl} \nonumber \\
 && c \geq 0 \nonumber
 \end{eqnarray}
 
@@ -761,7 +781,7 @@ c_t = c_{t+1}
 \bit
 \setlength\itemsep{1.5em}
 
-\item To solve for $c=c(m)$, iterate on the budget constraint and the law-of-motion for $m$:
+\item To solve for $c=c(m)$, use Euler equation and iterate on the budget constraint and the law-of-motion for $m$:
 \begin{eqnarray}
 && a_{t+1} = m_t - c_t \nonumber \\
 && m_{t+1} = 1 + \frac{Ra_{t+1}}{G} \nonumber 
@@ -886,7 +906,7 @@ which gives us
 %	\item MPC out of permanent income is $=$ 1
 %\eit
 %
-%\item Now: lets look at what happens in the buffer-stock savings model
+%\item Now: let's look at what happens in the buffer-stock savings model
 %
 %\eit
 %\end{frame}
@@ -899,7 +919,7 @@ which gives us
 \par\endgroup
 
 \bit
-	\item Parameter values: $\beta = 0.95$. $\sigma = 1.5$, $R=1.04$, $G=1.03$, $\underbar a = 0$, $\sigma_{\epsilon}, \sigma_{\nu}$ taken from Gourinchas-Parker (Ecmtra, 2002)
+	\item Parameter values: $\beta = 0.95$, $\sigma = 1.5$, $R=1.04$, $G=1.03$, $\underbar a = 0$, with $\sigma_{\epsilon}, \sigma_{\nu}$ taken from Gourinchas-Parker (Econometrica, 2002)
 	\item Code available by email
 \eit
 
@@ -912,7 +932,7 @@ which gives us
 \par\endgroup
 
 \bit
-	\item Result 1: with income risk, households consume less than if no income risk
+	\item Result 1: with income risk, households consume less than they would without income risk
 		\bit
 			\item with income risk, assets have insurance value
 			\item without income risk, households run down current assets quickly due to impatience
@@ -928,10 +948,10 @@ which gives us
 \par\endgroup
 
 \bit
-\item Result 2: with income risk, consumption function is concave
+\item Result 2: with income risk, the consumption function is concave
 \bit
-	\item Equivalently: with income risk, MPC out of current income is larger and decreasing
-	\item As household approaches constraint, MPC out of current income grows to $1$
+	\item Equivalently: with income risk, the MPC out of current income is larger and decreasing
+	\item As the household approaches the constraint, the MPC out of current income grows to $1$
 \eit
 \eit
 
@@ -944,7 +964,7 @@ which gives us
 \par\endgroup
 
 \bit
-\item With a lot of assets, households behave as if there were no income risk and $MPC \to \left(1-\frac{G}{R}\right)$
+\item With a lot of assets, households behave as if there were no income risk, and $MPC \to \left(1-\frac{G}{R}\right)$
 \eit
 
 \end{frame}
@@ -974,7 +994,7 @@ which gives us
 \par\endgroup
 
 \bit
-\item Result 3: because of concavity, there exists a target buffer stock of assets
+\item Result 3: because of concavity, there is a target buffer stock of assets
 	\bit
 		\item To insure themselves, households seek to hold a certain amount of money relative to their permanent income
 		\item With a lot of assets, households dissave
@@ -992,7 +1012,7 @@ which gives us
 
 \item Move on to analyze how to use the model to interpret the data
 
-\item Early literature (Zeldes, Deaton, Carroll and others) focused on testing buffer-stock model against PIH model (description does not fit all papers)
+\item Early literature (Zeldes, Deaton, Carroll, and others) focused on testing the buffer-stock model against the PIH model (this description does not fit all papers)
 \bit
 \setlength\itemsep{0.5em}
 	\item Perhaps ex post unsurprisingly, PIH was rejected in several dimensions
@@ -1009,16 +1029,16 @@ which gives us
 \bit
 \setlength\itemsep{1.5em}
 
-\item We will focus on second-generation literature
+\item We will focus on the second-generation literature
 
-\item Two influential applications:
+\item Three influential applications:
 \ben
 \setlength\itemsep{0.5em}
-	\item Gourinchas-Parker (Ecmtra 2002): Consumption over the Life Cycle
+	\item Gourinchas-Parker (Econometrica 2002): Consumption over the Life Cycle
 	
 	\item Blundell-Pistaferri-Preston (AER 2008): Consumption Inequality and Partial Insurance
 	
-	\item Kaplan-Violante (Ecmtra 2014): A Model of the Consumption Response to Fiscal Stimulus Payments
+	\item Kaplan-Violante (Econometrica 2014): A Model of the Consumption Response to Fiscal Stimulus Payments
 \een
 
 \item I use my notation and will make some simplifications when discussing these papers
@@ -1033,19 +1053,19 @@ which gives us
 
 \bit
 \setlength\itemsep{1.5em}
-\item Q: how do consumption-savings dynamics evolve over the life cycle?
+\item Q: How do consumption-savings dynamics evolve over the life cycle?
 \bit
 	\item Does buffer-stock savings behavior or the permanent-income hypothesis provide a better fit of the data? Does it depend on age?
 \eit
 
-\item Method: Estimate structural life-cycle model with idiosyncratic income risk
+\item Method: estimate a structural life-cycle model with idiosyncratic income risk
 \bit
 \setlength\itemsep{0.5em}
 	\item Estimate income processes in PSID data 
 	
 	\item Construct consumption-income age profiles using CEX data
 	
-	\item Estimate model to match profiles
+	\item Estimate preference parameters to match profiles
 	
 	\item Decompose savings behavior over the life cycle using estimated model
 \eit
@@ -1072,7 +1092,7 @@ which gives us
 Y_{t} &=& P_{t} e^{\epsilon_{t}} \nonumber \\
 P_{t} &=& P_{t-1}G_t e^{\nu_{t}} \nonumber 
 \end{eqnarray}
-note that $G_t$ has $t$ subscript
+note that $G_t$ has a $t$ subscript
 
 \item For $N+1 \leq t \leq T$, households are retired and $Y_t$ is deterministic
 
@@ -1084,7 +1104,7 @@ note that $G_t$ has $t$ subscript
 
 \bit
 \setlength\itemsep{1em}
-\item $R=1.034$ taken from average return on safe bond assets
+\item $R=1.034$ is taken from the average return on safe bond assets
 
 \item For other parameters, use micro data
 \bit
@@ -1114,10 +1134,10 @@ note that $G_t$ has $t$ subscript
 
 	\item Estimate consumption-income age profiles in the data
 	
-	\item Set $\beta$ and $\sigma$ so that model mimics (as close as possible) this profile
+	\item Set $\beta$ and $\sigma$ so that the model mimics this profile as closely as possible
 \eit
 
-\item GP do this procedure for 16 different educational-occupational groups, but we only focus on the results for the total population here
+\item GP do this procedure for 16 different educational-occupational groups, but here we only focus on the results for the total population
 
 
 \eit
@@ -1134,7 +1154,7 @@ note that $G_t$ has $t$ subscript
 
 \bit
 \setlength\itemsep{0.5em}
-	\item Hump shape in consumption directly rejects that working-age households have full insurance - why?
+	\item The hump shape in consumption directly rejects the hypothesis that working-age households have full insurance - why?
 \eit
 
 \end{frame}
@@ -1148,7 +1168,7 @@ note that $G_t$ has $t$ subscript
 
 \bit
 \setlength\itemsep{0.5em}
-\item Matching consumption-income profile pins down $\beta$ and $\sigma$
+\item Matching the consumption-income profile pins down $\beta$ and $\sigma$
 \eit
 
 \end{frame}
@@ -1171,11 +1191,11 @@ note that $G_t$ has $t$ subscript
 
 \bit
 \setlength\itemsep{2em}
-\item Young households are buffer-stock savers, old households are similar to PIH savers 
+\item Young households are buffer-stock savers, while old households are similar to PIH savers 
 
 \item Young households: start with no buffer and retirement is far away $\Rightarrow$ saving primarily reflects precautionary behavior
 
-\item Middle-aged households: already have a buffer and retirement is near $\Rightarrow$ saving primarily reflects consumption smoothing with respect to retirement
+\item Middle-aged households: already have a buffer and retirement is near $\Rightarrow$ saving primarily reflects consumption smoothing around retirement
 
 %\item This tells us where we should expect to find high MPC agents
 %\bit
@@ -1191,25 +1211,25 @@ note that $G_t$ has $t$ subscript
 
 \bit
 \setlength\itemsep{2em}
-\item Early paper estimating a consumption-savings model to match key moments in micro data
+\item An early paper estimating a consumption-savings model to match key moments in microdata
 
-\item Large literature has followed
+\item A large literature has followed
 
-\item Two semi-recent (job market) papers:
+\item Two related recent papers:
 \bit
 \setlength\itemsep{1em}
 
-\item Boar (ReStud 2021): Estimate OLG-version of the model using PSID data 
+\item Boar (ReStud 2021): estimates an OLG version of the model using PSID data 
 	\bit
-		\item Finds that significant part of household buffers is explained by childrens' income risk
+		\item Finds that a significant part of household buffers is explained by children's income risk
 	\eit
 
-\item Druedahl and Martinello (ReStat 2020): Use Swedish register data to estimate consumption response to exogenous bequest shocks 
+\item Druedahl and Martinello (ReStat 2020): use Swedish register data to estimate consumption responses to exogenous bequest shocks 
 \bit
 \setlength\itemsep{0.5em}
-	\item Find that households quickly consume these bequests $\Rightarrow$ suggests low $\beta$
+	\item They find that households quickly consume these bequests $\Rightarrow$ suggests low $\beta$
 	
-	\item Still, these household typically have sizable wealth holdings.
+	\item Still, these households typically have sizable wealth holdings
 
  	\item Matching these moments suggests that risk aversion is much higher than previously estimated
 \eit
@@ -1239,7 +1259,7 @@ note that $G_t$ has $t$ subscript
 
 \bit
 \setlength\itemsep{1em}
-\item Buffer-stock savings theory teaches us that consumption responds very differently to permanent vs. transitory income shocks
+\item Buffer-stock savings theory teaches us that consumption responds very differently to permanent versus transitory income shocks
 
 \item With micro panel data on consumption and income, we can estimate
 \ben
@@ -1248,10 +1268,10 @@ note that $G_t$ has $t$ subscript
 	\item The evolution of the pass-through of permanent and transitory income to consumption (the extent of insurance)
 \een
 
-\item For the third part, BPP suggest to estimate the effect using a linear consumption rule
+\item For the third part, BPP suggest estimating the effect using a linear consumption rule
 \bit
 \setlength\itemsep{0.5em}
-	\item People sometimes say this is a ``semi-structural'' approach, I don't know what ``semi'' means other than ``linear''
+	\item People sometimes call this a ``semi-structural'' approach; here, ``semi'' mostly means ``linear''
 \eit
 
 \item The paper makes two contributions
@@ -1274,7 +1294,7 @@ note that $G_t$ has $t$ subscript
 
 \item First, take out deterministic component by regressing $c_{it}, y_{it}$ on various demographic variables
 
-\item Second, assume residualized income evolves according to (slightly more general process in the paper, but it doesn't make any difference)
+\item Second, assume residualized income evolves according to this process (the paper uses a slightly more general process, but it does not affect the point here)
 \begin{align*}
 y_{it} &= p_{it} + \epsilon_{it} \\
 p_{it} &= p_{it-1} + \nu_{it} 
@@ -1287,7 +1307,7 @@ p_{it} &= p_{it-1} + \nu_{it}
 \Delta c_{it} &= \phi_{t} \nu_{it} + \psi_{t} \epsilon_{it} + \xi_{it}
 \end{align*}
 \bit
-\item Note 1: treatment effect is time-varying 
+\item Note 1: the treatment effect is time-varying 
 
 \item Note 2: this consumption rule is postulated, not derived
 \eit
@@ -1305,7 +1325,7 @@ Var(\Delta c_{it}) &= \phi^2_{t} Var(\nu_{it}) + \psi^2_{t} Var(\epsilon_{it}) +
 \end{align*}
 Assuming that the error term is stationary, consumption growth inequality may grow because 
 \ben
-	\item Inequality $Var(\nu_{it}), Var(\epsilon_{it})$ increase, or
+	\item Income variances $Var(\nu_{it}), Var(\epsilon_{it})$ increase, or
 	\item Pass-through parameters $\phi_t, \psi_t$ increase
 \een
 
@@ -1325,14 +1345,14 @@ Assuming that the error term is stationary, consumption growth inequality may gr
 \item Income process implies 
 \begin{eqnarray}
 Var(\Delta y_{it}) = Var(\nu_{it}) + 2 Var(\epsilon_{it}) \nonumber \\
-CoV(\Delta y_{it}, \Delta y_{it-1}) = -Var(\epsilon_{it}) \nonumber 
+Cov(\Delta y_{it}, \Delta y_{it-1}) = -Var(\epsilon_{it}) \nonumber 
 \end{eqnarray}
 
-\item $\Rightarrow$ A rise in income growth inequality without a corresponding decline in the autocovariance means that permanent, and not transitory, income variance has increased
+\item $\Rightarrow$ A rise in income growth inequality without a corresponding decline in autocovariance means that permanent, and not transitory, income variance has increased
 
 \item We also have that
 \begin{align*}
-CoV(\Delta c_{it}, \Delta y_{it}) &= CoV(\phi_{t} \nu_{it} + \psi_{t} \epsilon_{it} + \xi_{it}, \nu_{it} + \epsilon_{it}- \epsilon_{it-1}) \nonumber \\
+Cov(\Delta c_{it}, \Delta y_{it}) &= Cov(\phi_{t} \nu_{it} + \psi_{t} \epsilon_{it} + \xi_{it}, \nu_{it} + \epsilon_{it}- \epsilon_{it-1}) \nonumber \\
 &= \phi_{t} Var(\nu_{it}) + \psi_{t} Var(\epsilon_{it})
 \end{align*}
 
@@ -1356,94 +1376,28 @@ to estimate $\phi_t, \psi_t$ given the income variances
 
 \end{frame}
 
-\begin{frame}{BPP: Income moments in the data}
+\begin{frame}{BPP: Pass-through coefficients, full sample}
 
-\begingroup\centering
-\includegraphics[scale=0.7, trim = 0cm 0cm 0cm 0cm, clip]{figures/blundell_tab3.pdf}
-\vspace{-0.5em}
-\par\endgroup
-
-\bit
-\setlength\itemsep{0.5em}
-\item Both variance and autocovariance of income growth grew during the eighties, but autocovariance grew relatively more
-\eit
-
-\end{frame}
-
-\begin{frame}{BPP: Consumption moments in the data}
-
-\begingroup\centering
-\includegraphics[scale=0.7, trim = 0cm 0cm 0cm 0cm, clip]{figures/blundell_tab4.pdf}
-\vspace{-0.5em}
-\par\endgroup
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{figures/blundell_tab6_part3.pdf}
+	\end{figure}
+	
+	\end{frame}
 
 
-\bit
-\setlength\itemsep{1em}
-\item Variance of consumption growth grew in the early eighties, then declined thereafter
-\eit
-
-\end{frame}
-
-\begin{frame}{BPP: Consumption-income moments in the data}
-
-\begingroup\centering
-\includegraphics[scale=0.7, trim = 0cm 1.9cm 0cm 0cm, clip]{figures/blundell_tab5.pdf}
-\vspace{-0.5em}
-\par\endgroup
-
-
-\bit
-\setlength\itemsep{1em}
-\item No trend in consumption-income correlation
-\eit
-
-\end{frame}
-
-\begin{frame}{BPP: Estimated evolution of permanent-income inequality}
+\begin{frame}{BPP: Permanent and transitory income variance, full sample}
 
 \begin{figure}
 	\centering
-	\includegraphics[scale=0.7, trim = 0cm 0cm 0cm 0cm, clip]{figures/blundell_tab6_part1.pdf}
+	\includegraphics[width=0.9\textwidth]{figures/bpp_shocks_whole_sample.pdf}
 \end{figure}
 
-
-\bit
-\setlength\itemsep{1em}
-\item Permanent-income inequality grew a lot in the eighties, then declined thereafter
-\eit
+\vspace{-1.4em}
+{\scriptsize Note: Own illustration based on tables in BPP. Permanent-shock endpoints are reported for 1979--81 and 1990--92; transitory-shock endpoint is reported for 1990--92.}
 
 \end{frame}
 
-\begin{frame}{BPP: Estimated evolution of transitory-income inequality}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.7, trim = 0cm 0cm 0cm 0cm, clip]{figures/blundell_tab6_part2.pdf}
-\end{figure}
-
-
-\bit
-\setlength\itemsep{1em}
-\item Transitory-income inequality declined in the early eighties, then grew from the mid-eighties onward
-\eit
-
-\end{frame}
-
-\begin{frame}{BPP: Estimated insurance}
-
-\begin{figure}
-	\centering
-	\includegraphics[scale=0.7, trim = 0cm 0cm 0cm 0cm, clip]{figures/blundell_tab6_part3.pdf}
-\end{figure}
-
-
-\bit
-\setlength\itemsep{1em}
-\item Consumption responds a lot more to permanent income than to transitory income shocks, but no evidence of change over time
-\eit
-
-\end{frame}
 
 \begin{frame}{BPP: Back to the question}
 
@@ -1456,7 +1410,7 @@ to estimate $\phi_t, \psi_t$ given the income variances
 \setlength\itemsep{0.3em}
 \item In the early 1980s, US consumption inequality tracked income inequality because income inequality growth was driven by permanent-income inequality growth
 
-\item The series diverged from the mid-eighties onward, as income inequality growth stemmed from transitory inequality growth, against which households are much more insured
+\item The series diverged from the mid-1980s onward, as income inequality growth stemmed from transitory inequality growth, against which households are much more insured
 \eit
 
 \end{frame}
@@ -1469,32 +1423,11 @@ to estimate $\phi_t, \psi_t$ given the income variances
 \bit
 	\item Important to understand the nature of income inequality in order to assess welfare implications
 	
-	\item An increase in income inequality driven by transitory-income shocks is much less severe compared to it being driven by permanent-income shocks
+	\item An increase in income inequality driven by transitory-income shocks is much less severe than one driven by permanent-income shocks
 \eit
 
-\item See Heathcote-Storesletten-Violante (RED 2010) for documentation of similar facts for following decades
+\item See Heathcote-Storesletten-Violante (RED 2023) for documentation of similar facts for later decades
 
-\eit
-
-\end{frame}
-
-\begin{frame}{BPP: Discussion}
-
-\bit
-\setlength\itemsep{1em}
-
-\item Semi-recent (job market) papers:
-\bit
-\setlength\itemsep{0.5em}
-	\item Commault (AEJmacro 2021): Natural experiment evidence suggests much less insurance to transitory income shocks; how does this square with BPP and other semi-structural estimation approaches? 
-		\bit
-		\setlength\itemsep{0.5em}
-			\item Shows that BPP's postulated consumption rule is not consistent with buffer-stock savings model
-			
-			\item Using the model-derived rule and a similar identification strategy, she finds much less insurance to transitory income shocks
-		\eit
-
-\eit
 \eit
 
 \end{frame}
@@ -1503,53 +1436,61 @@ to estimate $\phi_t, \psi_t$ given the income variances
 
 \bit
 \setlength\itemsep{1em}
+\item Great virtue of BPP: robust to i.i.d. measurement error in income
 
-\item Semi-recent (job market) papers:
-\bit
-\setlength\itemsep{0.5em}
+\item Big problem of BPP: postulated consumption rule implies random-walk w.r.t. all shocks; not consistent with buffer-stock savings model
 
-	\item Straub (2019): Augmented BPP-like estimation procedure suggests consumption does not respond linearly to permanent-income shocks
-		\bit
-		\setlength\itemsep{0.5em}
-			\item Poor households respond more, rich households less
-		
-			\item Shows that a calibrated buffer-stock model can account for this if adding non-homothetic preferences
-			
-			\item Implication 1: the rise in income inequality can explain the secular decline in the risk-free interest rate
-			
-			\item Implication 2: Secular increase in debt may imply secular decline in aggregate consumption demand, causing ``secular stagnation'' (Mian-Straub-Sufi, QJE 2021)
-		\eit
-\eit
+\item A theoretically consistent approach must allow for state-dependence, e.g., 
+\begin{align*}
+	\Delta c_{it}(m_{it}) &= \phi_{t}(m_{it}) \nu_{it} + \psi_{t}(m_{it}) \epsilon_{it} + \xi_{it}
+\end{align*}
+but in survey data, there is not enough power to estimate state-dependent parameters
+
+\item Nowadays, we have access to large-scale administrative data with minimal measurement error in income
+
+\item Carlsson-D'Amico-Oberg-Skans-Walentin (2026): derive an optimal estimator for state-dependent pass-through cofficients under no measurement error in income, maintaining the assumptions of the canonical buffer-stock savings model
+
 \eit
 
 \end{frame}
 
-\begin{frame}{Kaplan-Violante (Ecmtra 2014): Motivation}
+
+\begin{frame}{Carlsson-D'Amico-Oberg-Skans-Walentin (2026)}
+
+	\begin{figure}
+		\centering
+		\includegraphics[width=0.9\textwidth]{figures/OLS_vs_coworker_gradient_singles_MA2.png}
+	\end{figure}
+	
+	\vspace{-1.4em}
+	
+	\end{frame}
+
+\begin{frame}{Kaplan-Violante (Econometrica 2014): Motivation}
 
 \bit
 \setlength\itemsep{1em}
-\item Natural experiments suggest that the within-a-quarter \emph{aggregate} MPC out of transitory income shocks is quite large
-\bit
-\setlength\itemsep{0.5em}
-	\item In 2001 and 2007-2008, US government provided cash transfers to households as part of stimulus program, with random timing of the transfer
-	
-	\item Johnson-Parker-Souleles (AER 2006) and Parker-Souleles-Johnson-McClelland (AER 2011) exploits random timing to estimate MPCs of approximately $0.25$
-	
-	\item See also Misra-Surico (AEJmacro, 2014) and Jappelli-Pistaferri (AEJmacro, 2014)
-\eit
+\item Natural experiments suggest that the within-quarter \emph{aggregate} MPC out of transitory income shocks is quite large
+
+\item In 2001 and 2007-2008, the US government provided cash transfers to households as part of stimulus programs, with random timing of the transfer
+
+\item Johnson-Parker-Souleles (AER 2006) and Parker-Souleles-Johnson-McClelland (AER 2011) exploit random timing to estimate MPCs of approximately $0.25$
+
+\item As we saw above, this seems corroborated when applying BPP to high-quality admin data
+
 
 \eit
 
 \end{frame}
 
-\begin{frame}{Kaplan-Violante (Ecmtra 2014): Motivation}
+\begin{frame}{Kaplan-Violante (Econometrica 2014): Motivation}
 
 \bit
 \setlength\itemsep{1em}
 
 \item We know from buffer-stock theory that individual MPC can be large among wealth-poor households
 
-\item However, households with little net assets account for small share of total consumption $\Rightarrow$ cannot explain why aggregate MPC is large
+\item However, households with little net assets account for a small share of total consumption $\Rightarrow$ cannot explain why aggregate MPC is large
 
 \item How to make sense of this?
 
@@ -1567,7 +1508,7 @@ to estimate $\phi_t, \psi_t$ given the income variances
 	\item Housing wealth, retirement accounts...
 \eit
 
-\item It is primarily the access to liquid wealth that should determine the ability of households to insure against transitory income shocks
+\item It is primarily access to liquid wealth that should determine households' ability to insure against transitory income shocks
 
 \item Introduce the concept of ``wealthy hand-to-mouth'' (wealthy HtM) households: households with a lot of assets but little liquid assets
 
@@ -1626,7 +1567,7 @@ to estimate $\phi_t, \psi_t$ given the income variances
 
 \end{frame}
 
-\begin{frame}{Kaplan-Violante: full model additions}
+\begin{frame}{Kaplan-Violante: Full model additions}
 
 \bit
 \setlength\itemsep{1em}
@@ -1656,7 +1597,7 @@ to estimate $\phi_t, \psi_t$ given the income variances
 %\setlength\itemsep{0.5em}
 %\item Fixed cost $\kappa$ means that you want to make as few transactions in illiquid assets as possible
 %\bit
-%	\item When not making transacation, the household behaves as in a standard buffer-stock model
+%	\item When not making a transaction, the household behaves as in a standard buffer-stock model
 %	\item When making transaction, consumption and liquid assets jump
 %\eit
 %
@@ -1678,13 +1619,13 @@ to estimate $\phi_t, \psi_t$ given the income variances
 \bit
 \setlength\itemsep{0.3em}
 
-\item A model period is a quarter, period $0$ is age 20.
+\item A model period is a quarter; period $0$ is age 20
 
 \item Since $R^{\text{ill}}>R^{\text{liq}}$, saving in illiquid assets maximizes lifetime consumption
 
 \item Fixed cost $\kappa$ means that you want to make as few transactions in illiquid assets as possible $\Rightarrow$ illiquid assets provide poor insurance
 %\bit
-%	\item When not making transacation, the household behaves as in a standard buffer-stock model
+%	\item When not making a transaction, the household behaves as in a standard buffer-stock model
 %	\item When making transaction, consumption and liquid assets jump
 %\eit
 
@@ -1732,29 +1673,29 @@ to estimate $\phi_t, \psi_t$ given the income variances
 
 \bit
 \setlength\itemsep{1em}
-\item In conventional (rep-agent) macro models, MPC is low, and fluctuations in income therefore play little role for fluctuations in aggregate demand
+\item In conventional representative-agent macro models, MPC is low, and fluctuations in income therefore play little role in fluctuations in aggregate demand
 \bit
 \setlength\itemsep{0.5em}
 	\item This is counterintuitive and at odds with micro-level evidence
 
 	\item KV provides a theory for why income fluctuations may matter
 
-	\item Important for the development of Heterogeneous-Agent New-Keynesian (HANK) models (more about this later...)
+	\item Important for the development of heterogeneous-agent New Keynesian (HANK) models (more about this later...)
 \eit
 
-\item An alternative theory to explain high aggregate MPC: some households are just not very optimizing and consume directly what they get independently of their financial situation
+\item An alternative theory to explain high aggregate MPC: some households are simply not very optimizing and consume directly out of what they receive, independently of their financial situation
 \bit
 \setlength\itemsep{0.5em}
-	\item See, e.g., Campbell-Mankiw (NBER annual, 1989)
+	\item See, e.g., Campbell-Mankiw (NBER Annual, 1989)
 	
-	\item Fagereng-Holm-Natvik (AEJmacro 2021): Using Norwegian register data on consumption response to lottery winnings, they show aggregate MPC is smoothly declining with time
+	\item Fagereng-Holm-Natvik (AEJ Macro 2021): using Norwegian register data on consumption responses to lottery winnings, they show that aggregate MPC declines smoothly over time
 	
-	\item Auclert-Rognlie-Straub (JPE 2025): Alternative behavioral theory has a hard time explaining the time pattern in MPC, but KV's two-asset model can 
+	\item Auclert-Rognlie-Straub (JPE 2025): an alternative behavioral theory has a hard time explaining the time pattern in MPC, but KV's two-asset model can 
 \eit
 
-\item Recent exploratory approaches to understanding heterogeneity in MPC 
+\item Recent exploratory approaches to understanding heterogeneity in MPCs 
 \bit
-	\item Aguiar-Bils-Boar (REStud 2025), Colarieti-Mei-Stantcheva (2025), Carlsson-D'Amico-{\"O}berg-Skans-Walentin (2025)
+	\item Aguiar-Bils-Boar (REStud 2025), Colarieti-Mei-Stantcheva (2025), Carlsson-D'Amico-{\"O}berg-Skans-Walentin (2026b)
 \eit
 \eit
 
@@ -1766,7 +1707,7 @@ to estimate $\phi_t, \psi_t$ given the income variances
 \setlength\itemsep{1em}
 \item Buffer-stock savings model provides a powerful framework for quantitative and empirical research of consumption-savings dynamics
 
-\item Big literature - we've only glanced at some  applications today. 
+\item There is a large literature - we have only glanced at some applications today
 
 \item Accompanied by a large literature on estimating household earnings dynamics
 %\bit
@@ -1774,14 +1715,14 @@ to estimate $\phi_t, \psi_t$ given the income variances
 %\item See papers by Domeij, Klein, Druedahl, Jorgensen for studies using Scandinavian registers
 %\eit
 
-\item Research in this area operates at the intersection of theory and micro data, often using both structural and reduced-form approaches
+\item Research in this area operates at the intersection of theory and microdata, often using both structural and reduced-form approaches
 
 %Some additional inspiration: 
 %\bit
 %\setlength\itemsep{0.5em}	
-%	\item Krueger-Perri (ReStud, 2006): BS model with endogeneous credit constraint can tightly fit the evolution of income and consumption inequality in the US
+%	\item Krueger-Perri (ReStud, 2006): BS model with endogenous credit constraint can tightly fit the evolution of income and consumption inequality in the US
 %
-%	\item Berger-Vavra (Ecmtra, 2015): BS model with irreversible durable investments suggest that aggregate MPC w.r.t. durable goods declines in bad times
+%	\item Berger-Vavra (Econometrica, 2015): BS model with irreversible durable investments suggests that aggregate MPC with respect to durable goods declines in bad times
 %	
 %	\item Fagereng-Guiso-Pistaferri (ReStud, 2019): Norwegian matched employer-employee data to identify shocks to household income risk suggest big effects on portfolio rebalancing, consistent with BS model
 %\eit
