@@ -1,5 +1,55 @@
+\pdfminorversion=6
 \documentclass[9pt]{beamer}
 \usetheme{Boadilla}
+
+\definecolor{brandblue}{RGB}{35,74,132}
+\definecolor{brandbluedark}{RGB}{24,49,91}
+\definecolor{brandgray}{RGB}{68,68,68}
+\definecolor{softgray}{RGB}{245,247,250}
+\definecolor{accentgray}{RGB}{226,232,240}
+
+\setbeamercolor{normal text}{fg=brandgray,bg=white}
+\setbeamercolor{structure}{fg=brandblue}
+\setbeamercolor{title}{fg=brandbluedark}
+\setbeamercolor{frametitle}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{section divider}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{caption name}{fg=brandbluedark}
+\setbeamercolor{author in head/foot}{fg=white,bg=brandbluedark}
+\setbeamercolor{title in head/foot}{fg=brandbluedark,bg=accentgray}
+\setbeamercolor{block title}{fg=brandbluedark,bg=softgray}
+\setbeamercolor{block body}{fg=brandgray,bg=white}
+
+\setbeamerfont{title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{author}{size=\normalsize}
+\setbeamerfont{frametitle}{size=\large,series=\bfseries}
+\setbeamerfont{section title}{size=\LARGE,series=\bfseries}
+\setbeamerfont{footline}{size=\scriptsize}
+
+\setbeamertemplate{itemize item}[circle]
+\setbeamertemplate{itemize subitem}[triangle]
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamersize{text margin left=0.9em,text margin right=0.9em}
+
+\setbeamertemplate{title page}
+{
+	\vspace*{0.15\paperheight}
+	\begin{beamercolorbox}[wd=\textwidth,sep=1.1em,left]{title}
+		{\usebeamerfont{title}\inserttitle\par}
+		\vspace{0.8em}
+		{\usebeamerfont{author}\insertauthor\par}
+	\end{beamercolorbox}
+	\vfill
+}
+
+\newcommand{\sectiondivider}[1]{
+	\begin{frame}[plain]
+		\vfill
+		\begin{beamercolorbox}[wd=.84\textwidth,sep=1.1em,center,rounded=true]{section divider}
+			{\usebeamerfont{section title} #1}
+		\end{beamercolorbox}
+		\vfill
+	\end{frame}
+}
 
 \makeatother
 \setbeamertemplate{footline}
@@ -25,23 +75,31 @@
 \usepackage{appendixnumberbeamer}
 
 \usepackage[authoryear]{natbib}
-\usepackage[latin1]{inputenc}
-\usepackage[T1]{fontenc}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T1]{fontenc}
+  \usepackage{lmodern}
+\else
+  \usepackage{fontspec}
+  \defaultfontfeatures{Ligatures=TeX}
+\fi
 \usepackage{caption}
 \usepackage{amsmath, amssymb}
 \usepackage{epstopdf}
 \usepackage{graphicx}
-\usepackage{lmodern}
 \usepackage{xcolor}
 \usepackage{xpatch}
 \usepackage{multirow}
 
 \usepackage{amsmath,theorem,amssymb,graphicx, pgfplots, tabularx, placeins}
+\pgfplotsset{compat=1.18}
 \usepackage{dsfont}
 \usepackage{caption}
 %\usepackage{subcaption}
 %\usepackage{subcaption}
 \setbeamertemplate{caption}{\raggedright\insertcaption\par}
+\captionsetup{font=scriptsize,labelfont=bf}
 %\setbeamertemplate{footline}[frame number]
 \usepackage{csquotes}
 \usepackage{bm}
@@ -67,22 +125,25 @@
 \newcommand{\lb}{\label}
 \newcommand{\re}{\eqref}
 
-\title[Course Summary]{Macroeconomics II, Lecture XIV:\\
+\title[Course Summary]{\large Macroeconomics II, Lecture XIV:\\
 	Course Summary and Q\&A}
 \author{Erik {\"O}berg}
 \date{}
 
 \begin{document}
 
-\maketitle
+\begin{frame}[plain,noframenumbering]
+\vspace*{-1.5em}
+\titlepage
+\end{frame}
 
 \begin{frame}{This course}
 \begin{itemize}
 	\setlength\itemsep{1.5em}
 	
 	\item \textbf{Business-cycle frameworks:} RBC, NK
-	\item \textbf{Fricitional labor markets: }McCall, Burdett-Mortensen, DMP
-	\item \textbf{Incomplete asset markets: }Consumption-savings dynamics, Aiyagari
+	\item \textbf{Frictional labor markets:} McCall, Burdett-Mortensen, DMP
+	\item \textbf{Incomplete asset markets:} Consumption-savings dynamics, Aiyagari
 \end{itemize}
 \end{frame}
 
@@ -91,18 +152,18 @@
 \begin{itemize}
 	\setlength\itemsep{1.5em}
 		
-	\item Summarize the course material, by putting these frameworks together in one model: a Heterogenous-Agent New-Keynesian model with Search And Matching frictions --- a \bf HANK \& SAM \normalfont  model
+	\item Summarize the course material by putting these frameworks together in one model: a Heterogeneous-Agent New Keynesian model with search-and-matching frictions --- a \bf HANK-SAM \normalfont model
 	
 	\item Use this ``meta model'' to understand some questions at the research frontier
 	
-	\item First: some history of >recent< ideas
+	\item First: some history of recent ideas
 \end{itemize}
 \end{frame}
 
 \begin{frame}{HANK models}
 \begin{itemize}
 	\setlength\itemsep{1.5em}
-	\item \textbf{Heterogeneous Agents New Keynesian} models: NK business cycle
+	\item \textbf{Heterogeneous-Agent New Keynesian} models: NK business-cycle
 	models with incomplete asset markets (and therefore household heterogeneity)
 	\item Why interesting?
 	\item Consider the vanilla RANK model:
@@ -123,7 +184,7 @@
 		\hat{i}_{t} & = & \phi\pi_{t}+\nu_{t}\\
 		\pi_{t} & = & \beta E_{t}\pi_{t+1}+\kappa\hat{y}_{t}\\
 		\hat{c}_{t} & = & -(\hat{i}_{t}-E_{t}\pi_{t+1})+E_{t}\hat{c}_{t+1}\\
-		\hat{c_{t}} & = & \hat{y_{t}}
+		\hat{c}_{t} & = & \hat{y}_{t}
 	\end{eqnarray*}
 	\item What is the transmission mechanism of an MP shock to output? Roughly:
 	\begin{enumerate}
@@ -143,18 +204,18 @@
 \begin{itemize}
 	\setlength\itemsep{0.5em}	
 	
-	\item Macro evidence: No (see, e.g., Yogo, REStat 2004; Canzoneri-Cumby-Dilba,
+	\item Macro evidence: No (see, e.g., Yogo, REStat 2004; Canzoneri-Cumby-Diba,
 	JME 2007)
 	\item Micro evidence: Limited, but also no (see Best-Cloyne-Ilzetski-Kleven,
 	REStud 2020)
 \end{itemize}
 
-\item Even though evidence shows that wages, unemployment, financial wealth and income risk respond
-to monetary policy, these responses are close-to-irrelevant to the representive (PIH) households
+\item Even though evidence shows that wages, unemployment, financial wealth, and income risk respond
+to monetary policy, these responses are close-to-irrelevant to the representative (PIH) household
 
 \item This is counterintuitive and at odds with what we know from the micro data
 \begin{itemize}
-	\item Recall lecture 12: surmounting evidence of high MPCs
+	\item Recall lecture 12: mounting evidence of high MPCs
 \end{itemize}
 
 \item HANK models offer an alternative theory of aggregate demand
@@ -164,34 +225,34 @@ to monetary policy, these responses are close-to-irrelevant to the representive 
 \begin{frame}{HANK models}
 
 \begin{itemize}
-	\setlength\itemsep{1.5em}
-	\item HANK models replaces the representative (PIH) household with a distribution of households that faces limited insurance (as in Ayiagari) 
+	\setlength\itemsep{1.2em}
+	\item HANK models replace the representative (PIH) household with a distribution of households that face limited insurance (as in Aiyagari) 
 	\bit
 		\setlength\itemsep{0.5em}
 	
 	
 	\item Emphasizes building models of household consumption-saving decisions that are consistent with the rich heterogeneity seen in micro data
 	
-	\item By so doing, they present a theory of aggregate demand that put fluctuations in household income, wealth, credit and risk at center stage
+	\item By so doing, they present a theory of aggregate demand that puts fluctuations in household income, wealth, credit, and risk at center stage
 	
 	\eit
 	
-	\item Early contributions: Mckay-Reis (Ecmtra 2016); Guerrieri-Lorenzoni (AER 2017); Kaplan-Moll-Violante (AER 2018)
+	\item Early contributions: McKay-Reis (Ecmtra 2016); Guerrieri-Lorenzoni (AER 2017); Kaplan-Moll-Violante (AER 2018)
 	
 	\item Exploding literature, small excerpt of recent publications (most of it is still in the making):
 	
 	\bit
 		\setlength\itemsep{0.5em}
 			
-		\item \bf Transmission mechanisms: \normalfont Auclert (AER 2019); McKay-Wieland (Ecmtra 2021); Maxted-Holm-Laibson (QJE 2024 )
+		\item \bf Transmission mechanisms: \normalfont Auclert (AER 2019); McKay-Wieland (Ecmtra 2021); Maxted-Holm-Laibson (QJE 2024)
 		
-		\item \bf Analytical frameworks: \normalfont Broer-Hansen-Krusell-Öberg (REStud 2020); Acharya-Challe-Dogra (AER 2023); Bilbiie (REstud 2025)
+		\item \bf Analytical frameworks: \normalfont Broer-Hansen-Krusell-{\"O}berg (REStud 2020); Acharya-Challe-Dogra (AER 2023); Bilbiie (REStud 2025)
 		
-		\item \bf Estimation/Identification: \normalfont Auclert-Rognlie-Straub (JPE 2024), Wolf (JPE 2025) Bayer-Born-Luetticke (AER 2024), 
+		\item \bf Estimation/Identification: \normalfont Auclert-Rognlie-Straub (JPE 2024), Wolf (JPE 2025), Bayer-Born-Luetticke (AER 2024)
 	
 		\item \bf Optimal policy: \normalfont Bhandari-Evans-Golosov-Sargent (Ecmtra 2021); Le Grand-\{Martin-Baillon\}-Ragot (REStud 2025) 
 		
-		\item \bf Evidence: \normalfont Cloyne-Ferriera-Surico (REStud 2020); Holm-Paul-Tischbirek (JPE 2021); Patterson (AER 2023) 
+		\item \bf Evidence: \normalfont Cloyne-Ferreira-Surico (REStud 2020); Holm-Paul-Tischbirek (JPE 2021); Patterson (AER 2023) 
 	\eit
 	
 	
@@ -238,25 +299,25 @@ to monetary policy, these responses are close-to-irrelevant to the representive 
 	\item \textbf{Ravn-Sterk (JME 2017; JEEA 2021), Rendahl-Riegler-Den Haan
 		(JEEA 2019): }HANK-SAM interaction is a source of amplification
 	\item \textbf{McKay-Reis (Ecmtra 2016; REStud 2021), Kekre (REStud 2024):
-	}HANK-SAM interaction raises the value of automatic stabilizers (esp
-	unempl. insurance)
+	}HANK-SAM interaction raises the value of automatic stabilizers (especially
+	unemployment insurance)
 	\item \textbf{Challe (AEJmacro 2020):} HANK-SAM interaction changes optimal
 	monetary policy
-	\item \textbf{Broer-Druedahl-Harmenberg-Öberg (2025): } A unified
+	\item \textbf{Broer-Druedahl-Harmenberg-{\"O}berg (2025):} A unified
 	framework to evaluate the cost-effectiveness of different fiscal stabilization
 	policies
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Broer-Druedahl-Harmenberg-Öberg (2025)}
+\begin{frame}{Broer-Druedahl-Harmenberg-{\"O}berg (2025)}
 
 \begin{block}{Research question}
-	Which fiscal policies are most cost effective in stabilizing unemployment?
+	Which fiscal policies are most cost-effective in stabilizing unemployment?
 \end{block}
 
 
 \begin{block}{Motivation}
-	Resurgence of countercyclical fiscal policies as stabilization tool
+	Resurgence of countercyclical fiscal policies as a stabilization tool
 	\begin{itemize}
 		\item Government: expenditures
 		\item Households: cash transfers + UI increases and extensions
@@ -265,7 +326,7 @@ to monetary policy, these responses are close-to-irrelevant to the representive 
 \end{block}
 
 \begin{block}{Approach}
-	Compute fiscal multipliers for different fiscal policies in an \bf HANK-SAM \normalfont model with empirically grounded interaction between firm hiring-and-firing decisions and consumption-saving decisions of households. 
+	Compute fiscal multipliers for different fiscal policies in an \bf HANK-SAM \normalfont model with an empirically grounded interaction between firms' hiring-and-firing decisions and households' consumption-saving decisions. 
 \end{block}
 
 
@@ -277,19 +338,19 @@ to monetary policy, these responses are close-to-irrelevant to the representive 
 		\setlength\itemsep{1em}
 	\item \textbf{Households:}
 	\begin{enumerate}
-		\item \textbf{Workers: }can be \emph{employed }or \emph{unemployed}
+		\item \textbf{Workers:} can be \emph{employed }or \emph{unemployed}
 		\begin{itemize}
-			\item Employed: Earn fixed real wage $W$, pay labor income taxes
-			\item Unemployed: enjoy UI benefits
+			\item Employed: earn fixed real wage $W$, pay labor income taxes
+			\item Unemployed: receive UI benefits
 		\end{itemize}
-		\item \textbf{Capitalists: }collect all firm profits, do not work, risk
+		\item \textbf{Capitalists:} collect all firm profits, do not work, risk
 		neutral
 	\end{enumerate}
 	\item \textbf{Producers:}
 	\begin{enumerate}
 		\item \textbf{Intermediate good producers}
 		\begin{itemize}
-			\item Labor $\Rightarrow$intermediate goods
+			\item Labor $\Rightarrow$ intermediate goods
 			\item Frictional labor market, CRS matching function
 			\item Sluggish vacancy posting due to \uline{idiosyncratic stochastic entry
 				cost}
@@ -310,7 +371,7 @@ to monetary policy, these responses are close-to-irrelevant to the representive 
 	\begin{enumerate}
 		\item Sets interest rate according to Taylor rule
 		
-		\item collects taxes, pays UI, issues debt
+		\item Collects taxes, pays UI, issues debt
 		
 		\item Today: focus on household transfer spending shocks (cash transfers + UI increases and extensions)
 	\end{enumerate}
@@ -323,7 +384,7 @@ to monetary policy, these responses are close-to-irrelevant to the representive 
 
 \includegraphics[bb=0bp 0bp 656bp 190bp,clip,width=\linewidth]{figs/model_diagram}
 
-To a first order, the equilibrium can be written as
+To first order, the equilibrium can be written as
 \begin{align}
 \boldsymbol{r^{real}} & =M_{HA}\boldsymbol{inc}+M_{d,r}\boldsymbol{d}, \nonumber \\
 \boldsymbol{p^{x}} & =M_{NK}\boldsymbol{r^{real}},\label{eq:NK-1-2-1} \nonumber \\
@@ -340,7 +401,7 @@ and can thus be represented by a \emph{directed cycle graph.}
 
 \includegraphics[bb=0bp 0bp 656bp 190bp,clip,width=\linewidth]{figs/model_diagram}
 
-To a first order, the solution is given by
+To first order, the solution is given by
 \begin{equation}
 \boldsymbol{inc}=\underset{\text{GE effect}}{\underbrace{\mathcal{G}}}\times\underset{\text{first round PE effect}}{\underbrace{M_{\text{SAM}}M_{\text{NK}}\underset{\text{direct}}{\underbrace{M_{d,r}\boldsymbol{d}}}}}, \nonumber
 \end{equation}
@@ -360,9 +421,9 @@ where
 
 \textbf{Implies:}
 \begin{enumerate}
-	\item GE amplification decomposed into three (HA-NK-SAM) blocks, admits partial identification
-	\item Direct effects sufficient for policy comparison
-	\item Relative multiplier of different policies invariant to parameter outside HA block 
+	\item GE amplification decomposes into three (HA-NK-SAM) blocks, admitting partial identification
+	\item Direct effects are sufficient for policy comparison
+	\item Relative multipliers of different policies are invariant to parameters outside the HA block 
 \end{enumerate}
 
 \end{frame}
@@ -371,11 +432,11 @@ where
 \begin{frame}{Policy paths and fiscal costs}
 
 \centering%
-\begin{tabular}{ccc}
-\includegraphics[width=0.45\linewidth]{results/policies_Y_titled} &  & \includegraphics[width=0.45\linewidth]{results/policies_tax_titled}\tabularnewline
+\begin{tabular}{cc}
+\includegraphics[width=0.44\linewidth]{results/policies_Y_titled} & \includegraphics[width=0.44\linewidth]{results/policies_tax_titled}\tabularnewline
 \end{tabular}
 \begin{itemize}
-\item Baseline policy: Persistent \textbf{G} shock ($\rho_{G}=0.965$).
+\item Baseline policy: persistent \textbf{G} shock ($\rho_{G}=0.965$).
 \item Other policies chosen to yield identical output paths
 \item Yet, starkly different paths of tax revenues $\Rightarrow$ different multipliers
 \end{itemize}
@@ -391,10 +452,10 @@ where
 \end{table}
 \vspace{1cm}
 \begin{itemize}
-	\item Fiscal Multiplier $= \frac{\sum output_t}{\sum spending_t}$
+	\item Fiscal multiplier $= \frac{\sum output_t}{\sum spending_t}$
 	
-	\item Strong dispersion in multipliers.
-	\item Retention subsidies most, universal transfers least stimulative
+	\item Strong dispersion in multipliers
+	\item Retention subsidies are most stimulative; universal transfers are least stimulative
 \end{itemize}
 \end{frame}
 
@@ -402,7 +463,7 @@ where
 \begin{frame}{Determinants of fiscal multipliers}
 \vspace{1cm}
 \begin{itemize}
-	\item Identify determinants by reducing frictions one-by-one
+	\item Identify determinants by reducing frictions one by one
 \end{itemize}
 \end{frame}
 %
@@ -444,7 +505,7 @@ et al 2024, Hagedorn et al 2023)
 \item Government-consumption multiplier increases with ...
 \begin{itemize}
 \item Nominal rigidity, passive MP, debt-financing, less-Ricardian HHs
-\item SAM frictions, wage rigidity, MPC o/o profits
+\item SAM frictions, wage rigidity, MPC out of profits
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -486,7 +547,7 @@ et al 2024, Hagedorn et al 2023)
 \begin{itemize}
 \item Relative multipliers of subsidies $\approx$ unaffected by non-SAM
 frictions
-\item Less nominal rigidity: subsidies more effective wrt HH transfers/$G$
+\item Less nominal rigidity: subsidies are more effective relative to HH transfers/$G$
 \end{itemize}
 \end{frame}
 %
@@ -499,9 +560,9 @@ frictions
 \end{small}
 
 \begin{itemize}
-\item {\small Hiring subsidy more effective with higher entry/lower separation
+\item {\small Hiring subsidy is more effective with higher entry/lower separation
 elasticity}{\small\par}
-\item Lower MPC o/o profits weakens both subsidies
+\item Lower MPC out of profits weakens both subsidies
 \end{itemize}
 \end{frame}
 
@@ -519,13 +580,13 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item Exam 2023 May Question 2: First sub question: Could you explain a bit more how we should arrive at this conclusion from the solutions: ``Given that the shock occurs in the Firm optimality condition (3), lets take as given that inflation growth  declines.? This of course sounds reasonable to assume but I am a bit confused what to assume and how to proceed. If we did not start by this assumption, can we still arrive at the right description of what happens in the problem?''
+%	\item Exam 2023 May Question 2: First sub-question: Could you explain a bit more how we should arrive at this conclusion from the solutions: ``Given that the shock occurs in the firm optimality condition (3), let's take as given that inflation growth declines. This of course sounds reasonable to assume but I am a bit confused about what to assume and how to proceed. If we did not start with this assumption, can we still arrive at the right description of what happens in the problem?''
 %	
 %	\item Lecture 9: slide 36: Could you show how to arrive at the wage curve when we have endogenous separation? 
 %	
 %	\item How should one think when stating a social planner problem? It is not clear which components to include
 %	
-%	\item  If you have found the optimal conditions for, for example, households and companies. Why should you stop at restrictions and other conditions to find the solution in general equilibrium. This is done, among other things, in growth models, and in the Aiygari model?
+%	\item If you have found the optimality conditions for, for example, households and companies, why should you stop at restrictions and other conditions to find the solution in general equilibrium? This is done, among other things, in growth models, and in the Aiygari model?
 %	
 %	\item How should one think when starting to solve a specific problem. Which equations to include, and which to not include?
 %	
@@ -536,13 +597,13 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item I am a bit confused by the Rothschild critique and the Diamond paradox in the McCall model. I think we have already discussed this, but I am still confused: why firms do not offer an epsilon above the wage set by all other firms? In the Burdett-Mortensen this is the reason for which we don?t have a degenerate wage distribution, but why it is not the case here?
+%	\item I am a bit confused by the Rothschild critique and the Diamond paradox in the McCall model. I think we have already discussed this, but I am still confused: why do firms not offer an epsilon above the wage set by all other firms? In the Burdett-Mortensen model, this is the reason for which we don't have a degenerate wage distribution, but why is this not the case here?
 %	
-%	\item In the Burdett-Mortensen, the support of the wage distribution is $[w_R, y]$. But given that the profit is equal for every wage in the support, this means that every firm is making zero profits (because at least one firm will offer exactly y). Is that the case? Also, does the wage distribution imply that every wage has a positive probability of being offered (i.e., there is at least one firm offering a wage in the support) or that every firm is offering every wage with positive probability? I read somewhere that they were saying``equilibrium has to be a mixed-strategy equilibriu'', and this to me sounds like the latter hypothesis.
+%	\item In the Burdett-Mortensen model, the support of the wage distribution is $[w_R, y]$. But given that the profit is equal for every wage in the support, this means that every firm is making zero profits (because at least one firm will offer exactly y). Is that the case? Also, does the wage distribution imply that every wage has a positive probability of being offered (i.e., there is at least one firm offering a wage in the support) or that every firm is offering every wage with positive probability? I read somewhere that they were saying ``equilibrium has to be a mixed-strategy equilibrium'', and this to me sounds like the latter hypothesis.
 %	
-%	\item DMP: Statics, slide 21/43: ?Given theta, we can solve for {v,u}?, what does it mean? Because it seems to me that we end up with theta=v/u, but this we already knew from the definition of theta.
+%	\item DMP: Statics, slide 21/43: ``Given theta, we can solve for {v,u}'', what does it mean? Because it seems to me that we end up with theta=v/u, but this we already knew from the definition of theta.
 %	
-%	\item Incomplete markets: basics, slide 32/42: if credit constraint binds, MPC is high. Why is that? Is it because this implies that the marginal utility of consumption today is higher than the expected marginal value of assets tomorrow $V_m(M?)$?
+%	\item Incomplete markets: basics, slide 32/42: if the credit constraint binds, MPC is high. Why is that? Is it because this implies that the marginal utility of consumption today is higher than the expected marginal value of assets tomorrow $V_m(M')$?
 %	
 %\end{itemize}
 %\end{frame}
@@ -552,7 +613,7 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item Exam 2023 May Question 2: First sub question: Could you explain a bit more how we should arrive at this conclusion from the solutions: ``Given that the shock occurs in the Firm optimality condition (3), lets take as given that inflation growth  declines.? This of course sounds reasonable to assume but I am a bit confused what to assume and how to proceed. If we did not start by this assumption, can we still arrive at the right description of what happens in the problem?''
+%	\item Exam 2023 May Question 2: First sub-question: Could you explain a bit more how we should arrive at this conclusion from the solutions: ``Given that the shock occurs in the firm optimality condition (3), let's take as given that inflation growth declines. This of course sounds reasonable to assume but I am a bit confused about what to assume and how to proceed. If we did not start with this assumption, can we still arrive at the right description of what happens in the problem?''
 %	
 %\end{itemize}
 %\end{frame}
@@ -568,7 +629,7 @@ elasticity}{\small\par}
 %	\begin{eqnarray*}
 %	\text{Intratemporal hh optimality:} && \hat \omega_t = \hat c_t + \varphi \hat n_t   \\
 %	\text{Intertemporal hh optimality:} && \hat c_t =  - (\hat i_t - E_t \pi_{t+1}) + E_t \hat c_{t+1}  \\
-%	\text{Firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t + \nu_t  \\
+%	\text{firm optimality:} && \pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t + \nu_t  \\
 %	\text{Marginal cost:} && \widehat{mc}_t = \hat \omega_t  \\
 %	\text{Goods clearing:} && \hat c_t = \hat y_t \\
 %	\text{Labor clearing:} && \hat y_t = \hat n_t  \\
@@ -595,7 +656,7 @@ elasticity}{\small\par}
 %	
 %	\item General approach to questions like this: ``Guess and verify'' 
 %	
-%	\item You can start in many places, my suggested solution starts in Firm optimality condition
+%	\item You can start in many places, my suggested solution starts in firm optimality condition
 %	\begin{eqnarray*}
 %		\pi_t = \beta E_t \pi_{t+1} + \lambda \widehat{mc}_t + \nu_t  
 %	\end{eqnarray*}
@@ -606,7 +667,7 @@ elasticity}{\small\par}
 %
 %	\item My reasoning:
 %	\bit
-%		\item Firm optimality: holding $\hat mc_t$ constant, positive shock depresses inflation growth $\beta E_t \pi_{t+1}-\pi_t<0$. So lets assume $\beta E_t \pi_{t+1}-\pi_t<0$
+%		\item firm optimality: holding $\hat mc_t$ constant, positive shock depresses inflation growth $\beta E_t \pi_{t+1}-\pi_t<0$. So let's assume $\beta E_t \pi_{t+1}-\pi_t<0$
 %
 %		\item Unique bounded equilibrium  $\Rightarrow$ inflation $\pi_t>0$ 
 %
@@ -720,7 +781,7 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item For any model, the unconstrained social planner optimize ``social welfare'' taking ``technological constraints'' as given
+%	\item For any model, the unconstrained social planner optimizes ``social welfare'' taking ``technological constraints'' as given
 %	\bit
 %		\item Typically, social welfare $=$ Utilitarian welfare
 %		
@@ -751,7 +812,7 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item A constrained social planner typically refers to a planner that can set the decisions of all agents, but need to respect the constraints each agent face
+%	\item A constrained social planner typically refers to a planner that can set the decisions of all agents, but needs to respect the constraints each agent faces
 %
 %	
 %	\item Constrained planner's problem in the DMP model
@@ -772,7 +833,7 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item  \color{black} If you have found the optimal conditions for, for example, households and companies. Why should you stop at restrictions and other conditions to find the solution in general equilibrium. This is done, among other things, in growth models, and in the Aiygari model?
+%	\item  \color{black} If you have found the optimality conditions for, for example, households and companies, why should you stop at restrictions and other conditions to find the solution in general equilibrium? This is done, among other things, in growth models, and in the Aiygari model?
 %	
 %\end{itemize}
 %\end{frame}
@@ -788,7 +849,7 @@ elasticity}{\small\par}
 %	
 %	\item If this can be done analytically, we get a closed-form expression for that function
 %	
-%	\item If not, we can off characterize the model anlytically (N equations in N unknowns), as we do with the RBC or the NK model
+%	\item If not, we can often characterize the model analytically (N equations in N unknowns), as we do with the RBC or the NK model
 %	
 %	\item Sometimes, we can extract properties about the model behavior without fully solving it
 %	
@@ -799,7 +860,7 @@ elasticity}{\small\par}
 %		\end{eqnarray} 
 %	\eit  
 %	
-%	\item When it comes to answering questions on the exam, go as far as you need in terms of ``solving'' model in order to adequatly answer the question
+%	\item When it comes to answering questions on the exam, go as far as you need in terms of ``solving'' the model in order to adequately answer the question
 %	
 %\end{itemize}
 %\end{frame}
@@ -814,7 +875,7 @@ elasticity}{\small\par}
 %	
 %	\item Sum over all households to get total asset supply
 %	
-%	\item Asset demand come from Firm F.O.C.
+%	\item Asset demand comes from Firm F.O.C.
 %	
 %	\item Equate asset demand with asset supply by inserting Firm F.O.C. in asset supply equation
 %	
@@ -849,9 +910,9 @@ elasticity}{\small\par}
 %		\setlength\itemsep{0.5em}
 %		\item In general, whenever you are not sure, state more rather than less assumptions/equations 
 %		
-%		\item Search for symmetries: Is there a way to recast to problem so that it looks like a problem we've previously looked at
+%		\item Search for symmetries: Is there a way to recast the problem so that it looks like a problem we've previously looked at
 %		
-%		\item Don't let algebraic mistakes stop you. If you some intution about how to get to the solution, write it out even if the equations are failing you
+%		\item Don't let algebraic mistakes stop you. If you have some intuition about how to get to the solution, write it out even if the equations are failing you
 %	\eit
 %	
 %\end{itemize}
@@ -862,7 +923,7 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item I am a bit confused by the Rothschild critique and the Diamond paradox in the McCall model. I think we have already discussed this, but I am still confused: why firms do not offer an epsilon above the wage set by all other firms? In the Burdett-Mortensen this is the reason for which we don?t have a degenerate wage distribution, but why it is not the case here?
+%	\item I am a bit confused by the Rothschild critique and the Diamond paradox in the McCall model. I think we have already discussed this, but I am still confused: why do firms not offer an epsilon above the wage set by all other firms? In the Burdett-Mortensen model, this is the reason for which we don't have a degenerate wage distribution, but why is this not the case here?
 %	
 %\end{itemize}
 %\end{frame}
@@ -876,11 +937,11 @@ elasticity}{\small\par}
 %
 %\item When there is only one reservation wage, this implies that if you, as a firm, offer $x+\epsilon$, when all other firms offer $x>w_{R}$, will not attract more workers
 %
-%\item Neither will you attract fewer workers in you post $x-\epsilon$
+%\item Neither will you attract fewer workers if you post $x-\epsilon$
 %
 %\item Optimal wage posting strategy in such an environment just amounts to posting $w_{R}$
 %
-%\item In Burdett-Mortensen, workers have different reservation wages, due to the fact they have different wages, and search while employed
+%\item In Burdett-Mortensen, workers have different reservation wages, because they have different wages, and search while employed
 %
 %\item Here, you can potentially attract more workers (by getting more acceptances), if you raise the wage
 %
@@ -892,7 +953,7 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item In the Burdett-Mortensen, the support of the wage distribution is $[w_R, y]$. But given that the profit is equal for every wage in the support, this means that every firm is making zero profits (because at least one firm will offer exactly y). Is that the case? Also, does the wage distribution imply that every wage has a positive probability of being offered (i.e., there is at least one firm offering a wage in the support) or that every firm is offering every wage with positive probability? I read somewhere that they were saying``equilibrium has to be a mixed-strategy equilibriu'', and this to me sounds like the latter hypothesis.
+%	\item In the Burdett-Mortensen model, the support of the wage distribution is $[w_R, y]$. But given that the profit is equal for every wage in the support, this means that every firm is making zero profits (because at least one firm will offer exactly y). Is that the case? Also, does the wage distribution imply that every wage has a positive probability of being offered (i.e., there is at least one firm offering a wage in the support) or that every firm is offering every wage with positive probability? I read somewhere that they were saying ``equilibrium has to be a mixed-strategy equilibrium'', and this to me sounds like the latter hypothesis.
 %	
 %\end{itemize}
 %\end{frame}
@@ -929,7 +990,7 @@ elasticity}{\small\par}
 %\bit
 %\setlength\itemsep{1.5em}
 %
-%\item >Expected profits< are equilized in equilibrium, not actual profits
+%\item Expected profits are equalized in equilibrium, not actual profits
 %
 %\item The equilibrium is solved for in 5 steps
 %
@@ -939,7 +1000,7 @@ elasticity}{\small\par}
 %
 %\item Positive expected profits in equilibrium!
 %
-%\item We solved for a pure-strategy equilibrium, but mixed strategy also works!
+%\item We solved for a pure-strategy equilibrium, but a mixed strategy also works!
 %
 %\eit
 %
@@ -951,11 +1012,11 @@ elasticity}{\small\par}
 %\bit
 %\setlength\itemsep{2em}
 %
-%\item No worker accept a wage $w< w_R \Rightarrow$ $\pi(w<w_R) = 0$
+%\item No worker accepts a wage $w< w_R \Rightarrow$ $\pi(w<w_R) = 0$
 %
 %\item Also, $\pi(w>y) < 0$
 %
-%\item Ergo, F has bounded support $[\underbar w, \bar w] \subset [w_R, y]$
+%\item Ergo, $F$ has bounded support $[\underbar w, \bar w] \subset [w_R, y]$
 %
 %\eit
 %
@@ -989,8 +1050,8 @@ elasticity}{\small\par}
 %
 %\item You can make excess profits by offering wage contract $\hat{w}+\epsilon$ because
 %\bit
-%\item per worker profit decrease continuously
-%\item firm competition decrease discretely 
+%\item per-worker profits decrease continuously
+%\item firm competition decreases discretely 
 %\eit
 %
 %\eit
@@ -1145,18 +1206,18 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item The six first equations solve for $\theta$
+%	\item The first six equations solve for $\theta$
 %	
 %	\item Given $\theta$, we know $\lambda_u(\theta)$
 %	
-%	\item Then we know the transition rates  of the law-of-motion for unemployment
+%	\item Then we know the transition rates of the law of motion for unemployment
 %	\begin{eqnarray}
 %	\dot{u} &=& \sigma (1-u) + \lambda_u(\theta)u \nonumber 
 %	\end{eqnarray}
 %	
 %	\item Together with some initial condition $u(0) = \underbar{u}$, we can solve for the path of unemployment $u_t$
 %	
-%	\item We solved for a steady state in $\theta$, but not in $u$!!
+%	\item We solved for a steady state in $\theta$, but not in $u$!
 %	
 %	\item Later, we showed that steady state $u=\frac{\sigma}{\sigma +\lambda_u(\theta)}$ is a very good approximation for $u_t$ given high transition rates 
 %	
@@ -1168,7 +1229,7 @@ elasticity}{\small\par}
 %\begin{itemize}
 %	\setlength\itemsep{1em}	
 %	
-%	\item Incomplete markets: basics, slide 32/42: if credit constraint binds, MPC is high. Why is that? Is it because this implies that the marginal utility of consumption today is higher than the expected marginal value of assets tomorrow $V_m(M?)$?
+%	\item Incomplete markets: basics, slide 32/42: if the credit constraint binds, MPC is high. Why is that? Is it because this implies that the marginal utility of consumption today is higher than the expected marginal value of assets tomorrow $V_m(M')$?
 %	
 %\end{itemize}
 %\end{frame}
@@ -1214,13 +1275,13 @@ elasticity}{\small\par}
 \begin{itemize}
 	\setlength\itemsep{1em}	
 	
-	\item I am a bit confused by the Rothschild critique and the Diamond paradox in the McCall model. I think we have already discussed this, but I am still confused: why firms do not offer an epsilon above the wage set by all other firms? In the Burdett-Mortensen this is the reason for which we don?t have a degenerate wage distribution, but why it is not the case here?
+	\item I am a bit confused by the Rothschild critique and the Diamond paradox in the McCall model. I think we have already discussed this, but I am still confused: why do firms not offer an epsilon above the wage set by all other firms? In the Burdett-Mortensen model, this is the reason for which we don't have a degenerate wage distribution, but why is this not the case here?
 	
-	\item In the Burdett-Mortensen, the support of the wage distribution is $[w_R, y]$. But given that the profit is equal for every wage in the support, this means that every firm is making zero profits (because at least one firm will offer exactly y). Is that the case? Also, does the wage distribution imply that every wage has a positive probability of being offered (i.e., there is at least one firm offering a wage in the support) or that every firm is offering every wage with positive probability? I read somewhere that they were saying``equilibrium has to be a mixed-strategy equilibriu'', and this to me sounds like the latter hypothesis.
+	\item In the Burdett-Mortensen model, the support of the wage distribution is $[w_R, y]$. But given that the profit is equal for every wage in the support, this means that every firm is making zero profits (because at least one firm will offer exactly y). Is that the case? Also, does the wage distribution imply that every wage has a positive probability of being offered (i.e., there is at least one firm offering a wage in the support) or that every firm is offering every wage with positive probability? I read somewhere that they were saying ``equilibrium has to be a mixed-strategy equilibrium'', and this to me sounds like the latter hypothesis.
 	
-	\item DMP: Statics, slide 21/43: ?Given theta, we can solve for {v,u}?, what does it mean? Because it seems to me that we end up with theta=v/u, but this we already knew from the definition of theta.
+	\item DMP: Statics, slide 21/43: ``Given theta, we can solve for {v,u}'', what does it mean? Because it seems to me that we end up with theta=v/u, but this we already knew from the definition of theta.
 	
-	\item Incomplete markets: basics, slide 32/42: if credit constraint binds, MPC is high. Why is that? Is it because this implies that the marginal utility of consumption today is higher than the expected marginal value of assets tomorrow $V_m(M?)$?
+	\item Incomplete markets: basics, slide 32/42: if the credit constraint binds, MPC is high. Why is that? Is it because this implies that the marginal utility of consumption today is higher than the expected marginal value of assets tomorrow $V_m(M')$?
 	
 \end{itemize}
 \end{frame}
