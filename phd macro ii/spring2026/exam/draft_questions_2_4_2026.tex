@@ -1,0 +1,121 @@
+\documentclass[11pt]{article}
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx,pgfplots,tabularx,placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+\pgfplotsset{compat=1.18}
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Draft Exam Questions 2--4\\
+Ph.D. Macroeconomics II}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Government spending in the New-Keynesian model (20 points)}
+
+Consider the vanilla New-Keynesian model studied in class, but now suppose that the government purchases a wasteful good $G_t$, financed by lump-sum taxes. Government purchases do not enter utility or production. The steady-state government share is $s_G \equiv \bar G/\bar Y \in (0,1)$.
+
+The log-linearized household and firm optimality conditions are
+\begin{eqnarray}
+\hat c_t &=& -(\hat i_t-E_t\pi_{t+1})+E_t\hat c_{t+1}, \nonumber \\
+\pi_t &=& \beta E_t\pi_{t+1}+\kappa \widehat{mc}_t, \nonumber \\
+\hat \omega_t &=& \hat c_t+\varphi \hat n_t, \nonumber \\
+\widehat{mc}_t &=& \hat\omega_t, \nonumber \\
+\hat y_t &=& \hat n_t. \nonumber
+\end{eqnarray}
+Goods-market clearing is
+\begin{eqnarray}
+\hat y_t=(1-s_G)\hat c_t+s_G\hat g_t, \nonumber
+\end{eqnarray}
+where $\hat g_t$ follows
+\begin{eqnarray}
+\hat g_t=\rho_g \hat g_{t-1}+\epsilon^g_t, \qquad 0<\rho_g<1. \nonumber
+\end{eqnarray}
+Monetary policy is
+\begin{eqnarray}
+\hat i_t=\phi_\pi \pi_t, \qquad \phi_\pi>1. \nonumber
+\end{eqnarray}
+
+\ben
+\item Derive an expression for real marginal cost as a function of $\hat y_t$ and $\hat g_t$. Then derive the flexible-price, or natural, level of output $\hat y^n_t$. [5 points]
+
+\item Define the output gap $x_t\equiv \hat y_t-\hat y^n_t$. Derive the two-equation New-Keynesian system in $(x_t,\pi_t)$ and derive the natural real interest rate $r^n_t$. [5 points]
+
+\item Guess that $x_t=a_x\hat g_t$ and $\pi_t=a_\pi\hat g_t$. Solve for $a_x$ and $a_\pi$. What are the signs of these coefficients? How does a larger $\phi_\pi$ affect the response of the output gap? [5 points]
+
+\item Compare the allocation under flexible prices, sticky prices with the Taylor rule above, and optimal monetary policy. In particular, explain whether output, private consumption, inflation, and the output gap increase or decrease after a positive government-spending shock. [5 points]
+\een
+
+
+\section{Reservation wages and wage dispersion in the McCall model (15 points)}
+
+Consider the continuous-time McCall model studied in class. An unemployed worker receives flow utility $b$, gets wage offers at Poisson rate $\lambda_u$, and discounts at rate $r$. Wage offers are drawn from a distribution $F(w)$ with finite support $[\underline w,\bar w]$. If employed at wage $w$, the worker receives flow utility $w$ and separates into unemployment at exogenous rate $\sigma$.
+
+Let $U$ denote the value of unemployment and $W(w)$ the value of employment at wage $w$.
+
+\ben
+\item Write the Bellman equations for $U$ and $W(w)$. Explain why the optimal acceptance rule is characterized by a reservation wage $w_R$. [4 points]
+
+\item Derive the reservation-wage equation
+\begin{eqnarray}
+w_R-b=\frac{\lambda_u}{r+\sigma}\int_{w\geq w_R}(w-w_R)dF(w). \nonumber
+\end{eqnarray}
+Using this equation, discuss how $w_R$ changes with $b$, $\lambda_u$, and $\sigma$. [5 points]
+
+\item Show that the reservation-wage equation can be rewritten as
+\begin{eqnarray}
+w_R-b=\frac{\lambda_u}{r+\sigma}
+\left[
+Ew-w_R+\int_{\underline w}^{w_R}F(w)dw
+\right]. \nonumber
+\end{eqnarray}
+What happens to $w_R$ after a mean-preserving spread in the wage-offer distribution? Explain the economics. [4 points]
+
+\item What does the model predict for unemployment duration and observed accepted wages after the mean-preserving spread? [2 points]
+\een
+
+
+\section{Idiosyncratic risk in the Aiyagari model (15 points)}
+
+Consider a stationary Aiyagari economy with a continuum of ex-ante identical households. Each household has idiosyncratic labor efficiency $\epsilon_t$, drawn from a finite-state Markov process with invariant mean one. Households can save in a risk-free asset $a'$, but cannot borrow:
+\begin{eqnarray}
+a'\geq 0.
+\end{eqnarray}
+Preferences are
+\begin{eqnarray}
+E_0\sum_{t=0}^{\infty}\beta^t u(c_t),
+\end{eqnarray}
+where $u$ satisfies standard assumptions, including prudence. Firms are competitive and produce with
+\begin{eqnarray}
+Y=K^\alpha L^{1-\alpha},
+\end{eqnarray}
+with depreciation rate $\delta$.
+
+\ben
+\item Write the household's recursive problem and the firm's first-order conditions. [4 points]
+
+\item Define a stationary recursive competitive equilibrium. [4 points]
+
+\item Draw and explain the Aiyagari diagram, with aggregate asset supply $A^s(r)$ and capital demand $K^d(r)$. Why must the equilibrium interest rate satisfy $r<1/\beta-1$? [3 points]
+
+\item Suppose idiosyncratic labor-income risk increases in the sense of a mean-preserving spread, while mean labor efficiency remains one. What happens to aggregate asset supply, the equilibrium interest rate, capital, and wages? Contrast this with a representative-agent or complete-markets economy. [4 points]
+\een
+
+\end{document}

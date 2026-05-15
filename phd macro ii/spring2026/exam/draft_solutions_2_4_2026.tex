@@ -1,0 +1,222 @@
+\documentclass[11pt]{article}
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx,pgfplots,tabularx,placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+\pgfplotsset{compat=1.18}
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Draft Solutions and Marking Guide\\
+Ph.D. Macroeconomics II, Questions 2--4}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Question 2: Government spending in the New-Keynesian model}
+
+\ben
+\item Goods clearing implies
+\[
+\hat c_t=\frac{\hat y_t-s_G\hat g_t}{1-s_G}.
+\]
+Using $\hat n_t=\hat y_t$ and $\widehat{mc}_t=\hat c_t+\varphi \hat n_t$,
+\[
+\widehat{mc}_t=
+\left(\frac{1}{1-s_G}+\varphi\right)\hat y_t
+-\frac{s_G}{1-s_G}\hat g_t.
+\]
+Flexible prices imply $\widehat{mc}_t=0$, hence
+\[
+\hat y^n_t=
+\frac{s_G}{1+\varphi(1-s_G)}\hat g_t.
+\]
+Give up to 2 points for goods clearing/private consumption, 2 points for marginal cost, and 1 point for natural output.
+
+\item Let
+\[
+D\equiv 1+\varphi(1-s_G), \qquad \psi\equiv \frac{s_G}{D}.
+\]
+Then $\hat y_t^n=\psi \hat g_t$. The natural level of private consumption is
+\[
+\hat c_t^n
+=\frac{\hat y_t^n-s_G\hat g_t}{1-s_G}
+=-\frac{\varphi s_G}{D}\hat g_t.
+\]
+The natural real interest rate is
+\[
+r_t^n=E_t\hat c^n_{t+1}-\hat c^n_t
+=(1-\rho_g)\frac{\varphi s_G}{D}\hat g_t.
+\]
+The output gap is $x_t=\hat y_t-\hat y_t^n$. Since the private-consumption gap is $x_t/(1-s_G)$, the gap IS equation is
+\[
+x_t=E_t x_{t+1}-(1-s_G)(\hat i_t-E_t\pi_{t+1}-r_t^n).
+\]
+The Phillips curve is
+\[
+\pi_t=\beta E_t\pi_{t+1}+\kappa_y x_t,
+\qquad
+\kappa_y\equiv \kappa\left(\frac{1}{1-s_G}+\varphi\right)
+=\kappa\frac{D}{1-s_G}.
+\]
+Give 2 points for defining the gap and the Phillips curve, 2 points for the correctly scaled IS equation, and 1 point for $r_t^n$.
+
+\item Guess $x_t=a_x\hat g_t$ and $\pi_t=a_\pi\hat g_t$. Since $E_t\hat g_{t+1}=\rho_g\hat g_t$,
+\[
+(1-\rho_g)a_x+(1-s_G)(\phi_\pi-\rho_g)a_\pi
+=(1-s_G)(1-\rho_g)\frac{\varphi s_G}{D},
+\]
+and
+\[
+(1-\beta\rho_g)a_\pi=\kappa_y a_x.
+\]
+Thus
+\[
+a_x=
+\frac{(1-s_G)(1-\rho_g)\frac{\varphi s_G}{D}}
+{(1-\rho_g)+(1-s_G)(\phi_\pi-\rho_g)\frac{\kappa_y}{1-\beta\rho_g}},
+\]
+and
+\[
+a_\pi=\frac{\kappa_y}{1-\beta\rho_g}a_x.
+\]
+Both coefficients are positive under the stated assumptions. A higher $\phi_\pi$ raises the denominator and therefore lowers $a_x$ and $a_\pi$. Give 3 points for the algebraic solution and 2 points for signs/comparative statics.
+
+\item Under flexible prices, $x_t=0$, $\pi_t=0$, and output rises by
+\[
+\hat y^n_t=\frac{s_G}{D}\hat g_t.
+\]
+Private consumption falls because government purchases absorb resources and create a negative wealth effect:
+\[
+\hat c_t^n=-\frac{\varphi s_G}{D}\hat g_t<0.
+\]
+Under sticky prices and the Taylor rule, the government-spending shock raises the natural real rate. Since the nominal-rate rule does not perfectly replicate the natural real rate, the real rate is too low relative to $r_t^n$, so $x_t>0$ and $\pi_t>0$. Output rises by more than under flexible prices:
+\[
+\hat y_t=\hat y_t^n+x_t.
+\]
+Private consumption may fall by less than under flexible prices, and can in principle rise if the positive output gap is large enough, since
+\[
+\hat c_t=\hat c_t^n+\frac{x_t}{1-s_G}.
+\]
+Optimal monetary policy stabilizes the output gap and inflation, implementing $x_t=0$ and $\pi_t=0$ by setting the real rate equal to the natural real rate. Give 2 points for flexible prices, 2 points for sticky-price mechanism, and 1 point for optimal policy.
+\een
+
+
+\section*{Question 3: Reservation wages and wage dispersion}
+
+\ben
+\item The Bellman equations are
+\[
+rW(w)=w+\sigma[U-W(w)],
+\]
+\[
+rU=b+\lambda_u\int \max\{W(w)-U,0\}dF(w).
+\]
+Since $W(w)$ is increasing in $w$, there is a cutoff $w_R$ such that the worker accepts iff $w\geq w_R$, with $W(w_R)=U$. Give 2 points for Bellman equations and 2 points for cutoff logic.
+
+\item From the employed Bellman equation,
+\[
+W(w)=\frac{w+\sigma U}{r+\sigma}.
+\]
+Using $W(w_R)=U$ gives $rU=w_R$. Hence
+\[
+W(w)-U=\frac{w-w_R}{r+\sigma}.
+\]
+Substitute into the unemployment Bellman equation:
+\[
+w_R=b+\lambda_u\int_{w\geq w_R}\frac{w-w_R}{r+\sigma}dF(w),
+\]
+or
+\[
+w_R-b=\frac{\lambda_u}{r+\sigma}\int_{w\geq w_R}(w-w_R)dF(w).
+\]
+The reservation wage increases with $b$ and $\lambda_u$, and decreases with $\sigma$. Intuitively, higher benefits or more frequent offers make waiting more valuable; faster separations make accepted jobs less valuable. Give 3 points for derivation and 2 points for comparative statics.
+
+\item Since
+\[
+\int_{w\geq w_R}(w-w_R)dF(w)
+=Ew-w_R-\int_{\underline w}^{w_R}(w-w_R)dF(w),
+\]
+and
+\[
+-\int_{\underline w}^{w_R}(w-w_R)dF(w)
+=\int_{\underline w}^{w_R}(w_R-w)dF(w)
+=\int_{\underline w}^{w_R}F(w)dw,
+\]
+we obtain
+\[
+w_R-b=\frac{\lambda_u}{r+\sigma}
+\left[
+Ew-w_R+\int_{\underline w}^{w_R}F(w)dw
+\right].
+\]
+For a given reservation wage, a mean-preserving spread increases the option value of search because the worker can reject sufficiently bad offers while preserving the upside from very good offers. Therefore the right-hand side of the reservation-wage equation rises at the old reservation wage, and the equilibrium reservation wage increases. Give 2 points for the transformation and 2 points for the economic interpretation.
+
+\item A higher reservation wage lowers the acceptance probability $1-F(w_R)$ and therefore increases expected unemployment duration. Accepted wages are drawn from a higher part of the offer distribution, so average accepted wages and match quality rise. Give 1 point for unemployment duration and 1 point for accepted wages.
+\een
+
+
+\section*{Question 4: Idiosyncratic risk in the Aiyagari model}
+
+\ben
+\item The household problem is
+\[
+V(a,\epsilon)=\max_{c,a'}\left\{
+u(c)+\beta E[V(a',\epsilon')|\epsilon]
+\right\}
+\]
+subject to
+\[
+c+a'=w\epsilon+(1+r)a,\qquad a'\geq 0,\qquad c\geq 0.
+\]
+The firm solves
+\[
+\max_{K,L} K^\alpha L^{1-\alpha}-(r+\delta)K-wL.
+\]
+The first-order conditions are
+\[
+r+\delta=\alpha K^{\alpha-1}L^{1-\alpha},
+\qquad
+w=(1-\alpha)K^\alpha L^{-\alpha}.
+\]
+With mean labor efficiency equal to one, $L=1$ in stationary equilibrium. Give 2 points for household problem and 2 points for firm FOCs.
+
+\item A stationary recursive competitive equilibrium consists of prices $(r,w)$, policy functions $c(a,\epsilon)$ and $a'(a,\epsilon)$, firm choices $(K,L)$, and an invariant distribution $\mu(a,\epsilon)$ such that: households solve their recursive problem; firms optimize; $\mu$ is invariant under the household policy and the Markov process for $\epsilon$; labor clears with $L=\int \epsilon d\mu=1$; asset/capital markets clear with
+\[
+K=\int a\,d\mu;
+\]
+and the goods market clears,
+\[
+\int c(a,\epsilon)d\mu+\delta K=K^\alpha L^{1-\alpha}.
+\]
+Give up to 4 points for these equilibrium components.
+
+\item The Aiyagari diagram plots aggregate asset supply $A^s(r)$ from household saving behavior and capital demand $K^d(r)$ from firm optimality. Capital demand is downward sloping:
+\[
+K^d(r)=\left(\frac{\alpha}{r+\delta}\right)^{1/(1-\alpha)}
+\]
+when $L=1$. Aggregate asset supply is increasing in $r$: a higher return makes saving more attractive. With uninsured idiosyncratic risk and prudence, households have a precautionary-saving motive. As $r$ approaches $1/\beta-1$ from below, desired saving becomes very large. A stationary equilibrium therefore requires
+\[
+r<1/\beta-1.
+\]
+Give 1 point for demand, 1 point for supply/diagram, and 1 point for the interest-rate bound.
+
+\item More idiosyncratic income risk strengthens precautionary saving. For any given $r$, households want to hold more assets, so $A^s(r)$ shifts to the right. In equilibrium, the interest rate falls and the capital stock rises. The higher capital stock raises wages and lowers the marginal product of capital. In a representative-agent or complete-markets economy with the same mean labor endowment, purely idiosyncratic risk is insured or diversified away, so this precautionary-saving channel is absent. Give 2 points for the shift and equilibrium effects, and 2 points for the complete-markets contrast.
+\een
+
+\end{document}
