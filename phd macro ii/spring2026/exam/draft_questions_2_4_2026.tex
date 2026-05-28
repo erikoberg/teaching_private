@@ -64,31 +64,26 @@ Monetary policy is
 \een
 
 
-\section{Reservation wages and wage dispersion in the McCall model (15 points)}
+\section{Recruiting intensity in the DMP model (15 points)}
 
-Consider the continuous-time McCall model studied in class. An unemployed worker receives flow utility $b$, gets wage offers at Poisson rate $\lambda_u$, and discounts at rate $r$. Wage offers are drawn from a distribution $F(w)$ with finite support $[\underline w,\bar w]$. If employed at wage $w$, the worker receives flow utility $w$ and separates into unemployment at exogenous rate $\sigma$.
+Consider the continuous-time DMP model studied in class, but suppose that firms posting vacancies can choose how intensively to recruit. A vacancy with recruiting intensity $e\geq 0$ meets workers at rate $e\lambda_v(\Theta)$, where $\Theta\equiv X/U$ is aggregate recruiting tightness and $X=eV$ is aggregate effective recruiting effort. Workers find jobs at rate $\lambda_u(\Theta)=\Theta\lambda_v(\Theta)$. Jobs separate at exogenous rate $\sigma$, employed workers produce $y$, unemployed workers receive flow utility $b$, and all agents discount at rate $r$.
 
-Let $U$ denote the value of unemployment and $W(w)$ the value of employment at wage $w$.
+Posting a vacancy has the standard flow cost $c$. In addition, recruiting intensity is costly. A firm choosing intensity $e$ pays the additional flow cost
+\begin{eqnarray}
+\frac{\kappa e^{1+\psi}}{1+\psi}, \qquad \kappa>0,\quad \psi>0. \nonumber
+\end{eqnarray}
+Wages are set by Nash bargaining with worker bargaining power $\gamma$. Individual firms take aggregate recruiting tightness $\Theta$ as given.
 
 \ben
-\item Write the Bellman equations for $U$ and $W(w)$. Explain why the optimal acceptance rule is characterized by a reservation wage $w_R$. [4 points]
+\item Write the Bellman equations for $W,U,J$ and $V$. [3 points]
 
-\item Derive the reservation-wage equation
-\begin{eqnarray}
-w_R-b=\frac{\lambda_u}{r+\sigma}\int_{w\geq w_R}(w-w_R)dF(w). \nonumber
-\end{eqnarray}
-Using this equation, discuss how $w_R$ changes with $b$, $\lambda_u$, and $\sigma$. [5 points]
+\item Define an equilibrium. [3 points]
 
-\item Show that the reservation-wage equation can be rewritten as
-\begin{eqnarray}
-w_R-b=\frac{\lambda_u}{r+\sigma}
-\left[
-Ew-w_R+\int_{\underline w}^{w_R}F(w)dw
-\right]. \nonumber
-\end{eqnarray}
-What happens to $w_R$ after a mean-preserving spread in the wage-offer distribution? Explain the economics. [4 points]
+\item Derive the firm's optimal recruiting-intensity condition and the free-entry condition. How does the recruiting-intensity choice affect job-creation curve? [3 points]
 
-\item What does the model predict for unemployment duration and observed accepted wages after the mean-preserving spread? [2 points]
+\item Derive the Nash-bargained wage equation. How does recruiting intensity affect the wage? [3 points]
+
+\item Suppose a new hiring technology lowers $\kappa$. What happens to recruiting intensity, recruiting tightness, unemployment, and wages? Explain the economics. [3 points]
 \een
 
 
@@ -109,9 +104,9 @@ Y=K^\alpha L^{1-\alpha},
 with depreciation rate $\delta$.
 
 \ben
-\item Write the household's recursive problem and the firm's first-order conditions. [4 points]
+\item Write the household's and firms' problem and derive their respective first-order conditions. [4 points]
 
-\item Define a stationary recursive competitive equilibrium. [4 points]
+\item Define a stationary competitive equilibrium. [4 points]
 
 \item Draw and explain the Aiyagari diagram, with aggregate asset supply $A^s(r)$ and capital demand $K^d(r)$. Why must the equilibrium interest rate satisfy $r<1/\beta-1$? [3 points]
 

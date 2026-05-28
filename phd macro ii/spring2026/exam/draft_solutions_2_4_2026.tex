@@ -117,57 +117,76 @@ Optimal monetary policy stabilizes the output gap and inflation, implementing $x
 \een
 
 
-\section*{Question 3: Reservation wages and wage dispersion}
+\section*{Question 3: Recruiting intensity in the DMP model}
 
 \ben
-\item The Bellman equations are
+\item
 \[
-rW(w)=w+\sigma[U-W(w)],
+rW=w+\sigma(U-W),
+\qquad
+rU=b+\lambda_u(\Theta)(W-U),
 \]
 \[
-rU=b+\lambda_u\int \max\{W(w)-U,0\}dF(w).
+rJ=y-w+\sigma(V-J),
+\qquad
+rV=-c-\frac{\kappa e^{1+\psi}}{1+\psi}+e\lambda_v(\Theta)(J-V),
 \]
-Since $W(w)$ is increasing in $w$, there is a cutoff $w_R$ such that the worker accepts iff $w\geq w_R$, with $W(w_R)=U$. Give 2 points for Bellman equations and 2 points for cutoff logic.
+where the last equation holds at the firm's optimal choice of $e$. Give 1 point for the worker equations, 1 point for the job-value equation, and 1 point for the vacancy-value equation with recruiting intensity.
 
-\item From the employed Bellman equation,
+\item A stationary symmetric equilibrium is a tuple
 \[
-W(w)=\frac{w+\sigma U}{r+\sigma}.
+\{W,U,J,V,w,e,\Theta,u,\mathcal V\}
 \]
-Using $W(w_R)=U$ gives $rU=w_R$. Hence
+such that the Bellman equations hold; $e$ solves the firm's recruiting-intensity problem; $V=0$ (free entry); wages satisfy Nash bargaining,
 \[
-W(w)-U=\frac{w-w_R}{r+\sigma}.
+\gamma(J-V)=(1-\gamma)(W-U);
 \]
-Substitute into the unemployment Bellman equation:
+aggregate recruiting tightness is consistent,
 \[
-w_R=b+\lambda_u\int_{w\geq w_R}\frac{w-w_R}{r+\sigma}dF(w),
+\Theta=\frac{e\mathcal V}{u};
 \]
-or
+and unemployment satisfies the Beveridge relation
 \[
-w_R-b=\frac{\lambda_u}{r+\sigma}\int_{w\geq w_R}(w-w_R)dF(w).
+u=\frac{\sigma}{\sigma+\lambda_u(\Theta)}.
 \]
-The reservation wage increases with $b$ and $\lambda_u$, and decreases with $\sigma$. Intuitively, higher benefits or more frequent offers make waiting more valuable; faster separations make accepted jobs less valuable. Give 3 points for derivation and 2 points for comparative statics.
+Give 1 point for optimization/free entry/wage setting, 1 point for aggregate consistency, and 1 point for the steady-state unemployment relation.
 
-\item Since
+\item The interior recruiting-intensity condition is
 \[
-\int_{w\geq w_R}(w-w_R)dF(w)
-=Ew-w_R-\int_{\underline w}^{w_R}(w-w_R)dF(w),
+\kappa e^\psi=\lambda_v(\Theta)(J-V).
 \]
-and
+Free entry implies $V=0$, so
 \[
--\int_{\underline w}^{w_R}(w-w_R)dF(w)
-=\int_{\underline w}^{w_R}(w_R-w)dF(w)
-=\int_{\underline w}^{w_R}F(w)dw,
+\kappa e^\psi=\lambda_v(\Theta)J,
+\qquad
+c+\frac{\kappa e^{1+\psi}}{1+\psi}=e\lambda_v(\Theta)J,
+\qquad
+c=\frac{\psi}{1+\psi}\kappa e^{1+\psi}.
 \]
-we obtain
+The job-creation curve is
 \[
-w_R-b=\frac{\lambda_u}{r+\sigma}
-\left[
-Ew-w_R+\int_{\underline w}^{w_R}F(w)dw
-\right].
+\frac{y-w}{r+\sigma}=\frac{\kappa e^\psi}{\lambda_v(\Theta)}.
 \]
-For a given reservation wage, a mean-preserving spread increases the option value of search because the worker can reject sufficiently bad offers while preserving the upside from very good offers. Therefore the right-hand side of the reservation-wage equation rises at the old reservation wage, and the equilibrium reservation wage increases. Give 2 points for the transformation and 2 points for the economic interpretation.
+Relative to the standard DMP model, job creation depends on both market tightness and recruiting intensity through the term $\kappa e^\psi/\lambda_v(\Theta)$. Give 1 point for the recruiting-intensity FOC, 1 point for free entry and the cost relation for $e$, and 1 point for the modified job-creation curve and interpretation.
 
-\item A higher reservation wage lowers the acceptance probability $1-F(w_R)$ and therefore increases expected unemployment duration. Accepted wages are drawn from a higher part of the offer distribution, so average accepted wages and match quality rise. Give 1 point for unemployment duration and 1 point for accepted wages.
+\item With $V=0$, worker and firm surpluses are
+\[
+W-U=\frac{w-b}{r+\sigma+\lambda_u(\Theta)},
+\qquad
+J=\frac{y-w}{r+\sigma}.
+\]
+Nash bargaining implies
+\[
+w=(1-\gamma)b+\gamma\left[y+\lambda_u(\Theta)J\right]
+=(1-\gamma)b+\gamma\left[y+\Theta\kappa e^\psi\right].
+\]
+Higher recruiting intensity raises wages by improving the worker's outside option through a higher job-finding rate. Give 2 points for the wage equation and 1 point for the interpretation.
+
+\item A lower $\kappa$ raises recruiting intensity,
+\[
+e=\left(\frac{(1+\psi)c}{\psi\kappa}\right)^{1/(1+\psi)},
+\]
+lowers the effective recruiting cost $\kappa e^\psi$, and therefore raises $\Theta$, lowers $u$, and raises $w$. Intuition: cheaper recruiting makes search more intensive, the labor market becomes tighter, unemployment falls, and workers capture part of the gain through bargaining. Give 1 point for $e$, 1 point for $\Theta$ and $u$, and 1 point for $w$ and intuition.
 \een
 
 
@@ -184,6 +203,12 @@ subject to
 \[
 c+a'=w\epsilon+(1+r)a,\qquad a'\geq 0,\qquad c\geq 0.
 \]
+For an interior choice of assets, the Euler equation is
+\[
+u'(c(a,\epsilon))=\beta(1+r)E\left[u'(c(a',\epsilon'))|\epsilon\right],
+\]
+with the usual inequality version when the borrowing constraint binds.
+
 The firm solves
 \[
 \max_{K,L} K^\alpha L^{1-\alpha}-(r+\delta)K-wL.
@@ -194,9 +219,9 @@ r+\delta=\alpha K^{\alpha-1}L^{1-\alpha},
 \qquad
 w=(1-\alpha)K^\alpha L^{-\alpha}.
 \]
-With mean labor efficiency equal to one, $L=1$ in stationary equilibrium. Give 2 points for household problem and 2 points for firm FOCs.
+With mean labor efficiency equal to one, $L=1$ in stationary equilibrium. Give 1 point for the household problem, 1 point for the household Euler condition, 1 point for the firm problem, and 1 point for the firm FOCs.
 
-\item A stationary recursive competitive equilibrium consists of prices $(r,w)$, policy functions $c(a,\epsilon)$ and $a'(a,\epsilon)$, firm choices $(K,L)$, and an invariant distribution $\mu(a,\epsilon)$ such that: households solve their recursive problem; firms optimize; $\mu$ is invariant under the household policy and the Markov process for $\epsilon$; labor clears with $L=\int \epsilon d\mu=1$; asset/capital markets clear with
+\item A stationary competitive equilibrium consists of prices $(r,w)$, household decision rules $c(a,\epsilon)$ and $a'(a,\epsilon)$, firm choices $(K,L)$, and an invariant distribution $\mu(a,\epsilon)$ such that: households solve their problem; firms optimize; $\mu$ is invariant under the household policy and the Markov process for $\epsilon$; labor clears with $L=\int \epsilon d\mu=1$; asset/capital markets clear with
 \[
 K=\int a\,d\mu;
 \]
