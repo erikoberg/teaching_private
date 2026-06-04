@@ -1,7 +1,7 @@
 PWD c:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\exam
 INPUT C:\Users\eriob421\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\exam\draft_questions_2_4_2026.tex
-OUTPUT draft_questions_2_4_2026.log
+INPUT c:\Users\eriob421\Documents\GitHub\teaching_private\phd macro ii\spring2026\exam\exam.tex
+OUTPUT exam.log
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\article.cls
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\article.cls
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\base\size11.clo
@@ -254,10 +254,10 @@ INPUT C:\Program Files\MikTeX 24.1\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\00miktex\epstopdf-sys.cfg
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\l3backend\l3backend-pdftex.def
 INPUT C:\Program Files\MikTeX 24.1\tex\latex\l3backend\l3backend-pdftex.def
-INPUT .\draft_questions_2_4_2026.aux
-INPUT .\draft_questions_2_4_2026.aux
-INPUT draft_questions_2_4_2026.aux
-OUTPUT draft_questions_2_4_2026.aux
+INPUT .\exam.aux
+INPUT .\exam.aux
+INPUT exam.aux
+OUTPUT exam.aux
 INPUT C:\Program Files\MikTeX 24.1\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MikTeX 24.1\tex\context\base\mkii\supp-pdf.mkii
 INPUT C:\Program Files\MikTeX 24.1\tex\context\base\mkii\supp-pdf.mkii
@@ -288,14 +288,17 @@ INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msbm7.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmbx12.tfm
+INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\jknappen\ec\tcrm1095.tfm
+OUTPUT exam.pdf
+INPUT C:\Users\eriob421\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmmi10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmsy10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\cm\cmex10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msam10.tfm
 INPUT C:\Program Files\MikTeX 24.1\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
-OUTPUT draft_questions_2_4_2026.pdf
-INPUT C:\Users\eriob421\AppData\Local\MiKTeX\fonts\map\pdftex\pdftex.map
-INPUT draft_questions_2_4_2026.aux
+INPUT exam.aux
+INPUT C:\Users\eriob421\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
+INPUT C:\Users\eriob421\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1095.pk
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmbx12.pfb
 INPUT C:\Program Files\MikTeX 24.1\fonts\type1\public\amsfonts\cm\cmex10.pfb

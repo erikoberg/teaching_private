@@ -1,5 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1780554654.42402 "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/exam/draft_questions_2_4_2026.tex" "draft_questions_2_4_2026.pdf" "draft_questions_2_4_2026" 1780554655.20226 0
+["pdflatex"] 1780555043.8436 "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/exam/exam.tex" "exam.pdf" "exam" 1780555044.62343 0
+  "C:/Program Files/MikTeX 24.1/fonts/tfm/jknappen/ec/tcrm1095.tfm" 993062508 1460 8005ce585ff351dff78998923504da5e ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1233951848 1004 54797486969f23fa377b128694d548df ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1233951848 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
   "C:/Program Files/MikTeX 24.1/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1233951854 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -170,6 +171,7 @@
   "C:/Program Files/MikTeX 24.1/tex/latex/tools/thp.sty" 1761901070 1908 8892e0e2406a99a1f872525174baef2e ""
   "C:/Program Files/MikTeX 24.1/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
   "C:/Users/eriob421/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1779443152 1577892 273b031f6fd94deeedfea8e107ce03b3 ""
+  "C:/Users/eriob421/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1095.pk" 1770800252 12668 2b9f69a90223d3769abe622135255980 ""
   "C:/Users/eriob421/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1770982871 13325834 14ae7f033ee0c3a4b9b98d7a64cd9714 ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/generic/infwarerr/infwarerr.sty" 1575399508 8356 7bbb2c2373aa810be568c29e333da8ed ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/generic/kvdefinekeys/kvdefinekeys.sty" 1576763304 5412 d5a2436094cd7be85769db90f29250a6 ""
@@ -186,11 +188,11 @@
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/natbib/natbib.sty" 1292249081 46712 1c8843383c0bd05870c45fa0ebea6cc2 ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/placeins/placeins.sty" 1113865200 4087 636308456f60d2b31cbf97867db5708d ""
   "C:/Users/eriob421/AppData/Roaming/MiKTeX/tex/latex/preprint/fullpage.sty" 1369148873 2867 05b418f78b224ec872f5b11081138605 ""
-  "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/exam/draft_questions_2_4_2026.tex" 1780554653 8423 2d211d2919df0eb5ed04ca1b7bd1039d ""
-  "draft_questions_2_4_2026.aux" 1780554655 613 5e4cdad5b6b06e36fa4da2996b598b07 "pdflatex"
-  "draft_questions_2_4_2026.tex" 1780554653 8423 2d211d2919df0eb5ed04ca1b7bd1039d ""
+  "c:/Users/eriob421/Documents/GitHub/teaching_private/phd macro ii/spring2026/exam/exam.tex" 1780555043 9423 f0a6499cf02e4aeb8d0acc439dabc130 ""
+  "exam.aux" 1780555044 613 e8c6d42523e4fce16853ff11d7c3c15e "pdflatex"
+  "exam.tex" 1780555043 9423 f0a6499cf02e4aeb8d0acc439dabc130 ""
   (generated)
-  "draft_questions_2_4_2026.aux"
-  "draft_questions_2_4_2026.log"
-  "draft_questions_2_4_2026.pdf"
+  "exam.aux"
+  "exam.log"
+  "exam.pdf"
   (rewritten before read)

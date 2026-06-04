@@ -1,0 +1,43 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[version=4]{mhchem}
+\usepackage{stmaryrd}
+
+\begin{document}
+
+\section{Optimal Subsidies in the Quality Ladders Model}
+
+Take the quality ladders model as studied in lectures, with some modifications. The physical marginal cost of making a machine of variety $\nu$ at quality $q$ is given by $\psi q(\nu,t \mid q)$. However, the government pays a subsidy $S_M \in (0,1)$ such that the actual marginal cost faced by machine producers is $\psi_e q(\nu,t \mid q)$, where $\psi_e \equiv (1-S_M)\psi.$
+
+The government also pays a subsidy $S_{R\&D} \in (0,1)$ for R\&D expenditure. (Assume that the government budget is balanced by imposing lump-sum taxes on consumers.) Let us also set $\theta = 1$.\\
+
+1. The final-good production function is $Y(t)=\frac{1}{1-\beta}L^\beta \int_0^1 q(\nu,t)x(\nu,t)^{1-\beta}\, d\nu .$ Show that the demand curve for a given variety is $x(\nu,t \mid q)=\left(\frac{q(\nu,t)}{p(\nu,t \mid q)}\right)^{1/\beta}L.$\\
+
+2. The owner of the patent for variety $\nu$ at quality $q$ maximizes profits $\pi(\nu,t \mid q)=p(\nu,t \mid q)x(\nu,t \mid q)-\psi_e q(\nu,t \mid q)x(\nu,t \mid q).$ Imposing the normalization $1-\beta \equiv \psi$ from now on, show that $p(\nu,t \mid q)=(1-S_M)q(\nu,t)$ and $\pi(\nu,t \mid q)=(1-S_M)^{\frac{\beta-1}{\beta}}\beta q(\nu,t)L.$\\
+
+
+3.Let $V(\nu,t \mid q)$ be the value of a patent that a successful innovator obtains if she raises the quality of variety $\nu$ to the level $q(\nu,t)$. Spending one unit of the final good on research generates a flow rate of innovation $\eta/q^I$, where $q^I=\frac{q(\nu,t)}{\lambda}$ is the incumbent's quality level. Interpret the condition for free entry into research, $1-S_{R\&D}=\frac{\eta V(\nu,t \mid q)}{q(\nu,t)/\lambda}.$\\
+
+4. Interpret the no-arbitrage condition $r(t)V(\nu,t \mid q)=\pi(\nu,t \mid q)-z(\nu,t \mid q)V(\nu,t \mid q)+\dot V(\nu,t \mid q).$\\
+
+5. Explain why under free entry, $\dot V(\nu,t \mid q)=0.$ Use the free entry and the no-arbitrage conditions, and the expression for profits you derived to show that $r(t)+z(\nu,t \mid q)=s\lambda\eta\beta L,$ where $s\equiv\frac{(1-S_M)^{\frac{\beta-1}{\beta}}}{1-S_{R\&D}}.$\\
+
+6. On a balanced growth path (BGP), the following equations must hold: $r+z=s\lambda\eta\beta L,$ $g=r-\rho,$ and $g=(\lambda-1)z.$ Show that $g=\frac{s\lambda\eta\beta L-\rho}{(\lambda-1)^{-1}+1}.$\\
+
+7. The socially optimal growth rate is $g^*=(\lambda-1)(1-\beta)^{-1/\beta}\eta\beta L-\rho.$ Show that to achieve this growth rate, it must be that $s=(1-\beta)^{-1/\beta}-\frac{\rho}{(\lambda-1)\lambda\eta\beta L}.$\\
+
+8. True or false? Explain.
+\begin{quote}
+``Any combination of $S_M$ and $S_{R\&D}$ that satisfies equation $s=(1-\beta)^{-1/\beta}-\frac{\rho}{(\lambda-1)\lambda\eta\beta L}$ will achieve the socially optimal allocation.''
+\end{quote}
+
+
+
+
+
+
+\end{document}
