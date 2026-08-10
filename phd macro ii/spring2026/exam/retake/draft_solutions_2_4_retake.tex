@@ -1,0 +1,158 @@
+\documentclass[11pt]{article}
+\linespread{1.5}
+\usepackage{fullpage}
+\usepackage{amsmath,theorem,amssymb,graphicx,pgfplots,tabularx,placeins}
+\usepackage[semicolon,authoryear]{natbib}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{csquotes}
+\usepackage{epstopdf}
+\pgfplotsset{compat=1.18}
+
+\newcommand{\lb}{\label}
+\newtheorem{thm}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{definition}{Definition}
+
+\newcommand{\bit}{\begin{itemize}}
+	\newcommand{\eit}{\end{itemize}}
+\newcommand{\ben}{\begin{enumerate}}
+	\newcommand{\een}{\end{enumerate}}
+\newcommand\setItemnumber[1]{\setcounter{enumi}{\numexpr#1-1\relax}}
+
+\title{Draft Solutions and Marking Guide\\
+Ph.D. Macroeconomics II Retake, Questions 2--4\\
+August 20, 2026}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Question 2: Investment adjustment costs in the RBC model}
+
+\ben
+\item The Lagrangian is
+\[
+\mathcal{L}=\mathbb{E}_0\sum_{t=0}^{\infty} M_{0,t}\Big[
+A_t F(K_t,N_t)-W_t N_t-I_t-C(I_t,K_t)
++q_t\bigl(I_t+(1-\delta)K_t-K_{t+1}\bigr)
+\Big].
+\]
+FOC for $N_t$:
+\[
+W_t=A_t F_N(K_t,N_t).
+\]
+FOC for $I_t$:
+\[
+-1-C_I(I_t,K_t)+q_t=0
+\qquad\Rightarrow\qquad
+q_t=1+C_I(I_t,K_t).
+\]
+FOC for $K_{t+1}$:
+\[
+q_t=\mathbb{E}_t M_{t,t+1}\Bigl[
+A_{t+1}F_K(K_{t+1},N_{t+1})-C_K(I_{t+1},K_{t+1})+(1-\delta)q_{t+1}
+\Bigr].
+\]
+Give 1 point for the Lagrangian, 1 point for the labor FOC, 1.5 points for the investment FOC, and 1.5 points for the capital FOC.
+
+\item Differentiating the quadratic cost function gives
+\[
+C_I(I_t,K_t)=\phi\left(\frac{I_t}{K_t}-\delta\right).
+\]
+Combined with $q_t=1+C_I(I_t,K_t)$,
+\[
+q_t=1+\phi\left(\frac{I_t}{K_t}-\delta\right)
+\qquad\Rightarrow\qquad
+\frac{I_t}{K_t}=\frac{1}{\phi}(q_t-1)+\delta.
+\]
+Give 2 points for computing $C_I$ and 3 points for deriving the investment equation from $q_t=1+C_I$.
+
+\item In a deterministic steady state, capital is constant, so the law of motion requires $\bar I=\delta\bar K$. Substituting into the investment FOC,
+\[
+\frac{\bar I}{\bar K}=\delta=\frac{1}{\phi}(\bar q-1)+\delta
+\qquad\Rightarrow\qquad
+\bar q=1.
+\]
+Then
+\[
+C(\bar I,\bar K)=\frac{\phi}{2}\left(\delta-\delta\right)^2\bar K=0.
+\]
+With $\bar q=1$ and $C_K(\delta\bar K,\bar K)=0$, the capital Euler becomes
+\[
+1=\beta\bigl[A F_K(\bar K,\bar N)+(1-\delta)\bigr],
+\]
+which does not involve $\phi$. Hence steady-state capital (and therefore steady-state investment $\bar I=\delta\bar K$) is independent of $\phi$: as $\phi$ becomes larger, steady-state investment is unchanged. Give 2 points for $\bar q=1$ and $\bar I=\delta\bar K$, 1 point for $C=0$, and 2 points for the conclusion that steady-state investment does not change with $\phi$.
+
+\item A transitory AR(1) TFP boom raises current and near-term MPK, so marginal $q$ rises on impact. With larger $\phi$, the same increase in $q$ produces a smaller increase in the investment rate $I/K=(q-1)/\phi+\delta$, so investment responds less on impact and is more gradual/persistent. Capital therefore accumulates more slowly, which mutes the subsequent rise in output (beyond the direct effect of higher TFP). Relative to a small-$\phi$ (near vanilla RBC) economy, $q$ itself typically moves more, because larger adjustment costs are needed to ration investment. Give up to 5 points for a coherent qualitative account covering $q$, investment, and output.
+\een
+
+
+\section*{Question 3: Hiring subsidies to reduce unemployment}
+
+\ben
+\item Write the firm flow profit as $y+s-w$ and the worker's after-tax flows as $w-\tau_e$ when employed and $b-\tau_u$ when unemployed (with one of $\tau_e,\tau_u$ zero under each financing scheme, and the balanced-budget link $s(1-u)=\tau_e(1-u)$ or $s(1-u)=\tau_u u$).
+
+Under financing by a tax on the employed, the subsidy and the tax largely net out in Nash bargaining: the firm's surplus rises with $s$ but the worker's surplus falls with $\tau_e$, and with balanced budget $s=\tau_e$ the job-creation / wage-curve shift that raises tightness is undone (or greatly muted). Unemployment need not fall.
+
+Under financing by a tax on the unemployed (equivalently, cutting benefits), the worker's outside option worsens while firm profitability rises with $s$. The wage curve shifts down and/or job creation shifts out, market tightness rises, and unemployment falls. Thus success depends on financing: the subsidy reduces unemployment when financed by taxing the unemployed / cutting benefits, but not (or much less) when financed by taxing the employed.
+
+Give 4 points for the employed-tax case and 4 points for the unemployed-tax case / dependence on financing. (Slightly different but economically equivalent bargaining algebra is acceptable.)
+
+\item Not necessarily. Even if unemployment falls, the policy changes the surplus split, outside options, and possibly congestion/thick-market externalities. Lower unemployment raises match output but may move the economy away from the Hosios benchmark (or toward it), and taxing the unemployed directly reduces their flow utility. Without comparing the planner's objective (or checking Hosios), a fall in $u$ does not imply higher social welfare. Give up to 7 points for a clear argument that lower unemployment is not sufficient for higher welfare (externalities / Hosios / direct utility cost of $\tau_u$).
+\een
+
+
+\section*{Question 4: Employment risk in the Aiyagari model}
+
+\ben
+\item Given the budget constraint in the question, the household problem is
+\[
+V(a,\epsilon)=\max_{c,a'}\left\{
+u(c)+\beta E[V(a',\epsilon')|\epsilon]
+\right\}
+\]
+subject to
+\[
+c+a'=w\cdot\mathbf{1}_{\{\epsilon=e\}}+b\cdot\mathbf{1}_{\{\epsilon=u\}}+(1+r)a,
+\qquad a'\geq 0,\quad c\geq 0.
+\]
+Interior Euler:
+\[
+u'(c(a,\epsilon))=\beta(1+r)E\left[u'(c(a',\epsilon'))|\epsilon\right],
+\]
+with inequality when the borrowing constraint binds.
+
+The firm solves
+\[
+\max_{K,L} K^\alpha L^{1-\alpha}-(r+\delta)K-wL.
+\]
+FOCs:
+\[
+r+\delta=\alpha K^{\alpha-1}L^{1-\alpha},
+\qquad
+w=(1-\alpha)K^\alpha L^{-\alpha},
+\]
+with $L=e$ in stationary equilibrium. Give 1 point for the household problem, 1 point for the Euler, 1 point for the firm problem, and 1 point for firm FOCs.
+
+\item A stationary competitive equilibrium consists of prices $(r,w)$, benefit $b$, decision rules $c(a,\epsilon)$ and $a'(a,\epsilon)$, firm choices $(K,L)$, and an invariant distribution $\mu(a,\epsilon)$ such that: households optimize; firms optimize; $\mu$ is invariant under the policy and the employment Markov chain; labor clears with $L=e=\int \mathbf{1}_{\{\epsilon=e\}}d\mu$; asset/capital markets clear with $K=\int a\,d\mu$; and goods clear,
+\[
+\int c\,d\mu+\delta K=K^\alpha L^{1-\alpha}
+\]
+(with $b$ treated as an exogenous transfer in parts 1--3). Give up to 4 points.
+
+\item Capital demand from firm optimality (with $L=e$ fixed) is downward sloping:
+\[
+K^d(r)=\left(\frac{\alpha}{r+\delta}\right)^{1/(1-\alpha)}e.
+\]
+Aggregate asset supply $A^s(r)=\int a'(a,\epsilon)\,d\mu$ is upward sloping: higher $r$ raises desired saving. With uninsured employment risk and prudence, precautionary saving implies that as $r\to 1/\beta-1$ from below, desired assets diverge, so equilibrium requires $r<1/\beta-1$. Give 1 point for demand, 1 point for supply/diagram, and 1 point for the interest-rate bound.
+
+\item From the balanced budget, $\tau = bu/(we)$. Raising $b$ raises $\tau$: disposable income when employed, $(1-\tau)w$, falls, while disposable income when unemployed, $b$, rises. The employment-state income gap shrinks, so idiosyncratic disposable-income risk falls. With prudence, precautionary saving declines: $A^s(r)$ shifts left. In the Aiyagari diagram, equilibrium $r$ rises and $K$ falls. With $L=e$ unchanged (exogenous employment process),
+\[
+Y=K^\alpha e^{1-\alpha}
+\]
+falls. Give 2 points for using the BC and budget, 2 points for the precautionary-saving / diagram argument that $K$ falls, and 1 point for concluding $Y$ falls.
+\een
+
+\end{document}
